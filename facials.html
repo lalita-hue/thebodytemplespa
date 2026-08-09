@@ -946,8 +946,8 @@ p{margin:0 0 1em}
       <iframe
         src="https://api.leadconnectorhq.com/widget/form/GvYWzh4i8sNtH7TCsjp5"
         style="display:block;width:100%;height:100%;border:none;border-radius:4px"
-        id="popup-GvYWzh4i8sNtH7TCsjp5"
-        data-layout="{'id':'POPUP'}"
+        id="inline-GvYWzh4i8sNtH7TCsjp5"
+        data-layout="{'id':'INLINE'}"
         data-trigger-type="alwaysShow"
         data-trigger-value=""
         data-activation-type="alwaysActivated"
@@ -956,10 +956,9 @@ p{margin:0 0 1em}
         data-deactivation-value=""
         data-form-name="Lead capture - Google ads - Facial Services Inquiry"
         data-height="908"
-        data-layout-iframe-id="popup-GvYWzh4i8sNtH7TCsjp5"
+        data-layout-iframe-id="inline-GvYWzh4i8sNtH7TCsjp5"
         data-form-id="GvYWzh4i8sNtH7TCsjp5"
-        title="Lead capture - Google ads - Facial Services Inquiry"
-        data-modal-height="500">
+        title="Lead capture - Google ads - Facial Services Inquiry">
       </iframe>
     </div>
   </div>
@@ -1028,9 +1027,14 @@ function closeModal(){
   document.body.style.overflow='';
 }
 document.querySelectorAll('.menu-jump').forEach(a=>{
-  a.addEventListener('click',()=>{
+  a.addEventListener('click',e=>{
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push({event:'menu_jump',cta_location:a.dataset.cta||'unknown'});
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth',block:'start'});
+    }
   });
 });
 document.querySelectorAll('.popup-trigger').forEach(b=>{
