@@ -224,6 +224,35 @@
     text-align: right;
   }
 
+
+  /* --- Booking buttons on each service row --- */
+  .price-side{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .price-actions{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .btn-book, .btn-text{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+  }
+  .btn-book{ background: var(--rust); color: var(--white); border: 1.5px solid var(--rust); }
+  .btn-book:hover{ background: var(--rust-dark); border-color: var(--rust-dark); }
+  .btn-text{ background: transparent; color: var(--rust); border: 1.5px solid var(--rust); }
+  .btn-text:hover{ background: var(--rust); color: var(--white); }
+  .btn-book:focus-visible, .btn-text:focus-visible{ outline: 2px solid var(--espresso); outline-offset: 2px; }
+
   /* --- 4. Call to action button --- */
   .btn-primary{
     display: inline-block;
@@ -254,9 +283,11 @@
      ============================================ */
   @media (max-width: 600px){
     main{ padding: 40px 16px; }
-    .price-item{ flex-direction: column; align-items: flex-start; gap: 10px; }
-    .price-item .price{ align-self: flex-end; text-align: right; }
-    .price-item .price .unit{ text-align: right; }
+    .price-item{ flex-direction: column; align-items: flex-start; gap: 14px; }
+    .price-side{ align-items: flex-start; width: 100%; }
+    .price-actions{ justify-content: flex-start; width: 100%; }
+    .btn-book, .btn-text{ flex: 1 1 auto; text-align: center; }
+    .price-item .price .unit{ text-align: left; }
   }
 </style>
 </head>
@@ -308,14 +339,19 @@
 
       <div class="price-list">
 
-        <!-- Featured / start-here treatment -->
         <div class="price-item featured">
           <div class="details">
             <span class="badge">Start Here</span>
             <span class="service-name">The Reveal Custom Facial</span>
             <span class="service-desc">We read your skin in real time, then deep-cleanse, treat with targeted actives, and finish with a radiant glow — customized start to finish.</span>
           </div>
-          <div class="price">$100<span class="unit">/ 60 min</span></div>
+          <div class="price-side">
+            <div class="price">$100<span class="unit">/ 60 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f379744e76bd9e3e7d896a" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20The%20Reveal%20Custom%20Facial.">Text to Book</a>
+            </div>
+          </div>
         </div>
 
         <div class="price-item">
@@ -323,7 +359,13 @@
             <span class="service-name">Luminous Facial Lift (Lymphatic &amp; TMJ)</span>
             <span class="service-desc">Manual lymphatic drainage sculpts and de-puffs while targeted TMJ release melts jaw tension. You leave lifted, drained, and looser.</span>
           </div>
-          <div class="price">$145<span class="unit">/ 60 min</span></div>
+          <div class="price-side">
+            <div class="price">$145<span class="unit">/ 60 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68e2636150b0a6bfa01f2626" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Luminous%20Facial%20Lift%20%28Lymphatic%20%26%20TMJ%29.">Text to Book</a>
+            </div>
+          </div>
         </div>
 
         <div class="price-item">
@@ -331,7 +373,13 @@
             <span class="service-name">30 Min Lymphatic Facial</span>
             <span class="service-desc">A focused drainage session that flushes puffiness and fires up circulation — fast.</span>
           </div>
-          <div class="price">$85<span class="unit">/ 30 min</span></div>
+          <div class="price-side">
+            <div class="price">$85<span class="unit">/ 30 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/698a9263ed5dc0f5c3b274e8" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%2030%20Min%20Lymphatic%20Facial.">Text to Book</a>
+            </div>
+          </div>
         </div>
 
         <div class="price-item">
@@ -339,7 +387,13 @@
             <span class="service-name">Royalty Dermaplaning Facial</span>
             <span class="service-desc">Precision exfoliation lifts away dead skin and peach fuzz, revealing a smoother, more radiant surface.</span>
           </div>
-          <div class="price">$165<span class="unit">/ 60 min</span></div>
+          <div class="price-side">
+            <div class="price">$165<span class="unit">/ 60 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/696aa31fb05c4c3fcadea2ba" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Royalty%20Dermaplaning%20Facial.">Text to Book</a>
+            </div>
+          </div>
         </div>
 
         <div class="price-item">
@@ -347,17 +401,70 @@
             <span class="service-name">Ultra Sonic Skin Scrubber Facial</span>
             <span class="service-desc">Ultrasonic waves lift trapped impurities and refine texture and tone at a depth home care can't touch.</span>
           </div>
-          <div class="price">$120<span class="unit">/ 60 min</span></div>
+          <div class="price-side">
+            <div class="price">$120<span class="unit">/ 60 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f3b1b7fac7294f8e196b2b" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Ultra%20Sonic%20Skin%20Scrubber%20Facial.">Text to Book</a>
+            </div>
+          </div>
         </div>
 
-        <!-- Most advanced treatment -->
         <div class="price-item featured">
           <div class="details">
             <span class="badge">Most Advanced</span>
             <span class="service-name">Microchanneling</span>
             <span class="service-desc">Micro-channels signal your own collagen to rebuild — softening fine lines, refining texture, and fading acne scarring over time.</span>
           </div>
-          <div class="price">$225<span class="unit">/ 45 min</span></div>
+          <div class="price-side">
+            <div class="price">$225<span class="unit">/ 45 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f3b1f13ebf6d6921ee501d" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Microchanneling.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Define Jaw Line Sculpt</span>
+            <span class="service-desc">Focused sculpting through the jawline and lower face — manual release and drainage work to soften a heavy, tense jaw and bring back a defined edge.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">Custom<span class="unit">/ by consult</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a78cc9f1bbd34854e1bc06f" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Define%20Jaw%20Line%20Sculpt.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Chemical Peel</span>
+            <span class="service-desc">Professional-grade resurfacing selected to your skin type and goals — softening dull, uneven texture and fading dark spots and post-breakout marks.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">Custom<span class="unit">/ by consult</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a78cc545416f2247f19bee4" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Chemical%20Peel.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Acne Treatment</span>
+            <span class="service-desc">A targeted plan for active breakouts and stubborn congestion — deep cleansing, extractions where appropriate, and calming therapy to bring inflammation down.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">Custom<span class="unit">/ by consult</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584d7b028c161b530b7f" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Acne%20Treatment.">Text to Book</a>
+            </div>
+          </div>
         </div>
 
       </div>
