@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — The Body Temple Spa</title>
+
+<!-- Fonts: Playfair Display (headings) + Inter (body) — matches the Facial Services landing page -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================
+     DESIGN TOKENS — edit colors/fonts/spacing here
+     Same warm cream / espresso / rust-gold palette
+     as facial-services-landing.html, for brand
+     consistency between the form page and this
+     thank-you page.
+     ============================================ */
+  :root{
+    --cream:      #fefaf8;   /* page background */
+    --cream-100:  #f5efe7;   /* subtle panel background */
+    --cream-200:  #ece2d4;   /* borders / dividers */
+    --blush:      #fbeee7;   /* soft rose-gold glow accent */
+
+    --espresso:      #1a120a; /* headings, primary text */
+    --espresso-700:  #2b1e14; /* dark footer background */
+
+    --rust:      #c96438;   /* primary accent / buttons / icons */
+    --rust-dark: #a84f2a;   /* accent hover state */
+    --rust-50:   #fbeee7;   /* soft accent background */
+
+    --gold:      #d4a843;   /* price highlight / "glow" color */
+
+    --text-muted: rgba(26,18,10,0.62);
+    --white: #ffffff;
+
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans:  'Inter', system-ui, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-pill: 100px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    font-family: var(--font-sans);
+    /* soft glow gradient behind everything, for the "glowing" beauty-clinic feel */
+    background: radial-gradient(circle at 50% 0%, var(--blush) 0%, var(--cream) 55%);
+    color: var(--espresso);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ============================================
+     HEADER — logo + business name
+     ============================================ */
+  header{
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cream-200);
+    padding: 16px 24px;
+  }
+  .header-inner{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-inner img{ width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+  .header-brand .name{ font-family: var(--font-serif); font-size: 16px; font-weight: 600; }
+  .header-brand .tag{ font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); }
+
+  /* ============================================
+     MAIN — centered thank-you content
+     ============================================ */
+  main{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 20px;
+  }
+
+  .ty-card{
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+    animation: fadeUp .5s ease both;
+  }
+  @keyframes fadeUp{
+    from{ opacity: 0; transform: translateY(20px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  /* Success "glow" icon — sparkle instead of a plain checkmark, for the beauty/glow vibe */
+  .glow-circle{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rust) 0%, var(--gold) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 0 0 14px var(--blush); /* soft glow ring */
+  }
+  .glow-circle svg{ width: 42px; height: 42px; }
+
+  /* --- 1. Header / success message --- */
+  .eyebrow{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+  .ty-card h1{
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 4.5vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .ty-card h1 em{ font-style: italic; font-weight: 600; color: var(--gold); }
+
+  /* --- 2. Reassurance text --- */
+  .ty-card .lead{
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+
+  /* ============================================
+     3. PRICE LIST SECTION
+     ============================================ */
+  .price-section{ margin-bottom: 40px; }
+  .price-section h2{
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 3vw, 24px);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .price-section .sub{
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .price-list{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .price-item{
+    background: var(--white);
+    border: 1px solid var(--cream-200);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  /* Highlight style for the featured/most-popular treatment */
+  .price-item.featured{
+    border-color: var(--rust);
+    box-shadow: 0 16px 32px -22px rgba(201,100,56,0.35);
+  }
+
+  .price-item .details{ display: flex; flex-direction: column; gap: 4px; }
+  .price-item .service-name{
+    font-family: var(--font-serif);
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .price-item .service-desc{ font-size: 13.5px; color: var(--text-muted); }
+  .price-item .badge{
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--rust);
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 4px;
+  }
+
+  .price-item .price{
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .price-item .price .unit{
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: block;
+    text-align: right;
+  }
+
+  /* --- 4. Call to action button --- */
+  .btn-primary{
+    display: inline-block;
+    background: var(--rust);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: var(--radius-pill);
+    transition: background 0.18s, transform 0.12s;
+  }
+  .btn-primary:hover{ background: var(--rust-dark); transform: translateY(-1px); }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  footer{
+    background: var(--espresso-700);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    font-size: 13px;
+    padding: 20px 24px;
+  }
+  footer a{ color: rgba(255,255,255,0.7); }
+
+  /* ============================================
+     MOBILE
+     ============================================ */
+  @media (max-width: 600px){
+    main{ padding: 40px 16px; }
+    .price-item{ flex-direction: column; align-items: flex-start; gap: 10px; }
+    .price-item .price{ align-self: flex-end; text-align: right; }
+    .price-item .price .unit{ text-align: right; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER — swap the logo image / business name here
+     ============================================ -->
+<header>
+  <div class="header-inner">
+    <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/f9b15157-7f4b-4e0f-af96-c55534987ab1.png" alt="The Body Temple Spa">
+    <div class="header-brand">
+      <div class="name">The Body Temple Spa</div>
+      <div class="tag">Facial &amp; Skincare · Athens, GA</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="ty-card">
+
+    <!-- Success / "glow" icon -->
+    <div class="glow-circle">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2L12 19.5l-2.2-6.3-6.3-2.2 6.3-2.2L12 2.5z" fill="white"/>
+      </svg>
+    </div>
+
+    <!-- 1. HEADER / SUCCESS MESSAGE — edit headline text here -->
+    <div class="eyebrow">Request received</div>
+    <h1>Thank You! <em>Your Glow Journey Starts Here.</em></h1>
+
+    <!-- 2. REASSURANCE TEXT — edit this paragraph -->
+    <p class="lead">
+      One of our facial and skincare specialists will contact you shortly to confirm your
+      appointment or customize your treatment to your skin's needs. In the meantime, take a
+      look at our most-requested facial services below.
+    </p>
+
+    <!-- ============================================
+         3. PRICE LIST SECTION — real menu pulled from
+         facial-services-landing.html.
+         Duplicate a .price-item block to add more services.
+         Update service-name / service-desc / price as needed.
+         ============================================ -->
+    <div class="price-section">
+      <h2>Our Facial Services</h2>
+      <p class="sub">Current rates as of your booking.</p>
+
+      <div class="price-list">
+
+        <!-- Featured / start-here treatment -->
+        <div class="price-item featured">
+          <div class="details">
+            <span class="badge">Start Here</span>
+            <span class="service-name">The Reveal Custom Facial</span>
+            <span class="service-desc">We read your skin in real time, then deep-cleanse, treat with targeted actives, and finish with a radiant glow — customized start to finish.</span>
+          </div>
+          <div class="price">$100<span class="unit">/ 60 min</span></div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Luminous Facial Lift (Lymphatic &amp; TMJ)</span>
+            <span class="service-desc">Manual lymphatic drainage sculpts and de-puffs while targeted TMJ release melts jaw tension. You leave lifted, drained, and looser.</span>
+          </div>
+          <div class="price">$145<span class="unit">/ 60 min</span></div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">30 Min Lymphatic Facial</span>
+            <span class="service-desc">A focused drainage session that flushes puffiness and fires up circulation — fast.</span>
+          </div>
+          <div class="price">$85<span class="unit">/ 30 min</span></div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Royalty Dermaplaning Facial</span>
+            <span class="service-desc">Precision exfoliation lifts away dead skin and peach fuzz, revealing a smoother, more radiant surface.</span>
+          </div>
+          <div class="price">$165<span class="unit">/ 60 min</span></div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Ultra Sonic Skin Scrubber Facial</span>
+            <span class="service-desc">Ultrasonic waves lift trapped impurities and refine texture and tone at a depth home care can't touch.</span>
+          </div>
+          <div class="price">$120<span class="unit">/ 60 min</span></div>
+        </div>
+
+        <!-- Most advanced treatment -->
+        <div class="price-item featured">
+          <div class="details">
+            <span class="badge">Most Advanced</span>
+            <span class="service-name">Microchanneling</span>
+            <span class="service-desc">Micro-channels signal your own collagen to rebuild — softening fine lines, refining texture, and fading acne scarring over time.</span>
+          </div>
+          <div class="price">$225<span class="unit">/ 45 min</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. CALL TO ACTION — links back to the live homepage -->
+    <a href="https://thebodytemplespas.com/" class="btn-primary">← Back to Home</a>
+
+  </div>
+</main>
+
+<!-- FOOTER — update contact info / copyright year -->
+<footer>
+  <div>© 2026 The Body Temple Spa. Serving Athens, GA. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
