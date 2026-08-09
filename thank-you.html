@@ -143,9 +143,25 @@
     font-size: 17px;
     color: var(--text-muted);
     max-width: 520px;
-    margin: 0 auto 40px;
+    margin: 0 auto 24px;
     line-height: 1.7;
   }
+
+  /* --- First-visit offer --- */
+  .offer{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--rust-50);
+    border: 1px solid var(--rust);
+    color: var(--espresso);
+    border-radius: var(--radius-pill);
+    padding: 11px 24px;
+    font-size: 14.5px;
+    font-weight: 600;
+    margin: 0 auto 40px;
+  }
+  .offer strong{ color: var(--rust); font-weight: 700; }
 
   /* ============================================
      3. PRICE LIST SECTION
@@ -318,14 +334,17 @@
 
     <!-- 1. HEADER / SUCCESS MESSAGE — edit headline text here -->
     <div class="eyebrow">Request received</div>
-    <h1>Thank You! <em>Your Glow Journey Starts Here.</em></h1>
+    <h1>Thank You! <em>Your Longevity Skin Glow Starts Here.</em></h1>
 
     <!-- 2. REASSURANCE TEXT — edit this paragraph -->
     <p class="lead">
-      One of our facial and skincare specialists will contact you shortly to confirm your
-      appointment or customize your treatment to your skin's needs. In the meantime, take a
-      look at our most-requested facial services below.
+      One of our skincare specialists will contact you shortly to confirm your appointment or
+      customize your treatment to your skin's needs. In the meantime, you can reserve online or
+      just take a look at our most-requested facial services below.
     </p>
+
+    <!-- OFFER — first-visit incentive -->
+    <p class="offer"><strong>10% off</strong> your first visit if you schedule today.</p>
 
     <!-- ============================================
          3. PRICE LIST SECTION — real menu pulled from
