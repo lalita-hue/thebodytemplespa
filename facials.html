@@ -147,36 +147,24 @@ p{margin:0 0 1em}
 .menu__head{text-align:center;max-width:740px;margin:0 auto 50px}
 .menu__head h2{color:var(--ink);margin-bottom:14px}
 .menu__sub{color:var(--ink-soft);font-size:1.05rem;line-height:1.65}
-.mcat{margin-bottom:clamp(42px,5.5vw,62px)}
-.mcat:last-of-type{margin-bottom:0}
-.mcat__aside{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:22px}
-.mcat__label{font-family:var(--serif);font-size:clamp(1.35rem,2.2vw,1.7rem);font-weight:600;color:var(--ink);margin:0;line-height:1.1;white-space:nowrap}
-.mcat__rule{flex:1;height:1px;background:var(--line);min-width:20px}
-.mcat__note{font-size:.88rem;color:var(--muted);margin:0;line-height:1.55;flex-basis:100%}
-.menu__grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
-.mcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--cream-deep);border-radius:var(--radius-lg);padding:30px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
-.mcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
-.mcard--start{border-top-color:var(--orange)}
-.mcard__meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
-.mcard__time{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.mcard__badge{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);background:var(--cream);padding:4px 12px;border-radius:var(--radius-pill)}
-.mcard__badge--start{background:var(--orange);color:#fff}
-.mcard__name{font-family:var(--serif);font-size:1.32rem;font-weight:600;color:var(--ink);margin:0 0 10px;line-height:1.25}
-.mcard__desc{color:var(--ink-soft);font-size:.93rem;line-height:1.6;margin:0 0 22px;flex:1}
-.mcard__foot{border-top:1px solid var(--line);padding-top:18px}
-.mcard__foot .cta--small{width:100%;justify-content:center;padding:12px 20px;font-size:.82rem}
+.menu__grid{display:grid;gap:24px;grid-template-columns:1fr}
+.catcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--cream-deep);border-radius:var(--radius-lg);padding:32px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
+.catcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.catcard--start{border-top-color:var(--orange)}
+.catcard__name{font-family:var(--serif);font-size:1.45rem;font-weight:600;color:var(--ink);margin:0 0 8px;line-height:1.2}
+.catcard__note{font-size:.87rem;color:var(--muted);margin:0 0 20px;line-height:1.55}
+.catcard__list{list-style:none;padding:0;margin:0 0 24px;flex:1}
+.catcard__item{display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.catcard__item:last-child{border-bottom:none;padding-bottom:0}
+.catcard__service{color:var(--ink);font-size:.95rem;font-weight:500;line-height:1.45}
+.catcard__badge{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);padding:3px 9px;border-radius:var(--radius-pill);margin-left:8px;vertical-align:2px;white-space:nowrap}
+.catcard__time{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0}
+.catcard__foot{border-top:1px solid var(--line);padding-top:20px}
+.catcard__foot .cta--small{width:100%;justify-content:center;padding:12px 20px;font-size:.82rem}
 .menu__foot{background:var(--cream-soft);border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 28px;text-align:center;margin-top:clamp(40px,5vw,56px)}
 .menu__foot p{margin:0 auto 18px;color:var(--ink-soft);font-size:.98rem;max-width:52ch}
-/* auto-fill keeps every card one consistent width across categories, so a category
-   holding a single treatment reads as deliberate rather than a stretched panel */
-@media(min-width:920px){
-  /* category name moves into its own column so single-service groups
-     do not leave a band of empty page beside them */
-  .mcat{display:grid;grid-template-columns:190px 1fr;gap:48px;align-items:start}
-  .mcat__aside{display:block;margin-bottom:0;padding-top:4px}
-  .mcat__rule{display:none}
-  .mcat__note{margin-top:12px}
-}
+@media(min-width:640px){.menu__grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.menu__grid{grid-template-columns:repeat(3,1fr)}}
 
 /* PROCESS */
 .process{background:var(--ink);color:#fff;padding:clamp(70px,9vw,110px) 0;position:relative;overflow:hidden}
@@ -499,167 +487,104 @@ p{margin:0 0 1em}
       <p class="menu__sub">Browse by what you're treating. Not sure which one is yours? Start with The Reveal — we'll analyze your skin and tell you honestly.</p>
     </div>
 
-    <!-- FACIALS -->
-    <div class="mcat">
-      <div class="mcat__aside reveal">
-        <h3 class="mcat__label">Facials</h3>
-        <span class="mcat__rule"></span>
-      </div>
-      <div class="menu__grid">
-        <article class="mcard mcard--start reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">60 min</span>
-            <span class="mcard__badge mcard__badge--start">Start here</span>
-          </div>
-          <h4 class="mcard__name">The Reveal Custom Facial</h4>
-          <p class="mcard__desc">Your personalized introduction to understanding your complexion. Advanced skin analysis and expert consultation uncover what your skin actually needs, then guide you to the right treatment plan.</p>
-          <div class="mcard__foot">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Reveal">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
+    <div class="menu__grid">
 
-        <article class="mcard reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">60 min</span>
-            <span class="mcard__badge">No harsh extractions</span>
-          </div>
-          <h4 class="mcard__name">Ultra Sonic Skin Scrubber Facial</h4>
-          <p class="mcard__desc">Deep-cleansing treatment using high-frequency ultrasonic waves to lift impurities, excess oil and congestion from pores — without harsh extractions or irritation.</p>
-          <div class="mcard__foot">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-UltraSonic">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
-      </div>
-    </div>
+      <article class="catcard catcard--start reveal">
+        <h3 class="catcard__name">Facials</h3>
+        <p class="catcard__note">Analysis-led cleansing treatments — the place to start if you're new to us.</p>
+        <ul class="catcard__list">
+          <li class="catcard__item">
+            <span class="catcard__service">The Reveal Custom Facial<span class="catcard__badge">Start here</span></span>
+            <span class="catcard__time">60 min</span>
+          </li>
+          <li class="catcard__item">
+            <span class="catcard__service">Ultra Sonic Skin Scrubber Facial</span>
+            <span class="catcard__time">60 min</span>
+          </li>
+        </ul>
+        <div class="catcard__foot">
+          <button class="cta cta--small popup-trigger" data-cta="Cat-Facials">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+        </div>
+      </article>
 
-    <!-- SCULPTING -->
-    <div class="mcat">
-      <div class="mcat__aside reveal">
-        <h3 class="mcat__label">Sculpting</h3>
-        <span class="mcat__rule"></span>
-        <p class="mcat__note">Lymphatic and release work that reduces puffiness and brings back definition through the jaw, cheekbones and under-eye area.</p>
-      </div>
-      <div class="menu__grid">
-        <article class="mcard reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">60 min</span>
-            <span class="mcard__badge">Infrared light therapy</span>
-          </div>
-          <h4 class="mcard__name">Luminous Facial Lift — Lymphatic &amp; TMJ Release</h4>
-          <p class="mcard__desc">Lymphatic drainage massage, intraoral TMJ release and infrared light therapy in one session. Reduces puffiness, relieves jaw tension and headaches, and leaves a sculpted, lifted appearance.</p>
-          <div class="mcard__foot">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Luminous">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
+      <article class="catcard reveal">
+        <h3 class="catcard__name">Sculpting</h3>
+        <p class="catcard__note">Lymphatic and release work that reduces puffiness and brings back definition through the jaw, cheekbones and under-eye area.</p>
+        <ul class="catcard__list">
+          <li class="catcard__item">
+            <span class="catcard__service">Luminous Facial Lift — Lymphatic &amp; TMJ Release</span>
+            <span class="catcard__time">60 min</span>
+          </li>
+          <li class="catcard__item">
+            <span class="catcard__service">Define Jaw Line Sculpt</span>
+            <span class="catcard__time">By consult</span>
+          </li>
+          <li class="catcard__item">
+            <span class="catcard__service">Lymphatic Facial</span>
+            <span class="catcard__time">30 min</span>
+          </li>
+        </ul>
+        <div class="catcard__foot">
+          <button class="cta cta--small popup-trigger" data-cta="Cat-Sculpting">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+        </div>
+      </article>
 
-        <!-- TODO: confirm duration, price and description for Define Jaw Line Sculpt -->
-        <article class="mcard reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">Consultation required</span>
-          </div>
-          <h4 class="mcard__name">Define Jaw Line Sculpt</h4>
-          <p class="mcard__desc">Focused sculpting through the jawline and lower face — manual release and drainage work to soften a heavy, tense jaw and bring back a defined edge along the mandible.</p>
-          <div class="mcard__foot">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-JawSculpt">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
+      <article class="catcard reveal">
+        <h3 class="catcard__name">Dermaplaning</h3>
+        <p class="catcard__note">Physical exfoliation that removes peach fuzz and smooths the surface, so makeup lays flat and product absorbs.</p>
+        <ul class="catcard__list">
+          <li class="catcard__item">
+            <span class="catcard__service">Royalty Dermaplaning Facial</span>
+            <span class="catcard__time">60 min</span>
+          </li>
+        </ul>
+        <div class="catcard__foot">
+          <button class="cta cta--small popup-trigger" data-cta="Cat-Dermaplaning">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+        </div>
+      </article>
 
-        <article class="mcard reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">30 min</span>
-            <span class="mcard__badge">Express</span>
-          </div>
-          <h4 class="mcard__name">Lymphatic Facial</h4>
-          <p class="mcard__desc">Visibly diminishes puffiness and under-eye bags while sculpting facial contours. Excellent for post-flight recovery and allergy season.</p>
-          <div class="mcard__foot">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-LymphaticFacial">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
-      </div>
-    </div>
+      <article class="catcard reveal">
+        <h3 class="catcard__name">Collagen</h3>
+        <p class="catcard__note">Treatments that stimulate your own collagen for firmer skin over a series, without going the injectable route.</p>
+        <ul class="catcard__list">
+          <li class="catcard__item">
+            <span class="catcard__service">Microchanneling</span>
+            <span class="catcard__time">45 min</span>
+          </li>
+        </ul>
+        <div class="catcard__foot">
+          <button class="cta cta--small popup-trigger" data-cta="Cat-Collagen">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+        </div>
+      </article>
 
-    <!-- DERMAPLANING -->
-    <div class="mcat">
-      <div class="mcat__aside reveal">
-        <h3 class="mcat__label">Dermaplaning</h3>
-        <span class="mcat__rule"></span>
-      </div>
-      <div class="menu__grid">
-        <article class="mcard reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">60 min</span>
-            <span class="mcard__badge">Includes red light therapy</span>
-          </div>
-          <h4 class="mcard__name">Royalty Dermaplaning Facial</h4>
-          <p class="mcard__desc">Builds on our signature Reveal Facial with dermaplaning to remove peach fuzz and reveal smoother skin, plus red light therapy to stimulate collagen and calm inflammation.</p>
-          <div class="mcard__foot">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Dermaplaning">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
-      </div>
-    </div>
+      <article class="catcard reveal">
+        <h3 class="catcard__name">Chemical Peels</h3>
+        <p class="catcard__note">Resurfacing for dull texture, dark spots and post-breakout marks. Formula and strength are matched to your skin at consultation.</p>
+        <ul class="catcard__list">
+          <li class="catcard__item">
+            <span class="catcard__service">Chemical Peel</span>
+            <span class="catcard__time">By consult</span>
+          </li>
+        </ul>
+        <div class="catcard__foot">
+          <button class="cta cta--small popup-trigger" data-cta="Cat-Peels">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+        </div>
+      </article>
 
-    <!-- COLLAGEN -->
-    <div class="mcat">
-      <div class="mcat__aside reveal">
-        <h3 class="mcat__label">Collagen</h3>
-        <span class="mcat__rule"></span>
-      </div>
-      <div class="menu__grid">
-        <article class="mcard reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">45 min</span>
-            <span class="mcard__badge">Collagen stimulating</span>
-          </div>
-          <h4 class="mcard__name">Microchanneling</h4>
-          <p class="mcard__desc">Advanced treatment that stimulates collagen production and dramatically enhances product absorption for firmer, healthier-looking skin.</p>
-          <div class="mcard__foot">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Microchanneling">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
-      </div>
-    </div>
+      <article class="catcard reveal">
+        <h3 class="catcard__name">Acne Treatments</h3>
+        <p class="catcard__note">Targeted care for active breakouts and congestion, plus a home routine so skin keeps clearing between visits.</p>
+        <ul class="catcard__list">
+          <li class="catcard__item">
+            <span class="catcard__service">Acne Treatment</span>
+            <span class="catcard__time">By consult</span>
+          </li>
+        </ul>
+        <div class="catcard__foot">
+          <button class="cta cta--small popup-trigger" data-cta="Cat-Acne">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+        </div>
+      </article>
 
-    <!-- CHEMICAL PEELS -->
-    <div class="mcat">
-      <div class="mcat__aside reveal">
-        <h3 class="mcat__label">Chemical Peels</h3>
-        <span class="mcat__rule"></span>
-        <p class="mcat__note">Formula and strength are matched to your skin at consultation — so pricing and downtime are confirmed before anything begins.</p>
-      </div>
-      <div class="menu__grid">
-        <article class="mcard reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">Consultation required</span>
-          </div>
-          <h4 class="mcard__name">Chemical Peel</h4>
-          <p class="mcard__desc">Professional-grade resurfacing selected to your skin type and goals — softening dull, uneven texture, fading dark spots and post-breakout marks, and clearing congestion. We choose the formula and strength together, and walk you through the downtime before you commit.</p>
-          <div class="mcard__foot">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Peels">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <!-- ACNE TREATMENTS -->
-    <div class="mcat">
-      <div class="mcat__aside reveal">
-        <h3 class="mcat__label">Acne Treatments</h3>
-        <span class="mcat__rule"></span>
-        <p class="mcat__note">Acne responds to consistency, so we'll be honest about how many sessions it's likely to take before you book a series.</p>
-      </div>
-      <div class="menu__grid">
-        <article class="mcard reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">Consultation required</span>
-          </div>
-          <h4 class="mcard__name">Acne Treatment</h4>
-          <p class="mcard__desc">A targeted plan for active breakouts and stubborn congestion — deep cleansing, extractions where appropriate, and calming therapy to bring inflammation down. You leave with a home-care routine so your skin keeps improving between visits, not just on the table.</p>
-          <div class="mcard__foot">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Acne">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
-      </div>
     </div>
 
     <div class="menu__foot reveal">
@@ -668,7 +593,6 @@ p{margin:0 0 1em}
     </div>
   </div>
 </section>
-
 
 <!-- PROCESS -->
 <section class="process" id="how-it-works">
