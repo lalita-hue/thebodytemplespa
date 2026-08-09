@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — Permanent Makeup | The Body Temple Spa</title>
+
+<!-- Fonts: Playfair Display (headings) + Inter (body) — matches the Facial Services landing page -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================
+     DESIGN TOKENS — edit colors/fonts/spacing here
+     Same warm cream / espresso / rust-gold palette
+     as facial-services-landing.html, for brand
+     consistency between the form page and this
+     thank-you page.
+     ============================================ */
+  :root{
+    --cream:      #fefaf8;   /* page background */
+    --cream-100:  #f5efe7;   /* subtle panel background */
+    --cream-200:  #ece2d4;   /* borders / dividers */
+    --blush:      #fbeee7;   /* soft rose-gold glow accent */
+
+    --espresso:      #1a120a; /* headings, primary text */
+    --espresso-700:  #2b1e14; /* dark footer background */
+
+    --rust:      #c96438;   /* primary accent / buttons / icons */
+    --rust-dark: #a84f2a;   /* accent hover state */
+    --rust-50:   #fbeee7;   /* soft accent background */
+
+    --gold:      #d4a843;   /* price highlight / "glow" color */
+
+    --text-muted: rgba(26,18,10,0.62);
+    --white: #ffffff;
+
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans:  'Inter', system-ui, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-pill: 100px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    font-family: var(--font-sans);
+    /* soft glow gradient behind everything, for the "glowing" beauty-clinic feel */
+    background: radial-gradient(circle at 50% 0%, var(--blush) 0%, var(--cream) 55%);
+    color: var(--espresso);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ============================================
+     HEADER — logo + business name
+     ============================================ */
+  header{
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cream-200);
+    padding: 16px 24px;
+  }
+  .header-inner{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-inner img{ width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+  .header-brand .name{ font-family: var(--font-serif); font-size: 16px; font-weight: 600; }
+  .header-brand .tag{ font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); }
+
+  /* ============================================
+     MAIN — centered thank-you content
+     ============================================ */
+  main{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 20px;
+  }
+
+  .ty-card{
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+    animation: fadeUp .5s ease both;
+  }
+  @keyframes fadeUp{
+    from{ opacity: 0; transform: translateY(20px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  /* Success "glow" icon — sparkle instead of a plain checkmark, for the beauty/glow vibe */
+  .glow-circle{
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rust) 0%, var(--gold) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    box-shadow: 0 0 0 14px var(--blush); /* soft glow ring */
+  }
+  .glow-circle svg{ width: 42px; height: 42px; }
+
+  /* --- 1. Header / success message --- */
+  .eyebrow{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+  .ty-card h1{
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 4.5vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .ty-card h1 em{ font-style: italic; font-weight: 600; color: var(--gold); }
+
+  /* --- 2. Reassurance text --- */
+  .ty-card .lead{
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 24px;
+    line-height: 1.7;
+  }
+
+  /* --- First-visit offer --- */
+  .offer{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--rust-50);
+    border: 1px solid var(--rust);
+    color: var(--espresso);
+    border-radius: var(--radius-pill);
+    padding: 11px 24px;
+    font-size: 14.5px;
+    font-weight: 600;
+    margin: 0 auto 40px;
+  }
+  .offer strong{ color: var(--rust); font-weight: 700; }
+
+  /* Placeholder marker — remove this rule once every service is named */
+  .badge-tbc{ background: var(--espresso) !important; }
+  .price-item code{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px;
+    background: var(--cream-100); padding: 1px 5px; border-radius: 4px; }
+
+  /* ============================================
+     3. PRICE LIST SECTION
+     ============================================ */
+  .price-section{ margin-bottom: 40px; }
+  .price-section h2{
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 3vw, 24px);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .price-section .sub{
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  .price-list{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .price-item{
+    background: var(--white);
+    border: 1px solid var(--cream-200);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  /* Highlight style for the featured/most-popular treatment */
+  .price-item.featured{
+    border-color: var(--rust);
+    box-shadow: 0 16px 32px -22px rgba(201,100,56,0.35);
+  }
+
+  .price-item .details{ display: flex; flex-direction: column; gap: 4px; }
+  .price-item .service-name{
+    font-family: var(--font-serif);
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .price-item .service-desc{ font-size: 13.5px; color: var(--text-muted); }
+  .price-item .badge{
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--rust);
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 4px;
+  }
+
+  .price-item .price{
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .price-item .price .unit{
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: block;
+    text-align: right;
+  }
+
+
+  /* --- Booking buttons on each service row --- */
+  .price-side{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .price-actions{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .btn-book, .btn-text{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+  }
+  .btn-book{ background: var(--rust); color: var(--white); border: 1.5px solid var(--rust); }
+  .btn-book:hover{ background: var(--rust-dark); border-color: var(--rust-dark); }
+  .btn-text{ background: transparent; color: var(--rust); border: 1.5px solid var(--rust); }
+  .btn-text:hover{ background: var(--rust); color: var(--white); }
+  .btn-book:focus-visible, .btn-text:focus-visible{ outline: 2px solid var(--espresso); outline-offset: 2px; }
+
+  /* --- 4. Call to action button --- */
+  .btn-primary{
+    display: inline-block;
+    background: var(--rust);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: var(--radius-pill);
+    transition: background 0.18s, transform 0.12s;
+  }
+  .btn-primary:hover{ background: var(--rust-dark); transform: translateY(-1px); }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  footer{
+    background: var(--espresso-700);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    font-size: 13px;
+    padding: 20px 24px;
+  }
+  footer a{ color: rgba(255,255,255,0.7); }
+
+  /* ============================================
+     MOBILE
+     ============================================ */
+  @media (max-width: 600px){
+    main{ padding: 40px 16px; }
+    .price-item{ flex-direction: column; align-items: flex-start; gap: 14px; }
+    .price-side{ align-items: flex-start; width: 100%; }
+    .price-actions{ justify-content: flex-start; width: 100%; }
+    .btn-book, .btn-text{ flex: 1 1 auto; text-align: center; }
+    .price-item .price .unit{ text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER — swap the logo image / business name here
+     ============================================ -->
+<header>
+  <div class="header-inner">
+    <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/f9b15157-7f4b-4e0f-af96-c55534987ab1.png" alt="The Body Temple Spa">
+    <div class="header-brand">
+      <div class="name">The Body Temple Spa</div>
+      <div class="tag">Permanent Makeup · Athens, GA</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="ty-card">
+
+    <!-- Success / "glow" icon -->
+    <div class="glow-circle">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2L12 19.5l-2.2-6.3-6.3-2.2 6.3-2.2L12 2.5z" fill="white"/>
+      </svg>
+    </div>
+
+    <!-- 1. HEADER / SUCCESS MESSAGE — edit headline text here -->
+    <div class="eyebrow">Request received</div>
+    <h1>Thank You! <em>Your Permanent Makeup Journey Starts Here.</em></h1>
+
+    <!-- 2. REASSURANCE TEXT — edit this paragraph -->
+    <p class="lead">
+      One of our permanent makeup artists will contact you shortly to confirm your appointment
+      and design your shape and shade around your features. In the meantime, you can reserve
+      online or take a look at our services below.
+    </p>
+
+    <!-- OFFER — first-visit incentive -->
+    <p class="offer"><strong>10% off</strong> your first visit if you schedule today.</p>
+
+    <!-- ============================================
+         3. PRICE LIST SECTION — real menu pulled from
+         facial-services-landing.html.
+         Duplicate a .price-item block to add more services.
+         Update service-name / service-desc / price as needed.
+         ============================================ -->
+    <div class="price-section">
+      <h2>Our Permanent Makeup Services</h2>
+      <p class="sub">Current rates as of your booking.</p>
+
+      <div class="price-list">
+
+        <!-- SERVICE 1 — calendar 6a5be4f4660bf115e3afe156 -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 1</span>
+            <span class="service-desc">Calendar <code>6a5be4f4660bf115e3afe156</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be4f4660bf115e3afe156" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 2 — calendar 6a5be5350d90534e77c81f13 -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 2</span>
+            <span class="service-desc">Calendar <code>6a5be5350d90534e77c81f13</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be5350d90534e77c81f13" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 3 — calendar 6a5be5d65855c43397c83bd5 -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 3</span>
+            <span class="service-desc">Calendar <code>6a5be5d65855c43397c83bd5</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be5d65855c43397c83bd5" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 4 — calendar 6a5bea17a59a2f4d5259e1f4 -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 4</span>
+            <span class="service-desc">Calendar <code>6a5bea17a59a2f4d5259e1f4</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bea17a59a2f4d5259e1f4" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 5 — calendar 6a5be9c12404491763b794dc -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 5</span>
+            <span class="service-desc">Calendar <code>6a5be9c12404491763b794dc</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be9c12404491763b794dc" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 6 — calendar 6a5be95eca71da69b7a7245b -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 6</span>
+            <span class="service-desc">Calendar <code>6a5be95eca71da69b7a7245b</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be95eca71da69b7a7245b" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 7 — calendar 6a5becc2950845fef918475a -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 7</span>
+            <span class="service-desc">Calendar <code>6a5becc2950845fef918475a</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5becc2950845fef918475a" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 8 — calendar 6a5be44727fbf453d6e23cbe -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 8</span>
+            <span class="service-desc">Calendar <code>6a5be44727fbf453d6e23cbe</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be44727fbf453d6e23cbe" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 9 — calendar 6a5bed0e77f9a9c9219d8634 -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 9</span>
+            <span class="service-desc">Calendar <code>6a5bed0e77f9a9c9219d8634</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bed0e77f9a9c9219d8634" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERVICE 10 — calendar 6a5bed600eb6fa53d98dfdf7 -->
+        <div class="price-item">
+          <div class="details">
+            <span class="badge badge-tbc">Name to confirm</span>
+            <span class="service-name">Service 10</span>
+            <span class="service-desc">Calendar <code>6a5bed600eb6fa53d98dfdf7</code> — send me this service's name, price and session length and I'll fill the row in.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">&mdash;<span class="unit">/ TBC</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bed600eb6fa53d98dfdf7" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20permanent%20makeup%20appointment.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. CALL TO ACTION — links back to the live homepage -->
+    <a href="https://thebodytemplespas.com/" class="btn-primary">← Back to Home</a>
+
+  </div>
+</main>
+
+<!-- FOOTER — update contact info / copyright year -->
+<footer>
+  <div>© 2026 The Body Temple Spa. Serving Athens, GA. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
