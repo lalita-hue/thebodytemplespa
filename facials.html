@@ -147,35 +147,32 @@ p{margin:0 0 1em}
 .menu__head{text-align:center;max-width:740px;margin:0 auto 50px}
 .menu__head h2{color:var(--ink);margin-bottom:14px}
 .menu__sub{color:var(--ink-soft);font-size:1.05rem;line-height:1.65}
-.menu__card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);max-width:900px;margin:0 auto;overflow:hidden}
-.menu__group{padding:34px clamp(22px,4vw,44px) 10px}
-.menu__group + .menu__group{border-top:1px solid var(--line)}
-.menu__group-label{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin:0 0 6px}
-.menu__group-note{font-size:.86rem;color:var(--muted);margin:0 0 8px}
-.mitem{padding:26px 0;border-bottom:1px solid var(--line)}
-.mitem:last-child{border-bottom:none}
-.mitem__top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
-.mitem__name{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--ink);margin:0;line-height:1.25;flex:1 1 auto;min-width:0}
-.mitem__dots{flex:1 1 30px;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:20px}
-.mitem__price{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--orange-deep);white-space:nowrap}
-.mitem__price small{font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;text-align:right;margin-top:-2px}
-.mitem__meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 10px}
-.mitem__time{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.mitem__badge{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--orange);padding:4px 12px;border-radius:var(--radius-pill)}
-.mitem__badge--soft{background:var(--cream);color:var(--ink-soft)}
-.mitem__desc{color:var(--ink-soft);font-size:.95rem;line-height:1.6;margin:0 0 16px;max-width:640px}
-.mitem__actions{display:flex;flex-wrap:wrap;gap:10px}
-.mitem__actions .cta--small{padding:10px 20px;font-size:.8rem}
-.menu__foot{background:var(--cream-soft);padding:26px clamp(22px,4vw,44px);text-align:center;border-top:1px solid var(--line)}
-.menu__foot p{margin:0 0 16px;color:var(--ink-soft);font-size:.95rem}
-.menu__addons{max-width:900px;margin:24px auto 0;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.menu__addon{font-size:.82rem;color:var(--ink-soft);background:var(--cream-soft);border:1px solid var(--line);border-radius:var(--radius-pill);padding:8px 16px}
-@media(min-width:600px){.mitem__price small{margin-top:0}}
-/* Keep name and price on one row on small screens — dots have no space to earn */
-@media(max-width:599px){
-  .mitem__top{flex-wrap:nowrap;gap:14px;justify-content:space-between}
-  .mitem__dots{display:none}
-  .mitem__price{align-self:flex-start}
+.menu__group{margin-bottom:clamp(44px,6vw,64px)}
+.menu__group:last-of-type{margin-bottom:0}
+.menu__group-head{max-width:640px;margin:0 auto 28px;text-align:center}
+.menu__group-label{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin:0 0 8px}
+.menu__group-note{font-size:.9rem;color:var(--muted);margin:0;line-height:1.55}
+.menu__grid{display:grid;grid-template-columns:1fr;gap:24px}
+.mcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--cream-deep);border-radius:var(--radius-lg);padding:30px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
+.mcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.mcard--start{border-top-color:var(--orange)}
+.mcard__meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.mcard__time{font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.mcard__badge{font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);background:var(--cream);padding:4px 12px;border-radius:var(--radius-pill)}
+.mcard__badge--start{background:var(--orange);color:#fff}
+.mcard__name{font-family:var(--serif);font-size:1.32rem;font-weight:600;color:var(--ink);margin:0 0 10px;line-height:1.25}
+.mcard__desc{color:var(--ink-soft);font-size:.93rem;line-height:1.6;margin:0 0 22px;flex:1}
+.mcard__foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px}
+.mcard__price{font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--orange-deep);line-height:1.1;white-space:nowrap}
+.mcard__price small{display:block;font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:normal}
+.mcard__foot .cta--small{padding:11px 20px;font-size:.8rem}
+.menu__foot{background:var(--cream-soft);border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 28px;text-align:center;margin-top:clamp(40px,5vw,56px)}
+.menu__foot p{margin:0 auto 18px;color:var(--ink-soft);font-size:.98rem;max-width:52ch}
+@media(min-width:640px){.menu__grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){
+  .menu__grid{grid-template-columns:repeat(3,1fr)}
+  /* the two consult-priced treatments stay a centered pair rather than orphaning a column */
+  .menu__grid--pair{grid-template-columns:repeat(2,1fr);max-width:790px;margin:0 auto}
 }
 
 /* PROCESS */
@@ -499,157 +496,134 @@ p{margin:0 0 1em}
       <p class="menu__sub">Real prices, real session lengths — no "call for pricing" games. Not sure which one is yours? Start with The Reveal and we'll tell you honestly.</p>
     </div>
 
-    <div class="menu__card reveal">
-      <div class="menu__group">
+    <div class="menu__group">
+      <div class="menu__group-head reveal">
         <p class="menu__group-label">Facials &amp; Skin</p>
-
-        <div class="mitem">
-          <div class="mitem__top">
-            <h3 class="mitem__name">The Reveal Custom Facial</h3>
-            <span class="mitem__dots"></span>
-            <span class="mitem__price">$100</span>
-          </div>
-          <div class="mitem__meta">
-            <span class="mitem__time">60 min</span>
-            <span class="mitem__badge">Start here</span>
-          </div>
-          <p class="mitem__desc">Your personalized introduction to understanding your complexion. Advanced skin analysis and expert consultation uncover what your skin actually needs, then guide you to the right treatment plan.</p>
-          <div class="mitem__actions">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Reveal">Book Online <span class="cta__arrow">→</span></button>
-            <a class="cta cta--small cta--ghost" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20book%20The%20Reveal%20Custom%20Facial." data-cta="Text-Reveal">Text to Book</a>
-          </div>
-        </div>
-
-        <div class="mitem">
-          <div class="mitem__top">
-            <h3 class="mitem__name">Ultra Sonic Skin Scrubber Facial</h3>
-            <span class="mitem__dots"></span>
-            <span class="mitem__price">$120</span>
-          </div>
-          <div class="mitem__meta">
-            <span class="mitem__time">60 min</span>
-            <span class="mitem__badge mitem__badge--soft">No harsh extractions</span>
-          </div>
-          <p class="mitem__desc">Deep-cleansing treatment using high-frequency ultrasonic waves to lift impurities, excess oil and congestion from pores — without harsh extractions or irritation.</p>
-          <div class="mitem__actions">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-UltraSonic">Book Online <span class="cta__arrow">→</span></button>
-            <a class="cta cta--small cta--ghost" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20book%20the%20Ultra%20Sonic%20Skin%20Scrubber%20Facial." data-cta="Text-UltraSonic">Text to Book</a>
-          </div>
-        </div>
-
-        <div class="mitem">
-          <div class="mitem__top">
-            <h3 class="mitem__name">Luminous Facial Lift — Lymphatic &amp; TMJ Release</h3>
-            <span class="mitem__dots"></span>
-            <span class="mitem__price">$145</span>
-          </div>
-          <div class="mitem__meta">
-            <span class="mitem__time">60 min</span>
-            <span class="mitem__badge mitem__badge--soft">Infrared light therapy</span>
-          </div>
-          <p class="mitem__desc">Lymphatic drainage massage, intraoral TMJ release and infrared light therapy in one session. Reduces puffiness, relieves jaw tension and headaches, and leaves a sculpted, lifted appearance.</p>
-          <div class="mitem__actions">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Luminous">Book Online <span class="cta__arrow">→</span></button>
-            <a class="cta cta--small cta--ghost" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20book%20the%20Luminous%20Facial%20Lift." data-cta="Text-Luminous">Text to Book</a>
-          </div>
-        </div>
-
-        <div class="mitem">
-          <div class="mitem__top">
-            <h3 class="mitem__name">Royalty Dermaplaning Facial</h3>
-            <span class="mitem__dots"></span>
-            <span class="mitem__price">$165</span>
-          </div>
-          <div class="mitem__meta">
-            <span class="mitem__time">60 min</span>
-            <span class="mitem__badge mitem__badge--soft">Includes red light therapy</span>
-          </div>
-          <p class="mitem__desc">Builds on our signature Reveal Facial with dermaplaning to remove peach fuzz and reveal smoother skin, plus red light therapy to stimulate collagen and calm inflammation.</p>
-          <div class="mitem__actions">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Dermaplaning">Book Online <span class="cta__arrow">→</span></button>
-            <a class="cta cta--small cta--ghost" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20book%20the%20Royalty%20Dermaplaning%20Facial." data-cta="Text-Dermaplaning">Text to Book</a>
-          </div>
-        </div>
-
-        <div class="mitem">
-          <div class="mitem__top">
-            <h3 class="mitem__name">Microchanneling</h3>
-            <span class="mitem__dots"></span>
-            <span class="mitem__price">$225</span>
-          </div>
-          <div class="mitem__meta">
-            <span class="mitem__time">45 min</span>
-            <span class="mitem__badge mitem__badge--soft">Collagen stimulating</span>
-          </div>
-          <p class="mitem__desc">Advanced treatment that stimulates collagen production and dramatically enhances product absorption for firmer, healthier-looking skin.</p>
-          <div class="mitem__actions">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Microchanneling">Book Online <span class="cta__arrow">→</span></button>
-            <a class="cta cta--small cta--ghost" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20book%20Microchanneling." data-cta="Text-Microchanneling">Text to Book</a>
-          </div>
-        </div>
-
-        <div class="mitem">
-          <div class="mitem__top">
-            <h3 class="mitem__name">30 Min — Lymphatic Facial</h3>
-            <span class="mitem__dots"></span>
-            <span class="mitem__price">$85</span>
-          </div>
-          <div class="mitem__meta">
-            <span class="mitem__time">30 min</span>
-            <span class="mitem__badge mitem__badge--soft">Express</span>
-          </div>
-          <p class="mitem__desc">Visibly diminishes puffiness and under-eye bags while sculpting facial contours. Excellent for post-flight recovery and allergy season.</p>
-          <div class="mitem__actions">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-LymphaticFacial">Book Online <span class="cta__arrow">→</span></button>
-            <a class="cta cta--small cta--ghost" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20book%20the%2030%20Min%20Lymphatic%20Facial." data-cta="Text-LymphaticFacial">Text to Book</a>
-          </div>
-        </div>
       </div>
+      <div class="menu__grid">
 
-      <div class="menu__group">
+        <article class="mcard mcard--start reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">60 min</span>
+            <span class="mcard__badge mcard__badge--start">Start here</span>
+          </div>
+          <h3 class="mcard__name">The Reveal Custom Facial</h3>
+          <p class="mcard__desc">Your personalized introduction to understanding your complexion. Advanced skin analysis and expert consultation uncover what your skin actually needs, then guide you to the right treatment plan.</p>
+          <div class="mcard__foot">
+            <span class="mcard__price">$100</span>
+            <button class="cta cta--small popup-trigger" data-cta="Menu-Reveal">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+
+        <article class="mcard reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">60 min</span>
+            <span class="mcard__badge">No harsh extractions</span>
+          </div>
+          <h3 class="mcard__name">Ultra Sonic Skin Scrubber Facial</h3>
+          <p class="mcard__desc">Deep-cleansing treatment using high-frequency ultrasonic waves to lift impurities, excess oil and congestion from pores — without harsh extractions or irritation.</p>
+          <div class="mcard__foot">
+            <span class="mcard__price">$120</span>
+            <button class="cta cta--small popup-trigger" data-cta="Menu-UltraSonic">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+
+        <article class="mcard reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">60 min</span>
+            <span class="mcard__badge">Infrared light therapy</span>
+          </div>
+          <h3 class="mcard__name">Luminous Facial Lift — Lymphatic &amp; TMJ Release</h3>
+          <p class="mcard__desc">Lymphatic drainage massage, intraoral TMJ release and infrared light therapy in one session. Reduces puffiness, relieves jaw tension and headaches, and leaves a sculpted, lifted appearance.</p>
+          <div class="mcard__foot">
+            <span class="mcard__price">$145</span>
+            <button class="cta cta--small popup-trigger" data-cta="Menu-Luminous">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+
+        <article class="mcard reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">60 min</span>
+            <span class="mcard__badge">Includes red light therapy</span>
+          </div>
+          <h3 class="mcard__name">Royalty Dermaplaning Facial</h3>
+          <p class="mcard__desc">Builds on our signature Reveal Facial with dermaplaning to remove peach fuzz and reveal smoother skin, plus red light therapy to stimulate collagen and calm inflammation.</p>
+          <div class="mcard__foot">
+            <span class="mcard__price">$165</span>
+            <button class="cta cta--small popup-trigger" data-cta="Menu-Dermaplaning">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+
+        <article class="mcard reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">45 min</span>
+            <span class="mcard__badge">Collagen stimulating</span>
+          </div>
+          <h3 class="mcard__name">Microchanneling</h3>
+          <p class="mcard__desc">Advanced treatment that stimulates collagen production and dramatically enhances product absorption for firmer, healthier-looking skin.</p>
+          <div class="mcard__foot">
+            <span class="mcard__price">$225</span>
+            <button class="cta cta--small popup-trigger" data-cta="Menu-Microchanneling">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+
+        <article class="mcard reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">30 min</span>
+            <span class="mcard__badge">Express</span>
+          </div>
+          <h3 class="mcard__name">30 Min — Lymphatic Facial</h3>
+          <p class="mcard__desc">Visibly diminishes puffiness and under-eye bags while sculpting facial contours. Excellent for post-flight recovery and allergy season.</p>
+          <div class="mcard__foot">
+            <span class="mcard__price">$85</span>
+            <button class="cta cta--small popup-trigger" data-cta="Menu-LymphaticFacial">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="menu__group">
+      <div class="menu__group-head reveal">
         <p class="menu__group-label">Peels &amp; Acne Care</p>
         <p class="menu__group-note">Formula, strength and session length are matched to your skin at consultation — so pricing is confirmed before anything begins.</p>
-
-        <div class="mitem">
-          <div class="mitem__top">
-            <h3 class="mitem__name">Chemical Peels</h3>
-            <span class="mitem__dots"></span>
-            <span class="mitem__price">Custom<small>Quoted at consult</small></span>
-          </div>
-          <div class="mitem__meta">
-            <span class="mitem__time">Consultation required</span>
-          </div>
-          <p class="mitem__desc">Professional-grade resurfacing selected to your skin type and goals — softening dull, uneven texture, fading dark spots and post-breakout marks, and clearing congestion. We choose the formula and strength together, and walk you through the downtime before you commit.</p>
-          <div class="mitem__actions">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Peels">Request Peel Pricing <span class="cta__arrow">→</span></button>
-            <a class="cta cta--small cta--ghost" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20info%20on%20chemical%20peels." data-cta="Text-Peels">Text to Book</a>
-          </div>
-        </div>
-
-        <div class="mitem">
-          <div class="mitem__top">
-            <h3 class="mitem__name">Acne Treatment</h3>
-            <span class="mitem__dots"></span>
-            <span class="mitem__price">Custom<small>Quoted at consult</small></span>
-          </div>
-          <div class="mitem__meta">
-            <span class="mitem__time">Consultation required</span>
-          </div>
-          <p class="mitem__desc">A targeted plan for active breakouts and stubborn congestion — deep cleansing, extractions where appropriate, and calming therapy to bring inflammation down. You leave with a home-care routine so your skin keeps improving between visits, not just on the table.</p>
-          <div class="mitem__actions">
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Acne">Request Acne Pricing <span class="cta__arrow">→</span></button>
-            <a class="cta cta--small cta--ghost" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20info%20on%20acne%20treatment." data-cta="Text-Acne">Text to Book</a>
-          </div>
-        </div>
       </div>
+      <div class="menu__grid menu__grid--pair">
 
-      <div class="menu__foot">
-        <p>Not sure where to start? Tell us what's going on with your skin and we'll recommend the right treatment — usually within the hour.</p>
-        <button class="cta popup-trigger" data-cta="Menu-Foot">Get a Personal Recommendation <span class="cta__arrow">→</span></button>
+        <article class="mcard reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">Consultation required</span>
+          </div>
+          <h3 class="mcard__name">Chemical Peels</h3>
+          <p class="mcard__desc">Professional-grade resurfacing selected to your skin type and goals — softening dull, uneven texture, fading dark spots and post-breakout marks, and clearing congestion. We choose the formula and strength together, and walk you through the downtime before you commit.</p>
+          <div class="mcard__foot">
+            <span class="mcard__price">Custom<small>Quoted at consult</small></span>
+            <button class="cta cta--small popup-trigger" data-cta="Menu-Peels">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+
+        <article class="mcard reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">Consultation required</span>
+          </div>
+          <h3 class="mcard__name">Acne Treatment</h3>
+          <p class="mcard__desc">A targeted plan for active breakouts and stubborn congestion — deep cleansing, extractions where appropriate, and calming therapy to bring inflammation down. You leave with a home-care routine so your skin keeps improving between visits, not just on the table.</p>
+          <div class="mcard__foot">
+            <span class="mcard__price">Custom<small>Quoted at consult</small></span>
+            <button class="cta cta--small popup-trigger" data-cta="Menu-Acne">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+
       </div>
+    </div>
+
+    <div class="menu__foot reveal">
+      <p>Not sure where to start? Tell us what's going on with your skin and we'll recommend the right treatment — usually within the hour.</p>
+      <button class="cta popup-trigger" data-cta="Menu-Foot">Get a Personal Recommendation <span class="cta__arrow">→</span></button>
     </div>
   </div>
 </section>
+
 
 <!-- PROCESS -->
 <section class="process" id="how-it-works">
