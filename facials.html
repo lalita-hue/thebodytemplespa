@@ -147,12 +147,13 @@ p{margin:0 0 1em}
 .menu__head{text-align:center;max-width:740px;margin:0 auto 50px}
 .menu__head h2{color:var(--ink);margin-bottom:14px}
 .menu__sub{color:var(--ink-soft);font-size:1.05rem;line-height:1.65}
-.menu__group{margin-bottom:clamp(44px,6vw,64px)}
-.menu__group:last-of-type{margin-bottom:0}
-.menu__group-head{max-width:640px;margin:0 auto 28px;text-align:center}
-.menu__group-label{font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin:0 0 8px}
-.menu__group-note{font-size:.9rem;color:var(--muted);margin:0;line-height:1.55}
-.menu__grid{display:grid;grid-template-columns:1fr;gap:24px}
+.mcat{margin-bottom:clamp(42px,5.5vw,62px)}
+.mcat:last-of-type{margin-bottom:0}
+.mcat__aside{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.mcat__label{font-family:var(--serif);font-size:clamp(1.35rem,2.2vw,1.7rem);font-weight:600;color:var(--ink);margin:0;line-height:1.1;white-space:nowrap}
+.mcat__rule{flex:1;height:1px;background:var(--line);min-width:20px}
+.mcat__note{font-size:.88rem;color:var(--muted);margin:0;line-height:1.55;flex-basis:100%}
+.menu__grid{display:grid;gap:24px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
 .mcard{background:#fff;border:1px solid var(--line);border-top:3px solid var(--cream-deep);border-radius:var(--radius-lg);padding:30px 28px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;transition:transform .3s ease,box-shadow .3s ease}
 .mcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
 .mcard--start{border-top-color:var(--orange)}
@@ -162,17 +163,19 @@ p{margin:0 0 1em}
 .mcard__badge--start{background:var(--orange);color:#fff}
 .mcard__name{font-family:var(--serif);font-size:1.32rem;font-weight:600;color:var(--ink);margin:0 0 10px;line-height:1.25}
 .mcard__desc{color:var(--ink-soft);font-size:.93rem;line-height:1.6;margin:0 0 22px;flex:1}
-.mcard__foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px}
-.mcard__price{font-family:var(--serif);font-size:1.6rem;font-weight:600;color:var(--orange-deep);line-height:1.1;white-space:nowrap}
-.mcard__price small{display:block;font-family:var(--sans);font-size:.66rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:normal}
-.mcard__foot .cta--small{padding:11px 20px;font-size:.8rem}
+.mcard__foot{border-top:1px solid var(--line);padding-top:18px}
+.mcard__foot .cta--small{width:100%;justify-content:center;padding:12px 20px;font-size:.82rem}
 .menu__foot{background:var(--cream-soft);border:1px solid var(--line);border-radius:var(--radius-lg);padding:34px 28px;text-align:center;margin-top:clamp(40px,5vw,56px)}
 .menu__foot p{margin:0 auto 18px;color:var(--ink-soft);font-size:.98rem;max-width:52ch}
-@media(min-width:640px){.menu__grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){
-  .menu__grid{grid-template-columns:repeat(3,1fr)}
-  /* the two consult-priced treatments stay a centered pair rather than orphaning a column */
-  .menu__grid--pair{grid-template-columns:repeat(2,1fr);max-width:790px;margin:0 auto}
+/* auto-fill keeps every card one consistent width across categories, so a category
+   holding a single treatment reads as deliberate rather than a stretched panel */
+@media(min-width:920px){
+  /* category name moves into its own column so single-service groups
+     do not leave a band of empty page beside them */
+  .mcat{display:grid;grid-template-columns:190px 1fr;gap:48px;align-items:start}
+  .mcat__aside{display:block;margin-bottom:0;padding-top:4px}
+  .mcat__rule{display:none}
+  .mcat__note{margin-top:12px}
 }
 
 /* PROCESS */
@@ -410,7 +413,7 @@ p{margin:0 0 1em}
           <li>Licensed estheticians — every facial is customized to your skin, never a fixed script</li>
           <li>Custom facials, dermaplaning, microchanneling, chemical peels &amp; acne treatment</li>
           <li>Advanced skin analysis + consultation included with The Reveal Custom Facial</li>
-          <li>30, 45 &amp; 60-minute options from $85 · often same-week appointments</li>
+          <li>30, 45 &amp; 60-minute options · often same-week appointments</li>
         </ul>
         <div class="hero__ctas">
           <button class="cta popup-trigger" data-cta="Hero-Primary">See the Facial Menu &amp; Book <span class="cta__arrow">→</span></button>
@@ -433,7 +436,7 @@ p{margin:0 0 1em}
     <div class="hero__stats-row reveal">
       <div><div class="hero__stat-num">10,000+</div><div class="hero__stat-label">Clients served since 2020</div></div>
       <div><div class="hero__stat-num">5.0 ★</div><div class="hero__stat-label">227 verified Google reviews</div></div>
-      <div><div class="hero__stat-num">From $85</div><div class="hero__stat-label">30-minute express options</div></div>
+      <div><div class="hero__stat-num">30–60 min</div><div class="hero__stat-label">Express and full-length sessions</div></div>
     </div>
   </div>
 </section>
@@ -463,7 +466,7 @@ p{margin:0 0 1em}
         <div class="ccard__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3c4 4 7 6.5 7 10a7 7 0 0 1-14 0c0-3.5 3-6 7-10z"/></svg></div>
         <h3>Puffiness &amp; Under-Eye Bags</h3>
         <p>You wake up swollen. Allergy season, travel and poor sleep show on your face before anywhere else.</p>
-        <span class="ccard__fix">Start with → 30 Min Lymphatic Facial</span>
+        <span class="ccard__fix">Start with → Lymphatic Facial</span>
       </article>
       <article class="ccard reveal">
         <div class="ccard__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17c3-4 6-4 9 0s6 4 9 0"/><path d="M3 11c3-4 6-4 9 0s6 4 9 0"/></svg></div>
@@ -493,24 +496,24 @@ p{margin:0 0 1em}
     <div class="menu__head reveal">
       <span class="eyebrow">Skin &amp; Beauty</span>
       <h2>The esthetics menu.</h2>
-      <p class="menu__sub">Real prices, real session lengths — no "call for pricing" games. Not sure which one is yours? Start with The Reveal and we'll tell you honestly.</p>
+      <p class="menu__sub">Browse by what you're treating. Not sure which one is yours? Start with The Reveal — we'll analyze your skin and tell you honestly.</p>
     </div>
 
-    <div class="menu__group">
-      <div class="menu__group-head reveal">
-        <p class="menu__group-label">Facials &amp; Skin</p>
+    <!-- FACIALS -->
+    <div class="mcat">
+      <div class="mcat__aside reveal">
+        <h3 class="mcat__label">Facials</h3>
+        <span class="mcat__rule"></span>
       </div>
       <div class="menu__grid">
-
         <article class="mcard mcard--start reveal">
           <div class="mcard__meta">
             <span class="mcard__time">60 min</span>
             <span class="mcard__badge mcard__badge--start">Start here</span>
           </div>
-          <h3 class="mcard__name">The Reveal Custom Facial</h3>
+          <h4 class="mcard__name">The Reveal Custom Facial</h4>
           <p class="mcard__desc">Your personalized introduction to understanding your complexion. Advanced skin analysis and expert consultation uncover what your skin actually needs, then guide you to the right treatment plan.</p>
           <div class="mcard__foot">
-            <span class="mcard__price">$100</span>
             <button class="cta cta--small popup-trigger" data-cta="Menu-Reveal">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
           </div>
         </article>
@@ -520,50 +523,44 @@ p{margin:0 0 1em}
             <span class="mcard__time">60 min</span>
             <span class="mcard__badge">No harsh extractions</span>
           </div>
-          <h3 class="mcard__name">Ultra Sonic Skin Scrubber Facial</h3>
+          <h4 class="mcard__name">Ultra Sonic Skin Scrubber Facial</h4>
           <p class="mcard__desc">Deep-cleansing treatment using high-frequency ultrasonic waves to lift impurities, excess oil and congestion from pores — without harsh extractions or irritation.</p>
           <div class="mcard__foot">
-            <span class="mcard__price">$120</span>
             <button class="cta cta--small popup-trigger" data-cta="Menu-UltraSonic">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
           </div>
         </article>
+      </div>
+    </div>
 
+    <!-- SCULPTING -->
+    <div class="mcat">
+      <div class="mcat__aside reveal">
+        <h3 class="mcat__label">Sculpting</h3>
+        <span class="mcat__rule"></span>
+        <p class="mcat__note">Lymphatic and release work that reduces puffiness and brings back definition through the jaw, cheekbones and under-eye area.</p>
+      </div>
+      <div class="menu__grid">
         <article class="mcard reveal">
           <div class="mcard__meta">
             <span class="mcard__time">60 min</span>
             <span class="mcard__badge">Infrared light therapy</span>
           </div>
-          <h3 class="mcard__name">Luminous Facial Lift — Lymphatic &amp; TMJ Release</h3>
+          <h4 class="mcard__name">Luminous Facial Lift — Lymphatic &amp; TMJ Release</h4>
           <p class="mcard__desc">Lymphatic drainage massage, intraoral TMJ release and infrared light therapy in one session. Reduces puffiness, relieves jaw tension and headaches, and leaves a sculpted, lifted appearance.</p>
           <div class="mcard__foot">
-            <span class="mcard__price">$145</span>
             <button class="cta cta--small popup-trigger" data-cta="Menu-Luminous">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
           </div>
         </article>
 
+        <!-- TODO: confirm duration, price and description for Define Jaw Line Sculpt -->
         <article class="mcard reveal">
           <div class="mcard__meta">
-            <span class="mcard__time">60 min</span>
-            <span class="mcard__badge">Includes red light therapy</span>
+            <span class="mcard__time">Consultation required</span>
           </div>
-          <h3 class="mcard__name">Royalty Dermaplaning Facial</h3>
-          <p class="mcard__desc">Builds on our signature Reveal Facial with dermaplaning to remove peach fuzz and reveal smoother skin, plus red light therapy to stimulate collagen and calm inflammation.</p>
+          <h4 class="mcard__name">Define Jaw Line Sculpt</h4>
+          <p class="mcard__desc">Focused sculpting through the jawline and lower face — manual release and drainage work to soften a heavy, tense jaw and bring back a defined edge along the mandible.</p>
           <div class="mcard__foot">
-            <span class="mcard__price">$165</span>
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Dermaplaning">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
-          </div>
-        </article>
-
-        <article class="mcard reveal">
-          <div class="mcard__meta">
-            <span class="mcard__time">45 min</span>
-            <span class="mcard__badge">Collagen stimulating</span>
-          </div>
-          <h3 class="mcard__name">Microchanneling</h3>
-          <p class="mcard__desc">Advanced treatment that stimulates collagen production and dramatically enhances product absorption for firmer, healthier-looking skin.</p>
-          <div class="mcard__foot">
-            <span class="mcard__price">$225</span>
-            <button class="cta cta--small popup-trigger" data-cta="Menu-Microchanneling">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+            <button class="cta cta--small popup-trigger" data-cta="Menu-JawSculpt">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
           </div>
         </article>
 
@@ -572,48 +569,96 @@ p{margin:0 0 1em}
             <span class="mcard__time">30 min</span>
             <span class="mcard__badge">Express</span>
           </div>
-          <h3 class="mcard__name">30 Min — Lymphatic Facial</h3>
+          <h4 class="mcard__name">Lymphatic Facial</h4>
           <p class="mcard__desc">Visibly diminishes puffiness and under-eye bags while sculpting facial contours. Excellent for post-flight recovery and allergy season.</p>
           <div class="mcard__foot">
-            <span class="mcard__price">$85</span>
             <button class="cta cta--small popup-trigger" data-cta="Menu-LymphaticFacial">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
           </div>
         </article>
-
       </div>
     </div>
 
-    <div class="menu__group">
-      <div class="menu__group-head reveal">
-        <p class="menu__group-label">Peels &amp; Acne Care</p>
-        <p class="menu__group-note">Formula, strength and session length are matched to your skin at consultation — so pricing is confirmed before anything begins.</p>
+    <!-- DERMAPLANING -->
+    <div class="mcat">
+      <div class="mcat__aside reveal">
+        <h3 class="mcat__label">Dermaplaning</h3>
+        <span class="mcat__rule"></span>
       </div>
-      <div class="menu__grid menu__grid--pair">
+      <div class="menu__grid">
+        <article class="mcard reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">60 min</span>
+            <span class="mcard__badge">Includes red light therapy</span>
+          </div>
+          <h4 class="mcard__name">Royalty Dermaplaning Facial</h4>
+          <p class="mcard__desc">Builds on our signature Reveal Facial with dermaplaning to remove peach fuzz and reveal smoother skin, plus red light therapy to stimulate collagen and calm inflammation.</p>
+          <div class="mcard__foot">
+            <button class="cta cta--small popup-trigger" data-cta="Menu-Dermaplaning">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+      </div>
+    </div>
 
+    <!-- COLLAGEN -->
+    <div class="mcat">
+      <div class="mcat__aside reveal">
+        <h3 class="mcat__label">Collagen</h3>
+        <span class="mcat__rule"></span>
+      </div>
+      <div class="menu__grid">
+        <article class="mcard reveal">
+          <div class="mcard__meta">
+            <span class="mcard__time">45 min</span>
+            <span class="mcard__badge">Collagen stimulating</span>
+          </div>
+          <h4 class="mcard__name">Microchanneling</h4>
+          <p class="mcard__desc">Advanced treatment that stimulates collagen production and dramatically enhances product absorption for firmer, healthier-looking skin.</p>
+          <div class="mcard__foot">
+            <button class="cta cta--small popup-trigger" data-cta="Menu-Microchanneling">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- CHEMICAL PEELS -->
+    <div class="mcat">
+      <div class="mcat__aside reveal">
+        <h3 class="mcat__label">Chemical Peels</h3>
+        <span class="mcat__rule"></span>
+        <p class="mcat__note">Formula and strength are matched to your skin at consultation — so pricing and downtime are confirmed before anything begins.</p>
+      </div>
+      <div class="menu__grid">
         <article class="mcard reveal">
           <div class="mcard__meta">
             <span class="mcard__time">Consultation required</span>
           </div>
-          <h3 class="mcard__name">Chemical Peels</h3>
+          <h4 class="mcard__name">Chemical Peel</h4>
           <p class="mcard__desc">Professional-grade resurfacing selected to your skin type and goals — softening dull, uneven texture, fading dark spots and post-breakout marks, and clearing congestion. We choose the formula and strength together, and walk you through the downtime before you commit.</p>
           <div class="mcard__foot">
-            <span class="mcard__price">Custom<small>Quoted at consult</small></span>
             <button class="cta cta--small popup-trigger" data-cta="Menu-Peels">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
           </div>
         </article>
+      </div>
+    </div>
 
+    <!-- ACNE TREATMENTS -->
+    <div class="mcat">
+      <div class="mcat__aside reveal">
+        <h3 class="mcat__label">Acne Treatments</h3>
+        <span class="mcat__rule"></span>
+        <p class="mcat__note">Acne responds to consistency, so we'll be honest about how many sessions it's likely to take before you book a series.</p>
+      </div>
+      <div class="menu__grid">
         <article class="mcard reveal">
           <div class="mcard__meta">
             <span class="mcard__time">Consultation required</span>
           </div>
-          <h3 class="mcard__name">Acne Treatment</h3>
+          <h4 class="mcard__name">Acne Treatment</h4>
           <p class="mcard__desc">A targeted plan for active breakouts and stubborn congestion — deep cleansing, extractions where appropriate, and calming therapy to bring inflammation down. You leave with a home-care routine so your skin keeps improving between visits, not just on the table.</p>
           <div class="mcard__foot">
-            <span class="mcard__price">Custom<small>Quoted at consult</small></span>
             <button class="cta cta--small popup-trigger" data-cta="Menu-Acne">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
           </div>
         </article>
-
       </div>
     </div>
 
@@ -671,7 +716,7 @@ p{margin:0 0 1em}
         <h2>The full skincare menu, prices and packages — in one PDF.</h2>
         <p class="brochure__sub">Every facial, every add-on, every price — plus peel and acne-program details and exactly what to expect from your first visit.</p>
         <ul class="brochure__list">
-          <li>All six facials with session lengths &amp; pricing</li>
+          <li>Every treatment with session lengths &amp; pricing</li>
           <li>Chemical peel options, strengths &amp; expected downtime</li>
           <li>Acne program structure and home-care guidance</li>
           <li>Multi-session series pricing &amp; pre/post-care instructions</li>
@@ -910,7 +955,7 @@ p{margin:0 0 1em}
       <p class="faq__sub">Quick answers to the questions clients ask before booking a facial.</p>
     </div>
     <div class="faq__list reveal">
-      <details class="faq__item"><summary class="faq__btn">Which facial should I start with?<span class="faq__icon">+</span></summary><div class="faq__answer">If it's your first visit, start with <strong>The Reveal Custom Facial</strong> ($100, 60 min). It includes advanced skin analysis and a full consultation, so you find out what your skin actually needs before spending money on a more advanced treatment. Everything else on the menu builds from what we learn there.</div></details>
+      <details class="faq__item"><summary class="faq__btn">Which facial should I start with?<span class="faq__icon">+</span></summary><div class="faq__answer">If it's your first visit, start with <strong>The Reveal Custom Facial</strong> (60 min). It includes advanced skin analysis and a full consultation, so you find out what your skin actually needs before spending money on a more advanced treatment. Everything else on the menu builds from what we learn there.</div></details>
       <details class="faq__item"><summary class="faq__btn">How often should I get a facial?<span class="faq__icon">+</span></summary><div class="faq__answer">Skin renews roughly every 4–6 weeks, so most clients maintain on that cycle. If you're actively correcting something — acne, texture, pigmentation — a shorter series of more frequent visits works better up front, then you space out. Your esthetician gives you a specific cadence after your analysis rather than a generic membership pitch.</div></details>
       <details class="faq__item"><summary class="faq__btn">Is there downtime after a peel or dermaplaning?<span class="faq__icon">+</span></summary><div class="faq__answer">Dermaplaning has essentially no downtime — skin looks smoother and takes makeup better right away. Chemical peels vary: light peels may cause mild flaking for a few days, while stronger formulas involve more visible peeling. We walk you through expected downtime <em>before</em> you book so you can plan around events, and we'll never go stronger than your skin is ready for.</div></details>
       <details class="faq__item"><summary class="faq__btn">What is microchanneling, and does it hurt?<span class="faq__icon">+</span></summary><div class="faq__answer">Microchanneling creates controlled micro-channels in the skin that stimulate collagen production and dramatically improve how well serums absorb. Most clients describe it as a light prickling sensation rather than pain, and expect some redness afterward — similar to a mild sunburn — that typically settles within 24–48 hours.</div></details>
@@ -1022,13 +1067,14 @@ p{margin:0 0 1em}
         "@type":"OfferCatalog",
         "name":"Facials & Skincare",
         "itemListElement":[
-          {"@type":"Offer","price":"100","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"The Reveal Custom Facial"}},
-          {"@type":"Offer","price":"120","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Ultra Sonic Skin Scrubber Facial"}},
-          {"@type":"Offer","price":"145","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Luminous Facial Lift — Lymphatic & TMJ Release"}},
-          {"@type":"Offer","price":"165","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Royalty Dermaplaning Facial"}},
-          {"@type":"Offer","price":"225","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"Microchanneling"}},
-          {"@type":"Offer","price":"85","priceCurrency":"USD","itemOffered":{"@type":"Service","name":"30 Min Lymphatic Facial"}},
-          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Chemical Peels"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"The Reveal Custom Facial"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Ultra Sonic Skin Scrubber Facial"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Luminous Facial Lift — Lymphatic & TMJ Release"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Royalty Dermaplaning Facial"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Microchanneling"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Lymphatic Facial"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Define Jaw Line Sculpt"}},
+          {"@type":"Offer","itemOffered":{"@type":"Service","name":"Chemical Peel"}},
           {"@type":"Offer","itemOffered":{"@type":"Service","name":"Acne Treatment"}}
         ]
       }
@@ -1036,7 +1082,7 @@ p{margin:0 0 1em}
     {
       "@type":"FAQPage",
       "mainEntity":[
-        {"@type":"Question","name":"Which facial should I start with?","acceptedAnswer":{"@type":"Answer","text":"If it's your first visit, start with The Reveal Custom Facial ($100, 60 minutes). It includes advanced skin analysis and a full consultation, so you find out what your skin actually needs before spending money on a more advanced treatment."}},
+        {"@type":"Question","name":"Which facial should I start with?","acceptedAnswer":{"@type":"Answer","text":"If it's your first visit, start with The Reveal Custom Facial (60 minutes). It includes advanced skin analysis and a full consultation, so you find out what your skin actually needs before spending money on a more advanced treatment."}},
         {"@type":"Question","name":"How often should I get a facial?","acceptedAnswer":{"@type":"Answer","text":"Skin renews roughly every 4–6 weeks, so most clients maintain on that cycle. If you're actively correcting acne, texture or pigmentation, a shorter series of more frequent visits works better up front, then you space out."}},
         {"@type":"Question","name":"Is there downtime after a peel or dermaplaning?","acceptedAnswer":{"@type":"Answer","text":"Dermaplaning has essentially no downtime. Chemical peels vary: light peels may cause mild flaking for a few days, while stronger formulas involve more visible peeling. We review expected downtime before you book."}},
         {"@type":"Question","name":"What is microchanneling, and does it hurt?","acceptedAnswer":{"@type":"Answer","text":"Microchanneling creates controlled micro-channels in the skin that stimulate collagen production and improve serum absorption. Most clients describe a light prickling sensation, with redness that typically settles within 24–48 hours."}},
