@@ -106,19 +106,22 @@
     to{ opacity: 1; transform: translateY(0); }
   }
 
-  /* Success "glow" icon — sparkle instead of a plain checkmark, for the beauty/glow vibe */
+  /* Brand mark, held in the same soft glow ring the sparkle used */
   .glow-circle{
-    width: 88px;
-    height: 88px;
+    width: 104px;
+    height: 104px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--rust) 0%, var(--gold) 100%);
+    background: var(--white);
+    border: 1px solid var(--cream-200);
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 24px;
+    overflow: hidden;
     box-shadow: 0 0 0 14px var(--blush); /* soft glow ring */
   }
-  .glow-circle svg{ width: 42px; height: 42px; }
+  /* contain, not cover — the mark stays whole whatever its aspect ratio */
+  .glow-circle img{ width: 100%; height: 100%; object-fit: contain; padding: 12px; }
 
   /* --- 1. Header / success message --- */
   .eyebrow{
@@ -318,7 +321,7 @@
      ============================================ -->
 <header>
   <div class="header-inner">
-    <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/f9b15157-7f4b-4e0f-af96-c55534987ab1.png" alt="The Body Temple Spa">
+    <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Spa">
     <div class="header-brand">
       <div class="name">The Body Temple Spa</div>
       <div class="tag">Permanent Makeup · Athens, GA</div>
@@ -329,11 +332,9 @@
 <main>
   <div class="ty-card">
 
-    <!-- Success / "glow" icon -->
+    <!-- Brand mark -->
     <div class="glow-circle">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2.5l2.2 6.3 6.3 2.2-6.3 2.2L12 19.5l-2.2-6.3-6.3-2.2 6.3-2.2L12 2.5z" fill="white"/>
-      </svg>
+      <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Spa">
     </div>
 
     <!-- 1. HEADER / SUCCESS MESSAGE — edit headline text here -->
