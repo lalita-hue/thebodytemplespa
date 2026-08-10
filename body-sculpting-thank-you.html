@@ -80,8 +80,26 @@
   }
   .ty-wrap .lead{
     font-size:17px; color:#3c4d47; max-width:500px;
-    margin:0 auto 32px; line-height:1.65;
+    margin:0 auto 26px; line-height:1.65;
   }
+  .result-band{
+    background:var(--sage-deep);
+    border-radius:16px;
+    padding:24px 28px;
+    display:flex; align-items:flex-start; gap:16px;
+    text-align:left;
+    margin-bottom:24px;
+    box-shadow:0 14px 34px -18px rgba(38,67,59,0.75);
+  }
+  .result-band .rb-icon{font-size:24px; flex-shrink:0; line-height:1.25;}
+  .result-band .rb-tag{
+    display:inline-block; background:var(--gold); color:#2c1e07;
+    font-size:10.5px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase;
+    padding:4px 10px; border-radius:999px; margin-bottom:9px;
+  }
+  .result-band h2{font-size:19px; color:var(--white); margin-bottom:6px;}
+  .result-band p{font-size:14.5px; color:#c3d5cc; line-height:1.55;}
+  .result-band p strong{color:var(--gold-soft); font-weight:700;}
   .confirm-alert{
     background:var(--gold-soft);
     border:1.5px solid var(--gold);
@@ -222,6 +240,8 @@
     .next-card{padding:28px 22px;}
     main{padding:36px 16px;}
     .confirm-alert{padding:16px 20px;}
+    .result-band{padding:20px 20px; gap:12px;}
+    .result-band h2{font-size:17.5px;}
     .svc-row{flex-direction:column; align-items:flex-start; gap:14px;}
     .svc-side{align-items:flex-start; width:100%;}
     .svc-price{text-align:left;}
@@ -254,6 +274,15 @@
     <div class="eyebrow">You're booked!</div>
     <h1>Your assessment is confirmed.</h1>
     <p class="lead">Thank you for booking your 10-Minute Body Assessment with The Body Temple Spa. We can't wait to help you reach your goals!</p>
+
+    <div class="result-band">
+      <div class="rb-icon">✨</div>
+      <div>
+        <span class="rb-tag">Why it works</span>
+        <h2>Most clients see results after one session.</h2>
+        <p>Our award-winning technique works right away — so you need about <strong>a third of the sessions</strong> other sculpting studios ask for.</p>
+      </div>
+    </div>
 
     <div class="confirm-alert">
       <div class="icon">📬</div>
