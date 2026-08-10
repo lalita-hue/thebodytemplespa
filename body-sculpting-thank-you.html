@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Booked! — The Body Temple Spa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b27;
+    --sage-deep:#26433b;
+    --sage:#4a6e62;
+    --sage-soft:#e7eee9;
+    --ivory:#faf7f1;
+    --gold:#c8954a;
+    --gold-soft:#f3e3c9;
+    --line:#dbe2dd;
+    --white:#ffffff;
+    --shadow:0 20px 50px -20px rgba(28,43,39,0.25);
+    --radius:18px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0; height:100%;}
+  body{
+    font-family:'Manrope',sans-serif;
+    color:var(--ink);
+    background:var(--ivory);
+    -webkit-font-smoothing:antialiased;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; margin:0;}
+  p{margin:0; line-height:1.6;}
+  header{
+    background:rgba(250,247,241,0.95);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:14px 28px;
+  }
+  .header-inner{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; gap:12px;
+  }
+  .brand-mark{width:38px; height:38px; border-radius:50%; flex-shrink:0; object-fit:contain; background:var(--white);}
+  .brand-text .name{font-family:'Fraunces',serif; font-size:18px; font-weight:600;}
+  .brand-text .tag{font-size:10.5px; letter-spacing:0.13em; color:var(--sage); font-weight:700; text-transform:uppercase;}
+  main{flex:1; display:flex; align-items:center; justify-content:center; padding:52px 24px;}
+  .ty-wrap{
+    max-width:720px; width:100%; text-align:center;
+    animation:fadeUp .5s ease both;
+  }
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(24px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .check-circle{
+    width:92px; height:92px; border-radius:50%;
+    background:var(--sage-deep);
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 28px;
+    box-shadow:0 0 0 16px rgba(38,67,59,0.1);
+    animation:popIn .45s cubic-bezier(0.34,1.56,0.64,1) .15s both;
+  }
+  @keyframes popIn{
+    from{transform:scale(0.4); opacity:0;}
+    to{transform:scale(1); opacity:1;}
+  }
+  .check-circle svg{width:44px; height:44px;}
+  .eyebrow{
+    font-size:13px; letter-spacing:0.14em; text-transform:uppercase;
+    font-weight:700; color:var(--gold); margin-bottom:12px;
+  }
+  .ty-wrap h1{
+    font-size:clamp(30px,4.5vw,48px);
+    line-height:1.1;
+    color:var(--sage-deep);
+    margin-bottom:14px;
+  }
+  .ty-wrap .lead{
+    font-size:17px; color:#3c4d47; max-width:500px;
+    margin:0 auto 32px; line-height:1.65;
+  }
+  .confirm-alert{
+    background:var(--gold-soft);
+    border:1.5px solid var(--gold);
+    border-radius:14px;
+    padding:20px 28px;
+    display:flex; align-items:flex-start; gap:14px;
+    text-align:left;
+    margin-bottom:24px;
+  }
+  .confirm-alert .icon{font-size:22px; flex-shrink:0; margin-top:1px;}
+  .confirm-alert .text strong{display:block; font-size:15px; color:#7a5420; margin-bottom:4px;}
+  .confirm-alert .text span{font-size:14px; color:#8a6326; line-height:1.5;}
+  .next-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:36px 40px;
+    text-align:left;
+    margin-bottom:40px;
+    box-shadow:var(--shadow);
+  }
+  .next-card h3{
+    font-size:17px; color:var(--sage-deep);
+    margin-bottom:28px; text-align:center;
+    padding-bottom:18px; border-bottom:1px solid var(--line);
+  }
+  .steps-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:24px;}
+  .steps-list li{display:flex; gap:16px; align-items:flex-start;}
+  .step-dot{
+    flex-shrink:0;
+    width:36px; height:36px; border-radius:50%;
+    background:var(--sage-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-size:15px; font-weight:600;
+    color:var(--white); margin-top:1px;
+  }
+  .steps-list li .text strong{display:block; font-size:15px; color:var(--sage-deep); margin-bottom:4px;}
+  .steps-list li .text span{font-size:14px; color:#5b6b65; line-height:1.5;}
+
+  /* ── SERVICE MENU ── */
+  .menu-head{margin-bottom:22px;}
+  .menu-head h2{font-size:clamp(22px,3vw,28px); color:var(--sage-deep); margin-bottom:6px;}
+  .menu-head p{font-size:14px; color:#5b6b65;}
+  .svc-list{display:flex; flex-direction:column; gap:14px; text-align:left; margin-bottom:22px;}
+  .svc-row{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:22px 26px;
+    display:flex; align-items:center; justify-content:space-between; gap:18px;
+  }
+  .svc-row.feat{border:1.5px solid var(--gold);}
+  .svc-info{display:flex; flex-direction:column; gap:5px;}
+  .svc-tag{
+    align-self:flex-start;
+    background:var(--gold-soft); color:#8a6326;
+    font-size:11px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase;
+    padding:4px 10px; border-radius:999px; margin-bottom:2px;
+  }
+  .svc-name{font-family:'Fraunces',serif; font-size:18px; font-weight:600; color:var(--ink);}
+  .svc-desc{font-size:13.5px; color:#5b6b65; line-height:1.5;}
+  .svc-side{display:flex; flex-direction:column; align-items:flex-end; gap:12px; flex-shrink:0;}
+  .svc-price{
+    font-family:'Fraunces',serif; font-size:24px; font-weight:600;
+    color:var(--gold); line-height:1.1; white-space:nowrap; text-align:right;
+  }
+  .svc-dur{
+    display:block; font-family:'Manrope',sans-serif; font-size:12px;
+    font-weight:700; color:var(--sage); letter-spacing:0.02em;
+  }
+  .svc-actions{display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;}
+  .svc-book, .svc-text{
+    font-size:13px; font-weight:700; padding:10px 18px; border-radius:999px;
+    white-space:nowrap; text-decoration:none; transition:background .18s ease, color .18s ease;
+  }
+  .svc-book{background:var(--sage-deep); color:var(--white); border:1.5px solid var(--sage-deep);}
+  .svc-book:hover{background:#1d342c;}
+  .svc-text{background:transparent; color:var(--sage-deep); border:1.5px solid var(--sage-deep);}
+  .svc-text:hover{background:var(--sage-deep); color:var(--white);}
+  .svc-row.feat .svc-book{background:var(--gold); border-color:var(--gold);}
+  .svc-row.feat .svc-book:hover{background:#b6843e;}
+
+  /* ── CELLULITE PACKAGES ── */
+  .cel-block{
+    background:var(--sage-soft);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:26px 28px;
+    text-align:left;
+    margin-bottom:36px;
+  }
+  .cel-block h3{font-size:19px; color:var(--sage-deep); margin-bottom:6px;}
+  .cel-block p.note{font-size:13.5px; color:#5b6b65; margin-bottom:18px;}
+  .cel-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .cel-item{
+    background:var(--white); border:1px solid var(--line); border-radius:14px;
+    padding:20px 22px; display:flex; flex-direction:column; gap:4px;
+  }
+  .cel-item.best{border:1.5px solid var(--gold);}
+  .cel-item .ttl{font-family:'Fraunces',serif; font-size:17px; font-weight:600;}
+  .cel-item .amt{font-family:'Fraunces',serif; font-size:26px; color:var(--gold); font-weight:600;}
+  .cel-item .each{font-size:12.5px; color:var(--sage); font-weight:700; margin-bottom:12px;}
+  .cel-item .go{
+    margin-top:auto; text-align:center; background:var(--sage-deep); color:var(--white);
+    padding:11px 16px; border-radius:999px; font-size:13px; font-weight:700; text-decoration:none;
+  }
+  .cel-item.best .go{background:var(--gold);}
+  .cel-item .go:hover{background:#1d342c;}
+  .cel-item.best .go:hover{background:#b6843e;}
+
+  .trust{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:18px;
+    font-size:13.5px; color:var(--sage); font-weight:700; margin-bottom:32px;
+  }
+  .trust span{display:flex; align-items:center; gap:6px;}
+  .trust span::before{content:"•"; color:var(--gold);}
+  .trust span:first-child::before{display:none;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--sage-deep); color:var(--white);
+    padding:15px 28px; border-radius:999px;
+    font-weight:700; font-size:15px; text-decoration:none;
+    transition:transform .18s ease, background .18s ease;
+    box-shadow:0 10px 24px -10px rgba(38,67,59,0.55);
+  }
+  .btn:hover{transform:translateY(-2px); background:#1d342c;}
+  footer{
+    background:var(--ink); color:#8fa39a;
+    text-align:center; font-size:13px;
+    padding:22px 28px;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  footer a{color:#8fa39a; text-decoration:none;}
+  @media(max-width:700px){
+    .cel-grid{grid-template-columns:1fr;}
+  }
+  @media(max-width:600px){
+    .next-card{padding:28px 22px;}
+    main{padding:36px 16px;}
+    .confirm-alert{padding:16px 20px;}
+    .svc-row{flex-direction:column; align-items:flex-start; gap:14px;}
+    .svc-side{align-items:flex-start; width:100%;}
+    .svc-price{text-align:left;}
+    .svc-actions{justify-content:flex-start; width:100%;}
+    .svc-book, .svc-text{flex:1 1 auto; text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <img class="brand-mark" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Spa">
+    <div class="brand-text">
+      <div class="name">The Body Temple Spa</div>
+      <div class="tag">Body Contouring · Athens, GA</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="ty-wrap">
+
+    <div class="check-circle">
+      <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 22.5L18.5 31L34 15" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="eyebrow">You're booked!</div>
+    <h1>Your assessment is confirmed.</h1>
+    <p class="lead">Thank you for booking your 10-Minute Body Assessment with The Body Temple Spa. We can't wait to help you reach your goals!</p>
+
+    <div class="confirm-alert">
+      <div class="icon">📬</div>
+      <div class="text">
+        <strong>Check your email &amp; phone</strong>
+        <span>A confirmation has been sent to your email and phone number. If you don't see it within a few minutes, check your spam folder or text us at <strong>(959) 600-7342</strong>.</span>
+      </div>
+    </div>
+
+    <div class="next-card">
+      <h3>What happens next</h3>
+      <ul class="steps-list">
+        <li>
+          <div class="step-dot">1</div>
+          <div class="text">
+            <strong>Confirm your appointment</strong>
+            <span>Check your email and phone for your booking confirmation. Reply or call us if you need to reschedule.</span>
+          </div>
+        </li>
+        <li>
+          <div class="step-dot">2</div>
+          <div class="text">
+            <strong>Show up to your 10-min assessment</strong>
+            <span>We'll review your goals, target areas, and confirm whether body contouring is the right fit for you — no pressure, no obligation.</span>
+          </div>
+        </li>
+        <li>
+          <div class="step-dot">3</div>
+          <div class="text">
+            <strong>Get your personalized results plan</strong>
+            <span>If it's a great fit, we build your custom treatment timeline and you're ready to start seeing visible results.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="menu-head">
+      <h2>Our Body Contouring Menu</h2>
+      <p>Current rates as of your booking. Reserve any session directly, or we'll map the right plan at your assessment.</p>
+    </div>
+
+    <div class="svc-list">
+
+        <div class="svc-row feat">
+          <div class="svc-info">
+          <span class="svc-tag">Most Popular</span>
+          <div class="svc-name">Hourglass Mommy Make Over Sculpt</div>
+            <div class="svc-desc">Targets the waist and midsection to carve a tighter, more defined silhouette — the #1 booked session in our studio.</div>
+          </div>
+          <div class="svc-side">
+            <div class="svc-price">$315<span class="svc-dur">50 min</span></div>
+            <div class="svc-actions">
+              <a class="svc-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a3058038dd2752cd245360c" target="_blank" rel="noopener">Reserve</a>
+              <a class="svc-text" href="sms:+19596007342?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Hourglass%20Mommy%20Make%20Over%20Sculpt.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-row feat">
+          <div class="svc-info">
+          <span class="svc-tag">Best Value</span>
+          <div class="svc-name">Ultimate Body Sculpting Transformation</div>
+            <div class="svc-desc">Our most comprehensive treatment — contours multiple areas in a single extended session for dramatic full-body refinement.</div>
+          </div>
+          <div class="svc-side">
+            <div class="svc-price">$630<span class="svc-dur">1 hr 30 min</span></div>
+            <div class="svc-actions">
+              <a class="svc-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584d68f0090d42f5bc5f" target="_blank" rel="noopener">Reserve</a>
+              <a class="svc-text" href="sms:+19596007342?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Ultimate%20Body%20Sculpting%20Transformation.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-row">
+          <div class="svc-info">
+          <div class="svc-name">Elegant Silhouette Back Sculpt</div>
+            <div class="svc-desc">Smooths and tightens the back and bra-line area diet and exercise rarely reach.</div>
+          </div>
+          <div class="svc-side">
+            <div class="svc-price">$315<span class="svc-dur">50 min</span></div>
+            <div class="svc-actions">
+              <a class="svc-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584bb135e0727d691031" target="_blank" rel="noopener">Reserve</a>
+              <a class="svc-text" href="sms:+19596007342?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Elegant%20Silhouette%20Back%20Sculpt.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-row">
+          <div class="svc-info">
+          <div class="svc-name">Summer Legs Sculpt</div>
+            <div class="svc-desc">Refines and contours the inner thighs for smoother, firmer-looking skin and a visibly leaner appearance.</div>
+          </div>
+          <div class="svc-side">
+            <div class="svc-price">$199<span class="svc-dur">30 min</span></div>
+            <div class="svc-actions">
+              <a class="svc-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584ce3f0aef2413ce4bd" target="_blank" rel="noopener">Reserve</a>
+              <a class="svc-text" href="sms:+19596007342?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Summer%20Legs%20Sculpt.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-row">
+          <div class="svc-info">
+          <div class="svc-name">Sculpted Arms</div>
+            <div class="svc-desc">Firms and defines the upper arms — a favorite ahead of sleeveless season.</div>
+          </div>
+          <div class="svc-side">
+            <div class="svc-price">$199<span class="svc-dur">35 min</span></div>
+            <div class="svc-actions">
+              <a class="svc-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584cf2e86c5b8dbb9b33" target="_blank" rel="noopener">Reserve</a>
+              <a class="svc-text" href="sms:+19596007342?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Sculpted%20Arms.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="svc-row">
+          <div class="svc-info">
+          <div class="svc-name">Defined Jawline Sculpt</div>
+            <div class="svc-desc">A quick, targeted session that tightens and contours the jawline and lower face.</div>
+          </div>
+          <div class="svc-side">
+            <div class="svc-price">$199<span class="svc-dur">25 min</span></div>
+            <div class="svc-actions">
+              <a class="svc-book" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584d7b028c161b530b7f" target="_blank" rel="noopener">Reserve</a>
+              <a class="svc-text" href="sms:+19596007342?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Defined%20Jawline%20Sculpt.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="cel-block">
+      <h3>Cellulite Removal Packages</h3>
+      <p class="note">Results build session over session, so cellulite treatment is sold as a course rather than a single visit.</p>
+      <div class="cel-grid">
+        <div class="cel-item">
+          <span class="ttl">3-Session Package</span>
+          <span class="amt">$597</span>
+          <span class="each">$199 per session</span>
+          <a class="go" href="https://revelarte.thrivecart.com/celulite-removal-packages/" target="_blank" rel="noopener">Book 3 Sessions</a>
+        </div>
+        <div class="cel-item best">
+          <span class="ttl">6-Session Package</span>
+          <span class="amt">$1,134</span>
+          <span class="each">$189 per session · save $60</span>
+          <a class="go" href="https://revelarte.thrivecart.com/celulite-removal-packages/" target="_blank" rel="noopener">Book 6 Sessions</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="trust">
+      <span>No surgery · No downtime</span>
+      <span>Reply within the hour</span>
+      <span>300+ 5-star reviews</span>
+    </div>
+
+    <a href="https://thebodytemplespas.com/services-menu" class="btn">← Back to our services</a>
+
+  </div>
+</main>
+
+<footer>
+  <div>📍 2340 Prince Ave, Athens, GA 30606 &nbsp;·&nbsp; 📞 <a href="tel:9596007342">(959) 600-7342</a> &nbsp;·&nbsp; ✉️ <a href="mailto:hello@thebodytemplespas.com">hello@thebodytemplespas.com</a></div>
+  <div style="margin-top:8px;">© 2026 The Body Temple Spa. All rights reserved.</div>
+</footer>
+
+</body>
+</html>

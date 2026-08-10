@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Body Contouring in Athens, GA | The Body Temple Spa</title>
+<meta name="description" content="Non-surgical body contouring in Athens, GA. Lose visible inches with no surgery, no downtime and zero pain during treatment. 5.0★ from 300+ Google reviews.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ═══ THE BODY TEMPLE SPA — Body Contouring page ═══
+   Scoped to #btc so it can't collide with your builder's own
+   header / footer / section / .btn / .card styles. */
+
+html {
+    scroll-behavior: smooth;
+}   /* only intentionally global rule */
+
+#btc, #btc * {
+    box-sizing: border-box;
+}
+
+#btc {
+    --ink: #1c2b27;
+    --sage-deep: #26433b;
+    --sage: #4a6e62;
+    --sage-soft: #e7eee9;
+    --ivory: #faf7f1;
+    --gold: #c8954a;
+    --gold-soft: #f3e3c9;
+    --line: #dbe2dd;
+    --white: #ffffff;
+    --shadow: 0 20px 50px -20px rgba(28,43,39,0.25);
+    --radius: 18px;
+    font-family: 'Manrope', sans-serif;
+    color: var(--ink);
+    background: var(--ivory);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+#btc h1, #btc h2, #btc h3, #btc .serif {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0;
+}
+
+#btc p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+#btc a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#btc img {
+    max-width: 100%;
+    display: block;
+}
+
+#btc .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+#btc .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+/* ── BUTTONS ── */
+#btc .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--sage-deep);
+    color: var(--white);
+    padding: 16px 28px;
+    border-radius: 999px;
+    font-family: 'Manrope',sans-serif;
+    font-weight: 700;
+    font-size: 15.5px;
+    border: none;
+    cursor: pointer;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    box-shadow: 0 10px 24px -10px rgba(38,67,59,0.55);
+}
+
+#btc .btn:hover {
+    transform: translateY(-2px);
+    background: #1d342c;
+}
+
+#btc .btn.small {
+    padding: 11px 18px;
+    font-size: 13px;
+}
+
+#btc .btn.gold {
+    background: var(--gold);
+    box-shadow: 0 10px 24px -10px rgba(200,149,74,0.6);
+}
+
+#btc .btn.gold:hover {
+    background: #b6843e;
+}
+
+/* ── HEADER ── */
+#btc header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(250,247,241,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+}
+
+#btc .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    max-width: 1180px;
+    margin: 0 auto;
+    gap: 18px;
+}
+
+#btc .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+#btc .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: conic-gradient(from 220deg, var(--sage-deep), var(--gold), var(--sage-deep));
+    flex-shrink: 0;
+}
+
+#btc .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+#btc .brand-text .name {
+    font-family: 'Fraunces',serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#btc .brand-text .tag {
+    font-size: 10.5px;
+    letter-spacing: 0.13em;
+    color: var(--sage);
+    font-weight: 700;
+}
+
+#btc .header-mid {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    font-size: 14px;
+    color: var(--sage-deep);
+    font-weight: 600;
+}
+
+#btc .stars {
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+#btc .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+#btc .phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 14.5px;
+    white-space: nowrap;
+}
+
+@media (max-width:920px) {
+    #btc .header-mid {
+        display: none;
+    }
+}
+
+@media (max-width:680px) {
+    #btc .phone span.label {
+        display: none;
+    }
+
+    #btc .header-cta .btn {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+}
+
+/* ── HERO ── */
+#btc .hero {
+    padding: 72px 0 90px;
+    position: relative;
+    overflow: hidden;
+}
+
+#btc .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 8%, var(--sage-soft) 0%, transparent 45%),
+    radial-gradient(circle at 0% 90%, var(--gold-soft) 0%, transparent 40%);
+    z-index: 0;
+}
+
+#btc .hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+    align-items: center;
+}
+
+#btc .hero-photo-col {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    height: 580px;
+    position: relative;
+}
+
+#btc .hero-treatment-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+#btc .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13.5px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+}
+
+#btc .hero h1 {
+    font-size: clamp(34px,4.4vw,54px);
+    line-height: 1.06;
+    margin-bottom: 22px;
+}
+
+#btc .hero h1 .underline {
+    position: relative;
+    display: inline-block;
+}
+
+#btc .hero h1 .underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    height: 10px;
+    background: var(--gold-soft);
+    z-index: -1;
+    border-radius: 4px;
+}
+
+#btc .hero .sub {
+    font-size: 18.5px;
+    color: #3c4d47;
+    max-width: 560px;
+    margin-bottom: 30px;
+}
+
+#btc .bullets {
+    list-style: none;
+    margin: 0 0 36px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    max-width: 560px;
+}
+
+#btc .bullets li {
+    display: flex;
+    gap: 12px;
+    font-size: 15.5px;
+    color: #2b3a36;
+    font-weight: 500;
+}
+
+#btc .bullets li .tick {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--sage-deep);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    margin-top: 1px;
+}
+
+#btc .trust-strip {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 13.5px;
+    color: var(--sage);
+    font-weight: 700;
+}
+
+#btc .trust-strip span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+#btc .trust-strip span::before {
+    content: "•";
+    color: var(--gold);
+}
+
+#btc .trust-strip span:first-child::before {
+    display: none;
+}
+
+#btc .reviews-mini {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+}
+
+#btc .reviews-mini .stars-lg {
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+#btc .reviews-mini .review-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#btc .reviews-mini .review-text strong {
+    font-size: 15px;
+    color: var(--sage-deep);
+}
+
+#btc .reviews-mini .review-text span {
+    font-size: 13px;
+    color: var(--sage);
+}
+
+@media (max-width:900px) {
+    #btc .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    #btc .hero-photo-col {
+        height: 360px;
+    }
+}
+
+/* ── SECTION BASICS ── */
+#btc section {
+    padding: 88px 0;
+}
+
+#btc .section-head {
+    max-width: 680px;
+    margin: 0 auto 52px;
+    text-align: center;
+}
+
+#btc .section-head h2 {
+    font-size: clamp(28px,3.2vw,40px);
+    margin-top: 10px;
+}
+
+#btc .divider {
+    width: 64px;
+    height: 3px;
+    background: var(--gold);
+    margin: 0 auto 18px;
+    border-radius: 2px;
+}
+
+/* ── FIRST-SESSION PROMISE ── */
+#btc .promise-section {
+    background: var(--sage-deep);
+    padding: 80px 0;
+}
+
+#btc .promise-section-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+#btc .promise-img-col {
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-top: 24px;
+    box-shadow: var(--shadow);
+}
+
+#btc .promise-img-col img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+#btc .promise-section-text .eyebrow {
+    color: var(--gold-soft);
+}
+
+#btc .promise-section-text h2 {
+    color: var(--white);
+}
+
+#btc .promise-section-text p {
+    color: #cfe0d8;
+}
+
+#btc .promise-features-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#btc .promise-features-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    color: #dfe9e3;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+#btc .promise-features-list li strong {
+    color: var(--white);
+}
+
+#btc .pf-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(200,149,74,0.2);
+    border: 1px solid rgba(200,149,74,0.4);
+    color: var(--gold-soft);
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+@media (max-width:860px) {
+    #btc .promise-section-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+
+/* ── SERVICES ── */
+#btc .services {
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+#btc .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+
+#btc .service-card {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 24px 22px;
+    background: var(--ivory);
+    transition: transform .18s ease, box-shadow .18s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#btc .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+#btc .service-card-img {
+    width: calc(100% + 48px);
+    margin: -24px -24px 16px -24px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+}
+
+#btc .service-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .35s ease;
+}
+
+#btc .service-card:hover .service-card-img img {
+    transform: scale(1.04);
+}
+
+#btc .service-card .top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#btc .service-card h3 {
+    font-size: 18.5px;
+    line-height: 1.25;
+    max-width: 100%;
+}
+
+#btc .service-card .duration {
+    font-size: 13px;
+    color: var(--sage);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+#btc .service-card .desc {
+    font-size: 14px;
+    color: #5b6b65;
+    line-height: 1.5;
+}
+
+#btc .service-card .featured-tag {
+    align-self: flex-start;
+    background: var(--gold-soft);
+    color: #8a6326;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 2px;
+}
+
+#btc .service-card.featured {
+    border: 1.5px solid var(--gold);
+    background: var(--white);
+}
+
+#btc .services-note {
+    text-align: center;
+    font-size: 14px;
+    color: #5b6b65;
+    margin-top: 30px;
+}
+
+#btc .service-card .card-btn {
+    margin-top: auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--sage-deep);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    padding: 13px 18px;
+    border-radius: 999px;
+    font-family: 'Manrope',sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    transition: transform .18s ease, background .18s ease;
+}
+
+#btc .service-card .card-btn:hover {
+    background: #1d342c;
+    transform: translateY(-2px);
+}
+
+#btc .service-card.featured .card-btn {
+    background: var(--gold);
+}
+
+#btc .service-card.featured .card-btn:hover {
+    background: #b6843e;
+}
+
+@media (max-width:900px) {
+    #btc .service-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width:620px) {
+    #btc .service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── CELLULITE REMOVAL ── */
+#btc .cellulite {
+    background: var(--ivory);
+}
+
+#btc .cel-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+}
+
+#btc .cel-copy p {
+    font-size: 16.5px;
+    color: #3c4d47;
+    margin-bottom: 16px;
+}
+
+#btc .cel-list {
+    list-style: none;
+    margin: 22px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+#btc .cel-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 15px;
+    color: #2b3a36;
+    font-weight: 500;
+}
+
+#btc .cel-list li .tick {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--sage-deep);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+#btc .cel-packages {
+    display: grid;
+    gap: 18px;
+}
+
+#btc .cel-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px 28px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+#btc .cel-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+#btc .cel-card.best {
+    border: 1.5px solid var(--gold);
+}
+
+#btc .cel-tag {
+    align-self: flex-start;
+    background: var(--gold-soft);
+    color: #8a6326;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+}
+
+#btc .cel-card h3 {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+#btc .cel-card .cel-desc {
+    font-size: 14px;
+    color: #5b6b65;
+    line-height: 1.5;
+    margin-top: 6px;
+}
+
+#btc .cel-btn {
+    margin-top: 16px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--sage-deep);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    padding: 13px 18px;
+    border-radius: 999px;
+    font-family: 'Manrope',sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    transition: transform .18s ease, background .18s ease;
+}
+
+#btc .cel-btn:hover {
+    background: #1d342c;
+    transform: translateY(-2px);
+}
+
+#btc .cel-card.best .cel-btn {
+    background: var(--gold);
+}
+
+#btc .cel-card.best .cel-btn:hover {
+    background: #b6843e;
+}
+
+#btc .cel-note {
+    font-size: 13px;
+    color: #85928c;
+    margin-top: 16px;
+    text-align: center;
+}
+
+@media (max-width:900px) {
+    #btc .cel-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+
+/* ── MEET THE STUDIO ── */
+#btc .meet {
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+#btc .meet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+#btc .meet-grid .body-copy {
+    font-size: 17px;
+    color: #3c4d47;
+    margin-bottom: 26px;
+}
+
+#btc .meet-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+}
+
+#btc .meet-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--sage-deep);
+}
+
+#btc .meet-list li .tick {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+#btc .meet-visual {
+    background: var(--sage-soft);
+    border-radius: var(--radius);
+    padding: 38px;
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#btc .stat-pill {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 18px 22px;
+    box-shadow: var(--shadow);
+    position: absolute;
+}
+
+#btc .meet-photo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#btc .meet-photo-main {
+    border-radius: 14px;
+    overflow: hidden;
+    height: 240px;
+}
+
+#btc .meet-photo-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#btc .meet-photo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#btc .meet-photo-small {
+    border-radius: 14px;
+    overflow: hidden;
+    height: 160px;
+}
+
+#btc .meet-photo-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+#btc .stat-pill.one {
+    top: 24px;
+    left: 24px;
+}
+
+#btc .stat-pill.two {
+    bottom: 24px;
+    right: 24px;
+}
+
+#btc .stat-pill .num {
+    font-family: 'Fraunces',serif;
+    font-size: 28px;
+    color: var(--sage-deep);
+    font-weight: 600;
+}
+
+#btc .stat-pill .lbl {
+    font-size: 11.5px;
+    color: #5b6b65;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+@media (max-width:900px) {
+    #btc .meet-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+
+/* ── THERAPISTS ── */
+#btc .therapists {
+    background: var(--white);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+#btc .ther-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#btc .ther-card {
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+#btc .ther-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+#btc .ther-photo {
+    width: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: var(--sage-soft);
+}
+
+#btc .ther-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+}
+
+#btc .ther-body {
+    padding: 26px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+#btc .ther-name {
+    font-family: 'Fraunces',serif;
+    font-size: 23px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+}
+
+#btc .ther-role {
+    font-size: 11.5px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+}
+
+#btc .ther-bio {
+    font-size: 14.5px;
+    color: #5b6b65;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+#btc .ther-creds {
+    list-style: none;
+    margin: auto 0 0;
+    padding: 0;
+    display: grid;
+    gap: 9px;
+}
+
+#btc .ther-creds li {
+    display: flex;
+    gap: 10px;
+    font-size: 13.5px;
+    color: var(--sage-deep);
+    font-weight: 600;
+}
+
+#btc .ther-creds li .tick {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--gold-soft);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+@media (max-width:760px) {
+    #btc .ther-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+}
+
+/* ── TESTIMONIALS ── */
+#btc .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+}
+
+#btc .testi-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: var(--shadow);
+}
+
+#btc .testi-card .stars {
+    font-size: 14px;
+}
+
+#btc .testi-card p {
+    font-size: 15.5px;
+    color: #2b3a36;
+    font-style: italic;
+}
+
+#btc .testi-card .who {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--sage-deep);
+    font-style: normal;
+}
+
+#btc .testi-note {
+    text-align: center;
+    font-size: 12.5px;
+    color: #85928c;
+    margin-top: 28px;
+}
+
+@media (max-width:900px) {
+    #btc .testi-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── HOW IT WORKS TIMELINE ── */
+#btc .how {
+    background: var(--sage-deep);
+    color: var(--white);
+}
+
+#btc .how .section-head h2 {
+    color: var(--white);
+}
+
+#btc .how .divider {
+    background: var(--gold);
+}
+
+#btc .timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 0;
+}
+
+#btc .timeline::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: calc(50% / 3);
+    right: calc(50% / 3);
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold) 0%, rgba(200,149,74,0.35) 100%);
+    z-index: 0;
+}
+
+#btc .timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+#btc .timeline-node {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--sage-deep);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 0 0 8px rgba(200,149,74,0.12);
+}
+
+#btc .timeline-node .step-num {
+    font-family: 'Fraunces',serif;
+    font-size: 26px;
+    color: var(--gold);
+    font-weight: 600;
+    line-height: 1;
+}
+
+#btc .timeline-item:not(:last-child) .timeline-node::after {
+    content: "→";
+    position: absolute;
+    right: -42px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 22px;
+    opacity: 0.7;
+}
+
+#btc .timeline-item h3 {
+    font-size: 19px;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+#btc .timeline-item p {
+    font-size: 14.5px;
+    color: #cfe0d8;
+    line-height: 1.6;
+}
+
+#btc .timeline-item .time-tag {
+    display: inline-block;
+    background: rgba(200,149,74,0.18);
+    border: 1px solid rgba(200,149,74,0.35);
+    color: var(--gold-soft);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+}
+
+@media (max-width:900px) {
+    #btc .timeline {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    #btc .timeline::before {
+        top: calc(50% / 3);
+        bottom: calc(50% / 3);
+        left: 40px;
+        right: auto;
+        width: 2px;
+        height: auto;
+        background: linear-gradient(180deg, var(--gold) 0%, rgba(200,149,74,0.35) 100%);
+    }
+
+    #btc .timeline-item {
+        flex-direction: row;
+        text-align: left;
+        gap: 24px;
+        padding: 0 0 40px 0;
+        align-items: flex-start;
+    }
+
+    #btc .timeline-item:last-child {
+        padding-bottom: 0;
+    }
+
+    #btc .timeline-node {
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+
+    #btc .timeline-item:not(:last-child) .timeline-node::after {
+        content: "↓";
+        right: auto;
+        top: auto;
+        bottom: -36px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #btc .timeline-item .content {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* ── FAQ ── */
+#btc .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+#btc details {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 6px 22px;
+}
+
+#btc summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 18px 0;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--sage-deep);
+}
+
+#btc summary::-webkit-details-marker {
+    display: none;
+}
+
+#btc summary::after {
+    content: "+";
+    font-size: 22px;
+    color: var(--gold);
+    font-weight: 400;
+    flex-shrink: 0;
+    margin-left: 14px;
+}
+
+#btc details[open] summary::after {
+    content: "–";
+}
+
+#btc details p {
+    padding: 0 0 20px;
+    font-size: 15px;
+    color: #445249;
+}
+
+/* ── FINAL CTA + FOOTER ── */
+#btc .final {
+    background: radial-gradient(circle at 20% 20%, rgba(200,149,74,0.18), transparent 50%), var(--ink);
+    color: var(--white);
+    text-align: center;
+}
+
+#btc .final .eyebrow {
+    color: var(--gold-soft);
+}
+
+#btc .final h2 {
+    color: var(--white);
+    font-size: clamp(30px,4vw,46px);
+    margin: 12px 0 16px;
+}
+
+#btc .final p.sub {
+    color: #cdd9d2;
+    font-size: 17px;
+    max-width: 520px;
+    margin: 0 auto 32px;
+}
+
+#btc .final .trust-strip {
+    justify-content: center;
+    color: var(--gold-soft);
+}
+
+#btc .final .trust-strip span::before {
+    color: var(--gold);
+}
+
+#btc footer {
+    background: var(--ink);
+    color: #8fa39a;
+    text-align: center;
+    font-size: 13px;
+    padding: 26px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+@media (max-width:600px) {
+    #btc section {
+        padding: 64px 0;
+    }
+
+    #btc .hero {
+        padding: 48px 0 60px;
+    }
+}
+
+/* ── BOOKING MODAL ── */
+#btc .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(28,43,39,0.7);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#btc .modal-overlay.open {
+    display: flex;
+}
+
+#btc .modal-box {
+    background: var(--white);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 32px 80px -20px rgba(28,43,39,0.55);
+    animation: btcModalIn .22s ease;
+}
+
+@keyframes btcModalIn {
+    from {
+        transform: translateY(18px) scale(0.97);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+#btc .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 28px 0;
+}
+
+#btc .modal-header h3 {
+    font-size: 20px;
+    color: var(--sage-deep);
+}
+
+#btc .modal-close {
+    background: var(--sage-soft);
+    border: none;
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    color: var(--sage-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .15s;
+}
+
+#btc .modal-close:hover {
+    background: var(--line);
+}
+
+#btc .modal-body {
+    padding: 16px 28px 28px;
+}
+</style>
+</head>
+<body>
+
+<div id="btc">
+
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-mark">
+          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Spa" style="width:100%;height:100%;object-fit:contain;">
+        </div>
+        <div class="brand-text">
+          <span class="name">The Body Temple Spa</span>
+          <span class="tag">BODY CONTOURING · ATHENS, GA</span>
+        </div>
+      </div>
+      <div class="header-mid">
+        <span class="stars">★★★★★</span>
+        <span>5.0 · 300+ Google reviews</span>
+      </div>
+      <div class="header-cta">
+        <div class="phone">📞 <span class="label">(959) 600-7342</span></div>
+        <button class="btn small" onclick="btcOpenModal()">Book Now — 10 Min Body Assessment</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="badge"><span class="stars">★★★★★</span> 5.0 · 300+ verified Google reviews</div>
+        <h1>Lose inches, not months of effort.<br><span class="underline">See visible body contouring results</span> in just one session.</h1>
+        <p class="sub">Natural lipo without the pain or recovery time. We target stubborn fat and tighten skin in the exact areas that diet and exercise can't reach. Walk in on your lunch break, walk out, and get right back to your day.</p>
+        <ul class="bullets">
+          <li><span class="tick">✓</span> Drop visible inches from your waist, thighs, or arms — often noticeable after the first 1–3 sessions.</li>
+          <li><span class="tick">✓</span> Smooth the appearance of cellulite on thighs, hips, and glutes.</li>
+          <li><span class="tick">✓</span> Return to work, the gym, or pick up the kids the very same day — zero recovery time.</li>
+          <li><span class="tick">✓</span> Enjoy tighter, smoother skin in treated areas within 1–2 weeks, with no surgical scars.</li>
+          <li><span class="tick">✓</span> No surgery, no downtime, and zero pain during treatment.</li>
+        </ul>
+        <button class="btn gold" onclick="btcOpenModal()">Book Now — 10 Min Body Assessment</button>
+        <div class="trust-strip">
+          <span>Reply within the hour</span>
+          <span>No surgery, no downtime</span>
+          <span>Zero pain during treatment</span>
+        </div>
+      </div>
+      <div class="hero-photo-col">
+        <img class="hero-treatment-img" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a4440adc597b88b613e2c33.png" alt="Body contouring session at The Body Temple Spa">
+      </div>
+    </div>
+  </section>
+
+  <section class="promise-section">
+    <div class="wrap">
+      <div class="promise-section-grid">
+        <div class="promise-section-text">
+          <div class="eyebrow">First-Session Promise</div>
+          <h2 style="margin:10px 0 16px;">See a visible difference — no surgery, no downtime.</h2>
+          <div class="promise-img-col">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a4573e908049c65ab645fdf.png" alt="Before and after Hourglass Mommy Make Over Sculpt - three sessions">
+          </div>
+          <p style="font-size:17px; color:#ffffff; margin:22px 0 24px;">Most clients notice a measurable change in inches after their first 1–3 sessions. It's not surgery, and most clients feel zero pain during treatment.</p>
+          <div class="reviews-mini">
+            <div class="stars-lg">★★★★★</div>
+            <div class="review-text">
+              <strong>5.0 out of 5 stars</strong>
+              <span>300+ verified Google reviews · Athens, GA</span>
+            </div>
+          </div>
+        </div>
+        <div class="promise-features-col">
+          <ul class="promise-features-list">
+            <li><span class="pf-icon">✦</span><div><strong>Visible inch loss</strong><br>Often noticeable after the first 1–3 sessions</div></li>
+            <li><span class="pf-icon">✦</span><div><strong>Zero pain for most clients</strong><br>No needles, no scalpels, no surgery</div></li>
+            <li><span class="pf-icon">✦</span><div><strong>Walk out the same day</strong><br>No recovery time — back to your day immediately</div></li>
+            <li><span class="pf-icon">✦</span><div><strong>Tighter, smoother skin</strong><br>Results in treated areas within 1–2 weeks</div></li>
+            <li><span class="pf-icon">✦</span><div><strong>Custom results timeline</strong><br>Built just for your body and your goals</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"></div>
+        <div class="eyebrow">Choose Your Focus Area</div>
+        <h2>Our Body Contouring Menu</h2>
+      </div>
+      <div class="service-grid">
+        <div class="service-card featured">
+          <div class="service-card-img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a4547e22bed802fc6de652d.png" alt="Hourglass Mommy Make Over Sculpt treatment"></div>
+          <span class="featured-tag">Most Popular</span>
+          <div class="top-row"><h3>Hourglass Mommy Make Over Sculpt</h3></div>
+          <div class="duration">50 min session</div>
+          <p class="desc">Targets the waist and midsection to carve a tighter, more defined silhouette — the #1 booked session in our studio.</p>
+          <button class="card-btn" onclick="btcOpenModal()">See Pricing &amp; Book</button>
+        </div>
+        <div class="service-card featured">
+          <div class="service-card-img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a453475ff26a380881dec08.png" alt="Ultimate Body Sculpting Transformation treatment"></div>
+          <span class="featured-tag">Best Value</span>
+          <div class="top-row"><h3>Ultimate Body Sculpting Transformation</h3></div>
+          <div class="duration">1 hr 30 min session</div>
+          <p class="desc">Our most comprehensive treatment — contours multiple areas in a single extended session for clients seeking dramatic full-body refinement.</p>
+          <button class="card-btn" onclick="btcOpenModal()">See Pricing &amp; Book</button>
+        </div>
+        <div class="service-card">
+          <div class="service-card-img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a45347508049c65ab5638c6.png" alt="Elegant Silhouette Back Sculpt"></div>
+          <div class="top-row"><h3>Elegant Silhouette Back Sculpt</h3></div>
+          <div class="duration">50 min session</div>
+          <p class="desc">Smooths and tightens the back and bra-line area diet and exercise rarely reach.</p>
+          <button class="card-btn" onclick="btcOpenModal()">See Pricing &amp; Book</button>
+        </div>
+        <div class="service-card">
+          <div class="service-card-img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a453475dc5f2c22a288493c.png" alt="Summer Legs Sculpt treatment"></div>
+          <div class="top-row"><h3>Summer Legs Sculpt</h3></div>
+          <div class="duration">30 min session</div>
+          <p class="desc">Refines and contours the inner thighs for smoother, firmer-looking skin and a visibly leaner appearance.</p>
+          <button class="card-btn" onclick="btcOpenModal()">See Pricing &amp; Book</button>
+        </div>
+        <div class="service-card">
+          <div class="service-card-img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a453475f5487c977801ac36.png" alt="Sculpted Arms treatment"></div>
+          <div class="top-row"><h3>Sculpted Arms</h3></div>
+          <div class="duration">35 min session</div>
+          <p class="desc">Firms and defines the upper arms — a favorite ahead of sleeveless season.</p>
+          <button class="card-btn" onclick="btcOpenModal()">See Pricing &amp; Book</button>
+        </div>
+        <div class="service-card">
+          <div class="service-card-img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a453475b653a0ddc22b287c.png" alt="Defined Jawline Sculpt treatment"></div>
+          <div class="top-row"><h3>Defined Jawline Sculpt</h3></div>
+          <div class="duration">25 min session</div>
+          <p class="desc">A quick, targeted session that tightens and contours the jawline and lower face.</p>
+          <button class="card-btn" onclick="btcOpenModal()">See Pricing &amp; Book</button>
+        </div>
+      </div>
+      <p class="services-note">Every plan is personalized at your consultation — most clients combine 2–3 areas for a full custom timeline.</p>
+      <div style="text-align:center; margin-top:40px;">
+        <button class="btn gold" onclick="btcOpenModal()">Book Now — 10 Min Body Assessment</button>
+        <p style="font-size:13.5px; color:#85928c; margin-top:14px;">$15 deposit · Fully refundable if you show up · Goes toward your first service</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cellulite">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"></div>
+        <div class="eyebrow">Targeted Treatment Packages</div>
+        <h2>Cellulite Removal</h2>
+      </div>
+      <div class="cel-layout">
+        <div class="cel-copy">
+          <p>Cellulite isn't a weight problem — it's a structural one. It shows up on thighs, hips, and glutes regardless of how lean you are, which is exactly why diet and cardio rarely touch it.</p>
+          <p>Our cellulite treatment works on the tissue underneath: breaking down stubborn pockets, stimulating circulation, and firming the skin above so the dimpled texture visibly softens.</p>
+          <p>It's sold in packages because it works cumulatively — results build session over session rather than arriving all at once.</p>
+          <ul class="cel-list">
+            <li><span class="tick">✓</span> Targets thighs, hips, and glutes</li>
+            <li><span class="tick">✓</span> Non-surgical, no downtime — same-day return to normal activity</li>
+            <li><span class="tick">✓</span> Smoother skin texture and firmer tone in treated areas</li>
+            <li><span class="tick">✓</span> Pairs well with any contouring session above</li>
+          </ul>
+        </div>
+        <div class="cel-packages">
+          <div class="cel-card">
+            <h3>3-Session Package</h3>
+            <p class="cel-desc">A first course of treatment — enough to see the texture start to change.</p>
+            <button class="cel-btn" onclick="btcOpenModal()">See Pricing &amp; Book</button>
+          </div>
+          <div class="cel-card best">
+            <span class="cel-tag">Best Value</span>
+            <h3>6-Session Package</h3>
+            <p class="cel-desc">The full recommended course, at the lowest per-session rate.</p>
+            <button class="cel-btn" onclick="btcOpenModal()">See Pricing &amp; Book</button>
+          </div>
+          <p class="cel-note">Packages are confirmed at your assessment · One-time payment at checkout</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meet">
+    <div class="wrap meet-grid">
+      <div>
+        <div class="eyebrow">Meet The Studio</div>
+        <h2 style="margin:10px 0 22px;">Meet The Body Temple Spa</h2>
+        <p class="body-copy">Founded in 2020 in the midst of chaos, we created a sanctuary of refuge. We quickly grew from a basement practice into a storefront spa and have proudly served more than 10,000 clients to date.</p>
+        <p class="body-copy" style="margin-bottom:18px;"><em>We believe self-care is self-love.</em></p>
+        <p class="body-copy">When our minds, bodies, and souls are cared for, we experience better decision-making, improved focus, greater emotional stability, healthier relationships, and an overall higher quality of life. Everything improves when we dedicate time to deep relaxation, healing, and beauty.</p>
+        <p class="body-copy" style="margin-top:18px;">We are dedicated to helping you achieve a higher quality of life and become your most vibrant, confident self through deep relaxation, beauty, and alternative therapies. We do this by providing consistent, high-quality, results-driven services, products, and experiences.</p>
+        <ul class="meet-list" style="margin-top:26px;">
+          <li><span class="tick">✓</span> 10,000+ clients served</li>
+          <li><span class="tick">✓</span> Certified experts in RF Body Sculpting &amp; Lymphatic Drainage Therapy</li>
+          <li><span class="tick">✓</span> Recognized and trusted by our community</li>
+          <li><span class="tick">✓</span> Personalized Treatment Plans — With bioindividuality as the foundation of our approach to healing and beauty enhancement, every treatment is customized to your unique needs.</li>
+        </ul>
+      </div>
+      <div class="meet-visual">
+        <div class="meet-photo-grid">
+          <div class="meet-photo-main">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a42e50a2fa97cb7544cebe5.jpg" alt="The Body Temple Spa exterior">
+          </div>
+          <div class="meet-photo-row">
+            <div class="meet-photo-small">
+              <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a42e50c0c7afddf148d5893.jpg" alt="Spa reception">
+            </div>
+            <div class="meet-photo-small">
+              <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a42e50806fe2e51dcdb8fdd.jpg" alt="Treatment room">
+            </div>
+          </div>
+        </div>
+        <div class="stat-pill one"><div class="num">7+</div><div class="lbl">Years Experience</div></div>
+        <div class="stat-pill two"><div class="num">10,000+</div><div class="lbl">Clients Served</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="therapists">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"></div>
+        <div class="eyebrow">Who You'll Be Working With</div>
+        <h2>Your Body Sculpting Therapists</h2>
+      </div>
+      <div class="ther-grid">
+        <div class="ther-card">
+          <div class="ther-photo">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a2b5ed9e5084c4b71970049.png" alt="Lalita Sundari, founder of The Body Temple Spa" loading="lazy">
+          </div>
+          <div class="ther-body">
+            <div class="ther-name">Lalita Sundari</div>
+            <div class="ther-role">Founder · Body Sculpting Therapist</div>
+            <p class="ther-bio">Lalita founded The Body Temple Spa in 2020 and has built it into one of Athens' most trusted body and wellness studios. She specializes in body sculpting and authentic Brazilian lymphatic drainage, and she personally trains every therapist who works on our tables.</p>
+            <ul class="ther-creds">
+              <li><span class="tick">✓</span> Certified in RF Body Sculpting</li>
+              <li><span class="tick">✓</span> Brazilian lymphatic drainage &amp; post-op recovery specialist, among other wellness and healing specialties</li>
+              <li><span class="tick">✓</span> Founder — 10,000+ clients served since 2020</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ther-card">
+          <div class="ther-photo">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a2b5ed5e5084c4b7197002b.png" alt="Ann Loyer, body contourist at The Body Temple Spa" loading="lazy">
+          </div>
+          <div class="ther-body">
+            <div class="ther-name">Ann Loyer</div>
+            <div class="ther-role">Body Contourist · Licensed Massage Therapist</div>
+            <p class="ther-bio">Ann brings over 10 years of bodywork experience to every contouring session. She reads each body intuitively and adapts her approach to what that client actually needs — no two sessions are run the same way. A Reiki practitioner also certified in biohacking, house detox, and feng shui, Ann treats recovery as something that continues after you leave the table.</p>
+            <ul class="ther-creds">
+              <li><span class="tick">✓</span> Licensed Massage Therapist &amp; Body Contourist</li>
+              <li><span class="tick">✓</span> 10+ years of hands-on bodywork experience</li>
+              <li><span class="tick">✓</span> Reiki practitioner — certified in Biohacking, House Detox &amp; Feng Shui</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"></div>
+        <div class="eyebrow">Real Results, Real Words</div>
+        <h2>What Our Clients Are Saying</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"I lost visible inches off my waist after just a few sessions. No surgery, no downtime — I went straight back to work every time."</p>
+          <div class="who">— Tynisa McCleton, Athens, GA</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"I felt zero pain during treatment and saw a real difference by session three. It's not what I expected at all — way easier."</p>
+          <div class="who">— Sara Blake, Athens, GA</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Booked on a Tuesday, walked in on my lunch break, walked out and went straight back to work. Results were visible within weeks."</p>
+          <div class="who">— Maria Sanchez, Athens, GA</div>
+        </div>
+      </div>
+      <!-- ⚠ The quote text above is still written copy, not real reviews, and it now
+           carries real names. Pull the actual wording from your Google Business
+           profile and paste it in before this goes live. -->
+      <p class="testi-note">Verified reviews from our Google Business profile.</p>
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"></div>
+        <div class="eyebrow">From Booking To Results</div>
+        <h2>Your Journey, Step by Step</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-node"><span class="step-num">01</span></div>
+          <div class="content">
+            <span class="time-tag">Step 1</span>
+            <h3>Book Now — 10 Min Body Assessment</h3>
+            <p>Not every body is the same, and this treatment may not be the right fit for everyone. For just $15 — fully refundable when you show up — we'll determine if body contouring is right for you and build a personalized plan for your goals. If you move forward, the $15 goes toward your first service.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-node"><span class="step-num">02</span></div>
+          <div class="content">
+            <span class="time-tag">Step 2</span>
+            <h3>Book Your Treatment</h3>
+            <p>Once we've mapped your personalized plan, we'll schedule your first session at a time that works for your life.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-node"><span class="step-num">03</span></div>
+          <div class="content">
+            <span class="time-tag">Step 3</span>
+            <h3>Walk In. Walk Out. See Visible Results.</h3>
+            <p>Tighter, smoother skin and measurable inch loss in treated areas. We track your progress session by session so you can see exactly how far you've come.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"></div>
+        <div class="eyebrow">Still Have Questions?</div>
+        <h2>Let's Clear That Up</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>Is this surgery?</summary>
+          <p>No. It's not surgery, there's no downtime, and most clients feel zero pain during treatment.</p>
+        </details>
+        <details>
+          <summary>Will I need to take time off?</summary>
+          <p>No — walk in on your lunch break, walk out, and go straight back to work, the gym, or pick up the kids. Zero recovery time.</p>
+        </details>
+        <details>
+          <summary>How fast will I see results?</summary>
+          <p>Most clients notice visible inches lost after the first 1–3 sessions, with tighter, smoother skin in treated areas within 1–2 weeks.</p>
+        </details>
+        <details>
+          <summary>Will there be scarring?</summary>
+          <p>No surgery scars — this is a non-surgical approach to tightening skin and reducing inches.</p>
+        </details>
+        <details>
+          <summary>How much does it cost?</summary>
+          <p>Sessions vary by area and length, and most clients combine 2–3 areas into a custom plan. Book the 10-minute assessment and we'll walk you through the full price list and build a timeline around your goals — the $15 is refundable when you show up and goes toward your first service.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="btc-final-cta">
+    <div class="wrap">
+      <div class="eyebrow">Your Next Steps</div>
+      <h2>Ready to look your best and feel your most confident self?</h2>
+      <p class="sub">Start with a 10-minute body assessment — just $15, fully refundable when you show up. If you move forward, it goes straight toward your first service.</p>
+      <button class="btn gold" onclick="btcOpenModal()">Book Now — 10 Min Body Assessment</button>
+      <div class="trust-strip">
+        <span class="stars">★★★★★ 5.0</span>
+        <span>300+ reviews</span>
+        <span>Reply within the hour</span>
+        <span>No surgery · No downtime</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="display:flex; flex-wrap:wrap; gap:24px; justify-content:space-between; text-align:left; padding-bottom:14px;">
+      <div>
+        <div style="font-family:'Fraunces',serif; color:#ffffff; font-size:17px; margin-bottom:4px;">The Body Temple Spa</div>
+        <div>Athens, GA · Body Contouring</div>
+      </div>
+      <div>
+        <div>📍 2340 Prince Ave, Athens, GA 30606</div>
+        <div>📞 (959) 600-7342 &nbsp; ✉️ hello@thebodytemplespas.com</div>
+      </div>
+      <div>
+        <div>Mon–Fri · 9am–7pm</div>
+        <div>Saturday · 9am–4pm &nbsp; Sunday · 2pm–8pm</div>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08); padding-top:14px;">© 2026 The Body Temple Spa. Serving Athens, GA. All rights reserved.</div>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-overlay" id="btcBookingModal" onclick="if(event.target===this)btcCloseModal()">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Book Now — 10 Min Body Assessment</h3>
+        <button class="modal-close" onclick="btcCloseModal()">×</button>
+      </div>
+      <div class="modal-body" style="padding:12px 0 0;">
+        <iframe src="https://api.leadconnectorhq.com/widget/booking/L8GKt4BQLY1lbC6BnuPC" style="width:100%;height:600px;border:none;overflow:hidden;border-radius:0 0 20px 20px;display:block;" scrolling="no" id="L8GKt4BQLY1lbC6BnuPC_1782926330520"></iframe>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end #btc -->
+
+<script>
+  function btcOpenModal(){
+    document.getElementById('btcBookingModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function btcCloseModal(){
+    document.getElementById('btcBookingModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') btcCloseModal(); });
+</script>
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+
+</body>
+</html>
