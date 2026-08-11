@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — Lashes &amp; Brows | The Body Temple Spa</title>
+
+<!-- Fonts: Playfair Display (headings) + Inter (body) — matches the other thank-you pages -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================
+     DESIGN TOKENS — edit colors/fonts/spacing here
+     Same warm cream / espresso / rust-gold palette
+     as the facials and permanent makeup thank-you
+     pages, for brand consistency.
+     ============================================ */
+  :root{
+    --cream:      #fefaf8;   /* page background */
+    --cream-100:  #f5efe7;   /* subtle panel background */
+    --cream-200:  #ece2d4;   /* borders / dividers */
+    --blush:      #fbeee7;   /* soft rose-gold glow accent */
+
+    --espresso:      #1a120a; /* headings, primary text */
+    --espresso-700:  #2b1e14; /* dark footer background */
+
+    --rust:      #c96438;   /* primary accent / buttons / icons */
+    --rust-dark: #a84f2a;   /* accent hover state */
+    --rust-50:   #fbeee7;   /* soft accent background */
+
+    --gold:      #d4a843;   /* price highlight / "glow" color */
+
+    --text-muted: rgba(26,18,10,0.62);
+    --white: #ffffff;
+
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans:  'Inter', system-ui, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --radius-pill: 100px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body{
+    font-family: var(--font-sans);
+    /* soft glow gradient behind everything, for the "glowing" beauty-clinic feel */
+    background: radial-gradient(circle at 50% 0%, var(--blush) 0%, var(--cream) 55%);
+    color: var(--espresso);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ============================================
+     HEADER — logo + business name
+     ============================================ */
+  header{
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--cream-200);
+    padding: 16px 24px;
+  }
+  .header-inner{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-inner img{ width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+  .header-brand .name{ font-family: var(--font-serif); font-size: 16px; font-weight: 600; }
+  .header-brand .tag{ font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rust); }
+
+  /* ============================================
+     MAIN — centered thank-you content
+     ============================================ */
+  main{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 20px;
+  }
+
+  .ty-card{
+    max-width: 680px;
+    width: 100%;
+    text-align: center;
+    animation: fadeUp .5s ease both;
+  }
+  @keyframes fadeUp{
+    from{ opacity: 0; transform: translateY(20px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  /* Brand mark, held in a soft glow ring */
+  .glow-circle{
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 1px solid var(--cream-200);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    overflow: hidden;
+    box-shadow: 0 0 0 14px var(--blush); /* soft glow ring */
+  }
+  /* contain, not cover — the mark stays whole whatever its aspect ratio */
+  .glow-circle img{ width: 100%; height: 100%; object-fit: contain; padding: 12px; }
+
+  /* --- 1. Header / success message --- */
+  .eyebrow{
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 10px;
+  }
+  .ty-card h1{
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 4.5vw, 40px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .ty-card h1 em{ font-style: italic; font-weight: 600; color: var(--gold); }
+
+  /* --- 2. Reassurance text --- */
+  .ty-card .lead{
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 16px;
+    line-height: 1.7;
+  }
+  .ty-card .lead--end{ margin-bottom: 28px; }
+
+  /* --- First-visit offer --- */
+  .offer{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--rust-50);
+    border: 1px solid var(--rust);
+    color: var(--espresso);
+    border-radius: var(--radius-pill);
+    padding: 11px 24px;
+    font-size: 14.5px;
+    font-weight: 600;
+    margin: 0 auto 40px;
+  }
+  .offer strong{ color: var(--rust); font-weight: 700; }
+
+
+  /* ============================================
+     3. PRICE LIST SECTION
+     ============================================ */
+  .price-section{ margin-bottom: 40px; }
+  .price-section h2{
+    font-family: var(--font-serif);
+    font-size: clamp(20px, 3vw, 24px);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .price-section .sub{
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  /* Group heading inside the menu — separates sets, fills, lifts and tints */
+  .group-label{
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rust);
+    text-align: left;
+    margin: 26px 0 -2px;
+  }
+  .group-label:first-child{ margin-top: 0; }
+  .group-note{
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: left;
+    margin-bottom: 2px;
+  }
+
+  .price-list{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .price-item{
+    background: var(--white);
+    border: 1px solid var(--cream-200);
+    border-radius: var(--radius-md);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  /* Highlight style for the featured/most-popular treatment */
+  .price-item.featured{
+    border-color: var(--rust);
+    box-shadow: 0 16px 32px -22px rgba(201,100,56,0.35);
+  }
+
+  .price-item .details{ display: flex; flex-direction: column; gap: 4px; }
+  .price-item .service-name{
+    font-family: var(--font-serif);
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .price-item .service-desc{ font-size: 13.5px; color: var(--text-muted); }
+  .price-item .service-desc strong{ display: block; color: var(--espresso);
+    font-weight: 600; margin-bottom: 4px; }
+  .price-item .badge{
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--rust);
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 4px;
+  }
+
+  .price-item .price{
+    font-family: var(--font-serif);
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .price-item .price .unit{
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: block;
+    text-align: right;
+  }
+
+
+  /* --- Booking buttons on each service row --- */
+  .price-side{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .price-actions{
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .btn-book, .btn-text{
+    font-size: 13px;
+    font-weight: 600;
+    padding: 9px 18px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+  }
+  .btn-book{ background: var(--rust); color: var(--white); border: 1.5px solid var(--rust); }
+  .btn-book:hover{ background: var(--rust-dark); border-color: var(--rust-dark); }
+  .btn-text{ background: transparent; color: var(--rust); border: 1.5px solid var(--rust); }
+  .btn-text:hover{ background: var(--rust); color: var(--white); }
+  .btn-book:focus-visible, .btn-text:focus-visible{ outline: 2px solid var(--espresso); outline-offset: 2px; }
+
+  /* --- 4. Call to action button --- */
+  .btn-primary{
+    display: inline-block;
+    background: var(--rust);
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: var(--radius-pill);
+    transition: background 0.18s, transform 0.12s;
+  }
+  .btn-primary:hover{ background: var(--rust-dark); transform: translateY(-1px); }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+  footer{
+    background: var(--espresso-700);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    font-size: 13px;
+    padding: 20px 24px;
+  }
+  footer a{ color: rgba(255,255,255,0.7); }
+
+  /* ============================================
+     MOBILE
+     ============================================ */
+  @media (max-width: 600px){
+    main{ padding: 40px 16px; }
+    .price-item{ flex-direction: column; align-items: flex-start; gap: 14px; }
+    .price-side{ align-items: flex-start; width: 100%; }
+    .price-actions{ justify-content: flex-start; width: 100%; }
+    .btn-book, .btn-text{ flex: 1 1 auto; text-align: center; }
+    .price-item .price .unit{ text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     HEADER — swap the logo image / business name here
+     ============================================ -->
+<header>
+  <div class="header-inner">
+    <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Spa">
+    <div class="header-brand">
+      <div class="name">The Body Temple Spa</div>
+      <div class="tag">Lashes &amp; Brows · Athens, GA</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="ty-card">
+
+    <!-- Brand mark -->
+    <div class="glow-circle">
+      <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Spa">
+    </div>
+
+    <!-- 1. HEADER / SUCCESS MESSAGE — edit headline text here -->
+    <div class="eyebrow">Request received</div>
+    <h1>Thank You &mdash; <em>Wake Up With Your Eyes Already Done</em></h1>
+
+    <!-- 2. REASSURANCE TEXT — edit these paragraphs -->
+    <p class="lead">
+      Our lash artist will reach out shortly to talk through the look you want and which set
+      suits your eye shape.
+    </p>
+
+    <p class="lead">
+      We map every set to your natural lash line first &mdash; length, curl and weight matched to
+      what your own lashes can carry. That is what keeps a set looking full at week three
+      instead of sparse, and it is why your natural lashes stay healthy underneath.
+    </p>
+
+    <p class="lead lead--end">
+      Beauty starts with health. Non-toxic adhesives, a clean unrushed room, and aftercare we
+      actually walk you through &mdash; because retention is half technique and half what happens
+      when you go home.
+    </p>
+
+    <!-- OFFER — first-visit incentive -->
+    <p class="offer"><strong>10% off</strong> your first visit if you schedule today.</p>
+
+    <!-- ============================================
+         3. PRICE LIST SECTION
+         Duplicate a .price-item block to add more services.
+         Update service-name / service-desc / price as needed.
+         ============================================ -->
+    <div class="price-section">
+      <h2>Our Lash &amp; Brow Services</h2>
+      <p class="sub">Current rates as of your enquiry.</p>
+
+      <div class="price-list">
+
+        <div class="group-label">Full Sets</div>
+
+        <div class="price-item featured">
+          <div class="details">
+            <span class="badge">Most Popular</span>
+            <span class="service-name">Eye Lash Classic Full Set</span>
+            <span class="service-desc">One extension on one natural lash, all the way across. Adds length and definition while still reading like your own lashes &mdash; the set to start with.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">$220<span class="unit">/ 1 hr 30 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/classic-lash" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Eye%20Lash%20Classic%20Full%20Set.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Eye Lash Volume Full Set</span>
+            <span class="service-desc">Handmade fans of several ultra-fine extensions on each natural lash. Far more density and a darker lash line &mdash; still weight-matched so nothing pulls.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">$265<span class="unit">/ 2 hr</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/volume-lash" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Eye%20Lash%20Volume%20Full%20Set.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="group-label">Fills</div>
+        <p class="group-note">Book every 2&ndash;3 weeks to keep a set looking full. Fills are for lashes applied here.</p>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Eye Lashes Classic Fill</span>
+            <span class="service-desc">Replaces the extensions that have naturally shed and rebalances the line. Keeps a classic set looking like the day it was done.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">$74<span class="unit">/ 45 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/classic-fill" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20an%20Eye%20Lashes%20Classic%20Fill.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Eye Lashes Volume Fill &mdash; 60 Min</span>
+            <span class="service-desc">The standard volume refill, for sets kept on a regular two to three week rhythm.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">$95<span class="unit">/ 1 hr</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/volume-fill" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20an%20Eye%20Lashes%20Volume%20Fill%20-%2060%20Min.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Eye Lashes Volume Fill 75 Min</span>
+            <span class="service-desc">The longer volume refill, for when more has grown out than a standard fill can cover &mdash; or when you have gone past three weeks.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">$130<span class="unit">/ 1 hr 15 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/75-min-9146" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20an%20Eye%20Lashes%20Volume%20Fill%2075%20Min.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="group-label">Lifts &amp; Tints</div>
+        <p class="group-note">No extensions, no upkeep appointments &mdash; your own lashes, curled and darkened.</p>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Korean Lash Lift</span>
+            <span class="service-desc">A softer, more natural curl than a traditional lift &mdash; it lifts from the root so straight or downward-pointing lashes open the eye. Lasts six to eight weeks with nothing to maintain.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">$125<span class="unit">/ 1 hr</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/korean-lash" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20the%20Korean%20Lash%20Lift.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Lash Tint</span>
+            <span class="service-desc">Darkens pale or light-tipped natural lashes root to tip. Beautiful on its own, and the usual add-on to a lash lift.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">$40<span class="unit">/ 20 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/lash-tint" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20Lash%20Tint.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="price-item">
+          <div class="details">
+            <span class="service-name">Brow Tint</span>
+            <span class="service-desc">Fifteen minutes to deepen and even out the brows so they frame the eyes properly. The quickest way to balance a new lash set.</span>
+          </div>
+          <div class="price-side">
+            <div class="price">$25<span class="unit">/ 15 min</span></div>
+            <div class="price-actions">
+              <a class="btn-book" href="https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/brow-tint" target="_blank" rel="noopener">Reserve</a>
+              <a class="btn-text" href="sms:+19594009242?&body=Hi%21%20I%27d%20like%20to%20book%20a%20Brow%20Tint.">Text to Book</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 4. CALL TO ACTION — links back to the live homepage -->
+    <a href="https://thebodytemplespas.com/" class="btn-primary">← Back to Home</a>
+
+  </div>
+</main>
+
+<!-- FOOTER — update contact info / copyright year -->
+<footer>
+  <div>© 2026 The Body Temple Spa. Serving Athens, GA. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
