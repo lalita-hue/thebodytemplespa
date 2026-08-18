@@ -113,7 +113,7 @@ p{margin:0 0 1em}
 .hero__below span{margin:0 6px;color:var(--orange)}
 .hero__visual{position:relative}
 .hero__img-wrap{aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:var(--cream-deep);box-shadow:var(--shadow-lg)}
-.hero__img-wrap img{width:100%;height:100%;object-fit:cover}
+.hero__img-wrap img,.hero__img-wrap video{width:100%;height:100%;object-fit:cover;display:block}
 .hero__caption{position:absolute;top:18px;left:18px;background:rgba(44,51,69,.88);color:#fff;padding:8px 14px;border-radius:var(--radius-pill);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;backdrop-filter:blur(8px);font-weight:500;z-index:2}
 .hero__guarantee{position:absolute;bottom:-30px;left:-20px;right:20px;background:#fff;padding:22px 24px;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);border-left:3px solid var(--orange);max-width:340px}
 .hero__guarantee-eye{font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
@@ -410,8 +410,13 @@ p{margin:0 0 1em}
       <div class="hero__visual reveal">
         <div class="hero__img-wrap">
           <span class="hero__caption">Inside our Athens, GA spa</span>
-          <!-- TODO: swap for a facial-treatment photo when available -->
-          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg" alt="Private treatment room at The Body Temple Spa in Athens, GA" width="600" height="750">
+          <video class="hero__video" autoplay muted loop playsinline preload="metadata"
+                 poster="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg"
+                 width="600" height="750"
+                 aria-label="Inside The Body Temple Spa in Athens, GA">
+            <source src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a84f177e8effa27adc73a74.mp4" type="video/mp4">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg" alt="Private treatment room at The Body Temple Spa in Athens, GA" width="600" height="750">
+          </video>
         </div>
         <div class="hero__guarantee">
           <span class="hero__guarantee-eye">Our First-Facial Promise</span>
@@ -1052,6 +1057,18 @@ const io=new IntersectionObserver(es=>{
   es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
 },{threshold:.10,rootMargin:'-30px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const heroVideo=document.querySelector('.hero__video');
+if(heroVideo){
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
+    heroVideo.removeAttribute('autoplay');
+    heroVideo.pause();
+    heroVideo.setAttribute('controls','');
+  }else{
+    const play=heroVideo.play();
+    if(play&&play.catch)play.catch(()=>heroVideo.setAttribute('controls',''));
+  }
+}
 </script>
 </body>
 </html>
