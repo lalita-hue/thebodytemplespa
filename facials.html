@@ -268,11 +268,11 @@ p{margin:0 0 1em}
 .spatour__track{display:flex;gap:18px;width:max-content;animation:spatour-scroll 50s linear infinite}
 .spatour__track:hover{animation-play-state:paused}
 .spatour__tile{flex:0 0 240px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);position:relative;aspect-ratio:4/5;background:var(--cream-deep)}
-.spatour__tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
-.spatour__tile:hover img{transform:scale(1.05)}
+.spatour__tile img,.spatour__tile video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.spatour__tile:hover img,.spatour__tile:hover video{transform:scale(1.05)}
 .spatour__cta{text-align:center}
-@keyframes spatour-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-258px * 9))}}
-@media(min-width:780px){.spatour__tile{flex:0 0 320px}@keyframes spatour-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-338px * 9))}}}
+@keyframes spatour-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-258px * 10))}}
+@media(min-width:780px){.spatour__tile{flex:0 0 320px}@keyframes spatour-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-338px * 10))}}}
 @media(prefers-reduced-motion:reduce){.spatour__track{animation:none;flex-wrap:wrap;justify-content:center}}
 
 /* REVIEWS */
@@ -801,24 +801,26 @@ p{margin:0 0 1em}
     <div class="spatour__viewport reveal">
       <div class="spatour__track">
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e55aefbd076b9817f7.jpg" alt="The Body Temple Spa building entrance in Athens, GA" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg" alt="Private treatment room at The Body Temple Spa's Athens studio" width="600" height="750" loading="lazy"></div>
+        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8500b896d2b224d329cc1e.jpg" alt="Treatment room at The Body Temple Spa's Athens studio" width="600" height="750" loading="lazy"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e75dd1fd13ce648ab7.jpg" alt="Treatment room with two tables at the Athens studio" width="600" height="750" loading="lazy"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e514a2b82bfeea5110.jpg" alt="Hydrogen alkaline water station for clients at The Body Temple Spa" width="600" height="750" loading="lazy"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cc9.webp" alt="Spa decor — candles, essential oils and towels" width="600" height="750" loading="lazy"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cd3.jpg" alt="Client lounge with velvet sofa at the Athens studio" width="600" height="750" loading="lazy"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e714a2b82bfeea513c.jpg" alt="Reception and retail area at The Body Temple Spa" width="600" height="750" loading="lazy"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e53c38d825b93d7cfa.jpg" alt="Lounge seating area at the Athens studio" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e7d50c4ff184d82ac1.jpg" alt="Treatment room with two tables and natural light" width="600" height="750" loading="lazy"></div>
+        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8500b896d2b224d329cc23.jpg" alt="Treatment space at The Body Temple Spa's Athens studio" width="600" height="750" loading="lazy"></div>
+        <div class="spatour__tile"><video class="spatour__video" autoplay muted loop playsinline preload="metadata" width="600" height="750" aria-label="Walkthrough of The Body Temple Spa's Athens studio"><source src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a85010296d2b224d329d07f.mp4" type="video/mp4"></video></div>
         <!-- Duplicate set for seamless loop -->
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e55aefbd076b9817f7.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
+        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8500b896d2b224d329cc1e.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e75dd1fd13ce648ab7.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e514a2b82bfeea5110.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cc9.webp" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cd3.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e714a2b82bfeea513c.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
         <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e53c38d825b93d7cfa.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e7d50c4ff184d82ac1.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
+        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8500b896d2b224d329cc23.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
+        <div class="spatour__tile" aria-hidden="true"><video class="spatour__video" autoplay muted loop playsinline preload="metadata" width="600" height="750"><source src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a85010296d2b224d329d07f.mp4" type="video/mp4"></video></div>
       </div>
     </div>
     <div class="spatour__cta reveal">
@@ -1077,17 +1079,18 @@ const io=new IntersectionObserver(es=>{
 },{threshold:.10,rootMargin:'-30px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-const heroVideo=document.querySelector('.hero__video');
-if(heroVideo){
-  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches){
-    heroVideo.removeAttribute('autoplay');
-    heroVideo.pause();
-    heroVideo.setAttribute('controls','');
+const calmMotion=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+document.querySelectorAll('video[autoplay]').forEach(v=>{
+  const isHero=v.classList.contains('hero__video');
+  if(calmMotion){
+    v.removeAttribute('autoplay');
+    v.pause();
+    if(isHero)v.setAttribute('controls','');
   }else{
-    const play=heroVideo.play();
-    if(play&&play.catch)play.catch(()=>heroVideo.setAttribute('controls',''));
+    const play=v.play();
+    if(play&&play.catch)play.catch(()=>{if(isHero)v.setAttribute('controls','')});
   }
-}
+});
 </script>
 </body>
 </html>
