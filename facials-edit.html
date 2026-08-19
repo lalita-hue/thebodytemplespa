@@ -1084,5 +1084,117 @@ document.querySelectorAll('video[autoplay]').forEach(v=>{
   }
 });
 </script>
+
+<!-- ================= EDIT MODE (scratch copy only — not part of the live page) ================= -->
+<style id="editmode-css">
+#editbanner{position:fixed;top:0;left:0;right:0;z-index:200;background:#1F1815;color:#fff;font-family:'Poppins',sans-serif;font-size:.78rem;letter-spacing:.04em;padding:9px 16px;text-align:center}
+#editbanner b{color:#FD6932}
+body{padding-top:38px}
+[data-edit]{outline:1px dashed rgba(253,105,50,.30);outline-offset:2px;border-radius:3px;transition:background .15s ease}
+[data-edit]:hover{outline-color:rgba(253,105,50,.85);background:rgba(253,105,50,.06)}
+[data-edit]:focus{outline:2px solid #FD6932;background:#fff8f3}
+[data-edit].is-edited{background:rgba(253,105,50,.12)}
+.reveal{opacity:1!important;transform:none!important}
+.spatour__track{animation-play-state:paused!important}
+#editbar{position:fixed;right:18px;bottom:18px;z-index:210;display:flex;gap:8px;font-family:'Poppins',sans-serif}
+#editbar button{background:#1F1815;color:#fff;border:none;border-radius:100px;padding:12px 20px;font-size:.82rem;font-weight:600;cursor:pointer;box-shadow:0 8px 28px rgba(31,24,21,.30)}
+#editbar button.primary{background:#FD6932}
+#editbar button:hover{opacity:.9}
+#editout{position:fixed;inset:0;z-index:220;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;padding:24px}
+#editout.open{display:flex}
+#editout .box{background:#fff;border-radius:14px;width:100%;max-width:720px;padding:24px;font-family:'Poppins',sans-serif;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+#editout h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;margin:0 0 6px;color:#1F1815}
+#editout p.hint{font-size:.84rem;color:#7a7570;margin:0 0 14px}
+#editout textarea{width:100%;height:300px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;line-height:1.5;padding:12px;border:1px solid rgba(31,24,21,.18);border-radius:8px;resize:vertical;color:#1F1815;background:#FEFAF0}
+#editout .row{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
+#editout .row button{border:none;border-radius:100px;padding:11px 20px;font-size:.82rem;font-weight:600;cursor:pointer}
+#editout .row .copy{background:#FD6932;color:#fff}
+#editout .row .close{background:#E6D8C3;color:#1F1815}
+@media print{#editbanner,#editbar,#editout{display:none}}
+</style>
+
+<div id="editbanner"><b>EDIT PREVIEW</b> — click any text and type. Then hit <b>Show my changes</b> and paste the result back to Claude. Links and buttons are disabled here.</div>
+
+<div id="editbar">
+  <button type="button" id="editreset">Reset</button>
+  <button type="button" class="primary" id="editshow">Show my changes</button>
+</div>
+
+<div id="editout">
+  <div class="box">
+    <h3>Your changes</h3>
+    <p class="hint">Select all, copy, and paste this into the chat. I'll apply each one to the real page.</p>
+    <textarea id="editdump" spellcheck="false"></textarea>
+    <div class="row">
+      <button type="button" class="close" id="editclose">Close</button>
+      <button type="button" class="copy" id="editcopy">Select &amp; copy</button>
+    </div>
+  </div>
+</div>
+
+<script id="editmode-js">
+(function(){
+  var SKIP={SCRIPT:1,STYLE:1,NOSCRIPT:1,IFRAME:1,VIDEO:1,SOURCE:1,IMG:1,BR:1,HEAD:1,TITLE:1};
+  var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null);
+  var candidates=new Set(),node;
+  while((node=walker.nextNode())){
+    if(!node.nodeValue.trim())continue;
+    var p=node.parentElement;
+    if(!p||SKIP[p.tagName])continue;
+    if(p.closest('#editbar,#editout,#editbanner'))continue;
+    if(p.closest('svg'))continue;
+    candidates.add(p);
+  }
+  var targets=[];
+  candidates.forEach(function(el){
+    var a=el.parentElement,nested=false;
+    while(a){ if(candidates.has(a)){nested=true;break;} a=a.parentElement; }
+    if(!nested)targets.push(el);
+  });
+
+  var originals=new Map();
+  function norm(s){return s.replace(/\s+/g,' ').trim();}
+  targets.forEach(function(el,i){
+    el.setAttribute('data-edit',i);
+    el.setAttribute('contenteditable','true');
+    originals.set(el,norm(el.textContent));
+    el.addEventListener('input',function(){
+      el.classList.toggle('is-edited',norm(el.textContent)!==originals.get(el));
+    });
+  });
+
+  // Edit mode: clicks select text instead of navigating or opening the booking modal.
+  document.addEventListener('click',function(e){
+    if(e.target.closest('#editbar,#editout'))return;
+    var t=e.target.closest('a,button,summary');
+    if(t){e.preventDefault();e.stopPropagation();}
+  },true);
+
+  function collect(){
+    var out=[],n=0;
+    targets.forEach(function(el){
+      var now=norm(el.textContent),was=originals.get(el);
+      if(now!==was){n++;out.push(n+'. WAS: '+was+'\n   NOW: '+now);}
+    });
+    return n?('EDITS ('+n+')\n\n'+out.join('\n\n')):'No changes yet — click any text on the page and type.';
+  }
+
+  var box=document.getElementById('editout'),dump=document.getElementById('editdump');
+  document.getElementById('editshow').addEventListener('click',function(){
+    dump.value=collect();box.classList.add('open');dump.focus();dump.select();
+  });
+  document.getElementById('editclose').addEventListener('click',function(){box.classList.remove('open');});
+  box.addEventListener('click',function(e){if(e.target===box)box.classList.remove('open');});
+  document.getElementById('editcopy').addEventListener('click',function(){
+    dump.focus();dump.select();
+    try{document.execCommand('copy');}catch(err){}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(dump.value).catch(function(){});
+  });
+  document.getElementById('editreset').addEventListener('click',function(){
+    targets.forEach(function(el){el.textContent=originals.get(el);el.classList.remove('is-edited');});
+  });
+})();
+</script>
+
 </body>
 </html>
