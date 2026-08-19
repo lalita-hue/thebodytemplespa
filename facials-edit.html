@@ -187,6 +187,17 @@ p{margin:0 0 1em}
 .brochure__cover-link{display:block;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);transition:transform .35s ease;max-width:380px;width:100%;padding:0;border:none;background:none;cursor:pointer}
 .brochure__cover-link:hover{transform:translateY(-6px) rotate(-1deg)}
 .brochure__cover{width:100%;display:block}
+.brochure__cover-link{container-type:inline-size}
+.bcover{position:relative;width:100%;aspect-ratio:600/780;background:linear-gradient(160deg,#F7F0E5 0%,#FEFAF0 52%,#F3E8D6 100%);display:flex;flex-direction:column;align-items:center;text-align:center;padding:16% 9% 7%;color:var(--ink)}
+.bcover__brand{font-size:9px;font-size:2.3cqw;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.bcover__title{font-family:var(--serif);font-weight:700;font-size:36px;font-size:9.5cqw;line-height:1.02;letter-spacing:-.015em;margin:auto 0 0;color:var(--ink)}
+.bcover__title em{display:block;font-style:italic;font-weight:600;color:var(--orange)}
+.bcover__kicker{font-family:var(--serif);font-size:12px;font-size:3.1cqw;font-style:italic;color:var(--muted);margin-top:3cqw}
+.bcover__rule{width:22%;height:1px;background:var(--orange);opacity:.5;margin:5cqw 0}
+.bcover__body{font-size:10px;font-size:2.55cqw;line-height:1.6;color:var(--ink-soft);margin:0 0 auto;max-width:82%}
+.bcover__chip{display:inline-flex;align-items:center;gap:1.6cqw;border:1px solid var(--orange);border-radius:var(--radius-pill);padding:2cqw 4cqw;font-size:9px;font-size:2.3cqw;font-weight:600;color:var(--ink);background:rgba(255,255,255,.6);white-space:nowrap}
+.bcover__chip span{color:var(--orange);letter-spacing:.5px}
+.bcover__foot{margin-top:5cqw;font-size:8px;font-size:2.05cqw;color:var(--muted);line-height:1.5}
 .brochure__cover-tag{position:absolute;top:18px;right:18px;background:var(--orange);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border-radius:var(--radius-pill);box-shadow:var(--shadow-sm);display:inline-flex;align-items:center;gap:6px;pointer-events:none}
 .brochure__details h2{color:var(--ink);margin-bottom:14px}
 .brochure__sub{color:var(--ink-soft);font-size:1.05rem;line-height:1.65;margin-bottom:24px}
@@ -635,7 +646,15 @@ p{margin:0 0 1em}
     <div class="brochure__layout">
       <div class="brochure__cover-wrap reveal">
         <div class="brochure__cover-link" aria-hidden="true">
-          <img class="brochure__cover" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4ebcb92c4e0c89d9487.png" alt="The Body Temple Spa services, pricing and packages brochure preview" width="600" height="780">
+          <div class="bcover" role="img" aria-label="The Body Temple Spa facials and skin care menu — pricing, services and packages">
+            <span class="bcover__brand">The Body Temple Spa · Athens, GA</span>
+            <h3 class="bcover__title">Facials<em>&amp; Skin Care</em></h3>
+            <span class="bcover__kicker">Pricing · Services · Packages</span>
+            <span class="bcover__rule"></span>
+            <p class="bcover__body">Custom facials, dermaplaning, microchanneling, chemical peels and acne care — analysis first, so you only pay for what your skin actually needs.</p>
+            <span class="bcover__chip"><span>★★★★★</span> 5.0 · 317 verified Google reviews</span>
+            <span class="bcover__foot">2350 Prince Ave, Athens, GA 30606 · +1 (959) 400-9242 · thebodytemplespas.com</span>
+          </div>
           <span class="brochure__cover-tag">Full menu · pricing · packages</span>
         </div>
       </div>
