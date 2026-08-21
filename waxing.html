@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Face &amp; Body Waxing in Athens, GA | The Body Temple Spa">
 <meta property="og:description" content="Brows mapped to your bone structure, hard wax face and body, and a calming non-toxic finish. Face and body waxing in Athens, GA.">
-<meta property="og:image" content="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a887d8dcdd4b797a3247919.png">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="shortcut icon" href="favicon.ico">
 <meta name="theme-color" content="#E6D8C3">
@@ -112,7 +112,7 @@ p{margin:0 0 1em}
 .hero__below span{margin:0 6px;color:var(--orange)}
 .hero__visual{position:relative}
 .hero__img-wrap{aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:var(--cream-deep);box-shadow:var(--shadow-lg)}
-.hero__img-wrap img{width:100%;height:100%;object-fit:cover}
+.hero__img-wrap img,.hero__img-wrap video{width:100%;height:100%;object-fit:cover;display:block}
 .hero__caption{position:absolute;top:18px;left:18px;background:rgba(44,51,69,.88);color:#fff;padding:8px 14px;border-radius:var(--radius-pill);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;backdrop-filter:blur(8px);font-weight:500;z-index:2}
 .hero__guarantee{position:absolute;bottom:-30px;left:-20px;right:20px;background:#fff;padding:22px 24px;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);border-left:3px solid var(--orange);max-width:340px}
 .hero__guarantee-eye{font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
@@ -252,16 +252,13 @@ p{margin:0 0 1em}
 .spatour__head{text-align:center;max-width:720px;margin:0 auto 40px}
 .spatour__head h2{color:var(--ink);margin-bottom:14px}
 .spatour__sub{color:var(--ink-soft);font-size:1.05rem;line-height:1.65}
-.spatour__viewport{position:relative;mask-image:linear-gradient(to right,transparent 0,#000 4%,#000 96%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0,#000 4%,#000 96%,transparent 100%);margin-bottom:36px}
-.spatour__track{display:flex;gap:18px;width:max-content;animation:spatour-scroll 50s linear infinite}
-.spatour__track:hover{animation-play-state:paused}
-.spatour__tile{flex:0 0 240px;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);position:relative;aspect-ratio:4/5;background:var(--cream-deep)}
-.spatour__tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.spatour__pair{display:grid;grid-template-columns:1fr;gap:20px;max-width:860px;margin:0 auto 36px}
+.spatour__tile{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);position:relative;aspect-ratio:4/5;background:var(--cream-deep)}
+.spatour__tile img,.spatour__tile video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
 .spatour__tile:hover img{transform:scale(1.05)}
 .spatour__cta{text-align:center}
-@keyframes spatour-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-258px * 9))}}
-@media(min-width:780px){.spatour__tile{flex:0 0 320px}@keyframes spatour-scroll{from{transform:translateX(0)}to{transform:translateX(calc(-338px * 9))}}}
-@media(prefers-reduced-motion:reduce){.spatour__track{animation:none;flex-wrap:wrap;justify-content:center}}
+@media(min-width:700px){.spatour__pair{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.spatour__pair{grid-template-columns:repeat(3,1fr);max-width:1080px}}
 
 /* REVIEWS */
 .reviews{background:var(--bg);padding:clamp(70px,9vw,110px) 0}
@@ -413,8 +410,11 @@ p{margin:0 0 1em}
       <div class="hero__visual reveal">
         <div class="hero__img-wrap">
           <span class="hero__caption">Inside our Athens, GA spa</span>
-          <!-- TODO: swap for a brow waxing photo -->
-          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg" alt="Private treatment room at The Body Temple Spa in Athens, GA" width="600" height="750">
+          <video class="hero__video" autoplay muted loop playsinline preload="metadata"
+                 poster="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a887d8dcdd4b797a3247919.png"
+                 aria-label="Brow waxing at The Body Temple Spa in Athens, GA">
+            <source src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a88797efb0839b130371a77.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="hero__guarantee">
           <span class="hero__guarantee-eye">Our Brow Shaping Promise</span>
@@ -620,21 +620,21 @@ p{margin:0 0 1em}
   <div class="container">
     <div class="whycards__grid">
       <article class="wcard reveal">
-        <div class="wcard__img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4eee2763b2eec10e8e3.jpg" alt="Esthetician at The Body Temple Spa" width="500" height="375"></div>
+        <div class="wcard__img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a887d8dcdd4b797a3247919.png" alt="Esthetician shaping brows at The Body Temple Spa in Athens, GA" width="500" height="375"></div>
         <div class="wcard__body">
           <h3>Shaped, Never Stripped</h3>
           <p>We map the brow to your bone structure and take off only what sits outside it. Brow hair that has been removed too often may not come back at all — so the restraint is the skill, not the speed.</p>
         </div>
       </article>
       <article class="wcard reveal">
-        <div class="wcard__img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4ef163e40d8625f7d98.jpg" alt="Treatment session at The Body Temple Spa" width="500" height="375"></div>
+        <div class="wcard__img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a887a8bcdd4b797a320b81d.jpg" alt="Waxing session at The Body Temple Spa" width="500" height="375"></div>
         <div class="wcard__body">
           <h3>Gentler On The Skin</h3>
           <p>Hard wax grips the hair and releases the skin, which is what delicate areas need — face, underarm or bikini — and it is why most clients walk out settled rather than blotchy. Non-toxic products throughout, and a calming finish before you leave.</p>
         </div>
       </article>
       <article class="wcard reveal">
-        <div class="wcard__img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4f05dd1fd13ce648b90.jpg" alt="Guest care at The Body Temple Spa in Athens, GA" width="500" height="375"></div>
+        <div class="wcard__img"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a887a8b67ecc8731d5625d2.jpg" alt="Guest care at The Body Temple Spa in Athens, GA" width="500" height="375"></div>
         <div class="wcard__body">
           <h3>Athens' Most Reviewed Longevity Spa</h3>
           <p>5.0 stars across 317 Google reviews. Clean, calm and unrushed even for a fifteen-minute appointment — and staffed by people who tell you what they are doing and why.</p>
@@ -693,29 +693,18 @@ p{margin:0 0 1em}
       <h2>Book the room — calm, clean, and unrushed.</h2>
       <p class="spatour__sub">Real photos of our Athens, GA studio on Prince Ave. Private treatment rooms, hydrogen alkaline medical-grade water, and a longevity, non-toxic approach to environment, products and recommendations. Beauty starts with health.</p>
     </div>
-    <div class="spatour__viewport reveal">
-      <div class="spatour__track">
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e55aefbd076b9817f7.jpg" alt="The Body Temple Spa building entrance in Athens, GA" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg" alt="Private treatment room at The Body Temple Spa's Athens studio" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e75dd1fd13ce648ab7.jpg" alt="Treatment room with two tables at the Athens studio" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e514a2b82bfeea5110.jpg" alt="Hydrogen alkaline water station for clients at The Body Temple Spa" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cc9.webp" alt="Spa decor — candles, essential oils and towels" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cd3.jpg" alt="Client lounge with velvet sofa at the Athens studio" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e714a2b82bfeea513c.jpg" alt="Reception and retail area at The Body Temple Spa" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e53c38d825b93d7cfa.jpg" alt="Lounge seating area at the Athens studio" width="600" height="750" loading="lazy"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e7d50c4ff184d82ac1.jpg" alt="Treatment room with two tables and natural light" width="600" height="750" loading="lazy"></div>
-        <!-- Duplicate set for seamless loop -->
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e55aefbd076b9817f7.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e75dd1fd13ce648ab7.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e514a2b82bfeea5110.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cc9.webp" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cd3.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e714a2b82bfeea513c.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e53c38d825b93d7cfa.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
-        <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e7d50c4ff184d82ac1.jpg" alt="" width="600" height="750" loading="lazy" aria-hidden="true"></div>
+    <div class="spatour__pair reveal">
+      <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8500b896d2b224d329cc1e.jpg" alt="The Body Temple Spa studio in Athens, GA" width="600" height="750" loading="lazy"></div>
+      <div class="spatour__tile"><img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8500b896d2b224d329cc23.jpg" alt="Treatment space at The Body Temple Spa in Athens, GA" width="600" height="750" loading="lazy"></div>
+      <div class="spatour__tile">
+        <video class="spatour__video" autoplay muted loop playsinline preload="metadata"
+               poster="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8500b896d2b224d329cc23.jpg"
+               aria-label="A look inside The Body Temple Spa studio in Athens, GA">
+          <source src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a85010296d2b224d329d07f.mp4" type="video/mp4">
+        </video>
       </div>
     </div>
+
     <div class="spatour__cta reveal">
       <button class="cta popup-trigger" data-cta="SpaTour">See Pricing &amp; Book <span class="cta__arrow">→</span></button>
     </div>
@@ -847,6 +836,31 @@ document.querySelectorAll('.popup-trigger').forEach(b=>{
 modalClose.addEventListener('click',closeModal);
 modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))closeModal()});
+
+// Videos: if one cannot load or play, show its poster instead of an empty frame.
+document.querySelectorAll('.hero__video,.spatour__video').forEach(v=>{
+  const showPoster=()=>{
+    if(v.dataset.replaced)return;
+    v.dataset.replaced='1';
+    const img=document.createElement('img');
+    img.src=v.getAttribute('poster');
+    img.alt=v.getAttribute('aria-label')||'';
+    img.width=600;img.height=750;
+    v.replaceWith(img);
+  };
+  v.addEventListener('error',showPoster,true);
+  const src=v.querySelector('source');
+  if(src)src.addEventListener('error',showPoster);
+  // Loading starts while the page parses, so a failure can beat these listeners.
+  if(v.networkState===3)showPoster();
+  setTimeout(()=>{if(v.readyState===0)showPoster();},4000);
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    v.removeAttribute('autoplay');v.controls=true;v.pause();
+  }else{
+    const pl=v.play();
+    if(pl&&pl.catch)pl.catch(()=>{v.controls=true;});
+  }
+});
 
 const io=new IntersectionObserver(es=>{
   es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
