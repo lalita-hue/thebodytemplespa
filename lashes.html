@@ -113,7 +113,6 @@ p{margin:0 0 1em}
 .hero__visual{position:relative}
 .hero__img-wrap{aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:var(--cream-deep);box-shadow:var(--shadow-lg)}
 .hero__img-wrap img,.hero__img-wrap video{width:100%;height:100%;object-fit:cover;display:block}
-@media(prefers-reduced-motion:reduce){.hero__video{display:none}.hero__img-wrap{background-image:var(--hero-poster);background-size:cover;background-position:center}}
 .hero__caption{position:absolute;top:18px;left:18px;background:rgba(44,51,69,.88);color:#fff;padding:8px 14px;border-radius:var(--radius-pill);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;backdrop-filter:blur(8px);font-weight:500;z-index:2}
 .hero__guarantee{position:absolute;bottom:-30px;left:-20px;right:20px;background:#fff;padding:22px 24px;border-radius:var(--radius-lg);box-shadow:var(--shadow-md);border-left:3px solid var(--orange);max-width:340px}
 .hero__guarantee-eye{font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:8px;display:block}
@@ -412,7 +411,7 @@ p{margin:0 0 1em}
         <p class="hero__below"><strong>Reply within the hour</strong> <span>·</span> Certified lash artist <span>·</span> 2350 Prince Ave, Athens</p>
       </div>
       <div class="hero__visual reveal">
-        <div class="hero__img-wrap" style="--hero-poster:url(https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8867bf67ecc8731d3c7440.jpg)">
+        <div class="hero__img-wrap">
           <span class="hero__caption">Inside our Athens, GA spa</span>
           <video class="hero__video" autoplay muted loop playsinline preload="metadata"
                  poster="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8867bf67ecc8731d3c7440.jpg"
@@ -883,6 +882,36 @@ document.querySelectorAll('.popup-trigger').forEach(b=>{
 modalClose.addEventListener('click',closeModal);
 modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('is-open'))closeModal()});
+
+// Hero video: if it cannot load or play, show the poster image instead of an empty frame.
+const heroVideo=document.querySelector('.hero__video');
+if(heroVideo){
+  const showPoster=()=>{
+    if(heroVideo.dataset.replaced)return;
+    heroVideo.dataset.replaced='1';
+    const img=document.createElement('img');
+    img.src=heroVideo.getAttribute('poster');
+    img.alt=heroVideo.getAttribute('aria-label')||'';
+    img.width=600;img.height=750;
+    heroVideo.replaceWith(img);
+  };
+  heroVideo.addEventListener('error',showPoster,true);
+  const src=heroVideo.querySelector('source');
+  if(src)src.addEventListener('error',showPoster);
+  // The video starts loading while the page parses, so a failure can happen before
+  // these listeners exist — check the state we are already in, then again on a timer.
+  if(heroVideo.networkState===3)showPoster();
+  setTimeout(()=>{if(heroVideo.readyState===0)showPoster();},4000);
+  // Respect a reduced-motion preference without hiding the content
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    heroVideo.removeAttribute('autoplay');
+    heroVideo.controls=true;
+    heroVideo.pause();
+  }else{
+    const p=heroVideo.play();
+    if(p&&p.catch)p.catch(()=>{heroVideo.controls=true;});
+  }
+}
 
 const io=new IntersectionObserver(es=>{
   es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
