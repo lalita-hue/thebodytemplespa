@@ -78,8 +78,11 @@
 #bta .hero-promise strong { color: var(--cream); font-weight: 500; }
 #bta .hero-promise em { font-style: italic; color: var(--cream); }
 #bta .hero-promise .l2 { display: block; margin-top: .6rem; }
-#bta .hero-shot { border-radius: 14px; overflow: hidden; border: 1px solid var(--line-d); box-shadow: 0 30px 70px -30px rgba(0,0,0,.8); display: flex; }
-#bta .hero-shot img { width: 100%; height: 100%; min-height: 520px; object-fit: cover; }
+#bta .hero-right { display: flex; flex-direction: column; gap: 1.25rem; }
+#bta .hero-shot { flex: 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--line-d); box-shadow: 0 30px 70px -30px rgba(0,0,0,.8); display: flex; }
+#bta .hero-shot img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
+#bta .hero-right .btn { width: 100%; }
+#bta .hero-right .btn-note { text-align: center; margin-top: 0; }
 
 /* ── BUTTONS ── */
 #bta .btn { display: inline-block; background: var(--terra); color: #fff; font-size: .97rem; font-weight: 600; letter-spacing: .01em; padding: 1.05rem 2.2rem; border-radius: 8px; border: none; cursor: pointer; text-align: center; transition: background .2s ease, transform .18s ease; font-family: inherit; }
@@ -288,11 +291,13 @@
             In our <strong>NCBTMB-approved 16 hours</strong>, you will gain more than a profitable new skill. You will make a career and life-changing decision that brings you success long-term, by learning how to acquire clients and communicate with them so they buy packages from you the same day.
             <span class="l2">You will learn the hands-on techniques, client-acquisition methods and communication skills I used to build a <strong>$200,000-a-year practice</strong>. You will also learn how to deliver an exceptional, high-end client experience, build a thriving practice, and become the go-to lymphatic drainage expert in your town.</span>
           </p>
-          <a href="https://revelarte.thrivecart.com/lymphatic-drainage-training-program/" class="btn" data-cta="Hero">Reserve Your Seat</a>
-          <p class="btn-note">In person in Athens, GA &middot; seats limited to keep the hands-on ratio low.</p>
         </div>
-        <div class="hero-shot rv">
-          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a46916bd0f4875396589092.jpg" alt="Manual lymphatic drainage being practiced during hands-on training" loading="eager">
+        <div class="hero-right rv">
+          <div class="hero-shot">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a46916bd0f4875396589092.jpg" alt="Manual lymphatic drainage being practiced during hands-on training" loading="eager">
+          </div>
+          <a href="https://revelarte.thrivecart.com/lymphatic-drainage-training-program/" class="btn" data-cta="Hero">Reserve Your Seat</a>
+          <p class="btn-note">Personalized coaching and teaching &mdash; only 10 per group.</p>
         </div>
       </div>
     </div>
@@ -311,7 +316,7 @@
     <div class="wrap">
       <div class="rv">
         <span class="eye">What you will gain</span>
-        <h2 class="sh">Results your clients feel &mdash; and rebook for</h2>
+        <h2 class="sh">Results your clients feel &mdash; and buy packages for</h2>
         <p class="sub">Three things change in your practice, starting with the very next body on your table.</p>
       </div>
       <div class="bgrid">
@@ -320,7 +325,7 @@
           <div class="bcard-in">
             <div class="bicon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
             <div class="bt">Clients feel it the same day.</div>
-            <div class="bb">Less swelling, less heaviness, faster recovery. That is the kind of result that turns a one-time visit into a standing appointment.</div>
+            <div class="bb">Less swelling, less heaviness, faster recovery. That is the kind of result that turns a one-time visit into a $2,000 package.</div>
           </div>
         </div>
         <div class="bcard rv">
@@ -332,11 +337,11 @@
           </div>
         </div>
         <div class="bcard rv">
-          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a46916bac41ea59b0eba30b.jpg" alt="A specialised treatment that sets a therapist apart">
+          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a46916bac41ea59b0eba30b.jpg" alt="A specialized treatment that sets a therapist apart">
           <div class="bcard-in">
             <div class="bicon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
             <div class="bt">You offer what most therapists near you cannot.</div>
-            <div class="bb">A specialised, in-demand service that justifies a higher rate and gets you referred by surgeons, coaches and clients alike.</div>
+            <div class="bb">A specialized, in-demand service that justifies a higher rate and gets you referred by surgeons, coaches and clients alike.</div>
           </div>
         </div>
       </div>
@@ -347,7 +352,7 @@
   <section class="sec">
     <div class="wrap">
       <div class="rv">
-        <span class="eye">Before you enrol</span>
+        <span class="eye">Before you enroll</span>
         <h2 class="sh">This training is built for a specific person</h2>
         <p class="sub">We would rather you know now than find out on day one. Here is who leaves this room ready to work &mdash; and who does not.</p>
       </div>
@@ -384,7 +389,7 @@
           <div class="obj-ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
           <div>
             <p class="obj-q">Because we do not let you leave until you have proved it.</p>
-            <p class="obj-a">This is not a watch-and-forget course. <strong>You practise every protocol on real bodies and pass a hands-on skills evaluation</strong> before you ever touch a paying client. Your pressure gets corrected. Your sequence gets corrected. Your intake gets corrected. You leave with a method you can trust from session one &mdash; not a folder of notes you hope you understood.</p>
+            <p class="obj-a">This is not a watch-and-forget course. <strong>You practice every protocol on real bodies and pass a hands-on skills evaluation</strong> before you ever touch a paying client. Your pressure gets corrected. Your sequence gets corrected. Your intake gets corrected. You leave with a method you can trust from session one &mdash; not a folder of notes you hope you understood.</p>
           </div>
         </div>
       </div>
@@ -419,7 +424,7 @@
       <div class="rv">
         <span class="eye">What you will learn</span>
         <h2 class="sh">Eight modules. Sixteen hands-on hours. One method you can trust.</h2>
-        <p class="sub">Every module builds on the one before it, so by the end you do not just recognise lymphatic drainage &mdash; you can perform it, explain it and defend the clinical decision behind it.</p>
+        <p class="sub">Every module builds on the one before it, so by the end you do not just recognize lymphatic drainage &mdash; you can perform it, explain it and defend the clinical decision behind it.</p>
       </div>
       <div class="mgrid">
         <div class="mod rv"><div class="mnum">1</div><div>
@@ -440,7 +445,7 @@
         </div></div>
         <div class="mod rv"><div class="mnum">5</div><div>
           <div class="mt">Upper Body Protocols</div>
-          <div class="mb">Full protocols for the neck and terminus, face and head, arms and hands, chest and upper torso. Each one practised on a body, not just demonstrated on a screen.</div>
+          <div class="mb">Full protocols for the neck and terminus, face and head, arms and hands, chest and upper torso. Each one practiced on a body, not just demonstrated on a screen.</div>
         </div></div>
         <div class="mod rv"><div class="mnum">6</div><div>
           <div class="mt">Lower Body Protocols</div>
@@ -476,7 +481,7 @@
           <ul class="tl">
             <li><span class="hr">9:00 AM</span><span class="wh">Foundations &amp; anatomy<span>Where MLD came from, and the map of nodes, vessels and watersheds you will work from all weekend.</span></span></li>
             <li><span class="hr">11:00 AM</span><span class="wh">Assessment &amp; safety<span>Intake, surgical history, contraindications and red flags. When to treat, when to refer.</span></span></li>
-            <li><span class="hr">1:00 PM</span><span class="wh">Core technique lab<span>Pressure, rhythm and direction. Stationary circles, pump and scoop, practised until they are yours.</span></span></li>
+            <li><span class="hr">1:00 PM</span><span class="wh">Core technique lab<span>Pressure, rhythm and direction. Stationary circles, pump and scoop, practiced until they are yours.</span></span></li>
             <li><span class="hr">3:00 PM</span><span class="wh">Upper body protocols<span>Neck and terminus, face and head, arms, chest. Partner practice with correction on the table.</span></span></li>
           </ul>
         </div>
@@ -485,7 +490,7 @@
           <ul class="tl">
             <li><span class="hr">9:00 AM</span><span class="wh">Lower body protocols<span>Abdomen, lower back and hips, inguinal region, legs, feet and ankles.</span></span></li>
             <li><span class="hr">11:30 AM</span><span class="wh">Post-op applications<span>Stages of healing, fibrosis awareness, and case studies from liposuction, tummy tuck, BBL and breast surgery.</span></span></li>
-            <li><span class="hr">2:00 PM</span><span class="wh">Planning, pricing &amp; the package conversation<span>Session design, SOAP notes, pricing on value, where clients come from, and the same-day package conversation &mdash; practised out loud, not just described.</span></span></li>
+            <li><span class="hr">2:00 PM</span><span class="wh">Planning, pricing &amp; the package conversation<span>Session design, SOAP notes, pricing on value, where clients come from, and the same-day package conversation &mdash; practiced out loud, not just described.</span></span></li>
             <li><span class="hr">3:30 PM</span><span class="wh">Written exam &amp; skills evaluation<span>You are assessed individually, corrected where needed, and certified when you have shown you can do the work.</span></span></li>
           </ul>
         </div>
@@ -577,7 +582,7 @@
           <p class="dep"><b>Want to hold your seat now and pay the rest later?</b></p>
           <p class="dep">Reserve today with a 50% deposit &mdash; <span class="dep-num">$572.50</span> &mdash; and the remaining balance is due before training begins.</p>
           <a href="https://revelarte.thrivecart.com/lymphatic-drainage-training-program/" class="btn" style="margin-top:1.6rem" data-cta="Offer">Reserve My Seat</a>
-          <p class="fine">Seats are limited on purpose. A low hands-on ratio is the only way every student gets practised, corrected and evaluated individually instead of lost in a crowd.</p>
+          <p class="fine">Only 10 seats per group, on purpose. Personalized coaching is the only way every student gets practiced, corrected and evaluated individually instead of lost in a crowd.</p>
         </div>
       </div>
     </div>
@@ -589,7 +594,7 @@
       <div class="narrow">
         <div class="rv">
           <span class="eye">Common questions</span>
-          <h2 class="sh">Everything worth knowing before you enrol</h2>
+          <h2 class="sh">Everything worth knowing before you enroll</h2>
         </div>
         <div class="faq rv">
 
@@ -635,12 +640,12 @@
 
           <div class="fitem">
             <button class="fq" aria-expanded="false"><span class="fq-t">Does this count for continuing education credit?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
-            <div class="fa">Yes. The course is NCBTMB approved and delivered as a 16 CE Hour program with a Certificate of Completion. NCBTMB approval is accepted by most state boards, but requirements do differ, so it is worth a quick check with your own board before you enrol.</div>
+            <div class="fa">Yes. The course is NCBTMB approved and delivered as a 16 CE Hour program with a Certificate of Completion. NCBTMB approval is accepted by most state boards, but requirements do differ, so it is worth a quick check with your own board before you enroll.</div>
           </div>
 
           <div class="fitem">
             <button class="fq" aria-expanded="false"><span class="fq-t">How many people are in a class?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
-            <div class="fa">Deliberately few. Seats are capped so every student can be watched, corrected and individually evaluated. It is the reason the class sells out before the date rather than on it.</div>
+            <div class="fa">Ten. Groups are capped at 10 students so every one of you can be watched, corrected and individually evaluated, with personalized coaching rather than a demonstration you copy from the back of the room. It is the reason the class sells out before the date rather than on it.</div>
           </div>
 
         </div>
@@ -673,12 +678,12 @@
         <p>The Body Temple Academy<br>2350 Prince Ave<br>Athens, GA 30606</p>
       </div>
       <div>
-        <h4>Questions before you enrol</h4>
+        <h4>Questions before you enroll</h4>
         <p><a href="tel:+19594009242">(959) 400-9242</a><br><a href="mailto:thebodytemplespa@gmail.com">thebodytemplespa@gmail.com</a></p>
       </div>
       <div>
         <h4>Enrol</h4>
-        <p>Seats are limited to keep the hands-on ratio low.</p>
+        <p>Personalized coaching and teaching &mdash; only 10 per group.</p>
         <a href="https://revelarte.thrivecart.com/lymphatic-drainage-training-program/" class="nav-cta" style="margin-top:.9rem;display:inline-block" data-cta="Footer">Reserve your seat</a>
       </div>
     </div>
