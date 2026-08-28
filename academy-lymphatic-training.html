@@ -188,7 +188,7 @@
 #bta .vid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
 #bta .vid-sub { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-top: 1rem; max-width: 44ch; }
 #bta .vid-frame { max-width: 380px; margin: 0 auto; border-radius: 14px; overflow: hidden; border: 1px solid var(--line-d); box-shadow: 0 26px 60px -26px rgba(0,0,0,.75); background: #000; }
-#bta .vid-frame video { display: block; width: 100%; max-height: 70vh; }
+#bta .vid-frame iframe { display: block; width: 100%; aspect-ratio: 9/16; max-height: 76vh; border: 0; }
 
 /* ── OFFER ── */
 #bta .offer { background: var(--paper2); border: 1px solid var(--line-l); border-top: 3px solid var(--terra); border-radius: 16px; padding: 3rem; text-align: center; box-shadow: 0 24px 60px -34px rgba(26,22,16,.4); margin-top: 2.5rem; }
@@ -603,9 +603,13 @@
           <p class="vid-sub">A Body Temple Academy graduate on what changed in the way she works &mdash; and what she can now offer clients that she could not before.</p>
         </div>
         <div class="vid-frame rv">
-          <video controls preload="metadata" playsinline poster="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a458e37ff26a38088324cfe.jpg">
-            <source src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a458e7b2bed802fc6eee2ac.mp4" type="video/mp4">
-          </video>
+          <iframe
+            src="https://www.youtube.com/embed/77CmO6bXOBs?rel=0&amp;modestbranding=1&amp;playsinline=1"
+            title="The Body Temple Academy student testimonial"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            loading="lazy"
+            allowfullscreen></iframe>
         </div>
       </div>
     </div>
