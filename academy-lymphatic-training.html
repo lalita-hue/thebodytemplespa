@@ -165,6 +165,16 @@
 #bta .method-ic { width: 62px; height: 62px; background: rgba(237,231,219,.06); border: 1px solid var(--line-d); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.4rem; }
 #bta .method-ic img { max-width: 40px; max-height: 40px; object-fit: contain; }
 #bta .method h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; font-weight: 500; color: var(--cream); margin-bottom: .5rem; }
+#bta .pillars-head { text-align: center; margin-top: 3.5rem; }
+#bta .pillars-head .eye { margin-bottom: .5rem; }
+#bta .pillars-head p { font-size: .95rem; color: var(--muted-l); max-width: 60ch; margin: 0 auto; line-height: 1.7; }
+#bta .pillars { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: var(--line-l); border: 1px solid var(--line-l); border-radius: 13px; overflow: hidden; margin-top: 1.75rem; }
+#bta .pillar { background: var(--paper2); padding: 1.6rem 1.1rem; display: flex; flex-direction: column; align-items: center; gap: .8rem; text-align: center; }
+#bta .pillar svg { width: 23px; height: 23px; flex-shrink: 0; fill: none; stroke: var(--terra); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+#bta .pillar span { font-size: .85rem; font-weight: 600; color: var(--ink); line-height: 1.45; }
+#bta .closer { text-align: center; margin-top: 2.75rem; }
+#bta .closer p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(1.1rem,2.2vw,1.35rem); color: var(--muted-l); max-width: 34ch; margin: 0 auto; line-height: 1.5; }
+#bta .closer b { display: block; margin-top: .9rem; font-family: 'Playfair Display', Georgia, serif; font-style: normal; font-size: clamp(1.7rem,3.4vw,2.5rem); font-weight: 700; color: var(--terra); letter-spacing: -.01em; }
 #bta .method .lead { font-size: .88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.6rem; }
 #bta .mlist { display: flex; flex-direction: column; gap: .95rem; }
 #bta .mitem { display: flex; align-items: flex-start; gap: .85rem; }
@@ -237,11 +247,15 @@
     #bta .bgrid { grid-template-columns: 1fr 1fr; }
     #bta .mgrid, #bta .flow { grid-template-columns: 1fr; }
     #bta .about-img { width: 180px; }
+    #bta .pillars { grid-template-columns: repeat(2,1fr); }
+    #bta .pillar:last-child { grid-column: span 2; }
 }
 @media (max-width: 640px) {
     #bta .sec { padding: 3.5rem 0; }
     #bta .hero { padding-top: 3rem; }
     #bta .bgrid, #bta .fitgrid { grid-template-columns: 1fr; }
+    #bta .pillars { grid-template-columns: 1fr; }
+    #bta .pillar:last-child { grid-column: auto; }
     #bta .statbar { grid-template-columns: 1fr 1fr; }
     #bta .obj { flex-direction: column; gap: 1rem; padding: 1.6rem 1.5rem; }
     #bta .offer { padding: 2rem 1.4rem; }
@@ -510,12 +524,13 @@
       <div class="about">
         <div class="about-text rv">
           <span class="eye">About the academy</span>
-          <h2 class="sh">Built to close a gap, not to fill a syllabus</h2>
+          <h2 class="sh">Where women come to learn, transform and create their future</h2>
           <div class="about-img">
             <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a46916b2e727c5f35eaea87.png" alt="Lalita Sanchez, LMT, founder of The Body Temple Academy">
           </div>
-          <p><strong>The Body Temple Academy</strong> was founded by Lalita Sanchez, LMT, in Athens, Georgia, to close a gap she kept running into: therapists were adding lymphatic drainage to their menu without ever being taught it properly, and clients were the ones absorbing the risk.</p>
-          <p>The academy is the teaching arm of The Body Temple Spa, where these protocols are used on wellness and post-surgical clients every week. What you learn here is what we actually do on our own tables &mdash; refined on hundreds of bodies, then taught as sixteen hours you work through at your own pace, with eight group coaching calls, real hands-on practice, case studies and a practical skills evaluation. Not a lecture and a certificate.</p>
+          <p><strong>The Body Temple Academy</strong> was founded by Lalita Sanchez, LMT, in Athens, Georgia, as a multidimensional education and transformation platform for women.</p>
+          <p>Its professional certification programs are developed through <strong>The Body Temple Spa</strong>, where the methods are practiced and refined with real clients every week. Students receive practical education, coaching, hands-on experience, case studies and individual skills evaluation &mdash; not simply a lecture and a certificate.</p>
+          <p>And beyond professional training, the academy supports the whole woman: her health, her beauty, her purpose, her finances, her personal power, her intuition, and her capacity to build the life she wants.</p>
           <div class="tags">
             <span class="tag">Founded by Lalita Sanchez, LMT</span>
             <span class="tag">On demand + coaching calls</span>
@@ -538,6 +553,21 @@
             <div class="mitem"><div class="mi-n">5</div><span class="mi-t">Finish with a plan, not a goodbye</span></div>
           </div>
         </div>
+      </div>
+      <div class="pillars-head rv">
+        <span class="eye">The five pillars</span>
+        <p>Together they give women the knowledge, the practices and the experiences they need to create their future.</p>
+      </div>
+      <div class="pillars rv">
+        <div class="pillar"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/><path d="M3.5 12.5h4L9 10l2 5 1.5-3h3"/></svg><span>Wellness &amp; health</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24"><path d="M12 2.5c3 4.5 5.5 7.3 5.5 10.7A5.5 5.5 0 0 1 12 18.7a5.5 5.5 0 0 1-5.5-5.5C6.5 9.8 9 7 12 2.5z"/><path d="M12 21.5v-2.8"/></svg><span>Longevity beauty</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><span>Personal &amp; financial development</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="5.5"/><line x1="12" y1="14" x2="12" y2="21.5"/><line x1="8.5" y1="18.5" x2="15.5" y2="18.5"/></svg><span>Feminine energy</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><polyline points="8.5 13.5 7.5 22 12 19.5 16.5 22 15.5 13.5"/></svg><span>Education &amp; certification</span></div>
+      </div>
+      <div class="closer rv">
+        <p>This is where women come to learn, transform, embody and create their future.</p>
+        <b>The future is yours.</b>
       </div>
     </div>
   </section>
