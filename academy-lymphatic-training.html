@@ -64,7 +64,7 @@
 #bta .logo-box { width: 38px; height: 38px; border: 1.5px solid rgba(237,231,219,.45); border-radius: 5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 #bta .bname { font-size: .62rem; letter-spacing: .24em; text-transform: uppercase; color: var(--cream); line-height: 1.5; }
 #bta .bname b { display: block; font-weight: 400; color: var(--muted); letter-spacing: .2em; }
-#bta .nav-cta { background: var(--terra); color: #fff; font-size: .82rem; font-weight: 600; padding: .6rem 1.25rem; border-radius: 100px; white-space: nowrap; transition: background .2s ease, transform .18s ease; }
+#bta .nav-cta { background: var(--terra); color: #fff; border: none; cursor: pointer; font-family: inherit; font-size: .82rem; font-weight: 600; padding: .6rem 1.25rem; border-radius: 100px; white-space: nowrap; transition: background .2s ease, transform .18s ease; }
 #bta .nav-cta:hover { background: var(--terra-dk); transform: translateY(-1px); }
 
 /* ── HERO ── */
@@ -238,6 +238,18 @@
 #bta .foot a { color: var(--terra); }
 #bta .copy { max-width: 1100px; margin: 0 auto; padding: 1.25rem 6vw 2rem; font-size: .72rem; color: var(--muted); border-top: 1px solid var(--line-d); }
 
+/* ── APPLICATION MODAL ── */
+#bta .modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; padding: 1.25rem; }
+#bta .modal[hidden] { display: none; }
+#bta .modal__backdrop { position: absolute; inset: 0; background: rgba(15,13,9,.74); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+#bta .modal__panel { position: relative; width: 100%; max-width: 560px; max-height: 92vh; overflow-y: auto; background: var(--paper2); border: 1px solid var(--line-l); border-top: 3px solid var(--terra); border-radius: 16px; padding: 2.25rem 1.9rem 1.25rem; box-shadow: 0 40px 90px -30px rgba(0,0,0,.65); }
+#bta .modal__x { position: absolute; top: .7rem; right: .8rem; width: 34px; height: 34px; border: none; background: transparent; color: var(--muted-l); font-size: 1.7rem; line-height: 1; cursor: pointer; border-radius: 8px; font-family: inherit; }
+#bta .modal__x:hover { background: var(--paper); color: var(--ink); }
+#bta .modal__title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem; font-weight: 500; color: var(--ink); line-height: 1.25; margin-bottom: .45rem; padding-right: 2rem; }
+#bta .modal__sub { font-size: .92rem; color: var(--muted-l); line-height: 1.65; margin-bottom: 1.35rem; }
+#bta .modal iframe { display: block; width: 100%; min-height: 620px; border: none; border-radius: 8px; }
+@media (max-width: 640px) { #bta .modal { padding: .75rem; } #bta .modal__panel { padding: 1.9rem 1.15rem 1rem; } }
+
 /* ── REVEAL ── */
 #bta .rv { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
 #bta .rv.on { opacity: 1; transform: none; }
@@ -293,7 +305,7 @@
         </div>
         <span class="bname">The Body Temple<b>Academy</b></span>
       </div>
-      <a href="https://revelarte.thrivecart.com/lymphatic-drainage-training-program/" class="nav-cta" data-cta="Nav">Reserve your seat</a>
+      <button type="button" class="nav-cta apply" data-cta="Nav">Apply</button>
     </div>
   </div>
 
@@ -316,7 +328,7 @@
           <div class="hero-shot">
             <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a46916bd0f4875396589092.jpg" alt="Manual lymphatic drainage being practiced during hands-on training" loading="eager">
           </div>
-          <a href="https://revelarte.thrivecart.com/lymphatic-drainage-training-program/" class="btn" data-cta="Hero">Reserve Your Seat</a>
+          <button type="button" class="btn apply" data-cta="Hero">Apply Now</button>
           <p class="btn-note">Personalized coaching, only 10 per group &middot; watch on demand, start today.</p>
         </div>
       </div>
@@ -629,7 +641,7 @@
           <hr class="odiv">
           <p class="dep"><b>Prefer to spread it out?</b> Payment plans are available at checkout &mdash; choose one when you enroll and start the modules straight away.</p>
           <div class="pays"><span>Klarna</span><span>Afterpay</span><span>Affirm</span></div>
-          <a href="https://revelarte.thrivecart.com/lymphatic-drainage-training-program/" class="btn" style="margin-top:1.6rem" data-cta="Offer">Reserve My Seat</a>
+          <button type="button" class="btn apply" style="margin-top:1.6rem" data-cta="Offer">Apply Now</button>
           <p class="fine">Coaching groups are capped at 10, on purpose. That is the only way every student gets seen, corrected and evaluated individually instead of lost in a crowd.</p>
         </div>
       </div>
@@ -642,7 +654,7 @@
       <div class="narrow">
         <div class="rv">
           <span class="eye">Common questions</span>
-          <h2 class="sh">Everything worth knowing before you enroll</h2>
+          <h2 class="sh">Everything worth knowing before you apply</h2>
         </div>
         <div class="faq rv">
 
@@ -712,7 +724,7 @@
       <div class="rv">
         <h2>Stop guessing. Start delivering results clients <em>rebook for.</em></h2>
         <p>Join the therapists who turned lymphatic drainage into their most-booked, highest-value service.</p>
-        <a href="https://revelarte.thrivecart.com/lymphatic-drainage-training-program/" class="btn" data-cta="Final">Reserve Your Seat</a>
+        <button type="button" class="btn apply" data-cta="Final">Apply Now</button>
         <div class="ftrust">
           <span class="ft-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>NCBTMB approved &middot; 16 CE Hours</span>
           <span class="ft-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Hands-on skills evaluation</span>
@@ -735,16 +747,46 @@
         <p><a href="tel:+19594009242">(959) 400-9242</a><br><a href="mailto:thebodytemplespa@gmail.com">thebodytemplespa@gmail.com</a></p>
       </div>
       <div>
-        <h4>Enrol</h4>
+        <h4>Apply</h4>
         <p>Personalized coaching, only 10 per group &middot; watch on demand, start today.</p>
-        <a href="https://revelarte.thrivecart.com/lymphatic-drainage-training-program/" class="nav-cta" style="margin-top:.9rem;display:inline-block" data-cta="Footer">Reserve your seat</a>
+        <button type="button" class="nav-cta apply" style="margin-top:.9rem" data-cta="Footer">Apply</button>
       </div>
     </div>
     <div class="copy">&copy; 2026 The Body Temple Academy &middot; The teaching arm of The Body Temple Spa, Athens, GA. All rights reserved.</div>
   </div>
 
+
+  <!-- ═══ APPLICATION FORM (opens from every Apply button) ═══ -->
+  <div class="modal" id="btaModal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="btaModalTitle">
+      <button type="button" class="modal__x" data-close aria-label="Close">&times;</button>
+      <h2 class="modal__title" id="btaModalTitle">Apply for your seat</h2>
+      <p class="modal__sub">Coaching groups are capped at 10. Tell us about your practice and we will be in touch about the next opening.</p>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/IsWV0FpGpgoGvoFEeun8"
+        id="inline-IsWV0FpGpgoGvoFEeun8"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Lead Form - Brazlian Post Op &amp; Sculpting Wellness Certification"
+        data-height="695"
+        data-layout-iframe-id="inline-IsWV0FpGpgoGvoFEeun8"
+        data-form-id="IsWV0FpGpgoGvoFEeun8"
+        data-cookie-consent="true"
+        data-cookie-consent-provider="auto"
+        title="Lead Form - Brazlian Post Op &amp; Sculpting Wellness Certification"
+        scrolling="no"></iframe>
+    </div>
+  </div>
+
 </div>
 
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script>
 (function(){
   var root = document.getElementById('bta');
@@ -778,13 +820,43 @@
     });
   });
 
-  /* CTA tracking */
-  root.querySelectorAll('[data-cta]').forEach(function(a){
-    a.addEventListener('click', function(){
-      if(window.dataLayer){ window.dataLayer.push({event:'enroll_click', location: a.getAttribute('data-cta')}); }
-      if(typeof window.gtag === 'function'){ window.gtag('event','enroll_click',{location: a.getAttribute('data-cta')}); }
+  /* Application modal — every Apply button opens the same form */
+  var modal = root.querySelector('#btaModal');
+  var lastTrigger = null;
+
+  function openModal(trigger){
+    if(!modal) return;
+    lastTrigger = trigger || null;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var x = modal.querySelector('.modal__x');
+    if(x) x.focus();
+  }
+  function closeModal(){
+    if(!modal || modal.hidden) return;
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    if(lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+    lastTrigger = null;
+  }
+
+  root.querySelectorAll('.apply').forEach(function(b){
+    b.addEventListener('click', function(){
+      openModal(b);
+      var where = b.getAttribute('data-cta');
+      if(window.dataLayer){ window.dataLayer.push({event:'apply_click', location: where}); }
+      if(typeof window.gtag === 'function'){ window.gtag('event','apply_click',{location: where}); }
     });
   });
+
+  if(modal){
+    modal.querySelectorAll('[data-close]').forEach(function(el){
+      el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' || e.key === 'Esc') closeModal();
+    });
+  }
 })();
 </script>
 </body>
