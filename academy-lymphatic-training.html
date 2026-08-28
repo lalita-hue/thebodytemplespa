@@ -831,6 +831,7 @@
 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
 <script>
 (function(){
+function init(){
   var root = document.getElementById('bta');
   if(!root) return;
 
@@ -898,6 +899,12 @@
     document.addEventListener('keydown', function(e){
       if(e.key === 'Escape' || e.key === 'Esc') closeModal();
     });
+  }
+}
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();
 </script>
