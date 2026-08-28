@@ -1,0 +1,899 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+
+/* ═══ THE BODY TEMPLE ACADEMY — Brazilian Post-Op & Wellness Drainage Training ═══
+   Every rule is scoped to #bta so nothing here can leak into the rest of
+   your site, and your website builder's styles can't break it. */
+
+#bta, #bta *, #bta *::before, #bta *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+#bta {
+    --ink:      #1A1610;
+    --panel:    #222018;
+    --cream:    #EDE7DB;
+    --paper:    #F7F2E8;
+    --paper2:   #FFFDF8;
+    --terra:    #C85A28;
+    --terra-dk: #A8481E;
+    --muted:    #8A7F6E;
+    --muted-l:  #7A6D5B;
+    --line-d:   rgba(255,255,255,.09);
+    --line-l:   rgba(26,22,16,.13);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    background: var(--paper2);
+    color: var(--ink);
+    line-height: 1.65;
+    font-size: 16px;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+#bta img { display: block; max-width: 100%; }
+#bta a { color: inherit; text-decoration: none; }
+#bta ul { list-style: none; }
+
+/* ── SHARED SHELL ── */
+#bta .wrap    { max-width: 1100px; margin: 0 auto; padding: 0 6vw; }
+#bta .sec     { padding: 5rem 0; }
+#bta .narrow  { max-width: 760px; margin: 0 auto; }
+#bta .dark    { background: var(--ink); color: var(--cream); }
+#bta .light   { background: var(--paper); }
+#bta .eye     { display: block; font-size: .6rem; letter-spacing: .28em; text-transform: uppercase; color: var(--terra); font-weight: 600; margin-bottom: 1.1rem; }
+#bta .dark .eye { color: var(--terra); }
+#bta h2.sh    { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.85rem,3.6vw,2.9rem); font-weight: 500; line-height: 1.18; letter-spacing: -.01em; margin-bottom: .9rem; }
+#bta .dark h2.sh { color: var(--cream); }
+#bta .sub     { font-size: 1rem; color: var(--muted-l); max-width: 620px; line-height: 1.75; }
+#bta .dark .sub { color: var(--muted); }
+#bta .center  { text-align: center; }
+#bta .center .sub, #bta .center .narrow > .sub { margin-left: auto; margin-right: auto; }
+
+/* ── NAV ── */
+#bta .nav { position: sticky; top: 0; z-index: 60; background: rgba(26,22,16,.94); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-d); }
+#bta .nav-in { max-width: 1100px; margin: 0 auto; padding: .85rem 6vw; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+#bta .brand { display: flex; align-items: center; gap: .75rem; min-width: 0; }
+#bta .logo-box { width: 40px; height: 40px; background: var(--cream); border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 4px; }
+#bta .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+#bta .bname { font-size: .62rem; letter-spacing: .24em; text-transform: uppercase; color: var(--cream); line-height: 1.5; }
+#bta .bname b { display: block; font-weight: 400; color: var(--muted); letter-spacing: .2em; }
+#bta .nav-cta { background: var(--terra); color: #fff; border: none; cursor: pointer; font-family: inherit; font-size: .82rem; font-weight: 600; padding: .6rem 1.25rem; border-radius: 100px; white-space: nowrap; transition: background .2s ease, transform .18s ease; }
+#bta .nav-cta:hover { background: var(--terra-dk); transform: translateY(-1px); }
+
+/* ── HERO ── */
+#bta .hero { background: var(--ink); color: var(--cream); padding: 4.5rem 0 0; }
+#bta .badge { display: inline-flex; align-items: center; gap: .5rem; font-size: .66rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--terra); background: rgba(200,90,40,.12); border: 1px solid rgba(200,90,40,.38); padding: .4rem 1rem; border-radius: 100px; margin-bottom: 1.75rem; }
+#bta .badge svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+#bta h1.hl { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.4rem,6vw,4.4rem); font-weight: 700; line-height: 1.06; letter-spacing: -.015em; color: var(--cream); margin-bottom: 1.5rem; max-width: 15ch; }
+#bta h1.hl em { font-weight: 400; font-style: italic; color: var(--terra); }
+#bta .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 3.5rem; align-items: stretch; }
+#bta .hero-promise { font-size: 1.03rem; color: var(--muted); line-height: 1.8; max-width: 46ch; margin-bottom: 2.25rem; }
+#bta .hero-promise strong { color: var(--cream); font-weight: 500; }
+#bta .hero-promise em { font-style: italic; color: var(--cream); }
+#bta .hero-promise .l2 { display: block; margin-top: .6rem; }
+#bta .hero-right { display: flex; flex-direction: column; gap: 1.25rem; }
+#bta .hero-shot { flex: 1; border-radius: 14px; overflow: hidden; border: 1px solid var(--line-d); box-shadow: 0 30px 70px -30px rgba(0,0,0,.8); display: flex; }
+#bta .hero-shot img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
+#bta .hero-right .btn { width: 100%; }
+#bta .hero-right .btn-note { text-align: center; margin-top: 0; }
+
+/* ── BUTTONS ── */
+#bta .btn { display: inline-block; background: var(--terra); color: #fff; font-size: .97rem; font-weight: 600; letter-spacing: .01em; padding: 1.05rem 2.2rem; border-radius: 8px; border: none; cursor: pointer; text-align: center; transition: background .2s ease, transform .18s ease; font-family: inherit; }
+#bta .btn:hover { background: var(--terra-dk); transform: translateY(-2px); }
+#bta .btn-ghost { display: inline-block; background: transparent; color: var(--cream); border: 1px solid rgba(237,231,219,.35); font-size: .97rem; font-weight: 600; padding: 1.05rem 2.2rem; border-radius: 8px; transition: background .2s ease, border-color .2s ease; }
+#bta .btn-ghost:hover { background: rgba(237,231,219,.08); border-color: rgba(237,231,219,.6); }
+#bta .btn-note { font-size: .78rem; color: var(--muted); margin-top: .85rem; }
+
+/* ── HERO STAT BAR ── */
+#bta .statbar { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line-d); border-top: 1px solid var(--line-d); margin-top: 4rem; }
+#bta .stat { background: var(--ink); padding: 1.75rem 1.25rem; text-align: center; }
+#bta .sv { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 1.85rem; font-weight: 700; color: var(--terra); line-height: 1.1; margin-bottom: .35rem; }
+#bta .sl { font-size: .6rem; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); line-height: 1.55; }
+
+/* ── BENEFITS ── */
+#bta .bgrid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.35rem; margin-top: 2.75rem; }
+#bta .bcard { background: var(--paper2); border: 1px solid var(--line-l); border-radius: 13px; overflow: hidden; display: flex; flex-direction: column; }
+#bta .bcard img { width: 100%; height: 175px; object-fit: cover; }
+#bta .bcard-in { padding: 1.6rem 1.6rem 1.85rem; display: flex; flex-direction: column; gap: .7rem; flex: 1; }
+#bta .bicon { width: 42px; height: 42px; background: rgba(200,90,40,.1); border: 1px solid rgba(200,90,40,.25); border-radius: 9px; display: flex; align-items: center; justify-content: center; }
+#bta .bicon svg { width: 20px; height: 20px; fill: none; stroke: var(--terra); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+#bta .bt { font-family: 'Playfair Display', Georgia, serif; font-size: 1.18rem; font-weight: 500; line-height: 1.3; color: var(--ink); }
+#bta .bb { font-size: .89rem; color: var(--muted-l); line-height: 1.68; }
+
+/* ── WHO IT'S FOR ── */
+#bta .fitgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.35rem; margin-top: 2.75rem; }
+#bta .fit { border-radius: 13px; padding: 2rem 2.1rem; border: 1px solid var(--line-l); background: var(--paper2); }
+#bta .fit.yes { border-color: rgba(200,90,40,.3); background: rgba(200,90,40,.05); }
+#bta .fit h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.2rem; font-weight: 500; margin-bottom: 1.15rem; color: var(--ink); }
+#bta .fit li { display: flex; gap: .7rem; align-items: flex-start; font-size: .92rem; color: var(--muted-l); line-height: 1.6; padding: .5rem 0; }
+#bta .fit li svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: .3rem; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+#bta .fit.yes li svg { stroke: var(--terra); }
+#bta .fit.no li svg { stroke: #B3A895; }
+
+/* ── OBJECTION ── */
+#bta .obj { background: var(--panel); border: 1px solid rgba(200,90,40,.25); border-left: 3px solid var(--terra); border-radius: 13px; padding: 2.25rem 2.4rem; display: flex; gap: 1.5rem; align-items: flex-start; margin-top: 2rem; }
+#bta .obj-ic { width: 44px; height: 44px; background: var(--terra); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+#bta .obj-ic svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+#bta .obj-q { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.1rem; color: var(--cream); line-height: 1.5; margin-bottom: .7rem; }
+#bta .obj-a { font-size: .95rem; color: var(--muted); line-height: 1.75; }
+#bta .obj-a strong { color: var(--terra); font-weight: 600; }
+
+/* ── STORY ── */
+#bta .story { display: grid; grid-template-columns: 1.1fr .9fr; gap: 3.5rem; align-items: start; margin-top: 2.25rem; }
+#bta .story-text p { font-size: 1rem; color: var(--muted); line-height: 1.85; margin-bottom: 1.25rem; }
+#bta .story-text p strong { color: var(--cream); font-weight: 500; }
+#bta .pull { border-left: 3px solid var(--terra); background: rgba(200,90,40,.09); border-radius: 0 10px 10px 0; padding: 1.4rem 1.7rem; margin: 2rem 0; }
+#bta .pull p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 1.2rem; color: var(--cream); line-height: 1.55; margin: 0; }
+#bta .story-img { border-radius: 14px; overflow: hidden; border: 1px solid var(--line-d); position: sticky; top: 88px; }
+#bta .story-img img { width: 100%; }
+
+/* ── MODULES ── */
+#bta .mgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-l); border: 1px solid var(--line-l); border-radius: 13px; overflow: hidden; margin-top: 2.75rem; }
+#bta .mod { background: var(--paper2); padding: 1.85rem 1.9rem; display: flex; gap: 1.1rem; align-items: flex-start; }
+#bta .mnum { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--terra); color: #fff; font-family: 'Playfair Display', Georgia, serif; font-size: .95rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+#bta .mt { font-size: 1rem; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: .4rem; }
+#bta .mb { font-size: .87rem; color: var(--muted-l); line-height: 1.68; }
+#bta .comp { margin-top: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; background: var(--ink); border-radius: 13px; padding: 1.5rem 1.75rem; }
+#bta .comp svg { width: 24px; height: 24px; flex-shrink: 0; margin-top: 3px; fill: none; stroke: var(--terra); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+#bta .comp p { font-size: .92rem; color: var(--muted); line-height: 1.65; }
+#bta .comp strong { color: var(--cream); font-weight: 600; }
+
+/* ── HOW IT RUNS ── */
+#bta .flow { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line-d); border: 1px solid var(--line-d); border-radius: 13px; overflow: hidden; margin-top: 2.75rem; }
+#bta .fstep { background: var(--panel); padding: 1.85rem 1.9rem; display: flex; gap: 1.1rem; align-items: flex-start; }
+#bta .fnum { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: var(--terra); color: #fff; font-family: 'Playfair Display', Georgia, serif; font-size: .95rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+#bta .fstep-t { font-size: 1rem; font-weight: 600; color: var(--cream); line-height: 1.4; margin-bottom: .4rem; }
+#bta .fstep-b { font-size: .87rem; color: var(--muted); line-height: 1.68; }
+#bta .fstep-b strong { color: var(--cream); font-weight: 600; }
+
+/* ── ACQUISITION CONTRAST ── */
+#bta .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.35rem; margin-top: 2.75rem; align-items: stretch; }
+#bta .vs-card { border-radius: 13px; padding: 2rem 2.1rem; border: 1px solid var(--line-l); background: var(--paper); }
+#bta .vs-card.now { background: rgba(200,90,40,.06); border-color: rgba(200,90,40,.3); border-top: 3px solid var(--terra); }
+#bta .vs-lbl { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; color: var(--muted-l); margin-bottom: .75rem; }
+#bta .vs-card.now .vs-lbl { color: var(--terra); }
+#bta .vs-card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.22rem; font-weight: 500; color: var(--ink); line-height: 1.3; margin-bottom: .7rem; }
+#bta .vs-card p { font-size: .93rem; color: var(--muted-l); line-height: 1.7; }
+#bta .vs-card p + p { margin-top: .7rem; }
+#bta .vs-card strong { color: var(--ink); font-weight: 600; }
+#bta .vs-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.35rem; }
+#bta .vs-chips span { font-size: .74rem; font-weight: 600; color: var(--terra); background: rgba(200,90,40,.1); border: 1px solid rgba(200,90,40,.28); padding: .35rem .85rem; border-radius: 100px; }
+
+/* ── ABOUT ── */
+#bta .about { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+#bta .about-img { width: 230px; max-width: 66%; border-radius: 13px; overflow: hidden; border: 1px solid var(--line-l); margin: 1.5rem 0 1.6rem; }
+#bta .about-img img { width: 100%; }
+#bta .about-cap { font-size: .82rem; color: var(--muted-l); line-height: 1.6; margin: -.9rem 0 1.6rem; max-width: 40ch; }
+#bta .about-cap b { display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: .2rem; }
+#bta .about-text p { font-size: 1rem; color: var(--muted-l); line-height: 1.85; }
+#bta .about-text p + p { margin-top: 1rem; }
+#bta .about-text strong { color: var(--ink); font-weight: 600; }
+#bta .tags { display: flex; flex-wrap: wrap; gap: .55rem; margin-top: 1.75rem; }
+#bta .tag { font-size: .72rem; font-weight: 600; letter-spacing: .04em; color: var(--terra); background: rgba(200,90,40,.09); border: 1px solid rgba(200,90,40,.28); padding: .35rem .9rem; border-radius: 100px; }
+#bta .method { background: var(--ink); border-radius: 16px; padding: 2.25rem 2.4rem; }
+#bta .method-ic { width: 66px; height: 66px; background: var(--cream); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.4rem; padding: 8px; }
+#bta .method-ic img { max-width: 100%; max-height: 100%; object-fit: contain; }
+#bta .method h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.35rem; font-weight: 500; color: var(--cream); margin-bottom: .5rem; }
+#bta .pillars-head { text-align: center; margin-top: 3.5rem; }
+#bta .pillars-head .eye { margin-bottom: .5rem; }
+#bta .pillars-head p { font-size: .95rem; color: var(--muted-l); max-width: 60ch; margin: 0 auto; line-height: 1.7; }
+#bta .pillars { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: var(--line-l); border: 1px solid var(--line-l); border-radius: 13px; overflow: hidden; margin-top: 1.75rem; }
+#bta .pillar { background: var(--paper2); padding: 1.6rem 1.1rem; display: flex; flex-direction: column; align-items: center; gap: .8rem; text-align: center; }
+#bta .pillar svg { width: 23px; height: 23px; flex-shrink: 0; fill: none; stroke: var(--terra); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+#bta .pillar span { font-size: .85rem; font-weight: 600; color: var(--ink); line-height: 1.45; }
+#bta .closer { text-align: center; margin-top: 2.75rem; }
+#bta .closer p { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(1.1rem,2.2vw,1.35rem); color: var(--muted-l); max-width: 34ch; margin: 0 auto; line-height: 1.5; }
+#bta .closer b { display: block; margin-top: .9rem; font-family: 'Playfair Display', Georgia, serif; font-style: normal; font-size: clamp(1.7rem,3.4vw,2.5rem); font-weight: 700; color: var(--terra); letter-spacing: -.01em; }
+#bta .method .lead { font-size: .88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.6rem; }
+#bta .mlist { display: flex; flex-direction: column; gap: .95rem; }
+#bta .mitem { display: flex; align-items: flex-start; gap: .85rem; }
+#bta .mi-n { flex-shrink: 0; width: 25px; height: 25px; border-radius: 50%; border: 1px solid rgba(200,90,40,.5); background: rgba(200,90,40,.14); color: var(--terra); font-size: .74rem; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+#bta .mitem span.mi-t { font-size: .93rem; color: var(--cream); line-height: 1.5; }
+
+/* ── VIDEO ── */
+#bta .vid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
+#bta .vid-sub { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-top: 1rem; max-width: 44ch; }
+#bta .vid-frame { max-width: 380px; margin: 0 auto; border-radius: 14px; overflow: hidden; border: 1px solid var(--line-d); box-shadow: 0 26px 60px -26px rgba(0,0,0,.75); background: #000; }
+#bta .vid-frame iframe { display: block; width: 100%; aspect-ratio: 9/16; max-height: 76vh; border: 0; }
+
+/* ── OFFER ── */
+#bta .offer { background: var(--paper2); border: 1px solid var(--line-l); border-top: 3px solid var(--terra); border-radius: 16px; padding: 3rem; text-align: center; box-shadow: 0 24px 60px -34px rgba(26,22,16,.4); margin-top: 2.5rem; }
+#bta .offer-eye { font-size: .62rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--terra); margin-bottom: .8rem; }
+#bta .offer h3 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.5rem,3vw,2rem); font-weight: 500; line-height: 1.25; color: var(--ink); margin-bottom: .5rem; }
+#bta .offer-meta { font-size: .88rem; letter-spacing: .04em; color: var(--muted-l); margin-bottom: 2.25rem; }
+#bta .incl { text-align: left; max-width: 520px; margin: 0 auto 2.25rem; display: flex; flex-direction: column; gap: .8rem; }
+#bta .incl li { display: flex; align-items: flex-start; gap: .7rem; font-size: .95rem; color: var(--muted-l); line-height: 1.65; }
+#bta .incl svg { width: 17px; height: 17px; flex-shrink: 0; margin-top: .3rem; fill: none; stroke: var(--terra); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+#bta .prow { display: flex; align-items: baseline; justify-content: center; gap: .7rem; }
+#bta .plabel { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted-l); }
+#bta .pnum { font-family: 'Playfair Display', Georgia, serif; font-size: 2.6rem; font-weight: 700; color: var(--ink); line-height: 1.1; }
+#bta .pdeal { display: inline-block; background: var(--terra); color: #fff; font-size: .68rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; padding: .4rem 1.1rem; border-radius: 100px; margin-bottom: 1.25rem; }
+#bta .pwas { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 500; color: var(--muted-l); text-decoration: line-through; text-decoration-thickness: 2px; }
+#bta .psave { margin-top: .65rem; font-size: .93rem; color: var(--muted-l); }
+#bta .psave b { color: var(--terra); font-weight: 700; }
+#bta .odiv { border: none; border-top: 1px solid var(--line-l); margin: 1.85rem 0; }
+#bta .dep { font-size: .95rem; color: var(--muted-l); line-height: 1.7; }
+#bta .dep b { color: var(--ink); font-weight: 600; }
+#bta .pays { display: flex; justify-content: center; flex-wrap: wrap; gap: .6rem; margin-top: 1.1rem; }
+#bta .pays span { font-size: .87rem; font-weight: 600; letter-spacing: .01em; color: var(--ink); background: var(--paper); border: 1px solid var(--line-l); border-radius: 8px; padding: .55rem 1.15rem; }
+#bta .fine { font-size: .82rem; color: var(--muted-l); line-height: 1.65; max-width: 470px; margin: 1.5rem auto 0; }
+
+/* ── FAQ ── */
+#bta .faq { margin-top: 2.5rem; border-top: 1px solid var(--line-l); }
+#bta .fitem { border-bottom: 1px solid var(--line-l); }
+#bta .fq { width: 100%; background: none; border: none; cursor: pointer; padding: 1.25rem 0; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; text-align: left; font-family: inherit; }
+#bta .fq-t { font-size: 1rem; font-weight: 500; color: var(--ink); line-height: 1.45; }
+#bta .chev { width: 19px; height: 19px; flex-shrink: 0; fill: none; stroke: var(--terra); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; transition: transform .24s ease; }
+#bta .fitem.open .chev { transform: rotate(180deg); }
+#bta .fa { display: none; padding: 0 0 1.35rem; font-size: .94rem; color: var(--muted-l); line-height: 1.75; max-width: 660px; }
+#bta .fitem.open .fa { display: block; }
+
+/* ── FINAL CTA ── */
+#bta .final { background: var(--ink); padding: 5.5rem 0; text-align: center; border-top: 1px solid var(--line-d); }
+#bta .final h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.9rem,4vw,3.1rem); font-weight: 500; line-height: 1.2; letter-spacing: -.01em; color: var(--cream); margin-bottom: 1rem; max-width: 20ch; margin-left: auto; margin-right: auto; }
+#bta .final h2 em { font-style: italic; font-weight: 400; color: var(--terra); }
+#bta .final > .wrap > p { font-size: 1rem; color: var(--muted); max-width: 500px; margin: 0 auto 2.25rem; line-height: 1.75; }
+#bta .ftrust { display: flex; justify-content: center; flex-wrap: wrap; gap: 1.4rem; margin-top: 2.25rem; }
+#bta .ft-i { display: flex; align-items: center; gap: .45rem; font-size: .78rem; color: var(--muted); }
+#bta .ft-i svg { width: 13px; height: 13px; fill: none; stroke: var(--terra); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── FOOTER ── */
+#bta .foot { background: var(--ink); border-top: 1px solid var(--line-d); }
+#bta .foot-in { max-width: 1100px; margin: 0 auto; padding: 3.25rem 6vw; display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; }
+#bta .foot h4 { font-size: .6rem; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: .55rem; font-weight: 600; }
+#bta .foot p { font-size: .88rem; line-height: 1.7; color: var(--cream); }
+#bta .foot a { color: var(--terra); }
+#bta .copy { max-width: 1100px; margin: 0 auto; padding: 1.25rem 6vw 2rem; font-size: .72rem; color: var(--muted); border-top: 1px solid var(--line-d); }
+
+/* ── APPLICATION MODAL ── */
+#bta .modal { position: fixed; inset: 0; z-index: 300; display: flex; align-items: center; justify-content: center; padding: 1.25rem; }
+#bta .modal[hidden] { display: none; }
+#bta .modal__backdrop { position: absolute; inset: 0; background: rgba(15,13,9,.74); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+#bta .modal__panel { position: relative; width: 100%; max-width: 560px; max-height: 92vh; overflow-y: auto; background: var(--paper2); border: 1px solid var(--line-l); border-top: 3px solid var(--terra); border-radius: 16px; padding: 2.25rem 1.9rem 1.25rem; box-shadow: 0 40px 90px -30px rgba(0,0,0,.65); }
+#bta .modal__x { position: absolute; top: .7rem; right: .8rem; width: 34px; height: 34px; border: none; background: transparent; color: var(--muted-l); font-size: 1.7rem; line-height: 1; cursor: pointer; border-radius: 8px; font-family: inherit; }
+#bta .modal__x:hover { background: var(--paper); color: var(--ink); }
+#bta .modal__title { font-family: 'Playfair Display', Georgia, serif; font-size: 1.6rem; font-weight: 500; color: var(--ink); line-height: 1.25; margin-bottom: .45rem; padding-right: 2rem; }
+#bta .modal__sub { font-size: .92rem; color: var(--muted-l); line-height: 1.65; margin-bottom: 1.35rem; }
+#bta .modal iframe { display: block; width: 100%; min-height: 620px; border: none; border-radius: 8px; }
+@media (max-width: 640px) { #bta .modal { padding: .75rem; } #bta .modal__panel { padding: 1.9rem 1.15rem 1rem; } }
+
+/* ── REVEAL ── */
+#bta .rv { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+#bta .rv.on { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+    #bta .rv { opacity: 1; transform: none; transition: none; }
+    #bta .btn:hover, #bta .nav-cta:hover { transform: none; }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+    #bta .hero-grid, #bta .story, #bta .about, #bta .vid-layout { grid-template-columns: 1fr; gap: 2.25rem; }
+    #bta .hero-shot img { height: auto; min-height: 0; aspect-ratio: 4/5; }
+    #bta .story-img { position: static; order: -1; }
+    #bta .bgrid { grid-template-columns: 1fr 1fr; }
+    #bta .mgrid, #bta .flow { grid-template-columns: 1fr; }
+    #bta .about-img { width: 180px; }
+    #bta .pillars { grid-template-columns: repeat(2,1fr); }
+    #bta .pillar:last-child { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+    #bta .sec { padding: 3.5rem 0; }
+    #bta .hero { padding-top: 3rem; }
+    #bta .bgrid, #bta .fitgrid, #bta .vs { grid-template-columns: 1fr; }
+    #bta .pillars { grid-template-columns: 1fr; }
+    #bta .pillar:last-child { grid-column: auto; }
+    #bta .statbar { grid-template-columns: 1fr 1fr; }
+    #bta .obj { flex-direction: column; gap: 1rem; padding: 1.6rem 1.5rem; }
+    #bta .offer { padding: 2rem 1.4rem; }
+    #bta .comp { flex-direction: column; gap: .8rem; }
+    #bta .foot-in { grid-template-columns: 1fr; }
+    #bta .btn, #bta .btn-ghost { display: block; width: 100%; }
+    #bta .final { padding: 3.5rem 0; }
+}
+</style>
+
+<div id="bta">
+
+  <!-- ═══ NAV ═══ -->
+  <div class="nav">
+    <div class="nav-in">
+      <div class="brand">
+        <div class="logo-box">
+          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Academy">
+        </div>
+        <span class="bname">The Body Temple<b>Academy</b></span>
+      </div>
+      <button type="button" class="nav-cta apply" data-cta="Nav">Apply</button>
+    </div>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="rv">
+          <div class="badge">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Brazilian Post-Op &amp; Wellness Drainage
+          </div>
+          <h1 class="hl">Help more, make more, and <em>work less.</em></h1>
+          <p class="hero-promise">
+            In our <strong>NCBTMB-approved 16 hours</strong>, you will gain more than a profitable new skill. You will make a career and life-changing decision that brings you success long-term, by learning how to acquire clients and communicate with them so they buy packages from you the same day.
+            <span class="l2">You will learn the hands-on techniques, client-acquisition methods and communication skills I used to build a <strong>$300,000-a-year practice</strong>. You will also learn how to deliver an exceptional, high-end client experience, build a thriving practice, and become the go-to lymphatic drainage expert in your town.</span>
+          </p>
+        </div>
+        <div class="hero-right rv">
+          <div class="hero-shot">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a46916bd0f4875396589092.jpg" alt="Manual lymphatic drainage being practiced during hands-on training" loading="eager">
+          </div>
+          <button type="button" class="btn apply" data-cta="Hero">Apply Now</button>
+          <p class="btn-note">Personalized coaching, only 10 per group &middot; watch on demand, start today.</p>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="statbar">
+        <div class="stat"><span class="sv">16</span><span class="sl">CE Hours<br>NCBTMB approved</span></div>
+        <div class="stat"><span class="sv">8</span><span class="sl">Modules<br>Watch on demand</span></div>
+        <div class="stat"><span class="sv">8</span><span class="sl">Group coaching calls<br>Included</span></div>
+        <div class="stat"><span class="sv">1</span><span class="sl">Week to finish<br>If you apply yourself</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BENEFITS ═══ -->
+  <section class="sec light">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eye">What you will gain</span>
+        <h2 class="sh">Results your clients feel &mdash; and buy packages for</h2>
+        <p class="sub">Three things change in your practice, starting with the very next body on your table.</p>
+      </div>
+      <div class="bgrid">
+        <div class="bcard rv">
+          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a469178d0f4875396589298.jpg" alt="A client resting after a lymphatic drainage session">
+          <div class="bcard-in">
+            <div class="bicon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+            <div class="bt">Clients feel it the same day.</div>
+            <div class="bb">Less swelling, less heaviness, faster recovery. That is the kind of result that turns a one-time visit into a $2,000 package.</div>
+          </div>
+        </div>
+        <div class="bcard rv">
+          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a46916b20f1c14ba968356b.jpg" alt="Therapist performing a lymphatic drainage technique with correct pressure">
+          <div class="bcard-in">
+            <div class="bicon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg></div>
+            <div class="bt">You stop second-guessing your hands.</div>
+            <div class="bb">You will know what is safe, what is not, and why &mdash; so you walk into a post-op session sure of your decisions instead of hoping you do no harm.</div>
+          </div>
+        </div>
+        <div class="bcard rv">
+          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a46916bac41ea59b0eba30b.jpg" alt="A specialized treatment that sets a therapist apart">
+          <div class="bcard-in">
+            <div class="bicon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+            <div class="bt">You offer what most therapists near you cannot.</div>
+            <div class="bb">A specialized, in-demand service that justifies a higher rate and gets you referred by surgeons, coaches and clients alike.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHO IT IS FOR ═══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eye">Before you enroll</span>
+        <h2 class="sh">This training is built for a specific person</h2>
+        <p class="sub">We would rather you know now than find out on day one. Here is who finishes this certification with clients already on their books and ready to work &mdash; and who does not.</p>
+      </div>
+      <div class="fitgrid">
+        <div class="fit yes rv">
+          <h3>This Is for You If&hellip;</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You are a licensed massage therapist, esthetician or wellness professional committed to working within your defined scope of practice.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Clients are already asking you for lymphatic drainage, and you want to confidently say yes without guessing.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You want to offer postoperative services, but you refuse to begin until you understand the techniques, contraindications and red flags.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You would rather be corrected during hands-on training than discover a mistake while working with a paying client.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You are willing to practice consistently until the technique becomes natural, precise and confident.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You want to learn how to communicate professionally and create an exceptional, high-end client experience.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You are prepared to promote your services, build referral relationships and actively acquire new clients.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You want more than another certificate &mdash; you want a profitable skill that can create long-term career growth.</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You are ready to do the work required to become a trusted lymphatic drainage expert in your community.</li>
+          </ul>
+        </div>
+        <div class="fit no rv">
+          <h3>This Training Is Not for You If&hellip;</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You only want another certificate but are not willing to practice and master the technique.</li>
+            <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You expect clients to find you without consistently promoting your services or building professional relationships.</li>
+            <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You are unwilling to improve the way you communicate, educate and care for your clients.</li>
+            <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You are not open to receiving feedback, correcting your technique and continuing to grow.</li>
+            <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You are looking for a quick-money opportunity without putting in the work required to build a respected practice.</li>
+            <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You are not prepared to follow proper protocols, recognize contraindications and prioritize client safety.</li>
+            <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You are unwilling to create the elevated, professional experience that turns first-time clients into loyal clients.</li>
+            <li><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>You are not ready to become known as the trusted lymphatic drainage expert in your community.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OBJECTION ═══ -->
+  <section class="sec light">
+    <div class="wrap">
+      <div class="narrow rv">
+        <span class="eye">A concern we hear constantly</span>
+        <h2 class="sh">&ldquo;How do I know I will actually be ready to use this on a real client?&rdquo;</h2>
+        <div class="obj">
+          <div class="obj-ic"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <div>
+            <p class="obj-q">Because you do not get certified until you have proved it.</p>
+            <p class="obj-a">The modules are recorded so you can rewatch a technique until it is right &mdash; but that is where it starts, not where it ends. <strong>You practice every protocol on a real body, then film yourself performing the whole service so it can be evaluated individually</strong> before you ever touch a paying client, and you bring your hands to eight group coaching calls where your pressure, your sequence and your intake all get corrected. You finish with a method you can trust from session one &mdash; not a folder of notes you hope you understood.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STORY ═══ -->
+  <section class="sec dark">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eye">Why this matters</span>
+        <h2 class="sh">Nothing moves until you open the pathway first</h2>
+      </div>
+      <div class="story">
+        <div class="story-text rv">
+          <p>Most therapists learn lymphatic drainage the way most drivers learn a shortcut: secondhand. A video, a weekend workshop, a coworker who picked it up somewhere. It sort of works &mdash; until a client asks a question you cannot answer, or you are not sure whether that swelling is normal healing or something you should be referring out today.</p>
+          <p>Here is the thing about the lymphatic system: it has no pump of its own. Fluid only moves when you open the right pathway first. Push against a closed pathway and nothing drains, no matter how hard you work.</p>
+          <div class="pull"><p>And it is not water you are moving.</p></div>
+          <p>Almost everyone calls it water retention. It is not. It is <strong>fluid retention</strong>, and that fluid is a great deal more than water &mdash; plasma proteins too large for the blood capillaries to take back, cellular waste, bacteria, immune cells. That is why it sits there, and it is why moving it takes a sequence rather than pressure.</p>
+          <p>The distinction is not trivia. Your clients research this before they book. Every time you say water retention to a client who has done their homework, you sound like someone who took a weekend course. Say <strong>fluid retention</strong>, explain what is actually in it and where you are sending it, and you sound like <strong>the expert they were looking for</strong>.</p>
+        </div>
+        <div class="story-img rv">
+          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a4691756fe10df00f4b625a.jpg" alt="Opening the lymphatic pathway with correct manual technique">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MODULES ═══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eye">What you will learn</span>
+        <h2 class="sh">Eight modules. Sixteen hands-on hours. One method you can trust.</h2>
+        <p class="sub">Every module builds on the one before it, so by the end you do not just recognize lymphatic drainage &mdash; you can perform it, explain it and defend the clinical decision behind it.</p>
+      </div>
+      <div class="mgrid">
+        <div class="mod rv"><div class="mnum">1</div><div>
+          <div class="mt">Foundations of Lymphatic Drainage</div>
+          <div class="mb">Where manual lymphatic drainage came from, why it works, and the real difference between a wellness session and a post-operative one &mdash; the &ldquo;why&rdquo; before you ever touch a client.</div>
+        </div></div>
+        <div class="mod rv"><div class="mnum">2</div><div>
+          <div class="mt">Lymphatic Anatomy &amp; Physiology</div>
+          <div class="mb">Nodes, vessels, watersheds and the terminus. The map you need before you can safely move fluid anywhere in the body.</div>
+        </div></div>
+        <div class="mod rv"><div class="mnum">3</div><div>
+          <div class="mt">Assessment, Contraindications &amp; Safety</div>
+          <div class="mb">Intake, surgical history review, absolute versus relative contraindications, red flags and scope of practice &mdash; so you always know when to treat and when to refer out.</div>
+        </div></div>
+        <div class="mod rv"><div class="mnum">4</div><div>
+          <div class="mt">Core Manual Techniques</div>
+          <div class="mb">Pressure, rhythm and direction of flow, plus the three foundational techniques &mdash; stationary circles, pump and scoop &mdash; you will use in every protocol that follows.</div>
+        </div></div>
+        <div class="mod rv"><div class="mnum">5</div><div>
+          <div class="mt">Upper Body Protocols</div>
+          <div class="mb">Full protocols for the neck and terminus, face and head, arms and hands, chest and upper torso. Each one demonstrated in full, then practiced on your own model and corrected on a coaching call.</div>
+        </div></div>
+        <div class="mod rv"><div class="mnum">6</div><div>
+          <div class="mt">Lower Body Protocols</div>
+          <div class="mb">Full protocols for the abdomen, lower back and hips, upper legs and inguinal region, lower legs, feet and ankles.</div>
+        </div></div>
+        <div class="mod rv"><div class="mnum">7</div><div>
+          <div class="mt">Post-Operative Work &amp; Clinical Decisions</div>
+          <div class="mb">Stages of healing, fibrosis awareness and real case studies across liposuction, tummy tuck, BBL and breast procedures &mdash; so post-op clients get a practitioner who knows what is normal and what is not.</div>
+        </div></div>
+        <div class="mod rv"><div class="mnum">8</div><div>
+          <div class="mt">Treatment Planning, Packages &amp; Client Acquisition</div>
+          <div class="mb">Session design from 30 to 120 minutes, planning by client type and SOAP documentation &mdash; then the business half: pricing on the value you deliver rather than the clock, where your first clients come from, and the package conversation that turns a first visit into a series booked the same day.</div>
+        </div></div>
+      </div>
+      <div class="comp rv">
+        <svg viewBox="0 0 24 24"><path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.12"/></svg>
+        <p><strong>To complete the course</strong> you sit a written examination and film yourself performing the full service. Lalita reviews your video personally and evaluates you individually &mdash; and when you pass both, your Certificate of Completion for 16 Continuing Education Hours is issued.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT RUNS ═══ -->
+  <section class="sec dark">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eye">How the program runs</span>
+        <h2 class="sh">Start today. Finish inside a week if you apply yourself.</h2>
+        <p class="sub">Nothing is scheduled against you. The modules are recorded and waiting the moment you enroll, so you move at whatever pace your week allows &mdash; and the coaching calls are there when you want experienced eyes on your hands.</p>
+      </div>
+      <div class="flow">
+        <div class="fstep rv"><div class="fnum">1</div><div>
+          <div class="fstep-t">Watch the modules on demand</div>
+          <div class="fstep-b">Sixteen hours of instruction across eight modules, yours from the day you enroll. Rewatch any technique as many times as it takes &mdash; which is the one thing a live weekend can never give you.</div>
+        </div></div>
+        <div class="fstep rv"><div class="fnum">2</div><div>
+          <div class="fstep-t">Practice on your own model</div>
+          <div class="fstep-b">Work each protocol on a real body, at your own table, with the module open beside you. Most students are through the material and practicing within their first week.</div>
+        </div></div>
+        <div class="fstep rv"><div class="fnum">3</div><div>
+          <div class="fstep-t">Bring your hands to the coaching calls</div>
+          <div class="fstep-b"><strong>Eight group coaching calls are included.</strong> This is where your questions get answered, your technique gets corrected and your client conversations get rehearsed &mdash; in a small group, not an audience.</div>
+        </div></div>
+        <div class="fstep rv"><div class="fnum">4</div><div>
+          <div class="fstep-t">Film your work, get evaluated, start charging</div>
+          <div class="fstep-b">You film yourself performing the full service and submit it. <strong>Lalita reviews every submission personally</strong> and evaluates you individually &mdash; no assistant, no automatic pass. That plus the written exam earns your Certificate of Completion for 16 NCBTMB-approved CE hours.</div>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHERE THE CLIENTS COME FROM ═══ -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="rv">
+        <span class="eye">The part nobody teaches</span>
+        <h2 class="sh">Your next clients are already within reach</h2>
+        <p class="sub">A certificate does not fill a calendar. This is the half of the training that decides whether you are charging for this service next week or next year.</p>
+      </div>
+      <div class="vs">
+        <div class="vs-card rv">
+          <div class="vs-lbl">The slow way</div>
+          <h3>Post, wait, and hope it converts</h3>
+          <p>Build an audience. Stay consistent. Give it six months to a year and see what happens. It is the only approach most therapists ever hear about, which is why so many are still waiting.</p>
+          <p>Social media can work eventually. It does not pay your rent the week you finish a certification.</p>
+        </div>
+        <div class="vs-card now rv">
+          <div class="vs-lbl">What you learn here</div>
+          <h3>A next-day, next-week strategy</h3>
+          <p>You will work the relationships, referrals and conversations <strong>already within your reach</strong> &mdash; the ones most therapists have and are using wrong. No audience to build first, no algorithm to wait on.</p>
+          <p>Paired with the high-ticket sales protocol, it is what turns a first session into a package instead of a one-off.</p>
+          <div class="vs-chips">
+            <span>Referral relationships</span>
+            <span>The package conversation</span>
+            <span>High-ticket sales protocol</span>
+            <span>What to charge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section class="sec light">
+    <div class="wrap">
+      <div class="about">
+        <div class="about-text rv">
+          <span class="eye">About the academy</span>
+          <h2 class="sh">Where women come to learn, transform and create their future</h2>
+          <div class="about-img">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a2b5ed9e5084c4b71970049.png" alt="Lalita Sanchez, LMT and Functional Longevity Coach, founder of The Body Temple Academy">
+          </div>
+          <p class="about-cap"><b>Lalita Sanchez</b>LMT and Functional Longevity Coach, certified across a range of manual therapy and longevity modalities.</p>
+          <p><strong>The Body Temple Academy</strong> was founded by <strong>Lalita Sanchez, LMT and Functional Longevity Coach</strong>, in Athens, Georgia, as a multidimensional education and transformation platform for women.</p>
+          <p>Its professional certification programs are developed through <strong>The Body Temple Spa</strong>, where the methods are practiced and refined with real clients every week. Students receive practical education, coaching, hands-on experience, case studies and individual skills evaluation &mdash; not simply a lecture and a certificate.</p>
+          <p>And beyond professional training, the academy supports the whole woman: her health, her beauty, her purpose, her finances, her personal power, her intuition, and her capacity to build the life she wants.</p>
+          <div class="tags">
+            <span class="tag">Lalita Sanchez, LMT &middot; Functional Longevity Coach</span>
+            <span class="tag">On demand + coaching calls</span>
+            <span class="tag">Hands-on practice</span>
+            <span class="tag">Wellness + post-op</span>
+            <span class="tag">NCBTMB approved &middot; 16 CE Hours</span>
+          </div>
+        </div>
+        <div class="method rv">
+          <div class="method-ic">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Method mark">
+          </div>
+          <h3>The Body Temple Method&trade;</h3>
+          <p class="lead">Five principles that carry you from the first minute of intake to the last line of your notes. Every protocol in the training runs on them.</p>
+          <div class="mlist">
+            <div class="mitem"><div class="mi-n">1</div><span class="mi-t">Assess before you address</span></div>
+            <div class="mitem"><div class="mi-n">2</div><span class="mi-t">Open before moving</span></div>
+            <div class="mitem"><div class="mi-n">3</div><span class="mi-t">Clear proximal before distal</span></div>
+            <div class="mitem"><div class="mi-n">4</div><span class="mi-t">Follow the body's natural pathways</span></div>
+            <div class="mitem"><div class="mi-n">5</div><span class="mi-t">Finish with a plan, not a goodbye</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pillars-head rv">
+        <span class="eye">The five pillars</span>
+        <p>Together they give women the knowledge, the practices and the experiences they need to create their future.</p>
+      </div>
+      <div class="pillars rv">
+        <div class="pillar"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/><path d="M3.5 12.5h4L9 10l2 5 1.5-3h3"/></svg><span>Wellness &amp; health</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24"><path d="M12 2.5c3 4.5 5.5 7.3 5.5 10.7A5.5 5.5 0 0 1 12 18.7a5.5 5.5 0 0 1-5.5-5.5C6.5 9.8 9 7 12 2.5z"/><path d="M12 21.5v-2.8"/></svg><span>Longevity beauty</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="15 7 21 7 21 13"/></svg><span>Personal &amp; financial development</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="5.5"/><line x1="12" y1="14" x2="12" y2="21.5"/><line x1="8.5" y1="18.5" x2="15.5" y2="18.5"/></svg><span>Feminine energy</span></div>
+        <div class="pillar"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><polyline points="8.5 13.5 7.5 22 12 19.5 16.5 22 15.5 13.5"/></svg><span>Education &amp; certification</span></div>
+      </div>
+      <div class="closer rv">
+        <p>This is where women come to learn, transform, embody and create their future.</p>
+        <b>The future is yours.</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VIDEO TESTIMONIAL ═══ -->
+  <section class="sec dark">
+    <div class="wrap">
+      <div class="vid-layout">
+        <div class="rv">
+          <span class="eye">What students say</span>
+          <h2 class="sh">Hear it from someone who took it</h2>
+          <p class="vid-sub">A Body Temple Academy graduate on what changed in the way she works &mdash; and what she can now offer clients that she could not before.</p>
+        </div>
+        <div class="vid-frame rv">
+          <iframe
+            src="https://www.youtube.com/embed/77CmO6bXOBs?rel=0&amp;modestbranding=1&amp;playsinline=1"
+            title="The Body Temple Academy student testimonial"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            loading="lazy"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ OFFER ═══ -->
+  <section class="sec" id="enroll">
+    <div class="wrap">
+      <div class="narrow center rv">
+        <span class="eye">The offer</span>
+        <h2 class="sh">Brazilian Post-Op &amp; Wellness Drainage Professional Training</h2>
+        <p class="sub">NCBTMB approved &middot; 16 CE Hours &middot; On demand &middot; 8 group coaching calls</p>
+      </div>
+      <div class="narrow">
+        <div class="offer rv">
+          <div class="pdeal">70% off &middot; first-time students</div>
+          <h3>Your seat in the group</h3>
+          <p class="offer-meta">Eight modules &middot; eight coaching calls &middot; evaluated and certified</p>
+          <div class="offer-eye">Everything included</div>
+          <ul class="incl">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Eight hands-on training modules &mdash; Brazilian post-op and wellness protocols, full body, yours to rewatch</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Eight group coaching calls, capped at 10, where your technique and your client conversations get corrected</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>The complete client-acquisition strategy and the high-ticket sales protocol &mdash; not just clinical technique</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Written examination, plus a filmed practical evaluation reviewed and graded individually by Lalita</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>NCBTMB-approved Certificate of Completion for 16 Continuing Education Hours</li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Take-home toolkit: intake form, SOAP documentation template, contraindication guide, wellness and post-op protocol guides, and a practical skills checklist</li>
+          </ul>
+          <div class="prow">
+            <span class="plabel">Investment</span>
+            <span class="pwas">$5,000</span>
+            <span class="pnum">$1,500</span>
+          </div>
+          <p class="psave"><b>You save $3,500.</b> First-time pricing, for your first enrollment with the academy.</p>
+          <hr class="odiv">
+          <p class="dep"><b>Prefer to spread it out?</b> Payment plans are available at checkout &mdash; choose one when you enroll and start the modules straight away.</p>
+          <div class="pays"><span>Klarna</span><span>Afterpay</span><span>Affirm</span></div>
+          <button type="button" class="btn apply" style="margin-top:1.6rem" data-cta="Offer">Apply Now</button>
+          <p class="fine">Coaching groups are capped at 10, on purpose. That is the only way every student gets seen, corrected and evaluated individually instead of lost in a crowd.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="sec light">
+    <div class="wrap">
+      <div class="narrow">
+        <div class="rv">
+          <span class="eye">Common questions</span>
+          <h2 class="sh">Everything worth knowing before you apply</h2>
+        </div>
+        <div class="faq rv">
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">How is this different from every other lymphatic certification?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">Most certifications stop at the technique. You leave knowing how to perform lymphatic drainage and with no idea how to get anyone on your table for it. This one teaches the other half: how to talk to a client so they understand what you are doing and why it is worth paying for, how to deliver the high-end experience that makes a first visit feel like the start of something, and how to actually acquire clients rather than waiting to be found. This is not social media marketing that takes months of posting before it pays you anything. It is a <strong>next-day, next-week strategy</strong> &mdash; one most therapists already have within reach and are using wrong. That is the difference between a new certificate and a new income &mdash; and it is why this program is priced the way it is. The business material is built around the pricing, packaging and client-acquisition model behind a $300,000-a-year practice. What you earn depends on your market and the work you put in, but you will leave knowing exactly what to charge, how to fill your calendar and how to turn a first session into a package.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">Do I need prior lymphatic drainage experience?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">No. The training starts at the fundamentals &mdash; anatomy, physiology and safety &mdash; before moving into technique and full-body protocols. You build from the ground up. Therapists who already do some lymphatic work usually find this is where the gaps get filled in.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">Is this only post-operative work, or does it cover general wellness too?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">Both. You learn wellness applications &mdash; bloating, travel swelling, athletic recovery, general fluid retention &mdash; and post-operative applications across liposuction, tummy tuck, BBL and breast procedures. You can serve either type of client, or both.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">How much of it is hands-on versus lecture?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">Most of it is hands-on. The recorded modules demonstrate every protocol across every body region, alongside the anatomy, safety and clinical decision-making you need to apply it correctly &mdash; and the point of each one is that you go and do it. The eight coaching calls exist so your practice gets watched and corrected rather than left to guesswork.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">What if I am not confident about safety and contraindications?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">That is built in. There is a full module on assessment, contraindications, red flags and scope of practice, plus a take-home contraindication guide and intake form you can start using the week you get back.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">How does an online course teach something this hands-on?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">By not stopping at the video. Every technique is filmed close enough to see the pressure and the direction, and you can rewatch it as many times as it takes &mdash; something no live weekend allows. Then you practice it on a real model at your own table, and bring your hands to the group coaching calls, where the correction happens. All you need on your end is a massage table, a willing model, and a device you can position so your hands are visible on a call. Every document &mdash; intake form, SOAP template, contraindication guide and the protocol guides &mdash; is yours to download. And nobody certifies without filming themselves performing the full service for individual review, so your hands are seen before you are signed off.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">Can I pay in installments?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">Yes. Payment plans are available at checkout through Klarna, Afterpay and Affirm, so you can split the $1,500 into smaller payments and still start the modules straight away. Approval and terms are handled by whichever provider you choose.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">Will I actually be evaluated, or just handed a certificate?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">Evaluated, individually. You film yourself performing the full service on a real body and submit the video, and Lalita watches it herself &mdash; your pressure, your sequence, your direction of flow, your draping and your handling of the client. You get specific feedback on what to correct, not a score. That, plus a written exam, is what earns the Certificate of Completion for 16 Continuing Education Hours. It is also why the certificate means something: nobody passes without being watched.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">What do I walk away with?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">Your certificate and the full take-home toolkit &mdash; intake form, SOAP template, contraindication guide, wellness and post-op protocol guides and a practical skills checklist. On top of that you leave with the <strong>complete client-acquisition strategy</strong> and the <strong>high-ticket sales protocol</strong>, so you know where clients come from and exactly what to say once one is on your table. And, most importantly, the confidence to put this on your menu the day you get back to your practice.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">Does this count for continuing education credit?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">Yes. The course is NCBTMB approved and delivered as a 16 CE Hour program with a Certificate of Completion. NCBTMB approval is accepted by most state boards, but requirements do differ, so it is worth a quick check with your own board before you enroll.</div>
+          </div>
+
+          <div class="fitem">
+            <button class="fq" aria-expanded="false"><span class="fq-t">How many people are in a class?</span><svg class="chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="fa">Ten. The coaching calls are capped at 10 so every one of you gets seen, corrected and individually evaluated, rather than typing a question into a chat of two hundred people and hoping it gets read.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FINAL CTA ═══ -->
+  <section class="final">
+    <div class="wrap">
+      <div class="rv">
+        <h2>Stop guessing. Start delivering results clients <em>rebook for.</em></h2>
+        <p>Join the therapists who turned lymphatic drainage into their most-booked, highest-value service.</p>
+        <button type="button" class="btn apply" data-cta="Final">Apply Now</button>
+        <div class="ftrust">
+          <span class="ft-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>NCBTMB approved &middot; 16 CE Hours</span>
+          <span class="ft-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Hands-on skills evaluation</span>
+          <span class="ft-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Certificate of Completion</span>
+          <span class="ft-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>On demand &middot; 8 coaching calls</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <div class="foot">
+    <div class="foot-in">
+      <div>
+        <h4>The Academy</h4>
+        <p>The Body Temple Academy<br>2350 Prince Ave<br>Athens, GA 30606</p>
+      </div>
+      <div>
+        <h4>Questions before you enroll</h4>
+        <p><a href="tel:+19594009242">(959) 400-9242</a><br><a href="mailto:thebodytemplespa@gmail.com">thebodytemplespa@gmail.com</a></p>
+      </div>
+      <div>
+        <h4>Apply</h4>
+        <p>Personalized coaching, only 10 per group &middot; watch on demand, start today.</p>
+        <button type="button" class="nav-cta apply" style="margin-top:.9rem" data-cta="Footer">Apply</button>
+      </div>
+    </div>
+    <div class="copy">&copy; 2026 The Body Temple Academy &middot; The teaching arm of The Body Temple Spa, Athens, GA. All rights reserved.</div>
+  </div>
+
+
+  <!-- ═══ APPLICATION FORM (opens from every Apply button) ═══ -->
+  <div class="modal" id="btaModal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="btaModalTitle">
+      <button type="button" class="modal__x" data-close aria-label="Close">&times;</button>
+      <h2 class="modal__title" id="btaModalTitle">Apply for your seat</h2>
+      <p class="modal__sub">Coaching groups are capped at 10. Tell us about your practice and we will be in touch about the next opening.</p>
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/IsWV0FpGpgoGvoFEeun8"
+        id="inline-IsWV0FpGpgoGvoFEeun8"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Lead Form - Brazlian Post Op &amp; Sculpting Wellness Certification"
+        data-height="695"
+        data-layout-iframe-id="inline-IsWV0FpGpgoGvoFEeun8"
+        data-form-id="IsWV0FpGpgoGvoFEeun8"
+        data-cookie-consent="true"
+        data-cookie-consent-provider="auto"
+        title="Lead Form - Brazlian Post Op &amp; Sculpting Wellness Certification"
+        scrolling="no"></iframe>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+<script>
+(function(){
+function init(){
+  var root = document.getElementById('bta');
+  if(!root) return;
+
+  /* Reveal on scroll */
+  var els = root.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('on'); });
+  }
+
+  /* FAQ accordion */
+  root.querySelectorAll('.fq').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.fitem');
+      var isOpen = item.classList.contains('open');
+      root.querySelectorAll('.fitem').forEach(function(i){ i.classList.remove('open'); });
+      root.querySelectorAll('.fq').forEach(function(b){ b.setAttribute('aria-expanded','false'); });
+      if(!isOpen){
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+        if(window.dataLayer){ window.dataLayer.push({event:'faq_open', faq: btn.textContent.trim()}); }
+      }
+    });
+  });
+
+  /* Application modal — every Apply button opens the same form */
+  var modal = root.querySelector('#btaModal');
+  var lastTrigger = null;
+
+  function openModal(trigger){
+    if(!modal) return;
+    lastTrigger = trigger || null;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    var x = modal.querySelector('.modal__x');
+    if(x) x.focus();
+  }
+  function closeModal(){
+    if(!modal || modal.hidden) return;
+    modal.hidden = true;
+    document.body.style.overflow = '';
+    if(lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
+    lastTrigger = null;
+  }
+
+  root.querySelectorAll('.apply').forEach(function(b){
+    b.addEventListener('click', function(){
+      openModal(b);
+      var where = b.getAttribute('data-cta');
+      if(window.dataLayer){ window.dataLayer.push({event:'apply_click', location: where}); }
+      if(typeof window.gtag === 'function'){ window.gtag('event','apply_click',{location: where}); }
+    });
+  });
+
+  if(modal){
+    modal.querySelectorAll('[data-close]').forEach(function(el){
+      el.addEventListener('click', closeModal);
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' || e.key === 'Esc') closeModal();
+    });
+  }
+}
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
