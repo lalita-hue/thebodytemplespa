@@ -1,0 +1,40 @@
+/* ═══ THE BODY TEMPLE SPA — brand color tokens ═══
+   Sampled from the logo. See BRAND-COLORS.md for contrast measurements
+   and usage rules.
+
+   Scope note: these live on :root, which is correct for a stylesheet you
+   control. If you paste them into a website builder, rename :root to the
+   wrapper element you are styling so they cannot collide with the
+   builder's own variables. */
+
+:root {
+    /* ── From the logo ── */
+    --bt-apricot:        #EFA068;  /* the logo's core color */
+    --bt-apricot-ember:  #E58A4C;  /* deepest point of the gradient */
+    --bt-peach:          #F9D2AC;  /* soft backgrounds, cards */
+    --bt-blush:          #FDE8D4;  /* page grounds */
+    --bt-porcelain:      #FEF6EC;  /* the near-white outer edge */
+    --bt-ink:            #12100E;  /* the wordmark, body text */
+
+    /* ── Working colors: needed because every logo color is a light tint ── */
+    --bt-terracotta:     #C85A28;  /* buttons, links, accents */
+    --bt-terracotta-dk:  #A8481E;  /* hover and pressed */
+    --bt-espresso:       #1A1610;  /* dark sections */
+    --bt-bone:           #EDE7DB;  /* text on dark */
+    --bt-stone:          #8A7F6E;  /* muted text on dark */
+    --bt-umber:          #7A6D5B;  /* muted text on light */
+
+    /* ── Hairlines ── */
+    --bt-line-on-dark:   rgba(255, 255, 255, .09);
+    --bt-line-on-light:  rgba(26, 22, 16, .13);
+
+    /* ── Roles: point these at the tokens above rather than at hex values ── */
+    --bt-action:         var(--bt-terracotta);
+    --bt-action-hover:   var(--bt-terracotta-dk);
+    --bt-text:           var(--bt-ink);
+    --bt-text-muted:     var(--bt-umber);
+    --bt-surface:        var(--bt-porcelain);
+    --bt-surface-alt:    var(--bt-blush);
+    --bt-surface-dark:   var(--bt-espresso);
+    --bt-text-on-dark:   var(--bt-bone);
+}
