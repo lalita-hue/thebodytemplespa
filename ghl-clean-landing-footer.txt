@@ -1,0 +1,179 @@
+<script>
+(function(){
+  'use strict';
+
+  var PAGE_SOURCE = 'lp-facials-athens';
+  var FORM_ID     = 'GvYWzh4i8sNtH7TCsjp5';
+
+  var dl = function(o){
+    try { (window.dataLayer = window.dataLayer || []).push(o); } catch(e){}
+  };
+  var fired = {};
+  var once = function(k, o){ if(fired[k]) return; fired[k] = true; dl(o); };
+
+  function getUTMs(){
+    var out = {};
+    try {
+      var p = new URLSearchParams(window.location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid']
+        .forEach(function(k){ if(p.get(k)) out[k] = p.get(k); });
+    } catch(e){}
+    return out;
+  }
+
+  function attribution(){
+    var live = getUTMs();
+    try {
+      if(Object.keys(live).length){
+        sessionStorage.setItem('btw_attr', JSON.stringify(live));
+        return live;
+      }
+      return JSON.parse(sessionStorage.getItem('btw_attr') || '{}');
+    } catch(e){ return live; }
+  }
+
+  function init(){
+
+    window._lastCta = 'Direct';
+    document.querySelectorAll('.popup-trigger').forEach(function(b){
+      b.addEventListener('click', function(){
+        window._lastCta = b.dataset.cta || 'Unknown';
+      });
+    });
+
+    window.addEventListener('message', function(e){
+      var host = '';
+      try { host = new URL(e.origin).hostname; } catch(err){ return; }
+      if(!/(^|\.)leadconnectorhq\.com$/.test(host)) return;
+
+      var d = e.data;
+      var probe = String((d && (d.type || d.event || d.action)) || '') + ' ' +
+                  (typeof d === 'string' ? d : '');
+      if(!/submit|submitted|success|form_complete/i.test(probe)) return;
+
+      var payload = {
+        event: 'form_submission',
+        form_id: FORM_ID,
+        source: PAGE_SOURCE,
+        cta_source: window._lastCta || 'Unknown',
+        page_url: location.href,
+        page_path: location.pathname,
+        referrer: document.referrer || '',
+        submitted_at: new Date().toISOString()
+      };
+      var a = attribution();
+      Object.keys(a).forEach(function(k){ payload[k] = a[k]; });
+      once('submitted', payload);
+    }, false);
+
+    var modal = document.getElementById('leadModal');
+    if(modal && 'MutationObserver' in window){
+      var wasOpen = modal.classList.contains('is-open'), openedAt = 0;
+      new MutationObserver(function(){
+        var isOpen = modal.classList.contains('is-open');
+        if(isOpen && !wasOpen){
+          openedAt = Date.now();
+        } else if(!isOpen && wasOpen && !fired.submitted){
+          dl({ event:'lead_form_abandon', source:PAGE_SOURCE,
+               cta_source: window._lastCta || 'Unknown',
+               seconds_open: Math.round((Date.now() - openedAt)/1000) });
+        }
+        wasOpen = isOpen;
+      }).observe(modal, { attributes:true, attributeFilter:['class'] });
+    }
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        var where = 'other';
+        if(a.closest('.stickybar'))   where = 'sticky_bar';
+        else if(a.closest('.header')) where = 'header';
+        else if(a.closest('.faq'))    where = 'faq';
+        else if(a.closest('.footer')) where = 'footer';
+        dl({ event:'phone_click', source:PAGE_SOURCE, cta_location:where });
+      });
+    });
+
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        dl({ event:'email_click', source:PAGE_SOURCE });
+      });
+    });
+
+    document.querySelectorAll('.faq__item').forEach(function(d){
+      d.addEventListener('toggle', function(){
+        if(!d.open) return;
+        var s = d.querySelector('.faq__btn');
+        dl({ event:'faq_open', source:PAGE_SOURCE,
+             faq_question: s ? s.textContent.replace(/\s*\+\s*$/,'').trim() : '' });
+      });
+    });
+
+    var onScroll = function(){
+      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if(scrollable <= 0) return;
+      var pct = Math.round((window.pageYOffset / scrollable) * 100);
+      [25,50,75,90].forEach(function(m){
+        if(pct >= m) once('s'+m, { event:'scroll_depth', source:PAGE_SOURCE, percent:m });
+      });
+      if(pct >= 90) window.removeEventListener('scroll', onScroll);
+    };
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+
+    var sections = {
+      '#concerns':'skin_concerns', '#menu':'service_menu',
+      '#how-it-works':'process', '.brochure':'brochure',
+      '.whycards':'why_choose', '.tband':'testimonials',
+      '.spatour':'spa_tour', '#more-reviews':'extended_reviews', '.faq':'faq'
+    };
+    if('IntersectionObserver' in window){
+      var sio = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting) return;
+          var n = en.target.getAttribute('data-track-section');
+          once('sec_'+n, { event:'section_view', source:PAGE_SOURCE, section:n });
+          sio.unobserve(en.target);
+        });
+      }, { threshold:0.5 });
+      Object.keys(sections).forEach(function(sel){
+        var el = document.querySelector(sel);
+        if(!el) return;
+        el.setAttribute('data-track-section', sections[sel]);
+        sio.observe(el);
+      });
+    }
+
+    var secs = 0, timer = null;
+    var tick = function(){
+      secs++;
+      [30,60,120].forEach(function(m){
+        if(secs === m) once('t'+m, { event:'engaged_time', source:PAGE_SOURCE, seconds:m });
+      });
+      if(secs >= 120 && timer){ clearInterval(timer); timer = null; }
+    };
+    var start = function(){ if(!timer) timer = setInterval(tick, 1000); };
+    var stop  = function(){ if(timer){ clearInterval(timer); timer = null; } };
+    if(document.visibilityState === 'visible') start();
+    document.addEventListener('visibilitychange', function(){
+      document.visibilityState === 'visible' ? start() : stop();
+    });
+
+    document.querySelectorAll('video').forEach(function(v){
+      var label = v.classList.contains('hero__video') ? 'hero_room'
+                : v.classList.contains('spatour__video') ? 'spa_tour' : 'other';
+      v.addEventListener('play', function(){
+        once('vid_'+label, { event:'video_play', source:PAGE_SOURCE, video:label });
+      });
+    });
+
+    document.addEventListener('mouseout', function(e){
+      if(e.clientY > 0 || e.relatedTarget) return;
+      once('exit', { event:'exit_intent', source:PAGE_SOURCE });
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
