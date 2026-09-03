@@ -200,7 +200,10 @@
     window.addEventListener('scroll', onScroll, { passive:true });
     onScroll();
 
-    /* ── section_view — where readers stop ── */
+    /* ── section_view — where readers stop ────────────────────────────
+       Fires when a section crosses the middle of the screen. A percentage
+       threshold cannot work here: the spa tour is taller than two screens,
+       so it would never be 50% visible and would never report. */
     var sections = {
       '#concerns':'skin_concerns', '#menu':'service_menu',
       '#how-it-works':'process', '.brochure':'brochure',
@@ -215,7 +218,7 @@
           once('sec_'+n, { event:'section_view', source:PAGE_SOURCE, section:n });
           sio.unobserve(en.target);
         });
-      }, { threshold:0.5 });
+      }, { threshold:0, rootMargin:'-25% 0px -25% 0px' });
       Object.keys(sections).forEach(function(sel){
         var el = document.querySelector(sel);
         if(!el) return;

@@ -203,8 +203,10 @@
       });
     });
 
-    /* Which services actually get read. Tells you what to move to the top
-       of the list, and what the ad should have promised. */
+    /* Which services got seen. Fires the moment a row enters the viewport,
+       with no percentage threshold: the last rows sit in the bottom of the
+       screen once the page is fully scrolled, so anything that waits for
+       them to reach the middle would never report them. */
     if('IntersectionObserver' in window){
       var seen = {};
       var io = new IntersectionObserver(function(es){
@@ -217,7 +219,7 @@
           dl({ event:'service_view', source:PAGE_SOURCE, service:name });
           io.unobserve(en.target);
         });
-      }, { threshold:0.6 });
+      }, { threshold:0 });
       root.querySelectorAll('.price-item').forEach(function(r){ io.observe(r); });
     }
 
