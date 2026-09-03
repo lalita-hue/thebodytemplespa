@@ -1,0 +1,267 @@
+<!-- ══════════════════════════════════════════════════════════════════════
+     TRACKING — FACIALS THANK-YOU PAGE  (the .btspa-ty page)
+     Container: GTM-PHFH5H6D
+     ══════════════════════════════════════════════════════════════════════
+
+     This page does two jobs, and both need tracking.
+
+     1. IT IS THE CONVERSION.
+        Reached only by submitting the form, so it cannot fire on a bounce
+        or a double-submit — the same logic your lymphatic thank-you page
+        uses. Pushes form_submission_confirmation with conversion:true.
+
+     2. IT IS A BOOKING PAGE.
+        Nine Reserve buttons to GoHighLevel calendars and nine Text-to-Book
+        links. Nothing was counting them. A form fill is interest; a
+        calendar click is intent, and it is worth far more. Pushes
+        booking_click and sms_to_book with the service, price and a numeric
+        value read out of the row.
+
+     ─────────────────────────────────────────────────────────────────────
+     WHERE EACH BLOCK GOES
+
+       BLOCK A → page <head>, as high as possible
+                 GoHighLevel: Settings → Tracking Code → HEADER
+
+       BLOCK B → immediately after the opening <body> tag
+                 GoHighLevel: Tracking Code → FOOTER
+
+       BLOCK C → after the page markup
+                 GoHighLevel: Tracking Code → FOOTER
+     ─────────────────────────────────────────────────────────────────────
+     FOR THE CONVERSION TO CARRY AN IDENTITY
+
+     Point the form at this page:
+
+       GoHighLevel → Forms → GvYWzh4i8sNtH7TCsjp5 → Settings →
+       On Submit → Redirect → this page's URL
+
+     GHL appends the submitted values to the URL. BLOCK C reads them,
+     normalizes the phone to E.164, writes them to the same btw_lead
+     sessionStorage key your lymphatic funnel uses, and hands them to GTM
+     for Google Ads Enhanced Conversions.
+
+     Without the redirect the conversion still fires, just with empty
+     email and phone fields.
+     ══════════════════════════════════════════════════════════════════════ -->
+
+
+<!-- ═══ BLOCK A — HEAD ══════════════════════════════════════════════════ -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PHFH5H6D');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- ═══ BLOCK B — RIGHT AFTER <body> ════════════════════════════════════ -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHFH5H6D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- ═══ BLOCK C — AFTER THE PAGE MARKUP ═════════════════════════════════ -->
+
+<script>
+(function(){
+  'use strict';
+  window.dataLayer = window.dataLayer || [];
+  var dl = function(o){ try { window.dataLayer.push(o); } catch(e){} };
+  var PAGE_SOURCE = 'lp-facials-athens';
+
+  /* ── 1. THE CONVERSION ──────────────────────────────────────────────── */
+
+  /* GoHighLevel names redirect parameters inconsistently between form
+     versions, so check every spelling it has used. */
+  function fromUrl(){
+    var p;
+    try { p = new URLSearchParams(location.search); } catch(e){ return {}; }
+    var pick = function(names){
+      for(var i=0;i<names.length;i++){
+        var v = p.get(names[i]);
+        if(v) return v.trim();
+      }
+      return '';
+    };
+    var first = pick(['first_name','firstName','fname','first']);
+    var last  = pick(['last_name','lastName','lname','last']);
+    var full  = pick(['name','full_name','user_name']);
+    return {
+      user_email: pick(['email','user_email','Email']),
+      user_phone: pick(['phone','user_phone','Phone']),
+      user_name : full || (first + ' ' + last).trim()
+    };
+  }
+
+  /* Same conversion phoneToE164() does in index.html, so Google Ads matches
+     both funnels against one phone format. */
+  function toE164(v){
+    var d = String(v || '').replace(/\D/g,'');
+    if(d.length === 10) return '+1' + d;
+    if(d.length === 11 && d[0] === '1') return '+' + d;
+    return v || '';
+  }
+
+  /* sessionStorage first — same btw_lead key the lymphatic funnel writes —
+     then fall back to the redirect parameters. */
+  var lead = {};
+  try { lead = JSON.parse(sessionStorage.getItem('btw_lead') || '{}'); } catch(e){}
+  var url = fromUrl();
+  ['user_email','user_phone','user_name'].forEach(function(k){
+    if(!lead[k] && url[k]) lead[k] = url[k];
+  });
+  if(lead.user_phone) lead.user_phone = toE164(lead.user_phone);
+  try {
+    if(lead.user_email || lead.user_phone) sessionStorage.setItem('btw_lead', JSON.stringify(lead));
+  } catch(e){}
+
+  /* Attribution: prefer live UTMs on this URL, since a GoHighLevel redirect
+     can land here carrying them, and fall back to what the landing page
+     stashed. Persist either way so the booking clicks below are credited
+     to the same campaign. */
+  var attr = (function(){
+    var live = {};
+    try {
+      var q = new URLSearchParams(location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid']
+        .forEach(function(k){ if(q.get(k)) live[k] = q.get(k); });
+    } catch(e){}
+    var saved = {};
+    try { saved = JSON.parse(sessionStorage.getItem('btw_attr') || '{}'); } catch(e){}
+    var merged = {};
+    Object.keys(saved).forEach(function(k){ merged[k] = saved[k]; });
+    Object.keys(live).forEach(function(k){ merged[k] = live[k]; });
+    try {
+      if(Object.keys(merged).length) sessionStorage.setItem('btw_attr', JSON.stringify(merged));
+    } catch(e){}
+    return merged;
+  })();
+
+  var conv = {
+    event: 'form_submission_confirmation',
+    user_email: lead.user_email || '',
+    user_phone: lead.user_phone || '',
+    user_name : lead.user_name  || '',
+    page_path : '/facials-thank-you',
+    source    : PAGE_SOURCE,
+    conversion: true
+  };
+  Object.keys(attr).forEach(function(k){ conv[k] = attr[k]; });
+  dl(conv);
+
+  /* ── 2. BOOKING AND TEXT-TO-BOOK CLICKS ─────────────────────────────── */
+  function init(){
+    var root = document.querySelector('.btspa-ty') || document;
+
+    /* Read the service, price and duration out of the row the button sits
+       in, so adding a service to the menu needs no code change here. */
+    function rowInfo(el){
+      var row = el.closest('.price-item');
+      var get = function(sel){
+        var n = row && row.querySelector(sel);
+        return n ? n.textContent.trim() : '';
+      };
+      var priceEl = row && row.querySelector('.price');
+      var unit  = get('.unit');
+      var price = priceEl ? priceEl.textContent.replace(unit, '').trim() : '';
+      var value = parseFloat(String(price).replace(/[^0-9.]/g,''));
+      return {
+        service : get('.service-name'),
+        badge   : get('.badge'),
+        price   : price,
+        duration: unit.replace(/^\/\s*/,'').trim(),
+        value   : isFinite(value) ? value : 0,
+        featured: !!(row && row.classList.contains('featured'))
+      };
+    }
+
+    root.querySelectorAll('.btn-book').forEach(function(a){
+      a.addEventListener('click', function(){
+        var i = rowInfo(a);
+        var p = {
+          event:'booking_click', source:PAGE_SOURCE,
+          service:i.service, service_badge:i.badge,
+          price:i.price, duration:i.duration,
+          value:i.value, currency:'USD', featured:i.featured,
+          calendar_url:a.getAttribute('href') || ''
+        };
+        Object.keys(attr).forEach(function(k){ p[k] = attr[k]; });
+        dl(p);
+      });
+    });
+
+    root.querySelectorAll('.btn-text').forEach(function(a){
+      a.addEventListener('click', function(){
+        var i = rowInfo(a);
+        var p = {
+          event:'sms_to_book', source:PAGE_SOURCE,
+          service:i.service, price:i.price, duration:i.duration,
+          value:i.value, currency:'USD'
+        };
+        Object.keys(attr).forEach(function(k){ p[k] = attr[k]; });
+        dl(p);
+      });
+    });
+
+    /* Which services actually get read. Tells you what to move to the top
+       of the list, and what the ad should have promised. */
+    if('IntersectionObserver' in window){
+      var seen = {};
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting) return;
+          var n = en.target.querySelector('.service-name');
+          var name = n ? n.textContent.trim() : '';
+          if(!name || seen[name]) return;
+          seen[name] = true;
+          dl({ event:'service_view', source:PAGE_SOURCE, service:name });
+          io.unobserve(en.target);
+        });
+      }, { threshold:0.6 });
+      root.querySelectorAll('.price-item').forEach(function(r){ io.observe(r); });
+    }
+
+    root.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        dl({ event:'phone_click', source:PAGE_SOURCE, cta_location:'thank_you' });
+      });
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     EVENTS THIS PAGE PUSHES
+
+       form_submission_confirmation   user_email, user_phone, user_name,
+                                      page_path, source, conversion:true,
+                                      plus utm_* / gclid / fbclid
+                                      → fires once, on load
+
+       booking_click                  service, service_badge, price,
+                                      duration, value, currency, featured,
+                                      calendar_url, plus attribution
+       sms_to_book                    service, price, duration, value,
+                                      currency, plus attribution
+       service_view                   service
+       phone_click                    cta_location: thank_you
+
+     IN GTM
+       form_submission_confirmation already has a trigger from your
+       lymphatic funnel and will pick this page up unchanged.
+
+       For the rest: Variables → Data Layer Variable for service, price,
+       duration, value, service_badge. Then Triggers → Custom Event on
+       booking_click, sms_to_book and service_view.
+
+     THE ONE CHANGE WORTH MAKING TODAY
+       Send booking_click to Google Ads as a second conversion action,
+       with value pulled from the data layer. Someone opening your calendar
+       is worth far more than someone filling in a form, and until now it
+       was invisible to your bidding.
+     ══════════════════════════════════════════════════════════════════════ -->

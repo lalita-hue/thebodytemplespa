@@ -1,0 +1,295 @@
+<!-- ══════════════════════════════════════════════════════════════════════
+     TRACKING — FACIALS LANDING PAGE  (the .btspa page)
+     Container: GTM-PHFH5H6D
+     ══════════════════════════════════════════════════════════════════════
+
+     Copied from your lymphatic landing page (index.html), so the event
+     names, the field names and the sessionStorage keys all match what your
+     GTM container already expects.
+
+     ─────────────────────────────────────────────────────────────────────
+     WHERE EACH BLOCK GOES
+
+       BLOCK A → page <head>, as high as possible
+                 GoHighLevel: Settings → Tracking Code → HEADER
+
+       BLOCK B → immediately after the opening <body> tag
+                 GoHighLevel: Tracking Code → FOOTER
+                 (GHL gives you no way to reach <body>; this is only the
+                  no-JavaScript fallback, so Footer is fine)
+
+       BLOCK C → after the page markup
+                 GoHighLevel: Tracking Code → FOOTER
+     ─────────────────────────────────────────────────────────────────────
+     ONE SETTING TO CHANGE IN GOHIGHLEVEL
+
+     Your lymphatic page owns its form fields, so it can read the email and
+     phone and hand them to Google Ads for Enhanced Conversions. This page
+     embeds GHL form GvYWzh4i8sNtH7TCsjp5 in an iframe, and a cross-origin
+     iframe cannot be read from the parent page — that is the browser's
+     same-origin policy, not a GoHighLevel limitation.
+
+     To get the same conversion quality here:
+
+       GoHighLevel → Forms → GvYWzh4i8sNtH7TCsjp5 → Settings →
+       On Submit → Redirect → your facials thank-you page
+
+     GHL appends the submitted values to that URL, and the thank-you page
+     block reads them. Without the redirect this page still reports opens,
+     clicks and abandons, but the conversion has no identity attached.
+     ══════════════════════════════════════════════════════════════════════ -->
+
+
+<!-- ═══ BLOCK A — HEAD ══════════════════════════════════════════════════ -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PHFH5H6D');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- ═══ BLOCK B — RIGHT AFTER <body> ════════════════════════════════════ -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHFH5H6D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- ═══ BLOCK C — AFTER THE PAGE MARKUP ═════════════════════════════════ -->
+
+<script>
+(function(){
+  'use strict';
+
+  var PAGE_SOURCE = 'lp-facials-athens';
+  var FORM_ID     = 'GvYWzh4i8sNtH7TCsjp5';
+
+  var dl = function(o){
+    try { (window.dataLayer = window.dataLayer || []).push(o); } catch(e){}
+  };
+  var fired = {};
+  var once = function(k, o){ if(fired[k]) return; fired[k] = true; dl(o); };
+
+  /* Same field list index.html uses in getUTMs(). */
+  function getUTMs(){
+    var out = {};
+    try {
+      var p = new URLSearchParams(window.location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid']
+        .forEach(function(k){ if(p.get(k)) out[k] = p.get(k); });
+    } catch(e){}
+    return out;
+  }
+
+  /* Held for the whole session, so a visitor who wanders to another page
+     and comes back is still credited to the ad that brought them in. The
+     thank-you page reads this same key. */
+  function attribution(){
+    var live = getUTMs();
+    try {
+      if(Object.keys(live).length){
+        sessionStorage.setItem('btw_attr', JSON.stringify(live));
+        return live;
+      }
+      return JSON.parse(sessionStorage.getItem('btw_attr') || '{}');
+    } catch(e){ return live; }
+  }
+
+  function init(){
+
+    /* window._lastCta — same variable name as index.html. Remembers which
+       button opened the modal so the submit can be attributed to it. Your
+       page already has data-cta on every trigger; no markup change needed. */
+    window._lastCta = 'Direct';
+    document.querySelectorAll('.popup-trigger').forEach(function(b){
+      b.addEventListener('click', function(){
+        window._lastCta = b.dataset.cta || 'Unknown';
+      });
+    });
+
+    /* Your page already pushes lead_form_open and menu_jump.
+       Both are left alone so nothing double-counts. */
+
+    /* ── form_submission ────────────────────────────────────────────────
+       Same event name and cta_source field as index.html. Listens for the
+       message LeadConnector posts out of the iframe on submit. */
+    window.addEventListener('message', function(e){
+      var host = '';
+      try { host = new URL(e.origin).hostname; } catch(err){ return; }
+      if(!/(^|\.)leadconnectorhq\.com$/.test(host)) return;
+
+      var d = e.data;
+      var probe = String((d && (d.type || d.event || d.action)) || '') + ' ' +
+                  (typeof d === 'string' ? d : '');
+      if(!/submit|submitted|success|form_complete/i.test(probe)) return;
+
+      var payload = {
+        event: 'form_submission',
+        form_id: FORM_ID,
+        source: PAGE_SOURCE,
+        cta_source: window._lastCta || 'Unknown',
+        page_url: location.href,
+        page_path: location.pathname,
+        referrer: document.referrer || '',
+        submitted_at: new Date().toISOString()
+      };
+      var a = attribution();
+      Object.keys(a).forEach(function(k){ payload[k] = a[k]; });
+      once('submitted', payload);
+    }, false);
+
+    /* ── lead_form_abandon ──────────────────────────────────────────────
+       Opened the form, closed it without submitting. Separates "never
+       interested" from "interested, then something stopped them" — the
+       most actionable signal this page produces. */
+    var modal = document.getElementById('leadModal');
+    if(modal && 'MutationObserver' in window){
+      var wasOpen = modal.classList.contains('is-open'), openedAt = 0;
+      new MutationObserver(function(){
+        var isOpen = modal.classList.contains('is-open');
+        if(isOpen && !wasOpen){
+          openedAt = Date.now();
+        } else if(!isOpen && wasOpen && !fired.submitted){
+          dl({ event:'lead_form_abandon', source:PAGE_SOURCE,
+               cta_source: window._lastCta || 'Unknown',
+               seconds_open: Math.round((Date.now() - openedAt)/1000) });
+        }
+        wasOpen = isOpen;
+      }).observe(modal, { attributes:true, attributeFilter:['class'] });
+    }
+
+    /* ── phone_click, split by placement ────────────────────────────────
+       A sticky-bar tap on mobile is the highest-intent action on the page
+       and should not be pooled with a header click. */
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        var where = 'other';
+        if(a.closest('.stickybar'))   where = 'sticky_bar';
+        else if(a.closest('.header')) where = 'header';
+        else if(a.closest('.faq'))    where = 'faq';
+        else if(a.closest('.footer')) where = 'footer';
+        dl({ event:'phone_click', source:PAGE_SOURCE, cta_location:where });
+      });
+    });
+
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        dl({ event:'email_click', source:PAGE_SOURCE });
+      });
+    });
+
+    /* ── faq_open — what the page failed to answer higher up ── */
+    document.querySelectorAll('.faq__item').forEach(function(d){
+      d.addEventListener('toggle', function(){
+        if(!d.open) return;
+        var s = d.querySelector('.faq__btn');
+        dl({ event:'faq_open', source:PAGE_SOURCE,
+             faq_question: s ? s.textContent.replace(/\s*\+\s*$/,'').trim() : '' });
+      });
+    });
+
+    /* ── scroll_depth ── */
+    var onScroll = function(){
+      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if(scrollable <= 0) return;
+      var pct = Math.round((window.pageYOffset / scrollable) * 100);
+      [25,50,75,90].forEach(function(m){
+        if(pct >= m) once('s'+m, { event:'scroll_depth', source:PAGE_SOURCE, percent:m });
+      });
+      if(pct >= 90) window.removeEventListener('scroll', onScroll);
+    };
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+
+    /* ── section_view — where readers stop ── */
+    var sections = {
+      '#concerns':'skin_concerns', '#menu':'service_menu',
+      '#how-it-works':'process', '.brochure':'brochure',
+      '.whycards':'why_choose', '.tband':'testimonials',
+      '.spatour':'spa_tour', '#more-reviews':'extended_reviews', '.faq':'faq'
+    };
+    if('IntersectionObserver' in window){
+      var sio = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting) return;
+          var n = en.target.getAttribute('data-track-section');
+          once('sec_'+n, { event:'section_view', source:PAGE_SOURCE, section:n });
+          sio.unobserve(en.target);
+        });
+      }, { threshold:0.5 });
+      Object.keys(sections).forEach(function(sel){
+        var el = document.querySelector(sel);
+        if(!el) return;
+        el.setAttribute('data-track-section', sections[sel]);
+        sio.observe(el);
+      });
+    }
+
+    /* ── engaged_time — only counts while the tab is actually visible ── */
+    var secs = 0, timer = null;
+    var tick = function(){
+      secs++;
+      [30,60,120].forEach(function(m){
+        if(secs === m) once('t'+m, { event:'engaged_time', source:PAGE_SOURCE, seconds:m });
+      });
+      if(secs >= 120 && timer){ clearInterval(timer); timer = null; }
+    };
+    var start = function(){ if(!timer) timer = setInterval(tick, 1000); };
+    var stop  = function(){ if(timer){ clearInterval(timer); timer = null; } };
+    if(document.visibilityState === 'visible') start();
+    document.addEventListener('visibilitychange', function(){
+      document.visibilityState === 'visible' ? start() : stop();
+    });
+
+    /* ── video_play ── */
+    document.querySelectorAll('video').forEach(function(v){
+      var label = v.classList.contains('hero__video') ? 'hero_room'
+                : v.classList.contains('spatour__video') ? 'spa_tour' : 'other';
+      v.addEventListener('play', function(){
+        once('vid_'+label, { event:'video_play', source:PAGE_SOURCE, video:label });
+      });
+    });
+
+    /* ── exit_intent, desktop only ── */
+    document.addEventListener('mouseout', function(e){
+      if(e.clientY > 0 || e.relatedTarget) return;
+      once('exit', { event:'exit_intent', source:PAGE_SOURCE });
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     EVENTS THIS PAGE PUSHES
+
+     Already on your page, untouched
+       menu_jump              cta_location
+       lead_form_open         cta_location
+
+     Matching the lymphatic funnel
+       form_submission        form_id, source, cta_source, page_url,
+                              page_path, referrer, submitted_at,
+                              plus utm_* / gclid / fbclid
+
+     New
+       lead_form_abandon      cta_source, seconds_open
+       phone_click            cta_location: sticky_bar / header / faq / footer
+       email_click
+       faq_open               faq_question
+       scroll_depth           percent: 25 / 50 / 75 / 90
+       section_view           section, nine named sections, once each
+       engaged_time           seconds: 30 / 60 / 120
+       video_play             video: hero_room / spa_tour
+       exit_intent
+
+     IN GTM
+       Your form_submission trigger already exists for the lymphatic
+       funnel and picks this page up with no change. For the rest:
+       Variables → Data Layer Variable for cta_location, faq_question,
+       percent, section, seconds, video, seconds_open. Then Triggers →
+       Custom Event, matching each event name above.
+     ══════════════════════════════════════════════════════════════════════ -->
