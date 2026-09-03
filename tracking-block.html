@@ -1,0 +1,270 @@
+<!-- ══════════════════════════════════════════════════════════════════════
+     THE BODY TEMPLE SPA — GTM + custom event tracking
+     ══════════════════════════════════════════════════════════════════════
+
+     BEFORE YOU PASTE: replace GTM-XXXXXXX below with your real container ID.
+     It appears twice — once in PART 1, once in PART 2. Find/replace both.
+     Get it from Google Tag Manager → Admin → Container ID, or read it off
+     go.thebodytemplespas.com (view source, search "GTM-").
+
+     Three parts, three different places:
+       PART 1 → page <head>, as high up as possible
+       PART 2 → immediately after the opening <body> tag
+       PART 3 → anywhere after your page markup (bottom of the HTML block)
+
+     In GoHighLevel: Settings → Tracking Code has Header and Footer boxes.
+     PART 1 goes in Header. PARTS 2 and 3 go in Footer. GHL will not let you
+     paste directly after <body>, and the noscript fallback matters so little
+     that Footer is fine for it.
+     ══════════════════════════════════════════════════════════════════════ -->
+
+
+<!-- ═══ PART 1 — HEAD ═══════════════════════════════════════════════════ -->
+
+<script>window.dataLayer = window.dataLayer || [];</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- End Google Tag Manager -->
+
+
+<!-- ═══ PART 2 — RIGHT AFTER <body> ═════════════════════════════════════ -->
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- ═══ PART 3 — AFTER THE PAGE MARKUP ══════════════════════════════════ -->
+
+<script>
+/* Custom events for the facials page.
+
+   This ADDS to the two events your page already fires (menu_jump and
+   lead_form_open). It does not touch them, so nothing double-counts.
+
+   Everything is wrapped so a failure here can never break the page. */
+(function(){
+  'use strict';
+
+  var dl = function(obj){
+    try { (window.dataLayer = window.dataLayer || []).push(obj); } catch(e){}
+  };
+  var once = {};
+  var fireOnce = function(key, obj){
+    if(once[key]) return;
+    once[key] = true;
+    dl(obj);
+  };
+
+  function init(){
+    var page = 'facials';
+
+    /* ── Phone clicks ───────────────────────────────────────────────────
+       Three tel: links on this page — header, FAQ answer, sticky mobile
+       bar — and they mean different things. Header is a warm visitor,
+       sticky bar is usually mobile and high-intent. */
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        var where = 'other';
+        if(a.closest('.header')) where = 'header';
+        else if(a.closest('.stickybar')) where = 'sticky_bar';
+        else if(a.closest('.faq')) where = 'faq';
+        else if(a.closest('.footer')) where = 'footer';
+        dl({ event:'phone_click', page:page, cta_location:where,
+             phone:(a.getAttribute('href')||'').replace('tel:','') });
+      });
+    });
+
+    /* ── Email clicks ── */
+    document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        dl({ event:'email_click', page:page,
+             email:(a.getAttribute('href')||'').replace('mailto:','') });
+      });
+    });
+
+    /* ── FAQ opens ──────────────────────────────────────────────────────
+       Which questions people open tells you what the page has not
+       answered well enough above the fold. */
+    document.querySelectorAll('.faq__item').forEach(function(d){
+      d.addEventListener('toggle', function(){
+        if(!d.open) return;
+        var s = d.querySelector('.faq__btn');
+        var q = s ? s.textContent.replace(/\s*\+\s*$/,'').trim() : '';
+        dl({ event:'faq_open', page:page, faq_question:q });
+      });
+    });
+
+    /* ── Scroll depth ── */
+    var marks = [25, 50, 75, 90];
+    var onScroll = function(){
+      var h = document.documentElement;
+      var scrollable = (h.scrollHeight - window.innerHeight);
+      if(scrollable <= 0) return;
+      var pct = Math.round((window.pageYOffset / scrollable) * 100);
+      marks.forEach(function(m){
+        if(pct >= m) fireOnce('scroll'+m, { event:'scroll_depth', page:page, percent:m });
+      });
+      if(pct >= 90){ window.removeEventListener('scroll', onScroll); }
+    };
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+
+    /* ── Section views ──────────────────────────────────────────────────
+       Fires once per section, the first time half of it is on screen.
+       This is how you find where people stop reading. */
+    var sections = {
+      '#concerns'      : 'skin_concerns',
+      '#menu'          : 'service_menu',
+      '#how-it-works'  : 'process',
+      '.brochure'      : 'brochure',
+      '.whycards'      : 'why_choose',
+      '.tband'         : 'testimonials',
+      '.spatour'       : 'spa_tour',
+      '#more-reviews'  : 'extended_reviews',
+      '.faq'           : 'faq'
+    };
+    if('IntersectionObserver' in window){
+      var sio = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(!en.isIntersecting) return;
+          var name = en.target.getAttribute('data-track-section');
+          fireOnce('sec_'+name, { event:'section_view', page:page, section:name });
+          sio.unobserve(en.target);
+        });
+      }, { threshold:0.5 });
+      Object.keys(sections).forEach(function(sel){
+        var el = document.querySelector(sel);
+        if(!el) return;
+        el.setAttribute('data-track-section', sections[sel]);
+        sio.observe(el);
+      });
+    }
+
+    /* ── Engaged time ───────────────────────────────────────────────────
+       Only counts while the tab is actually visible, so a page left open
+       in a background tab does not inflate it. */
+    var seconds = 0, timer = null;
+    var tick = function(){
+      seconds++;
+      if(seconds === 30)  fireOnce('t30',  { event:'engaged_time', page:page, seconds:30 });
+      if(seconds === 60)  fireOnce('t60',  { event:'engaged_time', page:page, seconds:60 });
+      if(seconds === 120) fireOnce('t120', { event:'engaged_time', page:page, seconds:120 });
+      if(seconds >= 120 && timer){ clearInterval(timer); timer = null; }
+    };
+    var startTimer = function(){ if(!timer) timer = setInterval(tick, 1000); };
+    var stopTimer  = function(){ if(timer){ clearInterval(timer); timer = null; } };
+    if(document.visibilityState === 'visible') startTimer();
+    document.addEventListener('visibilitychange', function(){
+      if(document.visibilityState === 'visible') startTimer(); else stopTimer();
+    });
+
+    /* ── Video plays ── */
+    document.querySelectorAll('video').forEach(function(v){
+      var label = v.classList.contains('hero__video') ? 'hero_room' :
+                  v.classList.contains('spatour__video') ? 'spa_tour' : 'other';
+      v.addEventListener('play', function(){
+        fireOnce('vid_'+label, { event:'video_play', page:page, video:label });
+      });
+    });
+
+    /* ── Lead form: submitted ───────────────────────────────────────────
+       The form is a cross-origin iframe, so the parent page cannot read
+       inside it. What we can do is listen for the message LeadConnector
+       posts out on submit. Message shapes have changed over time, so this
+       matches several. See the note at the bottom of this file — treat
+       this as a signal, not as your source of truth for conversions. */
+    window.addEventListener('message', function(e){
+      var ok = /(^|\.)leadconnectorhq\.com$/.test((function(){
+        try { return new URL(e.origin).hostname; } catch(err){ return ''; }
+      })());
+      if(!ok) return;
+      var d = e.data;
+      var t = (d && (d.type || d.event || d.action)) || '';
+      var s = typeof d === 'string' ? d : '';
+      if(/submit|submitted|success|form_complete/i.test(String(t) + ' ' + s)){
+        fireOnce('lead_submit', {
+          event:'lead_form_submit', page:page,
+          form_id:'GvYWzh4i8sNtH7TCsjp5',
+          form_name:'Facial Services Inquiry'
+        });
+      }
+    }, false);
+
+    /* ── Lead form: opened then abandoned ───────────────────────────────
+       Closing the modal without a submit is the single most useful signal
+       on this page — it separates "never interested" from "interested but
+       something stopped them". */
+    var modal = document.getElementById('leadModal');
+    if(modal && 'MutationObserver' in window){
+      var wasOpen = modal.classList.contains('is-open');
+      var openedAt = 0;
+      new MutationObserver(function(){
+        var isOpen = modal.classList.contains('is-open');
+        if(isOpen && !wasOpen){
+          openedAt = Date.now();
+        } else if(!isOpen && wasOpen){
+          if(!once['lead_submit']){
+            dl({ event:'lead_form_abandon', page:page,
+                 seconds_open: Math.round((Date.now() - openedAt)/1000) });
+          }
+        }
+        wasOpen = isOpen;
+      }).observe(modal, { attributes:true, attributeFilter:['class'] });
+    }
+
+    /* ── Exit intent on desktop ── */
+    document.addEventListener('mouseout', function(e){
+      if(e.clientY > 0 || e.relatedTarget) return;
+      fireOnce('exit_intent', { event:'exit_intent', page:page });
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     EVENTS THIS PAGE NOW PUSHES
+
+       menu_jump            already on your page — anchor jumps to the menu
+       lead_form_open       already on your page — a CTA opened the modal
+       lead_form_submit     the form reported a successful submit
+       lead_form_abandon    modal closed with no submit, plus seconds open
+       phone_click          with cta_location: header / sticky_bar / faq / footer
+       email_click
+       faq_open             with the question text
+       scroll_depth         25 / 50 / 75 / 90
+       section_view         nine named sections, once each
+       engaged_time         30 / 60 / 120 seconds of visible time
+       video_play           hero_room / spa_tour
+       exit_intent          desktop pointer left the top of the viewport
+
+     TO USE THEM IN GTM
+
+       1. Variables → New → Data Layer Variable for each field you want:
+          cta_location, faq_question, percent, section, seconds, video
+       2. Triggers → New → Custom Event, event name exactly as listed above
+       3. Tags → GA4 Event, wire the trigger and the variables to it
+
+     THE ONE THING TO GET RIGHT
+
+     lead_form_submit is a best-effort listener on a cross-origin iframe.
+     LeadConnector controls that message and can change it without notice,
+     so do not let it be the only thing counting your leads. Configure the
+     real conversion inside GoHighLevel — either a workflow that fires on
+     form submission, or a redirect to a thank-you page you can track
+     directly. Use this event for on-page behaviour analysis; use GHL for
+     the number you actually report.
+     ══════════════════════════════════════════════════════════════════════ -->
