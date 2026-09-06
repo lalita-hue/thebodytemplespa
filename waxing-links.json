@@ -1,16 +1,98 @@
 {
   "_note": "Confirmed GHL wax calendar links. Key: menu service name + price. Only pairs the owner named explicitly.",
-  "Chest|$85":                 {"id":"6a931061d5736d02510e426b","ghl":"Chest — Wax | Men","row":1},
-  "Bikini Line|$46":           {"id":"6a8e0fb23d157d74f9611569","ghl":"Bikini Line (V) — Wax","row":2},
-  "Brazilian Wax|$68":         {"id":"6a8ba0e61f95a9b550dc1222","ghl":"Brazilian Wax for Women","row":3},
-  "Brazilian Wax|$88":         {"id":"6a8ba0f06c1770ddfd240c4b","ghl":"Brazilian Wax for Men","row":4},
-  "Chest|$66":                 {"id":"6a930dea6a99253ccbeeefe2","ghl":"Chest — Wax | Woman","row":6},
-  "Chest Strip|$45":           {"id":"6a9310d3d81a269475a36273","ghl":"Chest Strip — Wax | Men","row":7},
-  "Chest Strip|$25":           {"id":"6a9311720b058e5da044c2bd","ghl":"Chest Strip — Wax | Women","row":8},
-  "Chest + Stomach|$100":      {"id":"6a93098361874664ea249923","ghl":"Chest + Stomach — Wax | Men","row":9},
-  "Chest + Stomach|$70":       {"id":"6a8e12722c9ed734932301d6","ghl":"Chest + Stomach — Wax | Woman","row":10},
-  "Stomach Full|$36":          {"id":"6a9315f7d52addf87f1e1e26","ghl":"Stomach Full — Wax | Women","row":11},
-  "Stomach Full|$55":          {"id":"6a93165980742e834e356599","ghl":"Stomach Full — Wax | Men","row":12},
-  "Brow Wax|$25":              {"id":"69f527dbef9264fba40d8128","ghl":"Brow Wax","row":36},
-  "Brow / Lip / Chin Wax|$50": {"id":"69f52774f3e4590eac686fe7","ghl":"Brow/Lip/Chin Wax","row":37}
+  "Chest|$85": {
+    "id": "6a931061d5736d02510e426b",
+    "ghl": "Chest — Wax | Men",
+    "row": 1
+  },
+  "Bikini Line|$46": {
+    "id": "6a8e0fb23d157d74f9611569",
+    "ghl": "Bikini Line (V) — Wax",
+    "row": 2
+  },
+  "Brazilian Wax|$68": {
+    "id": "6a8ba0e61f95a9b550dc1222",
+    "ghl": "Brazilian Wax for Women",
+    "row": 3
+  },
+  "Brazilian Wax|$88": {
+    "id": "6a8ba0f06c1770ddfd240c4b",
+    "ghl": "Brazilian Wax for Men",
+    "row": 4
+  },
+  "Chest|$66": {
+    "id": "6a930dea6a99253ccbeeefe2",
+    "ghl": "Chest — Wax | Woman",
+    "row": 6
+  },
+  "Chest Strip|$45": {
+    "id": "6a9310d3d81a269475a36273",
+    "ghl": "Chest Strip — Wax | Men",
+    "row": 7
+  },
+  "Chest Strip|$25": {
+    "id": "6a9311720b058e5da044c2bd",
+    "ghl": "Chest Strip — Wax | Women",
+    "row": 8
+  },
+  "Chest + Stomach|$100": {
+    "id": "6a93098361874664ea249923",
+    "ghl": "Chest + Stomach — Wax | Men",
+    "row": 9
+  },
+  "Chest + Stomach|$70": {
+    "id": "6a8e12722c9ed734932301d6",
+    "ghl": "Chest + Stomach — Wax | Woman",
+    "row": 10
+  },
+  "Stomach Full|$36": {
+    "id": "6a9315f7d52addf87f1e1e26",
+    "ghl": "Stomach Full — Wax | Women",
+    "row": 11
+  },
+  "Stomach Full|$55": {
+    "id": "6a93165980742e834e356599",
+    "ghl": "Stomach Full — Wax | Men",
+    "row": 12
+  },
+  "Legs Full|$115": {
+    "id": "6a931a02a28914d9296e5775",
+    "ghl": "Legs Full — Wax | Men",
+    "row": 13
+  },
+  "Legs Full|$86": {
+    "id": "6a931c818e4bdfd5632c1ce7",
+    "ghl": "Legs Full — Wax | Women",
+    "row": 14
+  },
+  "Legs Upper Half|$75": {
+    "id": "6a931dd68713486ff3c0bcb5",
+    "ghl": "Legs Upper Half — Wax | Men",
+    "row": 15
+  },
+  "Legs Upper Half|$53": {
+    "id": "6a931f93ebccb41df38a8780",
+    "ghl": "Legs Upper Half — Wax | Women",
+    "row": 16
+  },
+  "Legs Lower Half|$52": {
+    "id": "6a93216b07f92bbef7933786",
+    "ghl": "Legs Lower Half — Wax | Women",
+    "row": 17
+  },
+  "Legs Lower Half|$75": {
+    "id": "6a9321b029ef46df5df02e89",
+    "ghl": "Legs Lower Half — Wax | Men",
+    "row": 18
+  },
+  "Brow Wax|$25": {
+    "id": "69f527dbef9264fba40d8128",
+    "ghl": "Brow Wax",
+    "row": 36
+  },
+  "Brow / Lip / Chin Wax|$50": {
+    "id": "69f52774f3e4590eac686fe7",
+    "ghl": "Brow/Lip/Chin Wax",
+    "row": 37
+  }
 }
