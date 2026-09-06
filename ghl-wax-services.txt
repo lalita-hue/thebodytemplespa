@@ -1,0 +1,66 @@
+GHL WAX SERVICES — read from Settings > Calendars > Services screenshots
+Category "Wax Services" (45 services). Row order as shown in GHL.
+
+  #  Name                                  Duration     Price
+  1  Chest — Wax | Men                     30 min       $85
+  2  Bikini Line (V) — Wax                 20 min       $46
+  3  Brazilian Wax for Women               30 min       $68
+  4  Brazilian Wax for Men                 30 min       $88
+  5  Bikini Line (P) — Wax                 20 min       $56
+  6  Chest — Wax | Woman                   15 min       $66
+  7  Chest Strip — Wax | Men               10 min       $45
+  8  Chest Strip — Wax | Women              5 min       $25
+  9  Chest + Stomach — Wax | Men           30 min       $100
+ 10  Chest + Stomach — Wax | Woman         30 min       $70
+ 11  Stomach Full — Wax | Women            15 min       $36
+ 12  Stomach Full — Wax | Men              25 min       $55
+ 13  Legs Full — Wax | Men                 45 min       $115
+ 14  Legs Full — Wax | Women               30 min       $86
+ 15  Legs Upper Half — Wax | Men           45 min       $75
+ 16  Legs Upper Half — Wax | Women         20 min       $53
+ 17  Legs Lower Half — Wax | Women         25 min       $52
+ 18  Legs Lower Half — Wax | Men           30 min       $75
+ 19  Feet — Wax | Men                      10 min       $25
+ 20  Feet — Wax |Women                     10 min       $16
+ 21  Arms Full — Wax | Men                 45 min       $75
+ 22  Arms Full — Wax | Women               20 min       $53
+ 23  Arms Half — Wax | Women               15 min       $46
+ 24  Arms Half — Wax | Men                 20 min       $67
+ 25  Underarms — Wax | Men                 20 min       $55
+ 26  Underarms — Wax | Women               10 min       $28
+ 27  Hands — Wax | Women                   10 min       $16
+ 28  Buttocks Full — Wax | Women           15 min       $31
+ 29  Buttocks Full — Wax | Men             30 min       $55
+ 30  Back Full — Wax | Men                 45 min       $90
+ 31  Back Full — Wax | Men                 20 min       $70   <-- see note A
+ 32  Back Upper — Wax | Women              15 min       $36
+ 33  Back Upper — Wax | Men                30 min       $55
+ 34  Back Lower — Wax | Women              15 min       $18
+ 35  Back Lower — Wax | Men                30 min       $40
+ 36  Brow Wax                              15 min       $25   <-- link known
+ 37  Brow/Lip/Chin Wax                     20 min       $50   <-- link known
+ 38  Cheeks/Sideburns — Wax | Men          15 min       $30
+ 39  Cheeks/Sideburns — Wax | Women        10 min       $16
+ 40  Full Face — Wax | Men                 30 min       $64   <-- see note B
+ 41  Neck — Wax | Men                      30 min       $44
+ 42  Neck — Wax | Women                    15 min       $17
+ 43  Full Body Waxing for Women            1 hr 15 min  $95
+ 44  Full Body Waxing for Men              2 hr         $195
+ 45  Hands — Wax | Men                     10 min       $25
+
+NOTE A — rows 30 and 31 are both named "Back Full — Wax | Men". Row 31 is
+  20 min / $70, which matches the WOMEN'S back full in the pricing doc
+  (row 30 at 45 min / $90 matches the men's). Row 31 looks mislabelled.
+
+NOTE B — row 40 "Full Face — Wax | Men" is 30 min / $64, which the pricing
+  doc lists as "Full Face — $64 women 30 min". Either the doc or the GHL
+  label is wrong, and there is no second Full Face service for the other
+  gender.
+
+NOT IN THIS LIST (likely under the Add-ons tab, so probably no booking link):
+  Stomach Strip $19/10min, Nipples $16/15min,
+  Professional Eyebrow Design $45/25min
+
+Known calendar IDs so far:
+  Brow Wax           69f527dbef9264fba40d8128
+  Brow/Lip/Chin Wax  69f52774f3e4590eac686fe7
