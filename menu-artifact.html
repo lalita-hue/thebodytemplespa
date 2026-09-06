@@ -1,0 +1,2434 @@
+<title>Body Temple Services Menu</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{
+  /* from brand-tokens.css */
+  --bt-apricot:#EFA068; --bt-peach:#F9D2AC; --bt-blush:#FDE8D4;
+  --bt-porcelain:#FEF6EC; --bt-ink:#12100E;
+  --bt-terracotta:#C85A28; --bt-terracotta-dk:#A8481E; --bt-espresso:#1A1610;
+  --bt-bone:#EDE7DB; --bt-stone:#8A7F6E; --bt-umber:#7A6D5B;
+  --bt-line-on-dark:rgba(255,255,255,.09); --bt-line-on-light:rgba(26,22,16,.13);
+  /* surround: the only thing that shifts by theme; the menu pages stay paper */
+  --ground:#F3E3D2; --note-bg:#FEF6EC; --note-text:#7A6D5B; --note-strong:#12100E;
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Jost",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+:root:not([data-theme="light"]){ }
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#171310; --note-bg:#221C17; --note-text:#B5A895; --note-strong:#EDE7DB;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#171310; --note-bg:#221C17; --note-text:#B5A895; --note-strong:#EDE7DB;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--bt-ink);font-family:var(--sans);
+  font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a:focus-visible,.cat-tile:focus-visible{outline:2px solid var(--bt-terracotta);outline-offset:3px}
+
+.preview-note{max-width:860px;margin:26px auto 0;padding:15px 20px;background:var(--note-bg);
+  border-left:3px solid var(--bt-terracotta);border-radius:2px;font-size:12.5px;
+  color:var(--note-text);letter-spacing:.01em}
+.preview-note strong{color:var(--note-strong)}
+.preview-note code{font-size:11.5px;background:rgba(200,90,40,.1);padding:1px 5px;border-radius:2px}
+
+#bts-menu{max-width:860px;margin:0 auto;padding:24px 16px 64px}
+
+.page{position:relative;background:var(--bt-porcelain);color:var(--bt-ink);margin:0 0 26px;
+  border-radius:3px;box-shadow:0 1px 2px rgba(26,22,16,.10),0 12px 34px rgba(26,22,16,.12);
+  overflow:hidden;min-height:520px;display:flex;flex-direction:column}
+
+.cover-corner{position:absolute;width:26px;height:26px;pointer-events:none;z-index:2;
+  border-color:var(--bt-apricot);border-style:solid;border-width:0}
+.cover-corner.tl{top:16px;left:16px;border-top-width:1px;border-left-width:1px}
+.cover-corner.tr{top:16px;right:16px;border-top-width:1px;border-right-width:1px}
+.cover-corner.bl{bottom:16px;left:16px;border-bottom-width:1px;border-left-width:1px}
+.cover-corner.br{bottom:16px;right:16px;border-bottom-width:1px;border-right-width:1px}
+
+.cover{position:relative;flex:1;display:flex;background:var(--bt-espresso);
+  color:var(--bt-bone);padding:52px 44px;min-height:640px}
+.cover-wash{position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% 15%,rgba(239,160,104,.22),transparent 60%)}
+.cover-content{position:relative;z-index:2;display:flex;flex-direction:column;
+  justify-content:space-between;width:100%;gap:36px}
+.cover-logo-area{text-align:center}
+.cover-logo-circle{width:88px;height:88px;margin:0 auto 14px;border-radius:50%;
+  background:var(--bt-porcelain);display:flex;align-items:center;justify-content:center;
+  padding:12px;box-shadow:0 0 0 1px var(--bt-line-on-dark)}
+.cover-logo-text{font-family:var(--serif);font-size:22px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--bt-porcelain)}
+.cover-tagline-sm{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--bt-stone);margin-top:7px}
+.cover-label{font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--bt-apricot);margin-bottom:18px}
+.cover-title{font-family:var(--serif);font-size:60px;line-height:1.02;text-wrap:balance;
+  color:var(--bt-porcelain);font-weight:400;letter-spacing:-.01em}
+.cover-title em{font-style:italic;color:var(--bt-apricot)}
+.cover-subtitle{font-size:15px;color:var(--bt-bone);margin-top:16px;max-width:44ch}
+.cover-rule{width:52px;height:1px;background:var(--bt-apricot);margin:24px 0}
+.cover-desc{font-size:13px;color:var(--bt-stone);max-width:56ch;line-height:1.75}
+.cover-footer p{margin:0;font-size:11px;letter-spacing:.1em;color:var(--bt-stone);
+  text-align:center;line-height:1.9;border-top:1px solid var(--bt-line-on-dark);padding-top:18px}
+
+.page-header{display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:18px 40px;border-bottom:1px solid var(--bt-line-on-light);
+  font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--bt-umber)}
+.page-body{padding:34px 40px 44px;flex:1}
+
+.section-label{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--bt-terracotta);margin-bottom:10px}
+.section-title{font-family:var(--serif);font-size:38px;line-height:1.08;font-weight:400;
+  letter-spacing:-.01em;text-wrap:balance}
+.section-divider{width:46px;height:1px;background:var(--bt-apricot);margin:18px 0 26px}
+.category-label{font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--bt-umber);padding-bottom:8px;margin-bottom:14px;
+  border-bottom:1px solid var(--bt-line-on-light)}
+
+.service-row{display:flex;gap:24px;align-items:flex-start;padding:14px 0;
+  border-bottom:1px solid rgba(26,22,16,.06)}
+.service-left{flex:1;min-width:0}
+.service-name{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.25}
+.service-meta{margin:5px 0 7px}
+.service-dur{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--bt-stone)}
+.service-desc{font-size:12.5px;color:var(--bt-umber);line-height:1.65;max-width:62ch}
+.service-price{font-family:var(--serif);font-size:23px;font-weight:600;
+  color:var(--bt-terracotta);white-space:nowrap;padding-top:2px;font-variant-numeric:tabular-nums}
+
+.book-btn{display:inline-block;margin:10px 8px 0 0;padding:6px 15px;
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+  color:var(--bt-terracotta);border:1px solid var(--bt-terracotta);border-radius:2px;
+  transition:background .15s,color .15s}
+.book-btn:hover{background:var(--bt-terracotta);color:#fff}
+.book-btn-online{background:var(--bt-terracotta);color:#fff}
+.book-btn-online:hover{background:var(--bt-terracotta-dk);border-color:var(--bt-terracotta-dk)}
+
+.specials-banner{text-align:center;margin-bottom:26px}
+.specials-banner p{margin:0;font-size:10px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--bt-terracotta)}
+.special-card{display:flex;gap:24px;align-items:flex-start;background:var(--bt-blush);
+  border:1px solid var(--bt-line-on-light);border-radius:3px;padding:20px 22px;margin-bottom:16px}
+.special-card-left{flex:1}
+.special-save{display:inline-block;font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--bt-terracotta);color:#fff;padding:4px 10px;border-radius:2px;margin-bottom:10px}
+.special-name{font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.2}
+.special-desc{font-size:12.5px;color:var(--bt-umber);margin-top:8px;line-height:1.65}
+.special-price-area{text-align:right;white-space:nowrap}
+.special-price{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--bt-terracotta)}
+.special-reg{font-size:10.5px;color:var(--bt-stone);text-decoration:line-through;margin-top:3px}
+
+.cat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.cat-tile{display:flex;flex-direction:column;gap:6px;padding:20px;text-decoration:none;
+  color:inherit;background:var(--bt-blush);border:1px solid var(--bt-line-on-light);
+  border-radius:3px;transition:border-color .15s,transform .15s}
+.cat-tile.alt{background:var(--bt-peach)}
+.cat-tile:hover{border-color:var(--bt-terracotta);transform:translateY(-1px)}
+.cat-num{font-size:10px;letter-spacing:.2em;color:var(--bt-terracotta);font-variant-numeric:tabular-nums}
+.cat-name{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.25}
+.cat-go{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--bt-umber)}
+
+.divider-page{align-items:center;justify-content:center;text-align:center;padding:80px 44px;
+  min-height:420px}
+.divider-page.dark{background:var(--bt-espresso);color:var(--bt-bone)}
+.divider-page.light{background:var(--bt-peach)}
+.divider-number{font-family:var(--serif);font-size:78px;line-height:1;opacity:.22;margin-bottom:10px}
+.divider-page.dark .divider-number{color:var(--bt-apricot);opacity:.5}
+.divider-eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--bt-terracotta);margin-bottom:14px}
+.divider-page.dark .divider-eyebrow{color:var(--bt-apricot)}
+.divider-title{font-family:var(--serif);font-size:50px;line-height:1.05;font-weight:400;text-wrap:balance}
+.divider-page.dark .divider-title{color:var(--bt-porcelain)}
+.divider-rule{width:52px;height:1px;background:var(--bt-terracotta);margin:22px auto}
+.divider-page.dark .divider-rule{background:var(--bt-apricot)}
+.divider-sub{font-size:12.5px;color:var(--bt-umber);max-width:52ch;margin:0 auto;line-height:1.8}
+.divider-page.dark .divider-sub{color:var(--bt-stone)}
+
+.addon-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.addon-card{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;
+  background:var(--bt-blush);border:1px solid var(--bt-line-on-light);border-radius:3px;padding:14px 16px}
+.addon-name{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.3}
+.addon-desc{font-size:11.5px;color:var(--bt-umber);margin-top:4px;line-height:1.55}
+.addon-price{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--bt-terracotta);
+  white-space:nowrap}
+
+.closing-page{background:var(--bt-espresso);color:var(--bt-bone);align-items:center;
+  justify-content:center;text-align:center;padding:72px 44px}
+.closing-eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--bt-apricot)}
+.closing-title{font-family:var(--serif);font-size:52px;line-height:1.05;margin-top:14px;
+  color:var(--bt-porcelain);font-weight:400}
+.closing-title em{font-style:italic;color:var(--bt-apricot)}
+.closing-rule{width:52px;height:1px;background:var(--bt-apricot);margin:24px auto}
+.closing-quote{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--bt-bone)}
+.closing-contact-grid{display:flex;align-items:center;justify-content:center;gap:34px;margin:34px 0}
+.closing-contact-label{font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--bt-stone)}
+.closing-contact-val{font-family:var(--serif);font-size:19px;margin-top:6px;color:var(--bt-porcelain)}
+.closing-divider-v{width:1px;height:44px;background:var(--bt-line-on-dark)}
+.closing-cta{display:inline-block;padding:13px 30px;background:var(--bt-terracotta);color:#fff;
+  text-decoration:none;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;border-radius:2px}
+.closing-cta:hover{background:var(--bt-terracotta-dk)}
+.closing-footer{margin-top:34px;font-size:10.5px;letter-spacing:.1em;color:var(--bt-stone);line-height:2}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:680px){
+  .cat-grid,.addon-grid{grid-template-columns:1fr}
+  .cover{padding:36px 24px;min-height:0}
+  .cover-title{font-size:42px}
+  .page-header{padding:14px 22px;flex-direction:column;align-items:flex-start;gap:4px}
+  .page-body{padding:26px 22px 32px}
+  .section-title{font-size:30px}
+  .divider-title{font-size:38px}
+  .divider-number{font-size:58px}
+  .service-row,.special-card{flex-direction:column;gap:10px}
+  .service-price,.special-price-area{text-align:left}
+  .closing-contact-grid{flex-direction:column;gap:20px}
+  .closing-divider-v{width:44px;height:1px}
+}
+</style>
+
+<div class="preview-note">
+  <strong>Layout preview.</strong> The menu block is unchanged &mdash; this page only adds a
+  stylesheet built from <code>brand-tokens.css</code> so the structure is visible. Your live
+  GoHighLevel page supplies its own CSS, so type and spacing will differ there.
+  Waxing is at dividers <strong>11 (Women)</strong> and <strong>12 (Men)</strong>.
+</div>
+<div id="bts-menu">
+<!-- ═══════════════════════════════════════
+     COVER
+═══════════════════════════════════════ -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-wash"></div>
+    <div class="cover-corner tl"></div>
+    <div class="cover-corner tr"></div>
+    <div class="cover-corner bl"></div>
+    <div class="cover-corner br"></div>
+    <div class="cover-content">
+      <div class="cover-logo-area">
+        <div class="cover-logo-circle">
+          <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Spa Logo">
+        </div>
+        <div class="cover-logo-text">The Body Temple Spa</div>
+        <div class="cover-tagline-sm">Athens, Georgia · Since 2020</div>
+      </div>
+      <div class="cover-main">
+        <div class="cover-label">Services &amp; Gift Guide</div>
+        <div class="cover-title">Services &amp;<br><em>Gift Guide.</em></div>
+        <div class="cover-subtitle">A complete menu of healing, recovery, and beauty.</div>
+        <div class="cover-rule"></div>
+        <div class="cover-desc">From therapeutic massage, lymphatic drainage, esthetics, energy healing, permanent makeup, and body contouring — every service is designed to restore your body and soul.</div>
+      </div>
+      <div class="cover-footer">
+        <p>2350 Prince Ave, Athens, GA  (959) 400-9242<br>thebodytemplespa@gmail.com</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     NEW CLIENT SPECIALS
+═══════════════════════════════════════ -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa — Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242  thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+
+    <div class="specials-banner"><p>* First-time visitor specials - mention at booking</p></div>
+
+    <div class="special-card">
+      <div class="special-card-left">
+        <span class="special-save">Save $45  New Clients Only</span>
+        <div class="special-name">60 Min - Deep Recovery<br>Ultimate Recovery Massage</div>
+        <div class="special-desc">Our signature anti-inflammatory cream, hot stones, aromatherapy, deep tissue or Swedish + hand and foot hydration massage. Most requested premium service designed to deepen relaxation and recovery states.</div>
+      </div>
+      <div class="special-price-area">
+        <span class="special-price">$125</span>
+        <div class="special-reg">reg $170</div>
+      </div>
+    </div>
+
+    <div class="special-card">
+      <div class="special-card-left">
+        <span class="special-save">Save $30  New Clients Only</span>
+        <div class="special-name">90 Min - Deep Recovery<br>Ultimate Recovery Massage</div>
+        <div class="special-desc">Extended Deep Recovery session - more time for your therapist to work through every area of tension and restore your body to its optimal state.</div>
+      </div>
+      <div class="special-price-area">
+        <span class="special-price">$165</span>
+        <div class="special-reg">reg $195</div>
+      </div>
+    </div>
+
+    <div class="special-card">
+      <div class="special-card-left">
+        <span class="special-save">Save $277.50 &middot; First Visit Only</span>
+        <div class="special-name">First Time &mdash; Reiki Energy<br>Ancestral Healing</div>
+        <div class="special-desc">Using ancestral energy healing techniques, somatic release, aspecting, family constellation and behavioral changes, we go deep into clearing the emotional patterns and loyalty agreements that prevent you from having the relationship, self-worth, money or career reality you desire.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the First Time Reiki Ancestral Healing.">Book &rarr;</a>
+      </div>
+      <div class="special-price-area">
+        <span class="special-price">$277.50</span>
+        <div class="special-reg">reg $555</div>
+      </div>
+    </div>
+
+    <div class="special-card">
+      <div class="special-card-left">
+        <span class="special-save">10% Off &middot; First Visit Only</span>
+        <div class="special-name">First Time &mdash;<br>All Aesthetic Services</div>
+        <div class="special-desc">New to The Body Temple Spa? Enjoy 10% off any facial, skin treatment, lash, or brow service on your first visit. The perfect introduction to our esthetics menu.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book my first aesthetic service with the 10% first-visit discount.">Book &rarr;</a>
+      </div>
+      <div class="special-price-area">
+        <span class="special-price">10% off</span>
+        <div class="special-reg">first visit</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CATEGORY INDEX -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa &mdash; Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 &middot; thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Explore Our Services</div>
+    <div class="section-title">Categories.</div>
+    <div class="section-divider"></div>
+    <div class="cat-grid">
+      <a class="cat-tile" href="#massage">
+        <span class="cat-num">01</span>
+        <span class="cat-name">Massage Therapy</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+      <a class="cat-tile alt" href="#lymphatic">
+        <span class="cat-num">02</span>
+        <span class="cat-name">Lymphatic Manual Drainage</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+      <a class="cat-tile" href="#energy-healing">
+        <span class="cat-num">03</span>
+        <span class="cat-name">Energy &amp; Emotional Healing</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+      <a class="cat-tile alt" href="#esthetics">
+        <span class="cat-num">04</span>
+        <span class="cat-name">Esthetics</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+      <a class="cat-tile" href="#permanent-makeup">
+        <span class="cat-num">05</span>
+        <span class="cat-name">Permanent Makeup</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+      <a class="cat-tile alt" href="#womens-wellness">
+        <span class="cat-num">06</span>
+        <span class="cat-name">Women&rsquo;s Reproductive Health</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+      <a class="cat-tile" href="#body-sculpting">
+        <span class="cat-num">07</span>
+        <span class="cat-name">Body Sculpting &amp; Contouring</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+      <a class="cat-tile alt" href="#waxing-women">
+        <span class="cat-num">08</span>
+        <span class="cat-name">Waxing &mdash; Women</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+      <a class="cat-tile" href="#waxing-men">
+        <span class="cat-num">09</span>
+        <span class="cat-name">Waxing &mdash; Men</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+      <a class="cat-tile alt" href="#waxing-brows">
+        <span class="cat-num">10</span>
+        <span class="cat-name">Brows &amp; Add-Ons</span>
+        <span class="cat-go">View Services &rarr;</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER - Massage Therapy -->
+<div class="page divider-page dark">
+  <div class="cover-corner tl"></div>
+  <div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div>
+  <div class="cover-corner br"></div>
+  <div class="divider-number">01</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Healing Touch</div>
+    <div class="divider-title">Massage<br>Therapy.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Swedish &middot; Deep Recovery &middot; Prenatal &middot; Couples &middot; Hot Oil Body Scrub &middot; TMJ Release</div>
+  </div>
+</div>
+
+<div class="page interior" id="massage">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa &mdash; Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 &middot; thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Swedish & Relaxation</div>
+    <div class="section-title">Massage Therapy.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Swedish & Relaxation</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Swedish Tailored Massage</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Full-body Swedish experience tailored precisely to your body needs and comfort. Includes complimentary aromatherapy.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 60 Min Swedish Tailored Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da3566a12d383554595" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$120</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">90 Min - Swedish Tailored Massage</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Extended tailored Swedish for deeper, longer-lasting relaxation.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 90 Min Swedish Tailored Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/688a1755ad7f14462aca5804" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$150</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Deep Recovery Ultimate Recovery Massage</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Our signature anti-inflammatory cream, hot stones, aromatherapy, deep tissue or Swedish + hand and foot hydration massage. Most requested premium service designed to deepen relaxation and recovery states.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 60 Min Deep Recovery Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da2566a1285a65543e9" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$170</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">90 Min - Deep Recovery Ultimate Recovery Massage</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Extended Deep Recovery session - more time, more restoration.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 90 Min Deep Recovery Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc984cf3503b7005942def" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$195</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Prenatal Massage</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Nurturing massage for expectant mothers, relieving pregnancy-related discomfort.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 60 Min Prenatal Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da3566a12734a5544bf" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$125</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">90 Min - Prenatal Massage</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Extended prenatal care for deeper relief and full-body relaxation.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 90 Min Prenatal Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da2566a120e0d554313" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$155</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Foot Royalty Massage</div>
+        <div class="service-meta"><span class="service-dur">45 min</span></div>
+        <div class="service-desc">Luxurious foot scrub, hydration, reflexology, and calf massage finished with peppermint hot towels for renewed, refreshed, royalty-worthy feet.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Foot Royalty Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69a1c745faccc198ea6b6cf2" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$130</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">30 Min - Scalp Massage</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Deeply relaxing scalp massage relieving tension headaches and stimulating circulation.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Scalp Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68de880a12b3a37274cf3ac1" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$65</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">30 Min - Neck Massage</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Focused neck and upper shoulder work to release chronic tension.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Neck Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68dc063e6e5492345290e6bc" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$70</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Head & Face Massage</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Soothing massage of scalp, face and neck for total head tension release.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Head & Face Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69e633b899264265bfb7ef99" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$70</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Couples Massage</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Couples Massage</div>
+        <div class="service-meta"><span class="service-dur">60 min  2 guests</span></div>
+        <div class="service-desc">Two guests relax together in a private room with simultaneous treatment. Includes hot stones and aromatherapy.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 60 Min Couples Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68e426e2fff2598587b8d525" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$250</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">90 Min - Couples Massage</div>
+        <div class="service-meta"><span class="service-dur">90 min  2 guests</span></div>
+        <div class="service-desc">Extended couples session - both guests treated simultaneously in a private room.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 90 Min Couples Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68e4273619503721b365fefe" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$310</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Hot Oil Body Scrub</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">90 Min - Hot Oil Deluxe Body Scrub</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Indulge in a luxurious full-body renewal featuring dry brushing, Korean exfoliating gloves, a mineral-rich salt scrub, warm nourishing oils, and a relaxing Swedish massage. Designed to soften skin, improve circulation, and leave you feeling radiant, refreshed, and beautifully restored.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 90 Min Hot Oil Deluxe Body Scrub.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68e05a3f1a79a82a2dfea0eb" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$215</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">120 Min - Hot Oil Deluxe Body Scrub</div>
+        <div class="service-meta"><span class="service-dur">2 hr</span></div>
+        <div class="service-desc">Extended luxury scrub, hot oil therapy and therapeutic massage for total body renewal.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 120 Min Hot Oil Deluxe Body Scrub.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68e05f65538f7e88f118f15a" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$275</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DIVIDER - Deep Tissue -->
+<div class="page divider-page dark">
+  <div class="cover-corner tl"></div>
+  <div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div>
+  <div class="cover-corner br"></div>
+  <div class="divider-number">02</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Therapeutic & Recovery</div>
+    <div class="divider-title">Deep Tissue<br>Massage.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Sport Therapeutic · Myofascial Release — targeted deep work for pain relief, recovery & performance.</div>
+  </div>
+</div>
+
+<!-- Deep Tissue Services Page -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Therapeutic & Recovery</div>
+    <div class="section-title">Deep Tissue, Sport<br>& Specialized.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Sport Therapeutic Deep Tissue</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">30 Min - Sport Therapeutic Deep Tissue</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Designed for athletes and active individuals. Focuses on one or two areas of pain, tension, or injury using deep tissue, myofascial release, and assisted stretching. Includes complimentary hot stones and anti-inflammatory cream.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 30 Min Sport Therapeutic Deep Tissue.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6889b9e1ad7f14085b990f7f" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$75</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">45 Min - Sport Therapeutic Deep Tissue</div>
+        <div class="service-meta"><span class="service-dur">45 min</span></div>
+        <div class="service-desc">Focused sport massage using deep tissue, myofascial and stretching techniques.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 45 Min Sport Therapeutic Deep Tissue.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6889cfcead7f14fdc3a617a1" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$105</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Sport Therapeutic Deep Tissue</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Full-session sport massage for thorough recovery and performance support.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 60 Min Sport Therapeutic Deep Tissue.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da4566a125f50554741" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$130</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">90 Min - Sport Therapeutic Deep Tissue</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Premium extended sport massage for thorough recovery and rehabilitation.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 90 Min Sport Therapeutic Deep Tissue.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68d538585d2e2b1590dbddf4" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$170</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Myofascial Release</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">30 Min - Myofascial Release</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">A gentle yet powerful therapy using sustained pressure to release restrictions in the body's connective tissue. Designed to reduce chronic pain, improve mobility, and calm the nervous system. Especially beneficial for fibromyalgia, sciatica, frozen shoulder, headaches, and persistent muscle tension.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 30 Min Myofascial Release.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68df44dc83ebdd4eae8754c7" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$75</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Myofascial Release</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Full-session myofascial release for chronic tension and postural issues.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 60 Min Myofascial Release.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68df43e217412939a7694e51" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$130</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DIVIDER - Chronic Pain -->
+<div class="page divider-page light">
+  <div class="cover-corner tl"></div>
+  <div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div>
+  <div class="cover-corner br"></div>
+  <div class="divider-number">03</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Specialized Relief</div>
+    <div class="divider-title">Chronic<br>Pain.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Sciatica Massage · Cranio Somatic Therapy — gentle, targeted treatments designed to reduce chronic pain, restore mobility, and calm the nervous system.</div>
+  </div>
+</div>
+
+<!-- Chronic Pain Services Page -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Specialized Relief</div>
+    <div class="section-title">Chronic Pain.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Sciatica Massage</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">45 Min - Sciatica Massage</div>
+        <div class="service-meta"><span class="service-dur">45 min</span></div>
+        <div class="service-desc">Specialized massage targeting the sciatic pathway to relieve radiating pain, reduce inflammation, and restore mobility.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 45 Min Sciatica Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68df001568eb1171adc3a7d3" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$125</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">75 Min - Sciatica Massage</div>
+        <div class="service-meta"><span class="service-dur">75 min</span></div>
+        <div class="service-desc">Extended sciatica treatment with deeper work on piriformis, glutes, and lumbar. Ideal for chronic or severe sciatic pain.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 75 Min Sciatica Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68df006681ba00ce70fae0aa" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$155</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Cranio Somatic Therapy</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Cranio Somatic Therapy</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">A gentle, nervous system-focused therapy that supports optimal communication between the brain, spine, and body. Beneficial for chronic pain, headaches, migraines, TMJ dysfunction, and stress overload. Promotes clarity, emotional balance, and lasting well-being.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 60 Min Cranio Somatic Therapy.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a0e194d37c5558ba7d2dd29" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$150</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">90 Min - Cranio Somatic Therapy</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Extended cranio somatic session for trauma release and deep nervous system restoration.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 90 Min Cranio Somatic Therapy.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a0ca3a885ffa06560bf1baf" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$175</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DIVIDER - Enhancements -->
+<div class="page divider-page light">
+  <div class="cover-corner tl"></div>
+  <div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div>
+  <div class="cover-corner br"></div>
+  <div class="divider-number">04</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Elevate Your Session</div>
+    <div class="divider-title">Massage<br>Enhancements.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Add any of the following to your massage or bodywork booking to deepen your treatment experience.</div>
+  </div>
+</div>
+
+<!-- Enhancements / Add-Ons Page -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Elevate Your Massage</div>
+    <div class="section-title">Massage Add-Ons.</div>
+    <div class="section-divider"></div>
+    <div class="addon-grid">
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">15 Min Extra Upgrade</div>
+          <div class="addon-desc">Extend your massage session for more focus on a problem area.</div>
+        </div>
+        <div class="addon-price">$45</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">30 Min Extra Upgrade</div>
+          <div class="addon-desc">Add 30 minutes to any massage service.</div>
+        </div>
+        <div class="addon-price">$65</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Infrared Sauna Blanket</div>
+          <div class="addon-desc">Pre or post-massage infrared sauna wrap for deep detox.</div>
+        </div>
+        <div class="addon-price">$65</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Scalp Massage Upgrade</div>
+          <div class="addon-desc">Relaxing scalp massage added to any service.</div>
+        </div>
+        <div class="addon-price">$45</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">LED Mask</div>
+          <div class="addon-desc">Rejuvenating LED light therapy during your session.</div>
+        </div>
+        <div class="addon-price">$35</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">CBD Upgrade</div>
+          <div class="addon-desc">CBD oil or cream applied during your massage.</div>
+        </div>
+        <div class="addon-price">$20</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Hot Stones Upgrade</div>
+          <div class="addon-desc">Therapeutic hot stones added to any massage.</div>
+        </div>
+        <div class="addon-price">$15</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Aromatherapy Upgrade</div>
+          <div class="addon-desc">Essential oil blend selected for your needs.</div>
+        </div>
+        <div class="addon-price">$10</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Heated Bamboo Stick</div>
+          <div class="addon-desc">Warm bamboo tool for deep muscle pressure.</div>
+        </div>
+        <div class="addon-price">$15</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Foot Hydration Upgrade</div>
+          <div class="addon-desc">Nourishing foot mask and hydration treatment.</div>
+        </div>
+        <div class="addon-price">$15</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Foot Scrub</div>
+          <div class="addon-desc">Exfoliating foot scrub for soft, renewed skin.</div>
+        </div>
+        <div class="addon-price">$25</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Hand Hydration Upgrade</div>
+          <div class="addon-desc">Moisturizing hand treatment added to your session.</div>
+        </div>
+        <div class="addon-price">$15</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Massage Gun Machine</div>
+          <div class="addon-desc">Percussive therapy for targeted muscle relief.</div>
+        </div>
+        <div class="addon-price">$10</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Anti-Inflammatory Muscle Cream</div>
+          <div class="addon-desc">Applied to sore or inflamed areas during massage.</div>
+        </div>
+        <div class="addon-price">$15</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">24K Eye Bags Treatment Mask</div>
+          <div class="addon-desc">Luxury under-eye treatment during your session.</div>
+        </div>
+        <div class="addon-price">$10</div>
+      </div>
+      <div class="addon-card">
+        <div class="addon-left">
+          <div class="addon-name">Post-Op Anti-Inflammatory Oil</div>
+          <div class="addon-desc">Specialized oil for post-surgical recovery support.</div>
+        </div>
+        <div class="addon-price">$15</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DIVIDER - Lymphatic Wellness -->
+<div class="page divider-page dark">
+  <div class="cover-corner tl"></div>
+  <div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div>
+  <div class="cover-corner br"></div>
+  <div class="divider-number">05</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Detox & Recovery</div>
+    <div class="divider-title">Lymphatic<br>Wellness.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Lymphatic Drainage · Lymphedema Treatment · Complete Detox · Post-Op Recovery · Mobile Massage</div>
+  </div>
+</div>
+
+<!-- Lymphatic Services Page -->
+<div class="page interior" id="lymphatic">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Detox & Recovery</div>
+    <div class="section-title">Lymphatic Wellness.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Lymphatic Wellness Drainage</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">30 Min - Lymphatic Wellness Drainage</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Visibly reduces swelling and puffiness, boosts immune health, circulation, and promotes relaxation and nervous system balance. Ideal for bloating, recovery, PMS relief, and monthly detoxes.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 30 Min Lymphatic Wellness Drainage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da4566a12b7b755466b" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$75</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Lymphatic Wellness Drainage</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Extended lymphatic drainage for deeper detox and immune support.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 60 Min Lymphatic Wellness Drainage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da5566a121ee0554857" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$135</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">30 Min - Lymphedema Drainage Treatment</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Take control of your lymphedema with specialized lymphatic drainage therapy. Reduce swelling, improve lymphatic flow, increase mobility, ease discomfort, and support healthy circulation while helping lower the risk of complications.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 30 Min Lymphedema Drainage Treatment.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f10f5149d1b435fc4c89e6" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$80</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Lymphedema Drainage Treatment</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Full-length lymphedema treatment combining manual drainage and compression.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 60 Min Lymphedema Drainage Treatment.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f11089bcfe20a70dd62ed4" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$145</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">90 Min - Lymphatic Complete Detox</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Extended Complete Detox for deeper full-body cleansing and lymphatic reset.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 90 Min Lymphatic Complete Detox.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/698df9d14b5a7bc6b0e62fad" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$190</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Lymphatic Services Page 2 - Post-Op -->
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Detox & Recovery</div>
+    <div class="section-title">Post-Op Lymphatic.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Post-Operative Lymphatic</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">30 Min - Post-Op Lymphatic Treatment</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Our specialized lymphatic drainage therapy supports your body natural healing process following surgery. Gentle, targeted techniques reduce swelling, minimize bruising, and flush toxins to accelerate recovery. Promotes circulation, prevents fibrosis, and restores comfort.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 30 Min Post-Op Lymphatic Treatment.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69e6aa5076e9291fe301a022" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$80</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min - Post-Op Lymphatic Treatment</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Extended post-op drainage for comprehensive surgical recovery.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a 60 Min Post-Op Lymphatic Treatment.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69e6aaacd28613dca80fb2fc" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$145</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">45 Min - Mobile Lymphatic Massage</div>
+        <div class="service-meta"><span class="service-dur">45 min · In-home</span></div>
+        <div class="service-desc">Post-op lymphatic drainage in your home. We travel within a 15-mile radius. Beyond 15 miles, travel is $1 per mile.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi, I want to book a Mobile Lymphatic Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a22e0afc40d3cd90b6f8fed" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$169.50</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CLOSING
+═══════════════════════════════════════ -->
+<!-- DIVIDER - Energy & Emotional Healing -->
+<div class="page divider-page light">
+  <div class="cover-corner tl"></div><div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div><div class="cover-corner br"></div>
+  <div class="divider-number">06</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Ancestral &amp; Emotional Healing</div>
+    <div class="divider-title">Energy &amp; Emotional<br>Healing.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Ancestral Healing · Reiki Massage · Somatic Release · Family Constellation</div>
+  </div>
+</div>
+
+<div class="page interior" id="energy-healing">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Ancestral &amp; Energy Healing</div>
+    <div class="section-title">Energy &amp; Emotional Healing.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Ancestral Healing</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Reiki Energy Ancestral Healing</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Ancestral energy healing, somatic release, aspecting and family constellation work to clear the emotional patterns and loyalty agreements standing between you and the relationship, self-worth, money or career reality you want.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Reiki Energy Ancestral Healing session.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6889e4297457696043fb06fe" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$555</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Reiki Massage</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">30 Min — Reiki Massage</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Release emotional stress with a healing blend of massage and energy work. Ideal for grief, heartbreak, loss, or overwhelm.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 30 Min Reiki Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da7566a1245c5554bf1" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$65</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">60 Min — Reiki Massage</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Full session blending therapeutic massage and energy healing. Promotes relaxation, better sleep, emotional balance and clarity.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 60 Min Reiki Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da1566a122fa155423d" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$135</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">90 Min — Reiki Massage</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Extended session for deeper emotional release and nervous system restoration. Leave lighter, grounded and renewed.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 90 Min Reiki Massage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da1566a124274554161" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$165</div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER - Esthetics -->
+<div class="page divider-page light">
+  <div class="cover-corner tl"></div><div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div><div class="cover-corner br"></div>
+  <div class="divider-number">07</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Skin &amp; Beauty</div>
+    <div class="divider-title">Esthetics.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Facials · Microchanneling · Dermaplaning · Lashes · Brows · Waxing</div>
+  </div>
+</div>
+
+<div class="page interior" id="esthetics">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Skin &amp; Beauty</div>
+    <div class="section-title">Esthetics.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Facials &amp; Skin</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">The Reveal Custom Facial</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Your personalized introduction to understanding your complexion. Advanced skin analysis and expert consultation uncover what your skin actually needs, then guide you to the right treatment plan.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book The Reveal Custom Facial.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/696aa31fb05c4c3fcadea2ba" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$100</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Ultra Sonic Skin Scrubber Facial</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Deep-cleansing treatment using high-frequency ultrasonic waves to lift impurities, excess oil and congestion from pores — without harsh extractions or irritation.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Ultra Sonic Skin Scrubber Facial.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f3b1b7fac7294f8e196b2b" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$120</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Luminous Facial Lift — Lymphatic &amp; TMJ Release</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Lymphatic drainage massage, intraoral TMJ release and infrared light therapy in one session. Reduces puffiness, relieves jaw tension and headaches, and leaves a sculpted, lifted appearance.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Luminous Facial Lift.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/698a9263ed5dc0f5c3b274e8" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$145</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Royalty Dermaplaning Facial</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Builds on our signature Reveal Facial with dermaplaning to remove peach fuzz and reveal smoother skin, plus red light therapy to stimulate collagen and calm inflammation.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Royalty Dermaplaning Facial.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f3b1f13ebf6d6921ee501d" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$165</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Microchanneling</div>
+        <div class="service-meta"><span class="service-dur">45 min</span></div>
+        <div class="service-desc">Advanced treatment that stimulates collagen production and dramatically enhances product absorption for firmer, healthier-looking skin.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Microchanneling.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f51db1feb24d3d8444944e" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$225</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">30 Min — Lymphatic Facial</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Visibly diminishes puffiness and under-eye bags while sculpting facial contours. Excellent for post-flight recovery and allergy season.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 30 Min Lymphatic Facial.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68e2636150b0a6bfa01f2626" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$85</div>
+    </div>
+  </div>
+</div>
+
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Skin &amp; Beauty</div>
+    <div class="section-title">Lashes, Brows<br>&amp; Waxing.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Lashes</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Korean Lash Lift</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">A gentle, precision technique that lifts natural lashes from the root for a smooth, elongated, open-eye effect. Ideal for straight or downward-growing lashes. Includes conditioning and tinting. Lasts 6–8 weeks.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Korean Lash Lift.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a751800af2224a5285d8151" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$125</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Eye Lash Classic Full Set</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">A natural-looking full set with one extension applied to each natural lash.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Classic Lash Full Set.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f52604c82c2904ea4f4705" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$220</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Eye Lash Volume Full Set</div>
+        <div class="service-meta"><span class="service-dur">2 hr</span></div>
+        <div class="service-desc">Full set of lightweight volume fans for a soft, fluffy and dramatic look.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Volume Lash Full Set.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f5250bd4a364de8fffbde1" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$265</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Eye Lashes Classic Fill</div>
+        <div class="service-meta"><span class="service-dur">45 min</span></div>
+        <div class="service-desc">Maintenance fill to keep classic lash extensions looking full and natural.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Classic Lash Fill.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f5225ad99657377986309d" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$74</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Eye Lashes Volume Fill — 60 Min</div>
+        <div class="service-meta"><span class="service-dur">60 min</span></div>
+        <div class="service-desc">Maintenance fill to refresh and restore volume lash extensions.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 60 Min Volume Lash Fill.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f52199fa1c2905490cbdf4" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$95</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Eye Lashes Volume Fill — 75 Min</div>
+        <div class="service-meta"><span class="service-dur">75 min</span></div>
+        <div class="service-desc">Extended fill session for fuller restoration and added density.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a 75 Min Volume Lash Fill.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f522e7b0c4bf6e030e92db" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$130</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Lash Tint</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Darkens natural lashes for a fuller, more defined look without mascara.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Lash Tint.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f51eccc653a43f8a7e0ccc" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$40</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Brows &amp; Waxing</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Brow Tint</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Enhances and defines brows with custom colour.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Brow Tint.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f5269eb5e3304b0e2c5ad7" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$25</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Brow Wax</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Shapes and cleans up brows for a polished look.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Brow Wax.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f527dbef9264fba40d8128" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$25</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Brow / Lip / Chin Wax</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Gentle waxing to remove unwanted hair and leave skin smooth.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Brow, Lip and Chin Wax.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f52774f3e4590eac686fe7" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$50</div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER - Permanent Makeup -->
+<div class="page divider-page light">
+  <div class="cover-corner tl"></div><div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div><div class="cover-corner br"></div>
+  <div class="divider-number">08</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Wake Up Ready</div>
+    <div class="divider-title">Permanent<br>Makeup.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Brows · Eyes · Lips · Paramedical &amp; Advanced · Touch-Ups</div>
+  </div>
+</div>
+
+<div class="page interior" id="permanent-makeup">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Wake Up Ready</div>
+    <div class="section-title">Permanent Makeup.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Start Here</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Permanent Makeup Consultation</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">A one-on-one consultation to confirm you're a candidate. We assess your skin, discuss your goals and map the right approach. Your $40 is fully refundable as long as you show up &mdash; and if you decide to move forward with treatment, it rolls over to your first session or perfecting session.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Permanent Makeup Consultation.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be44727fbf453d6e23cbe" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$40</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Brows</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Microblading</div>
+        <div class="service-meta"><span class="service-dur">2 hr</span></div>
+        <div class="service-desc">Fine, hair-like strokes hand-crafted to follow your natural growth, filling sparse areas and rebuilding shape. Best for normal-to-dry skin. Custom-mapped to your bone structure, never a stencil.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Microblading.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be4f4660bf115e3afe156" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$505</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Brazilian Ombré / Powder Brows</div>
+        <div class="service-meta"><span class="service-dur">2 hr 30 min</span></div>
+        <div class="service-desc">Tiny pixel-like dots of pigment fade from a soft front to a defined tail, mimicking a perfectly powdered finish. Flattering on all skin types including oily and combination.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Brazilian Ombré Powder Brows.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be5350d90534e77c81f13" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$555</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Microshading</div>
+        <div class="service-meta"><span class="service-dur">2 hr 30 min</span></div>
+        <div class="service-desc">A gentle gradient across the brow for a fuller, more defined shape with a powdered, airbrushed finish. Natural enough for every day, polished enough for every photo.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Microshading.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be5d65855c43397c83bd5" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$555</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Combination Brows</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Crisp hair-like strokes at the front paired with soft shading through the body and tail — texture and structure in one. Ideal for sparse or uneven brows needing both shape and density.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Combination Brows.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be618a6d55f41cb89431f" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$630</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Eyes</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Lash Line Enhancement</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">A subtle tightline of pigment at the base of your lashes, creating a thicker, denser lash line without a visible stripe of liner.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Lash Line Enhancement.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be6795ebd1e99931fbaf9" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$330</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Classic Eyeliner (Top)</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">A clean line of pigment along the upper lash line that makes eyes look brighter and beautifully framed. Stays crisp through workouts, tears and long days.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Classic Eyeliner.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be79542d179656fa2e619" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$355</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Winged / Cat-Eye Liner</div>
+        <div class="service-meta"><span class="service-dur">2 hr 30 min</span></div>
+        <div class="service-desc">Your custom wing, mapped to your unique eye shape for a lifted, elongating cat-eye that never smudges or goes crooked.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Winged Cat-Eye Liner.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be7f7cb73f71d953dbe2e" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$450</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Smokey / Shadow Liner</div>
+        <div class="service-meta"><span class="service-dur">2 hr 30 min</span></div>
+        <div class="service-desc">A diffused shadow effect blended outward from the lash line — all the drama of a smoky eye, none of the blending or fallout.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Smokey Shadow Liner.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be912ce0d7649391ee490" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$505</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Top + Bottom Liner</div>
+        <div class="service-meta"><span class="service-dur">2 hr 30 min</span></div>
+        <div class="service-desc">Pigment along both upper and lower lash lines for depth, dimension and a striking frame that makes your eye colour stand out.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Top and Bottom Liner.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be89722bba86ec0f0050c" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$530</div>
+    </div>
+  </div>
+</div>
+
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Wake Up Ready</div>
+    <div class="section-title">Lips, Paramedical<br>&amp; Touch-Ups.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Lips</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Lip Liner / Contour</div>
+        <div class="service-meta"><span class="service-dur">2 hr</span></div>
+        <div class="service-desc">Redefines and subtly reshapes your lip line, correcting asymmetry and creating the appearance of fuller, more balanced lips.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Lip Liner Contour.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be9c12404491763b794dc" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$455</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Lip Blush</div>
+        <div class="service-meta"><span class="service-dur">2 hr 30 min</span></div>
+        <div class="service-desc">A soft wash of colour that makes lips look naturally fuller and brighter. Your-lips-but-better: fresh, flushed and effortlessly polished.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Lip Blush.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5be95eca71da69b7a7245b" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$605</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Full Lip Color</div>
+        <div class="service-meta"><span class="service-dur">3 hr</span></div>
+        <div class="service-desc">Saturates the lips with rich, even tone for a bold, finished look. Custom-blended to flatter your skin, with zero upkeep.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Full Lip Color.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bea17a59a2f4d5259e1f4" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$680</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Dark Lip Neutralization</div>
+        <div class="service-meta"><span class="service-dur">3 hr 30 min</span></div>
+        <div class="service-desc">Gently corrects and neutralizes darker or uneven pigmentation, creating a smooth, uniform base and a fresher, more youthful tone.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Dark Lip Neutralization.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bea57a5d98b4fb16339c9" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$730</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Paramedical &amp; Advanced</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Areola Restoration (One Side)</div>
+        <div class="service-meta"><span class="service-dur">2 hr</span></div>
+        <div class="service-desc">Lifelike 3D pigmentation recreates natural-looking colour, shape and dimension after breast reconstruction or surgery. Custom-matched to your skin tone, with a private consultation first.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to ask about Areola Restoration.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5beb0ed7ef82d8f2617420" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$455</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Areola Restoration (Pair)</div>
+        <div class="service-meta"><span class="service-dur">3 hr</span></div>
+        <div class="service-desc">Both sides restored in one session, performed with sensitivity, precision and respect for your journey.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to ask about Areola Restoration (pair).">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5beb7873e6ff175d3f296b" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$755</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Scalp Micropigmentation</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Tiny, natural-looking pigment deposits replicate hair follicles, creating the illusion of density, a defined hairline or a crisp buzzed look. For all hair types and stages of loss.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to ask about Scalp Micropigmentation.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bec53bcf55ef5cde2e3ca" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$1,055</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Scar Camouflage</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Specialized pigment blended into scars and skin irregularities to soften their appearance. Results vary by scar type and build over multiple sessions.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to ask about Scar Camouflage.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5eafa35f6c7e4bf0c6c007" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$330</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Faux Freckles / Beauty Marks</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Delicate, natural-looking dots across the nose and cheeks for a fresh, sun-kissed glow — or a timeless beauty mark for signature elegance.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Faux Freckles.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bebc58b25c9162f1c4429" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$305</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Touch-Ups &amp; Maintenance</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Perfecting Session (6–8 Weeks)</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">The essential second layer, done 6–8 weeks after your initial appointment. Refines shape, deepens colour and fills areas that healed lighter.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book my PMU Perfecting Session.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5becc2950845fef918475a" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$105</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Color Refresh (12–18 Months)</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Revives existing work, restoring vibrancy, definition and that fresh-from-the-studio finish.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a PMU Color Refresh.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bed600eb6fa53d98dfdf7" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$255</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Color Refresh (18–24 Months)</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">For work that's had longer to soften — a fuller refresh to bring back crisp, saturated results.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a PMU Color Refresh.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bed600eb6fa53d98dfdf7" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$330</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Color Correction</div>
+        <div class="service-meta"><span class="service-dur">4 hr 30 min</span></div>
+        <div class="service-desc">A fresh start for less-than-perfect work. Advanced techniques neutralize unwanted colours and reshape as needed. Begins with a consultation.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to ask about PMU Color Correction.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a5bee179d6cf297ed913c59" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$605</div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER - Women's Reproductive Health -->
+<div class="page divider-page light">
+  <div class="cover-corner tl"></div><div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div><div class="cover-corner br"></div>
+  <div class="divider-number">09</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Feminine Wellness</div>
+    <div class="divider-title">Women's Reproductive<br>Health.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Womb Healing · Vaginal Steaming · The Womanhood Package</div>
+  </div>
+</div>
+
+<div class="page interior" id="womens-wellness">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Feminine Wellness</div>
+    <div class="section-title">Women's Reproductive Health.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Womb Care</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Womb Healing — Vaginal Steaming</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Supports postpartum recovery, cramps, trouble conceiving, infections, fibroids, cysts, dryness and uterine cleansing. A worldwide feminine healing tradition for the reproductive system.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Womb Healing Vaginal Steam.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6889cdfe745769f9a0ee53e8" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$65</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Womanhood Package</div>
+        <div class="service-meta"><span class="service-dur">3 hr</span></div>
+        <div class="service-desc">A root-to-crown reset: 20 min vaginal steam, 60 min facial lift, and 90 min full detox with lymphatic drainage, sauna blanket and scalp massage. Leaves you glowing inside and out.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Womanhood Package.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69a1ca95821564d35cc01a3f" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$380</div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER - Body Sculpting -->
+<div class="page divider-page light">
+  <div class="cover-corner tl"></div><div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div><div class="cover-corner br"></div>
+  <div class="divider-number">10</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Natural Lipo</div>
+    <div class="divider-title">Body Sculpting<br>&amp; Contouring.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Waist · Back · Arms · Legs · Jawline · Cellulite Packages</div>
+  </div>
+</div>
+
+<div class="page interior" id="body-sculpting">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 · thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Natural Lipo</div>
+    <div class="section-title">Body Sculpting &amp; Contouring.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Waist &amp; Midsection</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Hourglass Mommy Make Over Sculpt</div>
+        <div class="service-meta"><span class="service-dur">50 min</span></div>
+        <div class="service-desc">For the body after babies. Targets what pregnancy changes most — the lower belly, the softened waistline, and the loose skin core exercise alone rarely tightens. Rebuilds the waist definition you had before, with no surgery and no recovery time away from your kids.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Hourglass Mommy Make Over Sculpt.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a711e148f9d58afc0ab5088" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$315</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Hourglass Non Invasive Lipo Sculpt</div>
+        <div class="service-meta"><span class="service-dur">50 min</span></div>
+        <div class="service-desc">Natural lipo for a defined waist. Targets the stubborn fat on the flanks and lower belly that refuses to move no matter how clean the diet or how consistent the gym. The result people book liposuction for — without the surgery, the scars, or the downtime.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Hourglass Non Invasive Lipo Sculpt.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30581996647789811c60e3" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$315</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Ultimate Body Sculpting Transformation</div>
+        <div class="service-meta"><span class="service-dur">90 min</span></div>
+        <div class="service-desc">Our most comprehensive experience — contours multiple areas in one extended session for dramatic full-body refinement. For clients seeking maximum results.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Ultimate Body Sculpting Transformation.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584d68f0090d42f5bc5f" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$630</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Targeted Areas</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Elegant Silhouette Back Sculpt</div>
+        <div class="service-meta"><span class="service-dur">50 min</span></div>
+        <div class="service-desc">Smooths and contours the back and bra-line area, reducing stubborn fat and improving skin firmness so clothing fits more comfortably.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Elegant Silhouette Back Sculpt.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584bb135e0727d691031" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$315</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Sculpted Arms</div>
+        <div class="service-meta"><span class="service-dur">35 min</span></div>
+        <div class="service-desc">Tones, tightens and defines the arms for a smoother, more youthful appearance. A favourite ahead of sleeveless season.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Sculpted Arms.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584cf2e86c5b8dbb9b33" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$199</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Summer Legs Sculpt</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Refines and contours the inner thighs while promoting smoother, firmer-looking skin for a leaner appearance.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Summer Legs Sculpt.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584ce3f0aef2413ce4bd" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$199</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Defined Jawline Sculpt</div>
+        <div class="service-meta"><span class="service-dur">25 min</span></div>
+        <div class="service-desc">Targeted contouring to reduce fullness beneath the chin and improve jawline definition. A quick session with visible profile results.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book the Defined Jawline Sculpt.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/6a30584d7b028c161b530b7f" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$199</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Cellulite Packages</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Cellulite Removal — 3 Sessions</div>
+        <div class="service-meta"><span class="service-dur">$199 per session</span></div>
+        <div class="service-desc">Cellulite is structural, not a weight problem — which is why diet and cardio rarely touch it. This treatment works the tissue underneath so the dimpled texture visibly softens. Sold in packages because results build session over session.</div>
+        <a class="book-btn" href="https://revelarte.thrivecart.com/celulite-removal-packages/" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$597</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Cellulite Removal — 6 Sessions</div>
+        <div class="service-meta"><span class="service-dur">$189 per session · Save $60</span></div>
+        <div class="service-desc">The full recommended course, at the best per-session rate.</div>
+        <a class="book-btn" href="https://revelarte.thrivecart.com/celulite-removal-packages/" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$1,134</div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER - Waxing<br>for Women. -->
+<div class="page divider-page light">
+  <div class="cover-corner tl"></div><div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div><div class="cover-corner br"></div>
+  <div class="divider-number">11</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Smooth &amp; Defined</div>
+    <div class="divider-title">Waxing<br>for Women.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Bikini &amp; Brazilian &middot; Legs &middot; Arms &middot; Underarms &middot; Chest &amp; Stomach &middot; Back &middot; Face &middot; Full Body</div>
+  </div>
+</div>
+
+<div class="page interior" id="waxing-women">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 &middot; thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Women's Waxing</div>
+    <div class="section-title">Waxing for Women.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Bikini &amp; Brazilian</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Bikini Line</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Removes unwanted hair along the outer bikini line for a clean, neatly groomed appearance. Includes the stomach strip.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Bikini Line Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$46</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Brazilian Wax</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Removes all or most hair from the intimate area, with the option to leave a customized strip or shape. Includes the stomach strip.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Brazilian Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$68</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Legs &amp; Feet</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Legs Full</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Complete hair removal from the upper thighs down to the ankles.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Full Leg Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$86</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Legs Upper Half</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Removes hair from the upper legs, including the thighs, for a smooth finish.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book an Upper Half Leg Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$53</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Legs Lower Half</div>
+        <div class="service-meta"><span class="service-dur">25 min</span></div>
+        <div class="service-desc">Removes hair from the knees down to the ankles.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Lower Half Leg Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$52</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Feet</div>
+        <div class="service-meta"><span class="service-dur">10 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the tops of the feet and toes.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Feet Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$16</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Arms &amp; Underarms</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Arms Full</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Complete hair removal from the shoulders down to the wrists.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Full Arm Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$53</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Arms Half</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Removes hair from either the upper or lower half of the arms.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Half Arm Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$46</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Underarms</div>
+        <div class="service-meta"><span class="service-dur">10 min</span></div>
+        <div class="service-desc">Removes underarm hair for smooth, longer-lasting results.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book an Underarm Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$28</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Hands</div>
+        <div class="service-meta"><span class="service-dur">10 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the backs of the hands and fingers.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Hand Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$16</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 &middot; thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Women's Waxing</div>
+    <div class="section-title">Body, Face<br>&amp; Full Body.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Chest &amp; Stomach</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Chest + Stomach</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Complete hair removal across the chest and stomach for smooth, even-looking skin.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Chest and Stomach Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$70</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Chest</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Removes unwanted hair across the full chest for a clean, smooth finish.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Chest Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$66</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Chest Strip</div>
+        <div class="service-meta"><span class="service-dur">5 min</span></div>
+        <div class="service-desc">Removes a narrow strip of hair from the center of the chest.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Chest Strip Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$25</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Stomach Full</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Complete hair removal across the stomach for smooth, touchable skin.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Full Stomach Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$36</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Buttocks &amp; Back</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Buttocks Full</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Removes unwanted hair across the full outer buttocks for smooth, even-looking skin.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Full Buttocks Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$31</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Back Full</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Complete hair removal across the upper, middle, and lower back.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Full Back Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$70</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Back Upper</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the shoulders and upper-back area.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book an Upper Back Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$36</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Back Lower</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the lower-back area.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Lower Back Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$18</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Face &amp; Neck</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Full Face</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Removes unwanted facial hair for smoother skin and a polished, refreshed appearance.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Full Face Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$64</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Cheeks / Sideburns</div>
+        <div class="service-meta"><span class="service-dur">10 min</span></div>
+        <div class="service-desc">Removes unwanted facial hair from the cheeks or sideburn area for a clean, defined look.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Cheeks or Sideburns Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$16</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Neck</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the front or back of the neck for a neat, refined finish.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Neck Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$17</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Full Body</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Full Body Waxing for Women</div>
+        <div class="service-meta"><span class="service-dur">75 min</span></div>
+        <div class="service-desc">Includes the upper lip, underarms, full Brazilian, and full legs for smooth, longer-lasting results.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Full Body Waxing for Women.">Text to Book</a>
+      </div>
+      <div class="service-price">$95</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- DIVIDER - Waxing<br>for Men. -->
+<div class="page divider-page dark">
+  <div class="cover-corner tl"></div><div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div><div class="cover-corner br"></div>
+  <div class="divider-number">12</div>
+  <div class="divider-content">
+    <div class="divider-eyebrow">Smooth &amp; Defined</div>
+    <div class="divider-title">Waxing<br>for Men.</div>
+    <div class="divider-rule"></div>
+    <div class="divider-sub">Bikini &amp; Brazilian &middot; Legs &middot; Arms &middot; Underarms &middot; Chest &amp; Stomach &middot; Back &middot; Face &middot; Full Body</div>
+  </div>
+</div>
+
+<div class="page interior" id="waxing-men">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 &middot; thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Men's Waxing</div>
+    <div class="section-title">Waxing for Men.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Bikini &amp; Brazilian</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Bikini Line</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Removes unwanted hair visible outside the underwear line for a clean, polished appearance. Includes the stomach strip.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Bikini Line Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$56</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Brazilian Wax</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Removes all or most hair from the intimate area for a clean, smooth, groomed finish. Includes the stomach strip.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Brazilian Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$88</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Legs &amp; Feet</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Legs Full</div>
+        <div class="service-meta"><span class="service-dur">45 min</span></div>
+        <div class="service-desc">Complete hair removal from the upper thighs down to the ankles.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Full Leg Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$115</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Legs Upper Half</div>
+        <div class="service-meta"><span class="service-dur">45 min</span></div>
+        <div class="service-desc">Removes hair from the upper legs, including the thighs, for a smooth finish.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Upper Half Leg Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$75</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Legs Lower Half</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Removes hair from the knees down to the ankles.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Lower Half Leg Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$75</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Feet</div>
+        <div class="service-meta"><span class="service-dur">10 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the tops of the feet and toes.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Feet Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$25</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Arms &amp; Underarms</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Arms Full</div>
+        <div class="service-meta"><span class="service-dur">45 min</span></div>
+        <div class="service-desc">Complete hair removal from the shoulders down to the wrists.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Full Arm Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$75</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Arms Half</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Removes hair from either the upper or lower half of the arms.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Half Arm Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$67</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Underarms</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Removes underarm hair for smooth, longer-lasting results.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Underarm Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$55</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Hands</div>
+        <div class="service-meta"><span class="service-dur">10 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the backs of the hands and fingers.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Hand Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$25</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page interior">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 &middot; thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Men's Waxing</div>
+    <div class="section-title">Body, Face<br>&amp; Full Body.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Chest &amp; Stomach</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Chest + Stomach</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Complete hair removal across the chest and stomach for smooth, even-looking skin.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Chest and Stomach Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$100</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Chest</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Removes unwanted hair across the full chest for a clean, smooth finish.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Chest Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$85</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Chest Strip</div>
+        <div class="service-meta"><span class="service-dur">10 min</span></div>
+        <div class="service-desc">Removes a narrow strip of hair from the center of the chest.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Chest Strip Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$45</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Stomach Full</div>
+        <div class="service-meta"><span class="service-dur">25 min</span></div>
+        <div class="service-desc">Complete hair removal across the stomach for smooth, touchable skin.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Full Stomach Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$55</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Buttocks &amp; Back</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Buttocks Full</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Removes unwanted hair across the full outer buttocks for smooth, even-looking skin.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Full Buttocks Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$55</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Back Full</div>
+        <div class="service-meta"><span class="service-dur">45 min</span></div>
+        <div class="service-desc">Complete hair removal across the upper, middle, and lower back.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Full Back Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$90</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Back Upper</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the shoulders and upper-back area.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Upper Back Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$55</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Back Lower</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the lower-back area.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Lower Back Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$40</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Face &amp; Neck</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Cheeks / Sideburns</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Removes unwanted facial hair from the cheeks or sideburn area for a clean, defined look.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Cheeks or Sideburns Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$30</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Neck</div>
+        <div class="service-meta"><span class="service-dur">30 min</span></div>
+        <div class="service-desc">Removes unwanted hair from the front or back of the neck for a neat, refined finish.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Men's Neck Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$44</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Full Body</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Full Body Waxing for Men</div>
+        <div class="service-meta"><span class="service-dur">120 min</span></div>
+        <div class="service-desc">Includes the underarms, full Brazilian, back and full legs for a clean, smooth, longer-lasting finish.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Full Body Waxing for Men.">Text to Book</a>
+      </div>
+      <div class="service-price">$195</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page interior" id="waxing-brows">
+  <div class="page-header">
+    <div class="page-header-brand">The Body Temple Spa - Services Menu</div>
+    <div class="page-header-contact">(959) 400-9242 &middot; thebodytemplespa@gmail.com</div>
+  </div>
+  <div class="page-body">
+    <div class="section-label">Brows &amp; Add-Ons</div>
+    <div class="section-title">Brows &amp; Add-Ons.</div>
+    <div class="section-divider"></div>
+
+    <div class="category-label">Brows &amp; Face</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Brow Wax</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Standard brow wax following your own brow shape. Defines the brows by removing unwanted hair for a clean, polished appearance. Brow shaping is available as an add-on.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Brow Wax.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f527dbef9264fba40d8128" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$25</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Brow / Lip / Chin Wax</div>
+        <div class="service-meta"><span class="service-dur">20 min</span></div>
+        <div class="service-desc">Shapes the brows and removes unwanted hair from the upper lip and chin.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Brow, Lip and Chin Wax.">Text to Book</a>
+        <a class="book-btn book-btn-online" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f52774f3e4590eac686fe7" target="_blank" rel="noopener">Book Online</a>
+      </div>
+      <div class="service-price">$50</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Professional Eyebrow Design</div>
+        <div class="service-meta"><span class="service-dur">25 min</span></div>
+        <div class="service-desc">A customized brow-shaping service designed to complement your facial features. Includes precise measuring, shaping, and waxing for balanced, clean, beautifully defined brows.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book Professional Eyebrow Design.">Text to Book</a>
+      </div>
+      <div class="service-price">$45</div>
+    </div>
+
+    <div class="category-label" style="margin-top:8px;">Add-Ons</div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Stomach Strip</div>
+        <div class="service-meta"><span class="service-dur">10 min</span></div>
+        <div class="service-desc">Removes the narrow trail of hair running down the center of the stomach.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Stomach Strip Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$19</div>
+    </div>
+
+    <div class="service-row">
+      <div class="service-left">
+        <div class="service-name">Nipples</div>
+        <div class="service-meta"><span class="service-dur">15 min</span></div>
+        <div class="service-desc">Gently removes unwanted hair from around the nipple area.</div>
+        <a class="book-btn" href="sms:+19594009242?body=Hi! I'd like to book a Nipple Wax.">Text to Book</a>
+      </div>
+      <div class="service-price">$16</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page closing-page">
+  <div class="cover-corner tl"></div>
+  <div class="cover-corner tr"></div>
+  <div class="cover-corner bl"></div>
+  <div class="cover-corner br"></div>
+
+  <div class="closing-eyebrow">Ready to restore?</div>
+  <div class="closing-title">Book Your<br><em>Session.</em></div>
+  <div class="closing-rule"></div>
+  <div class="closing-quote">"Self-care is self-love."</div>
+
+  <div class="closing-contact-grid">
+    <div class="closing-contact-col">
+      <div class="closing-contact-label">Call or Text</div>
+      <div class="closing-contact-val">(959) 400-9242</div>
+    </div>
+    <div class="closing-divider-v"></div>
+    <div class="closing-contact-col">
+      <div class="closing-contact-label">Email</div>
+      <div class="closing-contact-val">thebodytemplespa<br>@gmail.com</div>
+    </div>
+  </div>
+
+  <a href="sms:+19594009242" class="closing-cta">Reserve a Session &rarr;</a>
+
+  <div class="closing-footer">
+    2350 Prince Ave, Athens, GA 30606<br>
+    7+ Years Experience<br>
+    &copy; 2026 The Body Temple Spa &middot; Prices subject to change
+  </div>
+</div>
+</div>
+
+<script>
+(function () {
+  var root = document.getElementById('bts-menu');
+  if (!root) return;
+
+  /* Category tiles -> smooth scroll to the matching section.
+     Done in JS because page builders often hijack plain #hash links
+     for their own routing. */
+  root.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="#"]');
+    if (!link || !root.contains(link)) return;
+
+    var id = link.getAttribute('href').slice(1);
+    if (!id) return;
+
+    var target = root.querySelector('#' + CSS.escape(id));
+    if (!target) return;
+
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
