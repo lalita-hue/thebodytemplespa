@@ -191,5 +191,20 @@
     "id": "6a934785c559e796499ce148",
     "ghl": "Full Face — Wax | Men (owner says women's)",
     "row": 40
+  },
+  "Neck|$44": {
+    "id": "6a93480ec559e796499ceb36",
+    "ghl": "Neck — Wax | Men",
+    "row": 41
+  },
+  "Neck|$17": {
+    "id": "6a93486cf077e4bc0c8fc373",
+    "ghl": "Neck — Wax | Women",
+    "row": 42
+  },
+  "Full Body Waxing for Women|$95": {
+    "id": "6a9348fae52ddd5cb223f494",
+    "ghl": "Full Body Waxing for Women",
+    "row": 43
   }
 }
