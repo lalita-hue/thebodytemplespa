@@ -105,6 +105,26 @@
     "ghl": "Arms Full — Wax | Women",
     "row": 22
   },
+  "Arms Half|$46": {
+    "id": "6a93392b455f53bf8e585d66",
+    "ghl": "Arms Half — Wax | Women",
+    "row": 23
+  },
+  "Arms Half|$67": {
+    "id": "6a933994d52addf87f2051fb",
+    "ghl": "Arms Half — Wax | Men",
+    "row": 24
+  },
+  "Underarms|$55": {
+    "id": "6a933a2923bf80647bf6cc00",
+    "ghl": "Underarms — Wax | Men",
+    "row": 25
+  },
+  "Underarms|$28": {
+    "id": "6a933a8da54fb3a224d1f4e6",
+    "ghl": "Underarms — Wax | Women",
+    "row": 26
+  },
   "Brow Wax|$25": {
     "id": "69f527dbef9264fba40d8128",
     "ghl": "Brow Wax",
