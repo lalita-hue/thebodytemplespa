@@ -12,7 +12,9 @@ START, END = '<!-- DIVIDER - Waxing<br>for Women. -->', '<div class="page closin
 
 links = {k: v for k, v in json.load(open('waxing-links.json')).items()
          if not k.startswith('_')}
-ids = [v['id'] for v in links.values()]
+for v in links.values():
+    v['href'] = v['url'] if 'url' in v else BASE + v['id']
+ids = [v['href'] for v in links.values()]
 dupe = {i for i in ids if ids.count(i) > 1}
 if dupe:
     sys.exit(f"ERROR: same link on more than one service: {dupe}")
@@ -33,7 +35,7 @@ for f in FILES:
             if f == FILES[0]: unlinked.append(key)
             return blk
         used.add(key)
-        btn = (f'\n        <a class="book-btn book-btn-online" href="{BASE}{links[key]["id"]}"'
+        btn = (f'\n        <a class="book-btn book-btn-online" href="{links[key]["href"]}"'
                f' target="_blank" rel="noopener">Book Online</a>')
         return blk.replace('</a>\n      </div>', '</a>' + btn + '\n      </div>', 1)
     open(f, 'w').write(h[:s] + ROW.sub(fix, h[s:e]) + h[e:])

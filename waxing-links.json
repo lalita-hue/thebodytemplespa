@@ -125,6 +125,48 @@
     "ghl": "Underarms — Wax | Women",
     "row": 26
   },
+  "Buttocks Full|$31": {
+    "id": "6a933c3184e9a5cd34fcf64c",
+    "ghl": "Buttocks Full — Wax | Women",
+    "row": 28
+  },
+  "Buttocks Full|$55": {
+    "id": "6a933cbf051392b608d96802",
+    "ghl": "Buttocks Full — Wax | Men",
+    "row": 29
+  },
+  "Back Full|$90": {
+    "url": "https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/men-9466",
+    "ghl": "Back Full — Wax | Men (45 min)",
+    "row": 30,
+    "note": "scheduling link, slug-based"
+  },
+  "Back Full|$70": {
+    "id": "6a933dd4978807ea3dbcef7a",
+    "ghl": "Back Full — Wax | Men (20 min, priced as women's)",
+    "row": 31
+  },
+  "Back Upper|$36": {
+    "url": "https://api.leadconnectorhq.com/booking/the-body-temple-spa-zlwc3k95ea/sv/women-9383",
+    "ghl": "Back Upper — Wax | Women",
+    "row": 32,
+    "note": "scheduling link, slug-based"
+  },
+  "Back Upper|$55": {
+    "id": "6a933efc84e9a5cd34fd1ad0",
+    "ghl": "Back Upper — Wax | Men",
+    "row": 33
+  },
+  "Back Lower|$18": {
+    "id": "6a933f66455f53bf8e58b288",
+    "ghl": "Back Lower — Wax | Women",
+    "row": 34
+  },
+  "Back Lower|$40": {
+    "id": "6a933fc63ad2c71256ad94d7",
+    "ghl": "Back Lower — Wax | Men",
+    "row": 35
+  },
   "Brow Wax|$25": {
     "id": "69f527dbef9264fba40d8128",
     "ghl": "Brow Wax",
