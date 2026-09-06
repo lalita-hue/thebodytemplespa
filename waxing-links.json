@@ -176,5 +176,20 @@
     "id": "69f52774f3e4590eac686fe7",
     "ghl": "Brow/Lip/Chin Wax",
     "row": 37
+  },
+  "Cheeks / Sideburns|$30": {
+    "id": "6a9346953ad2c71256ade45a",
+    "ghl": "Cheeks/Sideburns — Wax | Men",
+    "row": 38
+  },
+  "Cheeks / Sideburns|$16": {
+    "id": "6a9346fc593a97a8cb40dd81",
+    "ghl": "Cheeks/Sideburns — Wax | Women",
+    "row": 39
+  },
+  "Full Face|$64": {
+    "id": "6a934785c559e796499ce148",
+    "ghl": "Full Face — Wax | Men (owner says women's)",
+    "row": 40
   }
 }
