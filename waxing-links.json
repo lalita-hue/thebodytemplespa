@@ -85,6 +85,26 @@
     "ghl": "Legs Lower Half — Wax | Men",
     "row": 18
   },
+  "Feet|$25": {
+    "id": "6a932242b940c62a0df01e40",
+    "ghl": "Feet — Wax | Men",
+    "row": 19
+  },
+  "Feet|$16": {
+    "id": "6a932294fe91412167c0cbdf",
+    "ghl": "Feet — Wax |Women",
+    "row": 20
+  },
+  "Arms Full|$75": {
+    "id": "6a9338cb4fac708a9b0a16b2",
+    "ghl": "Arms Full — Wax | Men",
+    "row": 21
+  },
+  "Arms Full|$53": {
+    "id": "6a932fcd604ddcd8cb1c6ac1",
+    "ghl": "Arms Full — Wax | Women",
+    "row": 22
+  },
   "Brow Wax|$25": {
     "id": "69f527dbef9264fba40d8128",
     "ghl": "Brow Wax",
