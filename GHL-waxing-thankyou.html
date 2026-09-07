@@ -27,6 +27,13 @@
     <!-- OFFER — first-visit incentive, kept at the top -->
     <p class="offer"><strong>10% off your first visit</strong> if you schedule today.</p>
 
+    <!-- JUMP LINKS — straight to the price list -->
+    <div class="price-actions" style="justify-content:center;margin:0 auto 40px;">
+      <a class="btn-book" href="#waxing-women">Waxing for Women</a>
+      <a class="btn-book" href="#waxing-men">Waxing for Men</a>
+      <a class="btn-text" href="#brows-face">Brows &amp; Face</a>
+    </div>
+
     <!-- 2. POSITIONING — why us -->
     <p class="lead">
       <strong>Not all waxing is the same, and not all waxers are the same.</strong>
@@ -51,7 +58,7 @@
          Prices, durations and booking links come from the
          GoHighLevel Wax Services calendars.
          ============================================ -->
-    <div class="price-section">
+    <div class="price-section" id="brows-face">
       <h2>Brows &amp; Face</h2>
       <p class="sub">For everyone. Book brows every three to four weeks to keep the shape.</p>
 
@@ -87,7 +94,7 @@
 
       </div>
     </div>
-    <div class="price-section">
+    <div class="price-section" id="waxing-women">
       <h2>Waxing for Women</h2>
       <p class="sub">Every area, priced individually. Full Body covers the lot for less.</p>
 
@@ -382,7 +389,7 @@
 
       </div>
     </div>
-    <div class="price-section">
+    <div class="price-section" id="waxing-men">
       <h2>Waxing for Men</h2>
       <p class="sub">Every area, priced individually. Full Body covers the lot for less.</p>
 
@@ -673,7 +680,7 @@
         <div class="price-item">
           <div class="details">
             <span class="service-name">Let it grow two to three weeks</span>
-            <span class="service-desc">Wax needs about a quarter inch of hair to grip, on the face and on the body. Resist tweezing or shaving in the week before &mdash; on brows those strays are exactly what we need in order to see and correct your shape.</span>
+            <span class="service-desc">Wax needs about a quarter inch of hair to grip &mdash; roughly the size of a grain of rice &mdash; on the face and on the body. Resist tweezing or shaving in the week before &mdash; on brows those strays are exactly what we need in order to see and correct your shape.</span>
           </div>
         </div>
         <div class="price-item">
@@ -696,3 +703,20 @@
   <div>© 2026 The Body Temple Spa. Serving Athens, GA. All rights reserved.</div>
 </footer>
 </div>
+
+<script>
+(function () {
+  var root = document.querySelector('.btspa-waxty');
+  if (!root) return;
+  root.addEventListener('click', function (e) {
+    var link = e.target.closest('a[href^="#"]');
+    if (!link || !root.contains(link)) return;
+    var id = link.getAttribute('href').slice(1);
+    if (!id) return;
+    var target = root.querySelector('#' + CSS.escape(id));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
