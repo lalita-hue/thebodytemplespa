@@ -19,6 +19,10 @@ dupe = {i for i in ids if ids.count(i) > 1}
 if dupe:
     sys.exit(f"ERROR: same link on more than one service: {dupe}")
 
+# Add-ons are selected inside another service's booking flow, so they carry
+# no booking or text link of their own.
+NO_BUTTONS = {'Stomach Strip|$19', 'Nipples|$16', 'Professional Eyebrow Design|$45'}
+
 ROW    = re.compile(r'(<div class="service-row">.*?</div>\s*</div>)', re.S)
 ONLINE = re.compile(r'\n\s*<a class="book-btn book-btn-online"[^>]*>Book Online</a>')
 used, unlinked = set(), []
@@ -31,6 +35,8 @@ for f in FILES:
         name = re.search(r'service-name">(.*?)</div>', blk).group(1).replace('&amp;', '&').strip()
         price= re.search(r'service-price">(.*?)</div>', blk).group(1).strip()
         key  = f"{name}|{price}"
+        if key in NO_BUTTONS:
+            return re.sub(r'\n\s*<a class="book-btn"[^>]*>Text to Book</a>', '', blk)
         if key not in links:
             if f == FILES[0]: unlinked.append(key)
             return blk

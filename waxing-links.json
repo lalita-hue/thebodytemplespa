@@ -20,6 +20,11 @@
     "ghl": "Brazilian Wax for Men",
     "row": 4
   },
+  "Bikini Line|$56": {
+    "id": "6a8e101e424089496d44beb2",
+    "ghl": "Bikini Line (P) — Wax",
+    "row": 5
+  },
   "Chest|$66": {
     "id": "6a930dea6a99253ccbeeefe2",
     "ghl": "Chest — Wax | Woman",
@@ -96,12 +101,12 @@
     "row": 20
   },
   "Arms Full|$75": {
-    "id": "6a9338cb4fac708a9b0a16b2",
+    "id": "6a932fcd604ddcd8cb1c6ac1",
     "ghl": "Arms Full — Wax | Men",
     "row": 21
   },
   "Arms Full|$53": {
-    "id": "6a932fcd604ddcd8cb1c6ac1",
+    "id": "6a9338cb4fac708a9b0a16b2",
     "ghl": "Arms Full — Wax | Women",
     "row": 22
   },
@@ -124,6 +129,11 @@
     "id": "6a933a8da54fb3a224d1f4e6",
     "ghl": "Underarms — Wax | Women",
     "row": 26
+  },
+  "Hands|$16": {
+    "id": "6a933af7d0c1a30e7adc2e43",
+    "ghl": "Hands — Wax | Women",
+    "row": 27
   },
   "Buttocks Full|$31": {
     "id": "6a933c3184e9a5cd34fcf64c",
@@ -206,6 +216,11 @@
     "id": "6a9348fae52ddd5cb223f494",
     "ghl": "Full Body Waxing for Women",
     "row": 43
+  },
+  "Full Body Waxing for Men|$195": {
+    "id": "6a9349541b28245a5ab3c85a",
+    "ghl": "Full Body Waxing for Men",
+    "row": 44
   },
   "Hands|$25": {
     "id": "6a933b88455f53bf8e588488",
