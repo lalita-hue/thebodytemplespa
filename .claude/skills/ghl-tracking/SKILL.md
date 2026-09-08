@@ -43,6 +43,7 @@ or appended inside the page's own HTML block:
 | Thank-you page | `ghl-clean-thankyou-footer.txt` |
 | Thank-you, sectioned price list | `ghl-clean-waxing-thankyou-footer.txt` |
 | Landing, two modals and no data-cta | `ghl-clean-contouring-landing-footer.txt` |
+| Thank-you, `.svc-row` menu + packages | `ghl-clean-bodysculpting-thankyou-footer.txt` |
 
 The `tracking-*.html` files are the same scripts with explanatory comments,
 kept for reference. The `ghl-clean-*.txt` files are what you actually paste.

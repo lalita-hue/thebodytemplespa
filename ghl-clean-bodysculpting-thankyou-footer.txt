@@ -1,0 +1,181 @@
+<script>
+(function(){
+  'use strict';
+  window.dataLayer = window.dataLayer || [];
+  var dl = function(o){ try { window.dataLayer.push(o); } catch(e){} };
+  var PAGE_SOURCE = 'lp-contouring-athens';
+
+  function fromUrl(){
+    var p;
+    try { p = new URLSearchParams(location.search); } catch(e){ return {}; }
+    var pick = function(names){
+      for(var i=0;i<names.length;i++){
+        var v = p.get(names[i]);
+        if(v) return v.trim();
+      }
+      return '';
+    };
+    var first = pick(['first_name','firstName','fname','first']);
+    var last  = pick(['last_name','lastName','lname','last']);
+    var full  = pick(['name','full_name','user_name']);
+    return {
+      user_email: pick(['email','user_email','Email']),
+      user_phone: pick(['phone','user_phone','Phone']),
+      user_name : full || (first + ' ' + last).trim()
+    };
+  }
+
+  function toE164(v){
+    var d = String(v || '').replace(/\D/g,'');
+    if(d.length === 10) return '+1' + d;
+    if(d.length === 11 && d[0] === '1') return '+' + d;
+    return v || '';
+  }
+
+  var lead = {};
+  try { lead = JSON.parse(sessionStorage.getItem('btw_lead') || '{}'); } catch(e){}
+  var url = fromUrl();
+  ['user_email','user_phone','user_name'].forEach(function(k){
+    if(!lead[k] && url[k]) lead[k] = url[k];
+  });
+  if(lead.user_phone) lead.user_phone = toE164(lead.user_phone);
+  try {
+    if(lead.user_email || lead.user_phone) sessionStorage.setItem('btw_lead', JSON.stringify(lead));
+  } catch(e){}
+
+  var attr = (function(){
+    var live = {};
+    try {
+      var q = new URLSearchParams(location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid']
+        .forEach(function(k){ if(q.get(k)) live[k] = q.get(k); });
+    } catch(e){}
+    var saved = {};
+    try { saved = JSON.parse(sessionStorage.getItem('btw_attr') || '{}'); } catch(e){}
+    var merged = {};
+    Object.keys(saved).forEach(function(k){ merged[k] = saved[k]; });
+    Object.keys(live).forEach(function(k){ merged[k] = live[k]; });
+    try {
+      if(Object.keys(merged).length) sessionStorage.setItem('btw_attr', JSON.stringify(merged));
+    } catch(e){}
+    return merged;
+  })();
+
+  var conv = {
+    event: 'form_submission_confirmation',
+    user_email: lead.user_email || '',
+    user_phone: lead.user_phone || '',
+    user_name : lead.user_name  || '',
+    page_path : '/body-sculpting-thank-you',
+    source    : PAGE_SOURCE,
+    offer     : '10-minute-body-assessment',
+    conversion: true
+  };
+  Object.keys(attr).forEach(function(k){ conv[k] = attr[k]; });
+  dl(conv);
+
+  function init(){
+    var root = document.querySelector('.btspa-bs') || document;
+
+    function txt(node, sel){
+      var n = node && node.querySelector(sel);
+      return n ? n.textContent.trim() : '';
+    }
+
+    function rowInfo(el){
+      var row = el.closest('.svc-row');
+      var priceEl = row && row.querySelector('.svc-price');
+      var dur   = txt(row, '.svc-dur');
+      var price = priceEl ? priceEl.textContent.replace(dur, '').trim() : '';
+      var value = parseFloat(String(price).replace(/[^0-9.]/g,''));
+      return {
+        service : txt(row, '.svc-name'),
+        badge   : txt(row, '.svc-tag'),
+        price   : price,
+        duration: dur,
+        value   : isFinite(value) ? value : 0,
+        featured: !!(row && row.classList.contains('feat'))
+      };
+    }
+
+    root.querySelectorAll('.svc-book').forEach(function(a){
+      a.addEventListener('click', function(){
+        var i = rowInfo(a);
+        var p = {
+          event:'booking_click', source:PAGE_SOURCE,
+          service:i.service, service_badge:i.badge, section:'Body Contouring Menu',
+          price:i.price, duration:i.duration,
+          value:i.value, currency:'USD', featured:i.featured,
+          calendar_url:a.getAttribute('href') || ''
+        };
+        Object.keys(attr).forEach(function(k){ p[k] = attr[k]; });
+        dl(p);
+      });
+    });
+
+    root.querySelectorAll('.svc-text').forEach(function(a){
+      a.addEventListener('click', function(){
+        var i = rowInfo(a);
+        var p = {
+          event:'sms_to_book', source:PAGE_SOURCE,
+          service:i.service, section:'Body Contouring Menu',
+          price:i.price, duration:i.duration,
+          value:i.value, currency:'USD'
+        };
+        Object.keys(attr).forEach(function(k){ p[k] = attr[k]; });
+        dl(p);
+      });
+    });
+
+    root.querySelectorAll('.cel-item .go').forEach(function(a){
+      a.addEventListener('click', function(){
+        var item  = a.closest('.cel-item');
+        var price = txt(item, '.amt');
+        var value = parseFloat(String(price).replace(/[^0-9.]/g,''));
+        var p = {
+          event:'package_click', source:PAGE_SOURCE,
+          service:txt(item, '.ttl'), section:'Cellulite Removal Packages',
+          price:price, per_session:txt(item, '.each'),
+          value:isFinite(value) ? value : 0, currency:'USD',
+          featured:!!(item && item.classList.contains('best')),
+          checkout_url:a.getAttribute('href') || ''
+        };
+        Object.keys(attr).forEach(function(k){ p[k] = attr[k]; });
+        dl(p);
+      });
+    });
+
+    if('IntersectionObserver' in window){
+      var seen = {};
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting) return;
+          var name = txt(en.target, '.svc-name') || txt(en.target, '.ttl');
+          if(!name || seen[name]) return;
+          seen[name] = true;
+          dl({ event:'service_view', source:PAGE_SOURCE, service:name });
+          io.unobserve(en.target);
+        });
+      }, { threshold:0.6 });
+      root.querySelectorAll('.svc-row, .cel-item').forEach(function(r){ io.observe(r); });
+    }
+
+    root.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        dl({ event:'phone_click', source:PAGE_SOURCE, cta_location:'thank_you' });
+      });
+    });
+
+    root.querySelectorAll('a.btn').forEach(function(a){
+      a.addEventListener('click', function(){
+        dl({ event:'nav_click', source:PAGE_SOURCE,
+             label:a.textContent.trim(), destination:a.getAttribute('href') || '' });
+      });
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
