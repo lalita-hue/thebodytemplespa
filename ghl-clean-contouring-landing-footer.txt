@@ -1,0 +1,233 @@
+<script>
+(function(){
+  'use strict';
+
+  var PAGE_SOURCE  = 'lp-contouring-athens';
+  var BOOKING_ID   = 'L8GKt4BQLY1lbC6BnuPC';   // 10 min assessment calendar
+  var PRICING_ID   = 'MlsSrLKq6X13MKEE6qwL';   // pricing enquiry form
+
+  var dl = function(o){
+    try { (window.dataLayer = window.dataLayer || []).push(o); } catch(e){}
+  };
+  var fired = {};
+  var once = function(k, o){ if(fired[k]) return; fired[k] = true; dl(o); };
+
+  function getUTMs(){
+    var out = {};
+    try {
+      var p = new URLSearchParams(window.location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid']
+        .forEach(function(k){ if(p.get(k)) out[k] = p.get(k); });
+    } catch(e){}
+    return out;
+  }
+
+  function attribution(){
+    var live = getUTMs();
+    try {
+      if(Object.keys(live).length){
+        sessionStorage.setItem('btw_attr', JSON.stringify(live));
+        return live;
+      }
+      return JSON.parse(sessionStorage.getItem('btw_attr') || '{}');
+    } catch(e){ return live; }
+  }
+
+  function init(){
+    var root = document.getElementById('btc') || document;
+
+    // ---- which CTA opened a modal -------------------------------------
+    // This page has no data-cta attributes and opens its modals from inline
+    // onclick handlers, so the label is derived from where the button sits.
+    window._lastCta     = 'Direct';
+    window._lastService = '';
+
+    function sectionName(el){
+      var s = el.closest('section');
+      if(!s) return el.closest('header') ? 'header' : 'other';
+      var known = ['hero','promise-section','services','cellulite','meet','therapists','how','final'];
+      for(var i=0;i<known.length;i++){ if(s.classList.contains(known[i])) return known[i]; }
+      return 'other';
+    }
+
+    root.addEventListener('click', function(e){
+      var card = e.target.closest('.card-btn');
+      var cel  = e.target.closest('.cel-btn');
+      var btn  = e.target.closest('.btn');
+      var label = '', service = '', h;
+
+      if(card){
+        h = card.closest('.service-card');
+        h = h && h.querySelector('h3');
+        service = h ? h.textContent.trim() : '';
+        label = 'service_card';
+      } else if(cel){
+        h = cel.closest('.cel-card');
+        h = h && h.querySelector('h3');
+        service = h ? h.textContent.trim() : '';
+        label = 'cellulite_package';
+      } else if(btn){
+        label = sectionName(btn);
+      } else {
+        return;
+      }
+
+      window._lastCta     = label;
+      window._lastService = service;
+
+      var p = {
+        event: card || cel ? 'pricing_enquiry_open' : 'lead_form_open',
+        source: PAGE_SOURCE,
+        cta_location: label,
+        service: service
+      };
+      var a = attribution();
+      Object.keys(a).forEach(function(k){ p[k] = a[k]; });
+      dl(p);
+    });
+
+    // ---- submissions ---------------------------------------------------
+    // Both modals host a LeadConnector iframe. Which one is open tells us
+    // whether this was the assessment booking or the pricing enquiry.
+    window.addEventListener('message', function(e){
+      var host = '';
+      try { host = new URL(e.origin).hostname; } catch(err){ return; }
+      if(!/(^|\.)leadconnectorhq\.com$/.test(host)) return;
+
+      var d = e.data;
+      var probe = String((d && (d.type || d.event || d.action)) || '') + ' ' +
+                  (typeof d === 'string' ? d : '');
+      if(!/submit|submitted|success|form_complete|appointment|booked/i.test(probe)) return;
+
+      var booking = document.getElementById('btcBookingModal');
+      var pricing = document.getElementById('btcPricingModal');
+      var isBooking = !!(booking && booking.classList.contains('open'));
+      var isPricing = !!(pricing && pricing.classList.contains('open'));
+      if(!isBooking && !isPricing) return;
+
+      var payload = {
+        event: 'form_submission',
+        form_id: isBooking ? BOOKING_ID : PRICING_ID,
+        form_type: isBooking ? 'assessment_booking' : 'pricing_enquiry',
+        source: PAGE_SOURCE,
+        cta_source: window._lastCta || 'Unknown',
+        service: window._lastService || '',
+        page_url: location.href,
+        page_path: location.pathname,
+        referrer: document.referrer || '',
+        submitted_at: new Date().toISOString(),
+        conversion: true
+      };
+      var a = attribution();
+      Object.keys(a).forEach(function(k){ payload[k] = a[k]; });
+      once(isBooking ? 'submitted_booking' : 'submitted_pricing', payload);
+    }, false);
+
+    // ---- abandons ------------------------------------------------------
+    [['btcBookingModal','assessment_booking','submitted_booking'],
+     ['btcPricingModal','pricing_enquiry','submitted_pricing']].forEach(function(cfg){
+      var m = document.getElementById(cfg[0]);
+      if(!m || !('MutationObserver' in window)) return;
+      var wasOpen = m.classList.contains('open'), openedAt = 0;
+      new MutationObserver(function(){
+        var isOpen = m.classList.contains('open');
+        if(isOpen && !wasOpen){
+          openedAt = Date.now();
+        } else if(!isOpen && wasOpen && !fired[cfg[2]]){
+          dl({ event:'lead_form_abandon', source:PAGE_SOURCE, form_type:cfg[1],
+               cta_source: window._lastCta || 'Unknown',
+               service: window._lastService || '',
+               seconds_open: Math.round((Date.now() - openedAt)/1000) });
+        }
+        wasOpen = isOpen;
+      }).observe(m, { attributes:true, attributeFilter:['class'] });
+    });
+
+    // ---- contact clicks -------------------------------------------------
+    root.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        dl({ event:'phone_click', source:PAGE_SOURCE, cta_location: sectionName(a) });
+      });
+    });
+    root.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+      a.addEventListener('click', function(){
+        dl({ event:'email_click', source:PAGE_SOURCE });
+      });
+    });
+
+    // ---- FAQ -------------------------------------------------------------
+    // Plain <details> here, not the .faq__item pattern the other pages use.
+    root.querySelectorAll('.faq-list details').forEach(function(d){
+      d.addEventListener('toggle', function(){
+        if(!d.open) return;
+        var s = d.querySelector('summary');
+        dl({ event:'faq_open', source:PAGE_SOURCE,
+             faq_question: s ? s.textContent.trim() : '' });
+      });
+    });
+
+    // ---- scroll depth -----------------------------------------------------
+    var onScroll = function(){
+      var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if(scrollable <= 0) return;
+      var pct = Math.round((window.pageYOffset / scrollable) * 100);
+      [25,50,75,90].forEach(function(m){
+        if(pct >= m) once('s'+m, { event:'scroll_depth', source:PAGE_SOURCE, percent:m });
+      });
+      if(pct >= 90) window.removeEventListener('scroll', onScroll);
+    };
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+
+    // ---- section views ----------------------------------------------------
+    var sections = {
+      '.hero':'hero', '.promise-section':'promise', '.services':'services',
+      '.cellulite':'cellulite', '.meet':'meet_studio', '.therapists':'therapists',
+      '.testi-grid':'testimonials', '.how':'process', '.faq-list':'faq',
+      '.final':'final_cta'
+    };
+    if('IntersectionObserver' in window){
+      var sio = new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(!en.isIntersecting) return;
+          var n = en.target.getAttribute('data-track-section');
+          once('sec_'+n, { event:'section_view', source:PAGE_SOURCE, section:n });
+          sio.unobserve(en.target);
+        });
+      }, { threshold:0.5 });
+      Object.keys(sections).forEach(function(sel){
+        var el = root.querySelector(sel);
+        if(!el) return;
+        el.setAttribute('data-track-section', sections[sel]);
+        sio.observe(el);
+      });
+    }
+
+    // ---- engaged time -----------------------------------------------------
+    var secs = 0, timer = null;
+    var tick = function(){
+      secs++;
+      [30,60,120].forEach(function(m){
+        if(secs === m) once('t'+m, { event:'engaged_time', source:PAGE_SOURCE, seconds:m });
+      });
+      if(secs >= 120 && timer){ clearInterval(timer); timer = null; }
+    };
+    var start = function(){ if(!timer) timer = setInterval(tick, 1000); };
+    var stop  = function(){ if(timer){ clearInterval(timer); timer = null; } };
+    if(document.visibilityState === 'visible') start();
+    document.addEventListener('visibilitychange', function(){
+      document.visibilityState === 'visible' ? start() : stop();
+    });
+
+    // ---- exit intent ------------------------------------------------------
+    document.addEventListener('mouseout', function(e){
+      if(e.clientY > 0 || e.relatedTarget) return;
+      once('exit', { event:'exit_intent', source:PAGE_SOURCE });
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>

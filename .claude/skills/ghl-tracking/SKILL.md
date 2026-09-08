@@ -42,6 +42,7 @@ or appended inside the page's own HTML block:
 | Landing page | `ghl-clean-landing-footer.txt` |
 | Thank-you page | `ghl-clean-thankyou-footer.txt` |
 | Thank-you, sectioned price list | `ghl-clean-waxing-thankyou-footer.txt` |
+| Landing, two modals and no data-cta | `ghl-clean-contouring-landing-footer.txt` |
 
 The `tracking-*.html` files are the same scripts with explanatory comments,
 kept for reference. The `ghl-clean-*.txt` files are what you actually paste.
@@ -97,6 +98,17 @@ attribution merge are identical across pages by design.
   it bound to nothing, and it fails silently.
 - **Price parsing.** `.price` contains the `.unit` span; strip the unit text
   before parsing the number, or `value` comes out wrong.
+- **Not every page fits the three-value swap.** The body contouring page uses
+  an `id` wrapper rather than a class, opens two different modals from inline
+  `onclick` handlers with no `data-cta` attributes, uses `.open` rather than
+  `.is-open`, and has plain `<details>` instead of `.faq__item`. Check the
+  page's actual markup before copying a script; where it differs, derive the
+  CTA label from the button's section and read the service name out of the
+  card it sits in.
+- **More than one lead path.** When a page has both a booking calendar and an
+  enquiry form, a single `form_submission` cannot tell them apart. Decide from
+  which modal is open at the time and send `form_type`, so the assessment
+  bookings and the pricing enquiries can be reported separately.
 
 ## Checks before handing it over
 
