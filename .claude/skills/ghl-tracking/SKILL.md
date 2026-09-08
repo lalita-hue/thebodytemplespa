@@ -20,6 +20,18 @@ Two snippets, pasted in GoHighLevel under **Settings → Tracking Code**:
 
 These go in once per funnel, not once per page.
 
+### Self-contained alternative
+
+When the page must be a single paste, put a **guarded** copy of the loader at
+the top of the page's own block instead, so no funnel-level setup is needed.
+`GHL-waxing-thankyou.html` shows it: before injecting, the snippet walks
+`document.getElementsByTagName('script')` and returns early if a
+`googletagmanager.com/gtm.js` tag carrying the same container id is already
+present. Without that guard, a page whose funnel already has the head snippet
+loads the container twice and every conversion is counted twice. The plain
+snippet in `ghl-clean-gtm-head.txt` has no guard, because in the Head slot
+nothing can precede it.
+
 ## Page scripts
 
 One script per page type, pasted into the page's **Footer Tracking Code**,
