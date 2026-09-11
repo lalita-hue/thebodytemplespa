@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coach Report — Internal Use Only</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FEFAF0; --cream:#E6D8C3; --cream-soft:#F4EFE9;
+  --orange:#FD6932; --orange-deep:#D8501E;
+  --ink:#1F1815; --ink-soft:#3a322c; --muted:#7a7570;
+  --line:rgba(31,24,21,.12); --line2:rgba(31,24,21,.07);
+  --err:#B3261E; --warn:#8A5A00;
+  --b1:#6F8F6A; --b2:#8FA05C; --b3:#C9922F; --b4:#D8701E; --b5:#B3261E;
+  --radius-sm:5px; --radius-pill:100px; --radius-lg:14px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--ink);background:var(--bg)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0}
+.wrap{max-width:940px;margin:0 auto;padding:28px 20px 80px}
+
+.banner{
+  background:#2B2118;color:#F4EFE9;font-size:.74rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;text-align:center;padding:9px 16px;
+}
+.head{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin:26px 0 6px}
+.head h1{font-size:clamp(1.7rem,4vw,2.4rem);margin-right:auto}
+.disclaimer{
+  background:var(--cream-soft);border-left:3px solid var(--orange);
+  padding:12px 15px;font-size:.83rem;color:var(--ink-soft);
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:0 0 26px;
+}
+.btn{
+  font-family:var(--sans);font-weight:600;font-size:.85rem;cursor:pointer;
+  padding:10px 20px;border-radius:var(--radius-pill);border:2px solid var(--orange);
+  background:var(--cream);color:var(--ink);transition:all .2s;
+}
+.btn:hover{background:var(--orange);color:#fff;border-color:var(--orange-deep)}
+.btn--ghost{background:transparent;border-color:var(--line);color:var(--ink-soft)}
+.btn--ghost:hover{background:var(--cream-soft);color:var(--ink);border-color:var(--cream)}
+
+.loader{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:20px}
+.loader h2{font-size:1.3rem;margin-bottom:8px}
+.loader p{font-size:.86rem;color:var(--ink-soft);margin:0 0 12px}
+textarea{
+  width:100%;min-height:150px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:.78rem;line-height:1.45;padding:12px;border:1.5px solid var(--line);
+  border-radius:var(--radius-sm);resize:vertical;background:var(--bg);color:var(--ink);
+}
+textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(253,105,50,.16)}
+.loader__row{display:flex;gap:10px;align-items:center;margin-top:12px;flex-wrap:wrap}
+.loadErr{color:var(--err);font-size:.83rem;font-weight:500;margin-left:4px}
+
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 26px}
+.meta__c{background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);padding:12px 18px;min-width:150px}
+.meta__l{display:block;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.meta__v{display:block;font-size:1rem;font-weight:600;margin-top:2px;word-break:break-word}
+
+h2.sec{font-size:1.45rem;margin:34px 0 6px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.sec__hint{font-size:.8rem;color:var(--muted);margin:0 0 14px}
+
+table{border-collapse:collapse;width:100%;font-size:.86rem;background:#fff}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-lg)}
+th,td{padding:9px 12px;text-align:left;border-top:1px solid var(--line2)}
+thead th{background:var(--cream-soft);font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);border-top:none}
+tbody th{font-weight:400}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.skip td,tr.skip th{color:var(--muted)}
+
+.pill{display:inline-block;font-size:.73rem;font-weight:600;padding:3px 10px;border-radius:var(--radius-pill);white-space:nowrap;color:#fff}
+.pill--1{background:var(--b1)} .pill--2{background:var(--b2)} .pill--3{background:var(--b3)}
+.pill--4{background:var(--b4)} .pill--5{background:var(--b5)}
+.pill--na{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+.meter{position:relative;height:7px;background:var(--cream);border-radius:4px;min-width:90px;overflow:hidden}
+.meter i{position:absolute;inset:0 auto 0 0;border-radius:4px}
+
+.flags{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.flag{border:1px solid var(--line);border-radius:var(--radius-lg);padding:14px 16px;background:#fff}
+.flag--hit{border-color:rgba(179,38,30,.4);background:#FDF3F2}
+.flag--none{opacity:.62}
+.flag h3{font-size:.95rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.flag__n{font-size:.7rem;font-weight:700;background:var(--err);color:#fff;border-radius:var(--radius-pill);padding:1px 8px}
+.flag ul{margin:6px 0 0;padding-left:18px;font-size:.82rem;color:var(--ink-soft)}
+.flag li{margin-bottom:3px}
+.flag p{margin:0;font-size:.82rem;color:var(--muted)}
+
+.notes label{display:block;font-size:.82rem;font-weight:600;margin:14px 0 5px}
+.notes textarea{min-height:64px;font-family:var(--sans);font-size:.88rem;background:#fff}
+.notes input[type="text"],.notes input[type="date"]{
+  width:100%;font-family:var(--sans);font-size:.9rem;padding:9px 12px;background:#fff;
+  border:1.5px solid var(--line);border-radius:var(--radius-sm);
+}
+.notes input:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(253,105,50,.16)}
+.saveNote{font-size:.76rem;color:var(--muted);margin-top:10px}
+
+@media print{
+  .banner{position:static}
+  .loader,.noprint{display:none!important}
+  body{background:#fff;font-size:11pt}
+  .wrap{padding:0;max-width:none}
+  h2.sec{page-break-after:avoid}
+  .tablewrap,.flag{page-break-inside:avoid}
+  textarea,input{border:none!important;border-bottom:1px solid #999!important;border-radius:0!important}
+}
+</style>
+</head>
+<body>
+
+<div class="banner">Internal use only · not a diagnosis · not a laboratory finding</div>
+
+<div class="wrap">
+
+  <div class="head">
+    <h1>Coach Report</h1>
+    <button class="btn btn--ghost noprint" type="button" id="printBtn" hidden>Print</button>
+    <button class="btn btn--ghost noprint" type="button" id="resetBtn" hidden>Load another</button>
+  </div>
+
+  <p class="disclaimer">
+    Section scores organise what the client reported about their own symptoms. They are
+    original internal coaching ranges — not validated medical cutoffs, not a diagnosis, and
+    not a laboratory finding. N/A and blank answers are missing values and are never scored
+    as zero. A section under 80% answered is left uncalculated rather than estimated. There is
+    deliberately no combined health score. Do not show this page or these labels to a client.
+  </p>
+
+  <div class="loader noprint" id="loader">
+    <h2>Paste the submission</h2>
+    <p>Paste the JSON from the GoHighLevel webhook payload, or drop the .json file anywhere
+      on this page.</p>
+    <textarea id="jsonIn" placeholder='{ "full_name": "…", "internal": { … } }' aria-label="Submission JSON"></textarea>
+    <div class="loader__row">
+      <button class="btn" type="button" id="loadBtn">Build report</button>
+      <span class="loadErr" id="loadErr"></span>
+    </div>
+  </div>
+
+  <div id="report" hidden></div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+var LABELS = {"digestive": "Digestive symptoms","blood_sugar": "Blood sugar and energy","inflammation": "Inflammation and immune response","detox": "Detoxification and elimination","hormones": "Hormone patterns","absorption": "Digestion and nutrient absorption","circulation": "Circulation and oxygen delivery","stress": "Stress, sleep and recovery","diet": "Diet","lifestyle": "Lifestyle","medications": "Medications","upper_gastrointestinal_system": "Upper Gastrointestinal System","liver_and_gallbladder": "Liver and Gallbladder","small_intestine": "Small Intestine","large_intestine": "Large Intestine","mineral_needs": "Mineral Needs","essential_fatty_acids": "Essential Fatty Acids","sugar_handling": "Sugar Handling","vitamin_need": "Vitamin Need","adrenal": "Adrenal","pituitary": "Pituitary","thyroid": "Thyroid","female_reproductive_system": "Female Reproductive System","male_reproductive_system_optional": "Male Reproductive System Optional","cardiovascular": "Cardiovascular","kidney_and_bladder": "Kidney and Bladder","immune_system": "Immune System"};
+
+/* The seven domains the coach guide's review table asks for, in its order.
+   Everything else falls through to the Part Two table below. */
+var DOMAINS = [
+  ['blood_sugar',  'Energy and Blood Sugar'],
+  ['inflammation', 'Immune and Inflammation'],
+  ['detox',        'Detoxification and Drainage'],
+  ['hormones',     'Hormonal System'],
+  ['absorption',   'Digestive and Nutrient Absorption'],
+  ['circulation',  'Heart and Circulation'],
+  ['stress',       'Brain Nervous System and Stress']
+];
+var EXTRA_PART_ONE = [['digestive', 'Gut symptom burden']];
+
+var BANDS = [
+  [9,  'Minimal reported burden',   1],
+  [24, 'Mild reported burden',      2],
+  [49, 'Moderate reported burden',  3],
+  [74, 'High reported burden',      4],
+  [100,'Very high reported burden', 5]
+];
+function bandOf(pct){
+  for(var i=0;i<BANDS.length;i++) if(pct <= BANDS[i][0]) return BANDS[i];
+  return BANDS[BANDS.length-1];
+}
+var esc = function(v){ var d=document.createElement('div'); d.textContent = v==null?'':String(v); return d.innerHTML; };
+
+var FLAG_META = [
+  ['emergency_symptoms',     'Possible emergency symptoms',      'Chest pain, fainting, severe breathlessness, facial or throat swelling.'],
+  ['gi_red_flags',           'Gastrointestinal red flags',       'Black or tarry stool, blood in stool, severe pain, unexplained weight loss.'],
+  ['acne_needs_review',      'Acne needing clinical review',     'Rapidly worsening, painful, draining or infected-looking acne.'],
+  ['clinician_coordination', 'Clinician coordination required',  'Pregnancy, breastfeeding, major conditions, or existing specialist care.'],
+  ['severe_symptoms',        'Answered at the top of the scale', 'Every symptom the client scored at maximum.'],
+  ['medications_reported',   'Medications reported',             'A Yes is a review flag. It does not mean the medication is harmful.']
+];
+
+function scoreRow(label, sc){
+  if(!sc) return '<tr class="skip"><th scope="row">'+esc(label)+'</th>'
+              +  '<td class="num">—</td><td class="num">—</td><td class="num">—</td>'
+              +  '<td><span class="pill pill--na">no data</span></td><td></td></tr>';
+  if(!sc.calculated){
+    return '<tr class="skip"><th scope="row">'+esc(label)+'</th>'
+         + '<td class="num">'+sc.points+'</td>'
+         + '<td class="num">'+sc.max_possible+'</td>'
+         + '<td class="num">'+sc.completion+'%</td>'
+         + '<td><span class="pill pill--na">under 80% answered</span></td>'
+         + '<td>'+sc.answered+' answered · '+sc.na+' N/A · '+sc.not_answered+' blank</td></tr>';
+  }
+  var b = bandOf(sc.normalized);
+  return '<tr><th scope="row">'+esc(label)+'</th>'
+       + '<td class="num">'+sc.points+'</td>'
+       + '<td class="num">'+sc.max_possible+'</td>'
+       + '<td class="num">'+sc.normalized+'%</td>'
+       + '<td><span class="pill pill--'+b[2]+'">'+b[1]+'</span></td>'
+       + '<td><div class="meter"><i style="width:'+Math.max(2,sc.normalized)+'%;background:var(--b'+b[2]+')"></i></div></td></tr>';
+}
+
+function table(head, rows){
+  return '<div class="tablewrap"><table><thead><tr>'
+       + head.map(function(h){ return '<th>'+esc(h)+'</th>'; }).join('')
+       + '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+}
+
+function noteField(id, label, type){
+  var v = '';
+  try { v = localStorage.getItem('btspa_coach_'+id) || ''; } catch(e){}
+  if(type === 'text' || type === 'date'){
+    return '<label for="'+id+'">'+esc(label)+'</label>'
+         + '<input type="'+type+'" id="'+id+'" data-note="'+id+'" value="'+esc(v)+'">';
+  }
+  return '<label for="'+id+'">'+esc(label)+'</label>'
+       + '<textarea id="'+id+'" data-note="'+id+'">'+esc(v)+'</textarea>';
+}
+
+function build(d){
+  var I  = d.internal || {};
+  var S  = I.section_scores || {};
+  var F  = I.review_flags   || {};
+  var h  = '';
+
+  h += '<div class="meta">'
+    +  '<div class="meta__c"><span class="meta__l">Client</span><span class="meta__v">'+esc(d.full_name||'—')+'</span></div>'
+    +  '<div class="meta__c"><span class="meta__l">Signed</span><span class="meta__v">'+esc(d.signed_at||'—')+'</span></div>'
+    +  '<div class="meta__c"><span class="meta__l">Submitted</span><span class="meta__v">'+esc((d.submitted_at||'').slice(0,10)||'—')+'</span></div>'
+    +  '<div class="meta__c"><span class="meta__l">Answered</span><span class="meta__v">'+esc(d.answered_count)+' / '+esc(d.question_count)+'</span></div>'
+    +  '<div class="meta__c"><span class="meta__l">Sections scored</span><span class="meta__v">'+esc(I.sections_calculated)+' of '+esc((I.sections_calculated||0)+(I.sections_skipped||0))+'</span></div>'
+    +  '</div>';
+
+  // ── Review flags first: they change what happens next ──
+  var flagHtml = '';
+  FLAG_META.forEach(function(m){
+    var list = F[m[0]] || [];
+    var hit  = list.length > 0;
+    flagHtml += '<div class="flag '+(hit?'flag--hit':'flag--none')+'">'
+             +  '<h3>'+esc(m[1])+(hit?'<span class="flag__n">'+list.length+'</span>':'')+'</h3>';
+    if(hit){
+      flagHtml += '<ul>';
+      list.slice(0,14).forEach(function(x){
+        var t = (x && typeof x === 'object')
+              ? x.question + ' — answered ' + x.answer + ' of ' + x.of
+              : x;
+        flagHtml += '<li>'+esc(t)+'</li>';
+      });
+      if(list.length > 14) flagHtml += '<li>… and '+(list.length-14)+' more</li>';
+      flagHtml += '</ul>';
+    } else {
+      flagHtml += '<p>None reported.</p>';
+    }
+    flagHtml += '<p style="margin-top:7px">'+esc(m[2])+'</p></div>';
+  });
+  h += '<h2 class="sec">Automatic review flags</h2>'
+    +  '<p class="sec__hint">Raised by the client’s own answers. A flag is a prompt to look, '
+    +  'not a finding.</p><div class="flags">'+flagHtml+'</div>';
+
+  // ── Part One domains ──
+  var rows = '';
+  DOMAINS.forEach(function(d2){ rows += scoreRow(d2[1], S[d2[0]]); });
+  EXTRA_PART_ONE.forEach(function(d2){ if(S[d2[0]]) rows += scoreRow(d2[1], S[d2[0]]); });
+  h += '<h2 class="sec">Coach review and pattern analysis</h2>'
+    +  '<p class="sec__hint">Part One cellular-health domains.</p>'
+    +  table(['Domain','Points','Max on answered','Normalized','Internal label',''], rows);
+
+  // ── Part Two sections ──
+  var done = {};
+  DOMAINS.concat(EXTRA_PART_ONE).forEach(function(d2){ done[d2[0]] = 1; });
+  var rows2 = '';
+  Object.keys(S).forEach(function(k){
+    if(done[k]) return;
+    rows2 += scoreRow(LABELS[k] || k.replace(/_/g,' '), S[k]);
+  });
+  if(rows2){
+    h += '<h2 class="sec">Nutritional symptom assessment</h2>'
+      +  '<p class="sec__hint">Each section stands alone. They are not summed.</p>'
+      +  table(['Section','Points','Max on answered','Normalized','Internal label',''], rows2);
+  }
+
+  // ── Coach worksheet, from the guide ──
+  h += '<h2 class="sec">Coach notes</h2>'
+    +  '<p class="sec__hint">Saved in this browser only. They are not sent anywhere.</p>'
+    +  '<div class="notes">'
+    +  noteField('acne','Acne severity and flare pattern')
+    +  noteField('gut','Gut symptom burden and stool pattern')
+    +  noteField('meds','Medication or supplement considerations')
+    +  noteField('lifestyle','Lifestyle barriers and strengths')
+    +  noteField('referral','Medical referral or clearance needed')
+    +  noteField('records','Records or labs to request from client')
+    +  '</div>';
+
+  h += '<h2 class="sec">Initial coaching plan</h2><div class="notes">'
+    +  noteField('priorities','Top three modifiable priorities')
+    +  noteField('actions','One to three first actions with frequency and tracking method')
+    +  noteField('coordination','Clinician referrals, questions, or coordination needed')
+    +  noteField('followup','Follow-up date','date')
+    +  noteField('measures','Measures to review at follow-up','text')
+    +  '<p class="saveNote" id="saveNote">Notes save as you type.</p>'
+    +  '</div>';
+
+  var rep = document.getElementById('report');
+  rep.innerHTML = h;
+  rep.hidden = false;
+  document.getElementById('loader').hidden  = true;
+  document.getElementById('printBtn').hidden = false;
+  document.getElementById('resetBtn').hidden = false;
+
+  rep.querySelectorAll('[data-note]').forEach(function(el){
+    el.addEventListener('input', function(){
+      try {
+        localStorage.setItem('btspa_coach_'+el.getAttribute('data-note'), el.value);
+        var n = document.getElementById('saveNote');
+        if(n) n.textContent = 'Saved just now.';
+      } catch(e){}
+    });
+  });
+}
+
+function load(raw){
+  var err = document.getElementById('loadErr');
+  err.textContent = '';
+  var d;
+  try { d = JSON.parse(raw); }
+  catch(e){ err.textContent = 'That is not valid JSON.'; return; }
+  if(!d || typeof d !== 'object'){ err.textContent = 'Expected a submission object.'; return; }
+  if(!d.internal){
+    err.textContent = 'No "internal" block in this payload — it may be from an older version of the form.';
+    return;
+  }
+  build(d);
+}
+
+document.getElementById('loadBtn').addEventListener('click', function(){
+  load(document.getElementById('jsonIn').value.trim());
+});
+document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+document.getElementById('resetBtn').addEventListener('click', function(){
+  document.getElementById('report').hidden = true;
+  document.getElementById('loader').hidden = false;
+  document.getElementById('printBtn').hidden = true;
+  document.getElementById('resetBtn').hidden = true;
+  document.getElementById('jsonIn').value = '';
+});
+
+// Drop a .json file anywhere.
+['dragover','drop'].forEach(function(ev){
+  document.addEventListener(ev, function(e){
+    e.preventDefault();
+    if(ev !== 'drop') return;
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if(!f) return;
+    var r = new FileReader();
+    r.onload = function(){ load(String(r.result)); };
+    r.readAsText(f);
+  });
+});
+})();
+</script>
+</body>
+</html>

@@ -216,6 +216,45 @@ h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.15; margin:0}
 .done h2{font-size:clamp(1.6rem,4vw,2.2rem); margin-bottom:12px}
 .done p{color:var(--ink-soft); margin:0 auto 10px; max-width:46ch; font-size:.94rem}
 
+.review{margin:0 0 8px}
+.review__lead{font-size:.9rem; color:var(--ink-soft); margin:0 0 12px}
+.review__list{list-style:none; margin:0; padding:0; border:1px solid var(--line);
+  border-radius:var(--radius-lg); overflow:hidden; background:#fff}
+.review__row{display:flex; align-items:center; gap:12px; padding:10px 14px;
+  border-top:1px solid var(--line2); font-size:.87rem}
+.review__row:first-child{border-top:none}
+.review__t{flex:1; min-width:0}
+.review__s{font-size:.78rem; font-weight:600; white-space:nowrap;
+  padding:3px 9px; border-radius:var(--radius-pill)}
+.review__s--ok{background:rgba(253,105,50,.12); color:var(--orange-deep)}
+.review__s--part{background:var(--cream); color:var(--ink-soft)}
+.review__s--low{background:rgba(31,24,21,.06); color:var(--muted)}
+.review__go{font-family:var(--sans); font-size:.78rem; font-weight:600; cursor:pointer;
+  background:none; border:1.5px solid var(--line); border-radius:var(--radius-pill);
+  padding:4px 12px; color:var(--ink-soft)}
+.review__go:hover{border-color:var(--orange); color:var(--orange-deep)}
+
+.result-stats{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin:24px 0 22px}
+.stat{background:var(--cream-soft); border:1px solid var(--line);
+  border-radius:var(--radius-lg); padding:16px 26px; min-width:150px}
+.stat__n{display:block; font-family:var(--serif); font-size:2rem; font-weight:600;
+  color:var(--orange-deep); line-height:1.1}
+.stat__l{display:block; font-size:.76rem; color:var(--muted); margin-top:3px}
+.result-urgent{text-align:left; background:#FFF4E5; border:1px solid rgba(138,90,0,.32);
+  color:#6b4700; border-radius:var(--radius-lg); padding:16px 18px; margin:0 0 26px; font-size:.88rem}
+.result-urgent b{display:block; margin-bottom:6px}
+.result-urgent p{margin:0 0 8px; color:#6b4700}
+.result-urgent ul{margin:0 0 8px; padding-left:20px}
+.result-urgent li{margin-bottom:3px}
+.result-actions{margin:22px 0 0;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.result-actions .btn{text-decoration:none;display:inline-flex;align-items:center}
+.result-urgent p{max-width:none}
+/* After submitting there is no step to track, so the header keeps only
+   the wordmark. */
+.hdr--done .jump,.hdr--done .bar,.hdr--done .hdr__meta,.hdr--done .hdr__save{display:none}
+.hdr--done .hdr__brand{margin:0}
+.result-fine{font-size:.76rem; color:var(--muted); margin-top:14px}
+
 @media(max-width:700px){
   .q-grid__head{display:none}
   .q-row{grid-template-columns:1fr; gap:9px; padding:13px 13px}
@@ -312,6 +351,7 @@ h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.15; margin:0}
 var CONFIG = {
   webhookUrl : '',                      // ← PASTE YOUR GHL WEBHOOK URL HERE
   source     : 'acne-gut-intake',
+  reportUrl  : 'client-report.html',  // where the results report lives
   storageKey : 'btspa_intake_v1'
 };
 
@@ -465,6 +505,34 @@ function renderItem(it){
   return '';
 }
 
+// Part Three, per the coach guide: a review screen and an electronic
+// signature. Not in the questionnaire schema, so it is appended here.
+var REVIEW_STEP = steps.length;
+steps.push({ part:'Part Three', title:'Review and sign', items:[], cond:null });
+html.push(
+  '<section class="step" id="step-'+REVIEW_STEP+'" data-step="'+REVIEW_STEP+'" hidden>'
++ '<p class="step__part">Part Three</p>'
++ '<h2 class="step__title">Review and sign</h2>'
++ '<p class="note">Check the summary below, then sign. Anything left blank is fine — '
++ 'blanks are recorded as unanswered rather than as a zero, and you can go back to any '
++ 'section from here.</p>'
++ '<div id="reviewSummary"></div>'
++ '<h3 class="grp">Electronic signature</h3>'
++ '<div class="field"><label class="lbl" for="signature_name">Type your full name to sign'
++ '<span class="req">*</span></label>'
++ '<input class="inp" type="text" id="signature_name" name="signature_name" '
++ 'autocomplete="name" placeholder="Your full name">'
++ '<span class="err" id="signature_name-err"></span></div>'
++ '<div class="field"><label class="lbl" for="signature_date">Date</label>'
++ '<input class="inp" type="date" id="signature_date" name="signature_date"></div>'
++ '<div class="field" role="group" aria-labelledby="lbl-signature_confirm">'
++ '<span class="lbl" id="lbl-signature_confirm">Please confirm<span class="req">*</span></span>'
++ '<div class="chips"><label class="chip"><input type="checkbox" id="signature_confirm" '
++ 'name="signature_confirm" value="confirmed">'
++ '<span>The information I have given is accurate to the best of my knowledge</span></label></div>'
++ '<span class="err" id="signature_confirm-err"></span></div>'
++ '</section>');
+
 stepsEl.innerHTML = html.join('');
 
 /* ── Step navigation ───────────────────────────────────────────────── */
@@ -530,6 +598,7 @@ function show(i, scroll){
   nextBtn.hidden   = last;
   submitBtn.hidden = !last;
   stepLabel.textContent = 'Step ' + (pos+1) + ' of ' + vis.length + ' · ' + steps[cur].title;
+  if(cur === REVIEW_STEP) renderReview();
   document.getElementById('intro').style.display = cur === 0 ? '' : 'none';
   updateCounts();
   if(scroll !== false) window.scrollTo({ top:0, behavior:'smooth' });
@@ -542,19 +611,96 @@ prevBtn.addEventListener('click', function(){ move(-1); });
 nextBtn.addEventListener('click', function(){ move(1); });
 jump.addEventListener('change', function(){ show(parseInt(jump.value,10)); });
 
-/* ── Scoring ───────────────────────────────────────────────────────── */
+/* ── Scoring, per the internal coach guide ─────────────────────────────
+   Rules the guide is explicit about, and which this implements:
+     · N/A and blank are MISSING values. Neither is scored as zero.
+     · A section is not calculated unless 80% of its questions are answered.
+     · normalized % = points earned / maximum possible on ANSWERED questions.
+     · Section scores stay separate. There is no combined health score.
+     · Vitamins/minerals and exercise are protective behaviours: on this
+       form a higher answer means more often, so they are reverse-scored.
+   The coaching bands are internal. They are computed here for the coach
+   report and deliberately never rendered on the client's screen.
+   ──────────────────────────────────────────────────────────────────── */
+var REVERSE        = ['diet__vitamins_and_minerals', 'lifestyle__exercise_per_week'];
+var MIN_COMPLETION = 0.80;
+var BANDS = [[9,'Minimal reported burden'], [24,'Mild reported burden'],
+             [49,'Moderate reported burden'], [74,'High reported burden'],
+             [100,'Very high reported burden']];
+function bandFor(pct){
+  for(var i = 0; i < BANDS.length; i++) if(pct <= BANDS[i][0]) return BANDS[i][1];
+  return BANDS[BANDS.length-1][1];
+}
+
+var GRIDS = {};
+function indexGrids(){
+  GRIDS = {};
+  document.querySelectorAll('.q-grid[data-grid]').forEach(function(g){
+    var gid = g.getAttribute('data-grid'), rows = [];
+    g.querySelectorAll('.q-row').forEach(function(r){
+      var ins = r.querySelectorAll('input[type="radio"]');
+      if(!ins.length) return;
+      var max = 0;
+      ins.forEach(function(i){
+        if(!i.getAttribute('data-na')) max = Math.max(max, parseInt(i.getAttribute('data-score'),10) || 0);
+      });
+      var lab = r.querySelector('.q-label');
+      rows.push({ name:ins[0].name, max:max,
+                  reverse: REVERSE.indexOf(ins[0].name) > -1,
+                  label: lab ? lab.textContent.trim() : '' });
+    });
+    if(rows.length) GRIDS[gid] = { rows:rows };
+  });
+}
+function checkedIn(name){
+  var els = document.getElementsByName(name);
+  for(var i = 0; i < els.length; i++) if(els[i].checked) return els[i];
+  return null;
+}
+function scoreGrid(gid){
+  var g = GRIDS[gid];
+  if(!g) return null;
+  var points = 0, maxPossible = 0, answered = 0, na = 0;
+  g.rows.forEach(function(row){
+    var sel = checkedIn(row.name);
+    if(!sel) return;                                  // blank  → missing
+    if(sel.getAttribute('data-na')){ na++; return; }  // N/A    → missing
+    var v = parseInt(sel.getAttribute('data-score'), 10) || 0;
+    if(row.reverse) v = row.max - v;
+    points      += v;
+    maxPossible += row.max;
+    answered    += 1;
+  });
+  var total      = g.rows.length;
+  var completion = total ? answered / total : 0;
+  var calc       = completion >= MIN_COMPLETION && maxPossible > 0;
+  return {
+    points       : points,
+    max_possible : maxPossible,
+    answered     : answered,
+    not_answered : total - answered - na,
+    na           : na,
+    total        : total,
+    completion   : Math.round(completion * 100),
+    calculated   : calc,
+    normalized   : calc ? Math.round(points / maxPossible * 1000) / 10 : null,
+    band         : calc ? bandFor(points / maxPossible * 100) : null
+  };
+}
+
+/* On the client's own screen: the raw section total the paper form
+   already showed, plus how much of the section they have answered.
+   No percentage and no band — those are the coach's, not theirs. */
 function recalc(){
   document.querySelectorAll('.total[data-total-for]').forEach(function(tot){
     var gid = tot.getAttribute('data-total-for');
-    var sum = 0, na = 0;
-    document.querySelectorAll('input[data-grid="'+gid+'"]:checked').forEach(function(inp){
-      if(inp.getAttribute('data-na')) na++;
-      else sum += parseInt(inp.getAttribute('data-score'), 10) || 0;
-    });
+    var sc  = scoreGrid(gid);
+    if(!sc) return;
     var v = document.getElementById('total-'+gid);
     var n = document.getElementById('na-'+gid);
-    if(v) v.textContent = sum;
-    if(n) n.textContent = na ? '(' + na + ' marked N/A)' : '';
+    if(v) v.textContent = sc.points;
+    if(n) n.textContent = sc.answered + ' of ' + sc.total + ' answered'
+                        + (sc.na ? ' · ' + sc.na + ' N/A' : '');
   });
 }
 
@@ -600,6 +746,50 @@ function syncOther(){
     });
     box.hidden = !on;
     if(!on) box.value = '';
+  });
+}
+
+/* ── Review summary ────────────────────────────────────────────────── */
+function renderReview(){
+  var host = document.getElementById('reviewSummary');
+  if(!host) return;
+  var vis = visibleSteps(), rows = [], doneAll = 0, totalAll = 0;
+  vis.forEach(function(i){
+    if(i === REVIEW_STEP) return;
+    var el = stepEls[i];
+    var qs = el.querySelectorAll('.q-row');
+    var txt = el.querySelectorAll('input[type="text"], input[type="date"], input[type="email"], input[type="tel"], textarea');
+    var done = 0;
+    qs.forEach(function(r){ if(r.querySelector('input:checked')) done++; });
+    var filled = 0;
+    txt.forEach(function(t){ if(t.value.trim() !== '') filled++; });
+    var picked = el.querySelectorAll('.chip input:checked').length;
+    if(qs.length){ doneAll += done; totalAll += qs.length; }
+    rows.push({ i:i, title:steps[i].title, part:steps[i].part,
+                done:done, total:qs.length, filled:filled + picked });
+  });
+  var h = '<div class="review">';
+  h += '<p class="review__lead"><b>' + doneAll + ' of ' + totalAll
+     + '</b> scored questions answered.</p>';
+  h += '<ul class="review__list">';
+  rows.forEach(function(r){
+    var state, cls;
+    if(r.total){
+      var pct = Math.round(r.done / r.total * 100);
+      state = r.done + ' / ' + r.total;
+      cls   = pct === 100 ? 'ok' : (pct >= 80 ? 'part' : 'low');
+    } else {
+      state = r.filled ? r.filled + ' filled' : 'nothing entered';
+      cls   = r.filled ? 'ok' : 'low';
+    }
+    h += '<li class="review__row"><span class="review__t">' + esc(r.title) + '</span>'
+       + '<span class="review__s review__s--' + cls + '">' + state + '</span>'
+       + '<button type="button" class="review__go" data-go="' + r.i + '">Open</button></li>';
+  });
+  h += '</ul></div>';
+  host.innerHTML = h;
+  host.querySelectorAll('[data-go]').forEach(function(b){
+    b.addEventListener('click', function(){ show(parseInt(b.getAttribute('data-go'),10)); });
   });
 }
 
@@ -672,11 +862,25 @@ Object.keys(MIRROR).forEach(function(src){
   });
   b.addEventListener('input', function(){ b.dataset.mirrored = ''; });
 });
-// Date completed defaults to today.
-var dc = document.getElementById('date_completed');
-if(dc && !dc.value) dc.value = new Date().toISOString().slice(0,10);
-var td = document.getElementById('today_s_date');
-if(td && !td.value) td.value = new Date().toISOString().slice(0,10);
+// Dates default to today.
+var TODAY = new Date().toISOString().slice(0,10);
+['date_completed','today_s_date','signature_date'].forEach(function(id){
+  var el = document.getElementById(id);
+  if(el && !el.value) el.value = TODAY;
+});
+
+/* Part One carries the paper form's own signature line. Rather than ask
+   someone to sign twice, the Part Three signature fills it in. */
+var sigName = document.getElementById('signature_name');
+var sigDate = document.getElementById('signature_date');
+if(sigName){
+  sigName.addEventListener('input', function(){
+    var cs = document.getElementById('client_signature');
+    var cd = document.getElementById('date');
+    if(cs) cs.value = sigName.value;
+    if(cd && sigDate) cd.value = sigDate.value;
+  });
+}
 form.addEventListener('change', function(e){
   if(e.target && e.target.name === 'repro_section') show(cur, false);
   recalc(); updateCounts(); checkSafety(); syncOther(); save();
@@ -708,6 +912,28 @@ function validate(){
     if(ok) el.removeAttribute('aria-invalid'); else el.setAttribute('aria-invalid','true');
     if(!ok && !bad) bad = el;
   });
+  // Electronic signature
+  var sig = document.getElementById('signature_name');
+  var serr = document.getElementById('signature_name-err');
+  if(sig){
+    var sok = sig.value.trim().length >= 2;
+    if(serr){
+      serr.textContent = sok ? '' : 'Please type your name to sign.';
+      serr.classList.toggle('is-shown', !sok);
+    }
+    if(sok) sig.removeAttribute('aria-invalid'); else sig.setAttribute('aria-invalid','true');
+    if(!sok && !bad) bad = sig;
+  }
+  var sconf = document.getElementById('signature_confirm');
+  var cferr = document.getElementById('signature_confirm-err');
+  if(sconf){
+    if(cferr){
+      cferr.textContent = sconf.checked ? '' : 'Please confirm before submitting.';
+      cferr.classList.toggle('is-shown', !sconf.checked);
+    }
+    if(!sconf.checked && !bad) bad = sconf;
+  }
+
   // Consent
   var consent = document.querySelector('input[name="consent_choice"][value="I understand and agree"]');
   var cerr = document.getElementById('consent_choice-err');
@@ -723,33 +949,94 @@ function validate(){
 }
 
 function sectionScores(){
-  var out = {};
+  var out = {}, vis = visibleSteps();
   document.querySelectorAll('.total[data-total-for]').forEach(function(t){
+    var step = t.closest('.step');
+    if(step && vis.indexOf(parseInt(step.getAttribute('data-step'),10)) === -1) return;
     var gid = t.getAttribute('data-total-for');
-    out[gid] = {
-      score : parseInt(document.getElementById('total-'+gid).textContent, 10) || 0,
-      max   : parseInt(t.getAttribute('data-max'), 10) || 0
-    };
+    var sc  = scoreGrid(gid);
+    if(sc) out[gid] = sc;
   });
   return out;
 }
-function safetyFlags(){
-  var out = [];
+
+/* The guide's six automatic review flags. Each returns the wording the
+   client actually saw, so a coach reads their answer rather than an id. */
+function labelOf(input){
+  var row = input.closest('.q-row');
+  var l = row && row.querySelector('.q-label');
+  return l ? l.textContent.trim() : (input.name || '');
+}
+function safetyYes(fragment){
+  var hit = [];
   document.querySelectorAll('input[data-safety="1"]:checked').forEach(function(i){
-    var row = i.closest('.q-row');
-    var l = row && row.querySelector('.q-label');
-    if(l) out.push(l.textContent.trim());
+    if(i.name.indexOf(fragment) > -1) hit.push(labelOf(i));
+  });
+  return hit;
+}
+function topScored(){
+  // "Any symptom response of 3" — plus 4 on Part One's 0-4 scales, which
+  // is the same top-of-scale answer with a different ceiling.
+  var out = [], vis = visibleSteps();
+  Object.keys(GRIDS).forEach(function(gid){
+    GRIDS[gid].rows.forEach(function(row){
+      var sel = checkedIn(row.name);
+      if(!sel || sel.getAttribute('data-na')) return;
+      if(gid === 'medications') return;              // reported separately
+      var v = parseInt(sel.getAttribute('data-score'), 10) || 0;
+      if(row.reverse) return;                        // a protective behaviour, not a symptom
+      if(v === row.max && row.max >= 3){
+        var step = sel.closest('.step');
+        if(step && vis.indexOf(parseInt(step.getAttribute('data-step'),10)) === -1) return;
+        out.push({ question: row.label, answer: v, of: row.max, section: gid });
+      }
+    });
   });
   return out;
 }
-function highScores(){
+function medicationFlags(){
   var out = [];
-  document.querySelectorAll('#intakeForm input[data-score="3"]:checked').forEach(function(i){
-    var row = i.closest('.q-row');
-    var l = row && row.querySelector('.q-label');
-    if(l) out.push(l.textContent.trim());
+  var g = GRIDS['medications'];
+  if(!g) return out;
+  g.rows.forEach(function(row){
+    var sel = checkedIn(row.name);
+    if(sel && !sel.getAttribute('data-na') && parseInt(sel.getAttribute('data-score'),10) === 1){
+      out.push(row.label);
+    }
   });
   return out;
+}
+function questionAtLeast(namePart, min){
+  var out = [];
+  Object.keys(GRIDS).forEach(function(gid){
+    GRIDS[gid].rows.forEach(function(row){
+      if(row.name.indexOf(namePart) === -1) return;
+      var sel = checkedIn(row.name);
+      if(!sel || sel.getAttribute('data-na')) return;
+      if((parseInt(sel.getAttribute('data-score'),10) || 0) >= min) out.push(row.label);
+    });
+  });
+  return out;
+}
+function reviewFlags(){
+  return {
+    severe_symptoms        : topScored(),
+    medications_reported   : medicationFlags(),
+    gi_red_flags           : safetyYes('blood_in_stool')
+                               .concat(questionAtLeast('black_or_tarry_colored_stools', 1)),
+    emergency_symptoms     : safetyYes('fainting_chest_pain')
+                               .concat(safetyYes('history_of_severe_allergic_reaction'))
+                               .concat(questionAtLeast('dull_pain_or_tightness_in_chest', 1)),
+    acne_needs_review      : safetyYes('severe_or_rapidly_worsening_acne'),
+    clinician_coordination : safetyYes('pregnant_breastfeeding')
+                               .concat(safetyYes('kidney_liver_gallbladder'))
+                               .concat(safetyYes('currently_under_care_of_a'))
+                               .concat(safetyYes('eating_disorder_history'))
+  };
+}
+function urgentFlags(f){
+  // The two that mean "contact someone before your appointment".
+  return f.gi_red_flags.concat(f.emergency_symptoms);
 }
 
 submitBtn.addEventListener('click', function(){
@@ -774,6 +1061,11 @@ submitBtn.addEventListener('click', function(){
   stepEls.forEach(function(el, n){
     if(vis.indexOf(n) > -1) answered += el.querySelectorAll('.q-row input:checked').length;
   });
+  var scores = sectionScores();
+  var flags  = reviewFlags();
+  var calculated = 0, skipped = 0;
+  Object.keys(scores).forEach(function(k){ scores[k].calculated ? calculated++ : skipped++; });
+
   var payload = {
     form            : 'Acne, Cellular Health & Gut Microbiome Intake',
     source          : CONFIG.source,
@@ -781,11 +1073,20 @@ submitBtn.addEventListener('click', function(){
     full_name       : data.full_name || data.client_name || '',
     email           : data.email || '',
     phone           : data.phone || '',
-    section_scores  : sectionScores(),
-    safety_flags    : safetyFlags(),
-    severe_symptoms : highScores(),
+    signed_by       : data.signature_name || '',
+    signed_at       : data.signature_date || '',
     answered_count  : answered,
     question_count  : totalQs,
+    // Internal, for the coach report. Not shown on the client's screen.
+    internal        : {
+      note                : 'Internal coaching values. Not diagnostic and not validated '
+                          + 'medical cutoffs. N/A and blank are missing values, never zero. '
+                          + 'Sections under 80% answered are left uncalculated.',
+      sections_calculated : calculated,
+      sections_skipped    : skipped,
+      section_scores      : scores,
+      review_flags        : flags
+    },
     responses       : data,
     page_url        : location.href,
     submitted_at    : new Date().toISOString()
@@ -811,12 +1112,8 @@ submitBtn.addEventListener('click', function(){
     if(!res.ok) throw new Error('HTTP ' + res.status);
     try { (window.dataLayer = window.dataLayer || []).push({
       event:'form_submission', form_name:'Acne Gut Intake', source:CONFIG.source }); } catch(e){}
-    document.getElementById('doneName').textContent = payload.first_name || 'friend';
-    form.hidden = true;
-    document.getElementById('intro').style.display = 'none';
-    document.getElementById('nav').style.display = 'none';
-    document.getElementById('done').classList.add('is-shown');
-    window.scrollTo({ top:0, behavior:'smooth' });
+    try { localStorage.setItem('btspa_intake_result_v1', JSON.stringify(payload)); } catch(e){}
+    showResults(payload, flags);
   })
   .catch(function(err){
     submitBtn.disabled = false;
@@ -829,8 +1126,94 @@ submitBtn.addEventListener('click', function(){
   });
 });
 
+/* ── Client results screen ─────────────────────────────────────────────
+   What the client sees after submitting. Deliberately no percentages and
+   no coaching bands: the guide is explicit that those are internal and
+   must not be presented to a client as interpretation. What they do get
+   is what they completed, anything that warrants contacting a clinician
+   before their appointment, and a copy of their own answers.
+   ──────────────────────────────────────────────────────────────────── */
+function showResults(payload, flags){
+  var urgent = urgentFlags(flags);
+  var host   = document.getElementById('done');
+  var vis    = visibleSteps();
+  var secDone = 0, secTotal = 0;
+  vis.forEach(function(i){
+    if(i === REVIEW_STEP) return;
+    var qs = stepEls[i].querySelectorAll('.q-row');
+    if(!qs.length) return;
+    secTotal++;
+    var d = 0; qs.forEach(function(r){ if(r.querySelector('input:checked')) d++; });
+    if(d === qs.length) secDone++;
+  });
+
+  var h = '';
+  if(urgent.length){
+    h += '<div class="result-urgent" role="alert">'
+      +  '<b>Please contact a clinician before your appointment.</b>'
+      +  '<p>You reported something that should be looked at by a licensed clinician '
+      +  'rather than waiting for coaching:</p><ul>';
+    urgent.forEach(function(t){ h += '<li>' + esc(t) + '</li>'; });
+    h += '</ul><p>If it is severe or getting worse — chest pain, trouble breathing, '
+      +  'heavy bleeding — seek emergency care now. Your coach has been sent this '
+      +  'along with your answers.</p></div>';
+  }
+
+  h += '<div class="done__check" aria-hidden="true">'
+    +  '<svg width="31" height="31" viewBox="0 0 24 24" fill="none" stroke="#fff" '
+    +  'stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">'
+    +  '<path d="M20 6L9 17l-5-5"/></svg></div>'
+    +  '<h2>Thank you, ' + esc(payload.first_name || 'friend') + '.</h2>'
+    +  '<p>Your intake is in, signed ' + esc(payload.signed_at || 'today') + '.</p>';
+
+  h += '<div class="result-stats">'
+    +  '<div class="stat"><span class="stat__n">' + payload.answered_count + '</span>'
+    +  '<span class="stat__l">questions answered</span></div>'
+    +  '<div class="stat"><span class="stat__n">' + secDone + ' / ' + secTotal + '</span>'
+    +  '<span class="stat__l">sections complete</span></div>'
+    +  '</div>';
+
+  h += '<p>Your coach reviews this before your appointment and will follow up on anything '
+    +  'that needs clarifying. Nothing here is a diagnosis, and no result is calculated for '
+    +  'you to interpret on your own — the patterns are for the two of you to talk through.</p>'
+    +  '<p class="result-actions">'
+    +  '<a class="btn" href="' + CONFIG.reportUrl + '">See your cellular health report</a> '
+    +  '<button class="btn btn--ghost" type="button" id="printBtn">Print or save my answers</button>'
+    +  '</p>'
+    +  '<p class="result-fine">A copy of your answers stays saved in this browser. '
+    +  'Use a private device if you would rather it did not.</p>';
+
+  host.innerHTML = h;
+  form.hidden = true;
+  document.getElementById('intro').style.display = 'none';
+  document.getElementById('nav').style.display   = 'none';
+  // The progress bar and step picker are meaningless once it is submitted.
+  document.querySelector('.hdr').classList.add('hdr--done');
+  host.classList.add('is-shown');
+  var pb = document.getElementById('printBtn');
+  if(pb) pb.addEventListener('click', function(){
+    form.hidden = false;                 // print rules reveal every step
+    window.print();
+    form.hidden = true;
+  });
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
 /* ── Go ────────────────────────────────────────────────────────────── */
 // restore() runs after the mirror wiring above so saved values win.
+indexGrids();
+
+/* Read-only introspection, so scoring can be checked from the console
+   without digging through the DOM:
+     BTSpaIntake.score('adrenal')   → that section's scoring object
+     BTSpaIntake.flags()            → the current review flags
+   It exposes nothing the client's own answers do not already contain. */
+window.BTSpaIntake = {
+  score   : function(gid){ return scoreGrid(gid); },
+  sections: function(){ return Object.keys(GRIDS); },
+  flags   : function(){ return reviewFlags(); }
+};
+
 var startAt = restore();
 ['client_name','date_of_birth_2'].forEach(function(id){
   var el = document.getElementById(id);

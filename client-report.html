@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Cellular Health Report — The Body Temple Spa</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FEFAF0; --cream:#E6D8C3; --cream-soft:#F4EFE9; --paper:#FDF5EC;
+  --orange:#FD6932; --orange-deep:#D8501E; --terracotta:#C85A28;
+  --ink:#1F1815; --ink-soft:#3a322c; --muted:#7a7570;
+  --line:rgba(31,24,21,.12); --line2:rgba(31,24,21,.07);
+
+  /* Severity ramp. Validated against the #FEFAF0 surface: 4.84 / 3.30 /
+     3.89 / 7.81 contrast. A green-to-red ramp cannot be monotonic in
+     lightness, so colour is never the only signal here — every band ships
+     with its number and its name. */
+  --b1:#2E7D4F; --b2:#B5810E; --b3:#CE5C22; --b4:#96251C;
+  --b1-t:rgba(46,125,79,.10); --b2-t:rgba(181,129,14,.11);
+  --b3-t:rgba(206,92,34,.11);  --b4-t:rgba(150,37,28,.10);
+
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--cream-soft);font-family:var(--sans);color:var(--ink);line-height:1.6}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.12;margin:0}
+
+.page{
+  max-width:860px;margin:0 auto 26px;background:var(--paper);
+  padding:clamp(26px,5vw,60px);border:1px solid var(--line);
+}
+.page--cover{text-align:center}
+
+.loader{max-width:860px;margin:26px auto;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:22px}
+.loader h2{font-size:1.3rem;margin-bottom:8px}
+.loader p{font-size:.87rem;color:var(--ink-soft);margin:0 0 12px}
+.loader textarea{width:100%;min-height:130px;font-family:ui-monospace,Menlo,monospace;
+  font-size:.76rem;padding:11px;border:1.5px solid var(--line);border-radius:5px;background:var(--bg)}
+.loadErr{color:#96251C;font-size:.83rem;font-weight:500;margin-left:6px}
+.btn{font-family:var(--sans);font-weight:600;font-size:.86rem;cursor:pointer;padding:11px 22px;
+  border-radius:100px;border:2px solid var(--orange);background:var(--cream);color:var(--ink);transition:all .2s}
+.btn:hover{background:var(--orange);color:#fff;border-color:var(--orange-deep)}
+.btn--ghost{background:transparent;border-color:var(--line);color:var(--ink-soft)}
+.toolbar{max-width:860px;margin:22px auto 0;display:flex;gap:10px;justify-content:flex-end;padding:0 6px}
+
+/* ── Cover ── */
+.cover__title{font-size:clamp(2.1rem,6vw,3.5rem);margin-bottom:14px}
+.cover__sub{font-size:1.02rem;color:var(--ink-soft);margin:0 0 4px}
+.cover__q{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--terracotta);margin:0 0 30px}
+.cover__art{position:relative;width:min(420px,74vw);margin:0 auto 30px}
+.cover__name{display:inline-block;background:#fff;border:1px solid var(--line);
+  padding:11px 30px;font-size:1.02rem;font-weight:500;margin-bottom:10px;min-width:230px}
+.cover__date{display:block;background:#fff;border:1px solid var(--line);
+  padding:9px 30px;font-size:.92rem;color:var(--ink-soft);width:max-content;margin:0 auto;min-width:230px}
+
+/* ── Sections ── */
+.page h2.h{font-size:clamp(1.7rem,4.4vw,2.6rem);margin-bottom:10px}
+.lede{font-size:.95rem;color:var(--ink-soft);margin:0 0 22px;font-weight:500}
+.chartwrap{display:flex;justify-content:center;margin:0 0 6px}
+.radar{width:100%;max-width:520px;height:auto;display:block}
+
+.bands{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
+.band{display:flex;align-items:center;gap:11px;padding:9px 13px;border-radius:6px;
+  border-left:4px solid var(--bc);background:var(--bt);font-size:.88rem}
+.band b{font-variant-numeric:tabular-nums;color:var(--bc);min-width:74px}
+.callout{font-family:var(--serif);font-size:clamp(1.2rem,3vw,1.6rem);font-weight:600;
+  text-align:center;margin:14px 0 4px}
+
+/* ── System cards ── */
+.sys{display:flex;gap:22px;align-items:flex-start;padding:22px 0;border-top:1px solid var(--line2)}
+.sys:first-of-type{border-top:none}
+.dial{flex:0 0 auto;width:112px;text-align:center}
+.dial svg{display:block;margin:0 auto 4px}
+.dial__pct{font-family:var(--serif);font-size:1.55rem;font-weight:600;color:var(--ink);line-height:1.1}
+.dial__band{display:block;font-size:.68rem;font-weight:600;letter-spacing:.04em;color:var(--bc);margin-top:1px}
+.sys__body h3{font-size:1.05rem;margin-bottom:6px}
+.sys__body p{font-size:.89rem;color:var(--ink-soft);margin:0}
+.sys--none .dial__pct{font-size:.9rem;color:var(--muted);font-family:var(--sans);font-weight:600}
+
+.note{background:var(--cream-soft);border-left:3px solid var(--cream);padding:13px 16px;
+  font-size:.84rem;color:var(--ink-soft);margin:26px 0 0;border-radius:0 5px 5px 0}
+.note b{color:var(--ink)}
+.foot{font-size:.78rem;color:var(--muted);text-align:center;margin:24px 0 0}
+
+@media(max-width:620px){
+  .sys{gap:14px}
+  .dial{width:84px}
+  .band{font-size:.82rem}
+}
+@media print{
+  body{background:#fff}
+  .toolbar,.loader{display:none!important}
+  .page{max-width:none;margin:0;border:none;padding:14mm;page-break-after:always}
+  .page:last-child{page-break-after:auto}
+  .sys{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader">
+  <h2>Your report</h2>
+  <p id="loadMsg">Paste your submission JSON below, or drop the .json file anywhere on this page.</p>
+  <textarea id="jsonIn" aria-label="Submission JSON"></textarea>
+  <p style="margin-top:12px"><button class="btn" type="button" id="loadBtn">Build my report</button>
+    <span class="loadErr" id="loadErr"></span></p>
+</div>
+
+<div class="toolbar" id="toolbar" hidden>
+  <button class="btn btn--ghost" type="button" id="printBtn">Print or save as PDF</button>
+</div>
+<div id="report" hidden></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ══════════════════════════════════════════════════════════════════════
+   CONTENT — edit freely. One entry per system.
+
+   `blurb` is what the client reads. It is your copy, reproduced from the
+   printed Cellular Damage & Toxicity Report.
+
+   NOTE FOR WHOEVER MAINTAINS THIS: your internal coach guide says a
+   questionnaire score must not be read as a diagnosis, and that no
+   disease-risk score should be produced. Sentences that predict disease
+   from a symptom score are the part of this copy that sits closest to
+   that line. They are kept in `risk` below, separately from `blurb`, so
+   you can switch them off in one place. Set SHOW_RISK to false to drop
+   them from every card without touching the copy.
+   ══════════════════════════════════════════════════════════════════════ */
+var SHOW_RISK = true;
+
+var SYSTEMS = [
+  { key:'blood_sugar',  name:'Energy & Blood Sugar',
+    blurb:'A high score means your cells struggle to produce steady energy and regulate blood sugar. '
+        + 'Inflammation and oxidative stress damage mitochondria and cellular signaling, leading to sugar '
+        + 'spikes, crashes, fatigue, brain fog, cravings, irritability, and weight gain.',
+    risk :'If untreated, this raises the risk of insulin resistance, metabolic dysfunction, and long-term energy decline.' },
+
+  { key:'inflammation', name:'Immune & Inflammation',
+    blurb:'A high score means your immune system is stuck in an overactive inflammatory state. When '
+        + 'inflammation stays “on,” immune signaling becomes disruptive and damages healthy tissue. This can '
+        + 'cause aches, fatigue, brain fog, skin or digestive flare-ups, and frequent immune reactions.',
+    risk :'If untreated, it raises the risk of autoimmune activation and chronic inflammatory decline.' },
+
+  { key:'detox',        name:'Detoxification & Drainage',
+    blurb:'A high score means waste is building up instead of clearing efficiently. When the liver, kidneys, '
+        + 'gut, and lymph are overloaded, toxins recirculate and stress the system. This can cause headaches, '
+        + 'bloating, fatigue, brain fog, skin issues, and chemical sensitivity.',
+    risk :'If untreated, it raises the risk of hormonal disruption, liver strain, and chronic inflammation.' },
+
+  { key:'hormones',     name:'Hormonal System',
+    blurb:'A high score means inflammation is disrupting hormone signaling. Hormones may be produced, but '
+        + 'inflamed cells don’t respond properly, affecting metabolism, mood, sleep, and cycles. This can cause '
+        + 'fatigue, weight changes, anxiety, low libido, and irregular cycles.',
+    risk :'If untreated, it raises the risk of thyroid dysfunction, adrenal strain, and metabolic slowdown.' },
+
+  { key:'absorption',   name:'Digestive & Nutrient Absorption',
+    blurb:'A high score means inflammation is impairing digestion and nutrient absorption. Even with a healthy '
+        + 'diet, an inflamed gut can block enzymes and uptake, leaving cells undernourished. This can cause '
+        + 'bloating, sensitivities, fatigue, cravings, and slow recovery.',
+    risk :'If untreated, it raises the risk of leaky gut, deficiencies, and immune or hormone dysfunction.' },
+
+  { key:'circulation',  name:'Heart & Circulation',
+    blurb:'A high score means inflammation and oxidative stress are impairing circulation and oxygen delivery. '
+        + 'When blood vessels lose flexibility, tissues receive less oxygen and nutrients, affecting energy, '
+        + 'focus, and healing. This can cause low stamina, cold extremities, dizziness, headaches, and brain fog.',
+    risk :'If untreated, it raises the risk of cardiovascular, metabolic, and cognitive decline.' },
+
+  { key:'stress',       name:'Brain, Nervous System & Stress',
+    blurb:'A high score means chronic cellular stress is disrupting communication between the brain, gut, '
+        + 'hormones, and immune system. Ongoing inflammation keeps the nervous system stuck in fight-or-flight, '
+        + 'limiting recovery. This can cause anxiety, brain fog, poor sleep, digestive issues, and burnout.',
+    risk :'If untreated, it raises the risk of chronic fatigue and neurological decline.' }
+];
+
+/* Bands as printed on the report. These are your own coaching ranges —
+   note they are a different scale from the five bands in the internal
+   coach guide, which the coach report uses. */
+var BANDS = [
+  { max:20,  name:'Optimal Cellular Balance',  n:1, label:'≤ 20'    },
+  { max:47,  name:'Early Cellular Dysfunction', n:2, label:'21 – 47' },
+  { max:74,  name:'High Cellular Dysfunction',  n:3, label:'48 – 74' },
+  { max:100, name:'Critical Cellular Stress',   n:4, label:'75 – 100'}
+];
+function bandOf(p){
+  for(var i=0;i<BANDS.length;i++) if(p <= BANDS[i].max) return BANDS[i];
+  return BANDS[BANDS.length-1];
+}
+var esc = function(v){ var d=document.createElement('div'); d.textContent = v==null?'':String(v); return d.innerHTML; };
+
+/* ── Radar ──────────────────────────────────────────────────────────────
+   One series, so no legend is needed — the title names it. Rings sit at
+   the band edges so the shape is read against the thresholds rather than
+   against arbitrary gridlines. An unscored axis is drawn as a gap, never
+   as a zero, because a zero would read as "optimal". */
+function radar(values, opts){
+  opts = opts || {};
+  var W = 520, H = 408, cx = W/2, cy = 202, R = 148;
+  var n = SYSTEMS.length, rings = [20,47,74,100];
+  var stroke = opts.stroke || 'var(--terracotta)';
+  var fill   = opts.fill   || 'rgba(200,90,40,.18)';
+  var pt = function(i, v){
+    var a = -Math.PI/2 + i * 2*Math.PI/n, r = R * (v/100);
+    return [cx + r*Math.cos(a), cy + r*Math.sin(a)];
+  };
+  var s = '<svg class="radar" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'
+        + esc(opts.alt || 'Radar chart of seven cellular systems') + '">';
+
+  rings.forEach(function(rv){
+    var p = [];
+    for(var i=0;i<n;i++){ var q = pt(i, rv); p.push(q[0].toFixed(1)+','+q[1].toFixed(1)); }
+    s += '<polygon points="'+p.join(' ')+'" fill="none" stroke="rgba(31,24,21,.13)" stroke-width="1"/>';
+  });
+  for(var i=0;i<n;i++){
+    var e = pt(i,100);
+    s += '<line x1="'+cx+'" y1="'+cy+'" x2="'+e[0].toFixed(1)+'" y2="'+e[1].toFixed(1)
+      +  '" stroke="rgba(31,24,21,.10)" stroke-width="1"/>';
+  }
+  rings.forEach(function(rv){
+    var q = pt(0, rv);
+    s += '<text x="'+(cx-7)+'" y="'+(q[1]+4).toFixed(1)+'" text-anchor="end" font-size="12" '
+      +  'fill="var(--muted)" font-family="var(--sans)">'+rv+'</text>';
+  });
+
+  // Series: split into runs so unscored axes leave a genuine gap.
+  var pts = values.map(function(v,i){ return v==null ? null : pt(i,v); });
+  var closed = pts.every(function(p){ return p; });
+  if(closed){
+    s += '<polygon points="'+pts.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' ')
+      +  '" fill="'+fill+'" stroke="'+stroke+'" stroke-width="2" stroke-linejoin="round"/>';
+  } else {
+    for(var i=0;i<n;i++){
+      var a = pts[i], b = pts[(i+1)%n];
+      if(a && b) s += '<line x1="'+a[0].toFixed(1)+'" y1="'+a[1].toFixed(1)+'" x2="'+b[0].toFixed(1)
+                   +  '" y2="'+b[1].toFixed(1)+'" stroke="'+stroke+'" stroke-width="2" stroke-linecap="round"/>';
+    }
+  }
+  pts.forEach(function(p){
+    if(!p) return;
+    s += '<circle cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="5" fill="#fff" stroke="'
+      +  stroke+'" stroke-width="2.5"/>';
+  });
+
+  // Axis labels
+  for(var i=0;i<n;i++){
+    var a = -Math.PI/2 + i*2*Math.PI/n;
+    var lx = cx + (R+30)*Math.cos(a), ly = cy + (R+30)*Math.sin(a);
+    var anchor = Math.abs(Math.cos(a)) < 0.25 ? 'middle' : (Math.cos(a) > 0 ? 'start' : 'end');
+    var words = SYSTEMS[i].name.replace(/ & /g,' &amp; ').split(' ');
+    var lines = [], cur = '';
+    words.forEach(function(w){
+      if((cur+' '+w).trim().length > 14){ lines.push(cur.trim()); cur = w; }
+      else cur = (cur+' '+w).trim();
+    });
+    if(cur) lines.push(cur);
+    var y0 = ly - (lines.length-1)*6;
+    s += '<text x="'+lx.toFixed(1)+'" y="'+y0.toFixed(1)+'" text-anchor="'+anchor
+      +  '" font-size="12.5" font-weight="600" fill="var(--ink)" font-family="var(--sans)">';
+    lines.forEach(function(l,k){
+      s += '<tspan x="'+lx.toFixed(1)+'" dy="'+(k?13:0)+'">'+l+'</tspan>';
+    });
+    s += '</text>';
+  }
+  return s + '</svg>';
+}
+
+function dial(pct, band){
+  if(pct == null){
+    return '<svg width="76" height="76" viewBox="0 0 76 76" aria-hidden="true">'
+         + '<circle cx="38" cy="38" r="32" fill="none" stroke="rgba(31,24,21,.14)" '
+         + 'stroke-width="5" stroke-dasharray="4 6"/></svg>';
+  }
+  var C = 2*Math.PI*32, on = C * (pct/100);
+  return '<svg width="76" height="76" viewBox="0 0 76 76" role="img" aria-label="'+pct+' percent">'
+       + '<circle cx="38" cy="38" r="32" fill="none" stroke="rgba(31,24,21,.10)" stroke-width="5"/>'
+       + '<circle cx="38" cy="38" r="32" fill="none" stroke="var(--b'+band.n+')" stroke-width="5" '
+       + 'stroke-linecap="round" stroke-dasharray="'+on.toFixed(1)+' '+(C-on).toFixed(1)+'" '
+       + 'transform="rotate(-90 38 38)"/></svg>';
+}
+
+function build(d){
+  var S = (d.internal && d.internal.section_scores) || {};
+  var vals = SYSTEMS.map(function(sy){
+    var sc = S[sy.key];
+    return (sc && sc.calculated) ? Math.round(sc.normalized) : null;
+  });
+  var scored = vals.filter(function(v){ return v != null; }).length;
+  var when = (d.signed_at || (d.submitted_at||'').slice(0,10) || '');
+  var h = '';
+
+  // ── Page 1 · cover ──
+  h += '<section class="page page--cover">'
+    +  '<h1 class="cover__title">Cellular Health Report</h1>'
+    +  '<p class="cover__sub">Your personalised cellular stress results</p>'
+    +  '<p class="cover__q">Where is your body asking for support?</p>'
+    +  '<div class="cover__art">' + radar(vals, {alt:'Your results across seven cellular systems'}) + '</div>'
+    +  '<span class="cover__name">' + esc(d.full_name || 'Client') + '</span>'
+    +  '<span class="cover__date">' + esc(when) + '</span>'
+    +  '</section>';
+
+  // ── Page 2 · results + bands ──
+  h += '<section class="page"><h2 class="h">Your cellular health results</h2>'
+    +  '<p class="lede">You were assessed across these 7 cellular systems.</p>'
+    +  '<div class="chartwrap">' + radar(vals, {alt:'Your score on each of the seven systems'}) + '</div>'
+    +  '<p class="callout">Anything above 20 is worth talking through.</p><ul class="bands">';
+  BANDS.forEach(function(b){
+    h += '<li class="band" style="--bc:var(--b'+b.n+');--bt:var(--b'+b.n+'-t)">'
+      +  '<b>'+b.label+'</b><span>'+esc(b.name)+'</span></li>';
+  });
+  h += '</ul>';
+  if(scored < SYSTEMS.length){
+    h += '<p class="note"><b>' + (SYSTEMS.length - scored) + ' of 7 areas could not be scored.</b> '
+      +  'A section needs at least 80% of its questions answered before it is scored at all — an '
+      +  'unanswered area is left blank rather than counted as a zero, because a zero would wrongly '
+      +  'read as “optimal”. You can finish those sections any time before your appointment.</p>';
+  }
+  h += '</section>';
+
+  // ── Page 3 · the ideal profile ──
+  h += '<section class="page"><h2 class="h">What should your profile look like?</h2>'
+    +  '<p class="lede">When your cells are well supported, so are you.</p>'
+    +  '<p>In an ideal profile, all or almost all 7 areas sit inside the “Optimal Cellular Balance” zone — '
+    +  'the innermost ring. That is where people tend to report deep sleep, settled digestion, clear '
+    +  'thinking, and steady energy through the day.</p>'
+    +  '<p>Your shape today is a starting point, not a verdict. It shows where your body is asking for '
+    +  'support first.</p>'
+    +  '<div class="chartwrap">'
+    +  radar(SYSTEMS.map(function(){ return 14; }),
+            { stroke:'var(--b1)', fill:'rgba(46,125,79,.15)', alt:'An ideal profile, with all seven systems inside the optimal zone' })
+    +  '</div><p class="callout" style="color:var(--b1)">The ideal zone</p></section>';
+
+  // ── Pages 4-5 · system by system ──
+  var cards = [];
+  SYSTEMS.forEach(function(sy, i){
+    var v = vals[i];
+    if(v == null){
+      cards.push('<article class="sys sys--none"><div class="dial">' + dial(null)
+            +  '<span class="dial__pct">Not scored</span></div>'
+            +  '<div class="sys__body"><h3>' + esc(sy.name) + '</h3>'
+            +  '<p>You answered fewer than 80% of the questions in this area, so it has been left '
+            +  'unscored rather than guessed at.</p></div></article>');
+      return;
+    }
+    var b = bandOf(v);
+    cards.push('<article class="sys" style="--bc:var(--b'+b.n+')"><div class="dial">' + dial(v, b)
+          +  '<span class="dial__pct">' + v + '%</span>'
+          +  '<span class="dial__band">' + esc(b.name) + '</span></div>'
+          +  '<div class="sys__body"><h3>' + esc(sy.name) + '</h3><p>' + sy.blurb
+          +  (SHOW_RISK ? ' ' + sy.risk : '') + '</p></div></article>');
+  });
+  h += '<section class="page"><h2 class="h">Your system-by-system report</h2>'
+    +  '<p class="lede">Each area stands on its own. They are not added together.</p>'
+    +  cards.slice(0,4).join('')
+    +  '</section><section class="page">'
+    +  cards.slice(4).join('')
+    +  '<p class="note"><b>What this is.</b> These numbers summarise what you told us about your own '
+    +  'symptoms. They are not a diagnosis, not a lab result, and not a measurement of toxins or of your '
+    +  'microbiome. They are a starting point for the conversation with your coach, who will go through '
+    +  'them with you. Please keep taking any medication as prescribed, and speak to a licensed clinician '
+    +  'before changing it.</p>'
+    +  '<p class="foot">The Body Temple Spa · 2350 Prince Ave, Athens, GA · (959) 400-9242</p>'
+    +  '</section>';
+
+  var rep = document.getElementById('report');
+  rep.innerHTML = h;
+  rep.hidden = false;
+  document.getElementById('loader').hidden  = true;
+  document.getElementById('toolbar').hidden = false;
+}
+
+function load(raw){
+  var err = document.getElementById('loadErr');
+  err.textContent = '';
+  var d;
+  try { d = JSON.parse(raw); } catch(e){ err.textContent = 'That is not valid JSON.'; return false; }
+  if(!d || !d.internal){ err.textContent = 'That submission has no scoring in it.'; return false; }
+  build(d);
+  return true;
+}
+
+document.getElementById('loadBtn').addEventListener('click', function(){
+  load(document.getElementById('jsonIn').value.trim());
+});
+document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+['dragover','drop'].forEach(function(ev){
+  document.addEventListener(ev, function(e){
+    e.preventDefault();
+    if(ev !== 'drop') return;
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if(!f) return;
+    var r = new FileReader();
+    r.onload = function(){ load(String(r.result)); };
+    r.readAsText(f);
+  });
+});
+
+// The intake stores the submission here, so a client arriving straight
+// from the form never sees the paste box.
+try {
+  var saved = localStorage.getItem('btspa_intake_result_v1');
+  if(saved) load(saved);
+} catch(e){}
+})();
+</script>
+</body>
+</html>
