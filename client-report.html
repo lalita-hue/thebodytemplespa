@@ -403,12 +403,50 @@ document.getElementById('printBtn').addEventListener('click', function(){ window
   });
 });
 
-// The intake stores the submission here, so a client arriving straight
-// from the form never sees the paste box.
-try {
-  var saved = localStorage.getItem('btspa_intake_result_v1');
-  if(saved) load(saved);
-} catch(e){}
+/* ── Where the data comes from, in order ────────────────────────────────
+   1. ?r= on the URL. This is what an emailed link carries: just the name,
+      the date and the seven numbers, so it stays short enough to send.
+   2. localStorage, for a client who walked straight here from the form.
+   3. The paste box, for a coach opening someone else's submission.
+   ──────────────────────────────────────────────────────────────────── */
+function b64urlDecode(t){
+  t = t.replace(/-/g,'+').replace(/_/g,'/');
+  while(t.length % 4) t += '=';
+  var bin = atob(t), bytes = new Uint8Array(bin.length);
+  for(var i=0;i<bin.length;i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
+function fromLink(token){
+  var o = JSON.parse(b64urlDecode(token));      // { n, d, s:[7 values] }
+  var S = {};
+  SYSTEMS.forEach(function(sy, i){
+    var v = o.s && o.s[i];
+    S[sy.key] = (v === null || v === undefined)
+      ? { calculated:false, normalized:null }
+      : { calculated:true,  normalized:v };
+  });
+  return {
+    full_name : o.n || '',
+    signed_at : o.d || '',
+    internal  : { section_scores:S, review_flags:{} }
+  };
+}
+
+var params = new URLSearchParams(location.search);
+var token  = params.get('r');
+if(token){
+  try { build(fromLink(token)); }
+  catch(e){
+    document.getElementById('loadMsg').textContent =
+      'That report link looks damaged. Ask the spa to resend it, or paste your submission below.';
+  }
+} else {
+  try {
+    var saved = localStorage.getItem('btspa_intake_result_v1');
+    if(saved) load(saved);
+  } catch(e){}
+}
 })();
 </script>
 </body>

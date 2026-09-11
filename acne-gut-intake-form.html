@@ -351,7 +351,11 @@ h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.15; margin:0}
 var CONFIG = {
   webhookUrl : '',                      // ← PASTE YOUR GHL WEBHOOK URL HERE
   source     : 'acne-gut-intake',
-  reportUrl  : 'client-report.html',  // where the results report lives
+  // Where the report page lives. The relative path is fine for the button
+  // on the results screen; the ABSOLUTE one is what goes in an email, so
+  // set reportBase before you turn the automation on.
+  reportUrl  : 'client-report.html',
+  reportBase : '',   // e.g. 'https://thebodytemplespas.com/report'
   storageKey : 'btspa_intake_v1'
 };
 
@@ -1063,6 +1067,72 @@ submitBtn.addEventListener('click', function(){
   });
   var scores = sectionScores();
   var flags  = reviewFlags();
+
+  /* The seven domains the client report plots, in the order it plots them. */
+  var DOMAIN_KEYS = ['blood_sugar','inflammation','detox','hormones',
+                     'absorption','circulation','stress'];
+  var DOMAIN_NAMES = ['Energy & Blood Sugar','Immune & Inflammation',
+                      'Detoxification & Drainage','Hormonal System',
+                      'Digestive & Nutrient Absorption','Heart & Circulation',
+                      'Brain, Nervous System & Stress'];
+  var REPORT_BANDS = [[20,'Optimal Cellular Balance'],[47,'Early Cellular Dysfunction'],
+                      [74,'High Cellular Dysfunction'],[100,'Critical Cellular Stress']];
+  function reportBand(p){
+    for(var i=0;i<REPORT_BANDS.length;i++) if(p <= REPORT_BANDS[i][0]) return REPORT_BANDS[i][1];
+    return REPORT_BANDS[3][1];
+  }
+  var domainVals = DOMAIN_KEYS.map(function(k){
+    var sc = scores[k];
+    return (sc && sc.calculated) ? Math.round(sc.normalized) : null;
+  });
+
+  function b64urlEncode(str){
+    var bytes = new TextEncoder().encode(str), bin = '';
+    bytes.forEach(function(b){ bin += String.fromCharCode(b); });
+    return btoa(bin).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  }
+  // Only the name, the date and the seven numbers travel in the link —
+  // never the answers. Short enough to email, and it carries nothing the
+  // client did not already see on their own screen.
+  var reportToken = b64urlEncode(JSON.stringify({
+    n: data.full_name || data.client_name || '',
+    d: data.signature_date || '',
+    s: domainVals
+  }));
+  var base = CONFIG.reportBase || CONFIG.reportUrl;
+  var reportUrl = base + (base.indexOf('?') > -1 ? '&' : '?') + 'r=' + reportToken;
+
+  function joinOr(list, empty){
+    if(!list || !list.length) return empty;
+    return list.map(function(x){
+      return (x && typeof x === 'object') ? x.question : x;
+    }).join('; ');
+  }
+  var urgent = urgentFlags(flags);
+
+  /* Flat, already-worded strings so a GoHighLevel email template can merge
+     them straight in — no nested lookups, no formatting in the template. */
+  var merge = {
+    client_name   : data.full_name || data.client_name || '',
+    client_first  : (data.full_name || data.client_name || '').split(' ')[0] || '',
+    client_email  : data.email || '',
+    client_phone  : data.phone || '',
+    signed_at     : data.signature_date || '',
+    answered      : String(answered) + ' of ' + String(totalQs),
+    report_url    : reportUrl,
+    needs_urgent_review : urgent.length ? 'YES' : 'No',
+    urgent_flags        : joinOr(urgent, 'None'),
+    medication_flags    : joinOr(flags.medications_reported, 'None'),
+    coordination_flags  : joinOr(flags.clinician_coordination, 'None'),
+    acne_review         : joinOr(flags.acne_needs_review, 'None'),
+    top_scored_count    : String((flags.severe_symptoms || []).length)
+  };
+  DOMAIN_KEYS.forEach(function(k, i){
+    var v = domainVals[i];
+    merge['domain_' + k] = (v == null)
+      ? 'Not scored — under 80% answered'
+      : v + '% · ' + reportBand(v);
+  });
   var calculated = 0, skipped = 0;
   Object.keys(scores).forEach(function(k){ scores[k].calculated ? calculated++ : skipped++; });
 
@@ -1075,6 +1145,8 @@ submitBtn.addEventListener('click', function(){
     phone           : data.phone || '',
     signed_by       : data.signature_name || '',
     signed_at       : data.signature_date || '',
+    report_url      : reportUrl,
+    merge           : merge,
     answered_count  : answered,
     question_count  : totalQs,
     // Internal, for the coach report. Not shown on the client's screen.
@@ -1177,7 +1249,7 @@ function showResults(payload, flags){
     +  'that needs clarifying. Nothing here is a diagnosis, and no result is calculated for '
     +  'you to interpret on your own — the patterns are for the two of you to talk through.</p>'
     +  '<p class="result-actions">'
-    +  '<a class="btn" href="' + CONFIG.reportUrl + '">See your cellular health report</a> '
+    +  '<a class="btn" href="' + esc(payload.report_url) + '">See your cellular health report</a> '
     +  '<button class="btn btn--ghost" type="button" id="printBtn">Print or save my answers</button>'
     +  '</p>'
     +  '<p class="result-fine">A copy of your answers stays saved in this browser. '

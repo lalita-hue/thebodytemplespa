@@ -1,0 +1,74 @@
+<!-- ═══════════════════════════════════════════════════════════════════
+     CLIENT EMAIL — paste into a GoHighLevel email action, source/code view.
+
+     Merge fields come from the Inbound Webhook trigger. If your workflow
+     shows them under a different prefix, swap {{inboundWebhookRequest.…}}
+     for whatever the trigger's "copy" button gives you — the field names
+     after "merge." stay the same.
+     ═══════════════════════════════════════════════════════════════════ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background:#F4EFE9;margin:0;padding:28px 12px;font-family:'Poppins',Helvetica,Arial,sans-serif">
+  <tr><td align="center">
+    <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0"
+           style="max-width:600px;width:100%;background:#FDF5EC;border:1px solid rgba(31,24,21,.12)">
+
+      <tr><td style="padding:30px 34px 0">
+        <p style="margin:0 0 22px;font-size:11px;font-weight:600;letter-spacing:2.6px;
+                  text-transform:uppercase;color:#C85A28">The Body Temple Spa</p>
+        <h1 style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-size:30px;
+                   line-height:1.15;font-weight:600;color:#1F1815">
+          Your cellular health report is ready
+        </h1>
+        <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:#3a322c">
+          Hi {{inboundWebhookRequest.merge.client_first}}, thank you for taking the time — that
+          was a long form and you answered {{inboundWebhookRequest.merge.answered}} questions.
+        </p>
+        <p style="margin:0 0 24px;font-size:15px;line-height:1.6;color:#3a322c">
+          Your report shows where your body is asking for support first, across seven systems.
+          It is a starting point for our conversation, not a verdict — and not a diagnosis.
+        </p>
+      </td></tr>
+
+      <tr><td align="center" style="padding:0 34px 28px">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td align="center" style="background:#C85A28;border-radius:100px">
+            <a href="{{inboundWebhookRequest.merge.report_url}}"
+               style="display:inline-block;padding:15px 34px;font-size:15px;font-weight:600;
+                      color:#ffffff;text-decoration:none">
+              See my report
+            </a>
+          </td>
+        </tr></table>
+        <p style="margin:14px 0 0;font-size:12px;color:#7a7570">
+          The link opens in your browser. You can print it or save it as a PDF from there.
+        </p>
+      </td></tr>
+
+      <tr><td style="padding:0 34px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               style="background:#F4EFE9;border-left:3px solid #E6D8C3">
+          <tr><td style="padding:14px 16px">
+            <p style="margin:0;font-size:13px;line-height:1.6;color:#3a322c">
+              <b style="color:#1F1815">Before we meet.</b> Keep taking anything you have been
+              prescribed, exactly as prescribed. Please speak to a licensed clinician before
+              changing it. If something feels urgent — chest pain, trouble breathing, heavy
+              bleeding, severe pain — contact a clinician or emergency services now rather than
+              waiting for your appointment.
+            </p>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <tr><td style="padding:24px 34px 32px">
+        <p style="margin:0 0 6px;font-size:14px;line-height:1.6;color:#3a322c">
+          Any questions before your visit, just reply to this email or call us.
+        </p>
+        <p style="margin:0;font-size:13px;line-height:1.7;color:#7a7570">
+          The Body Temple Spa · 2350 Prince Ave, Athens, GA 30606<br>
+          <a href="tel:+19594009242" style="color:#A8481E;text-decoration:none">(959) 400-9242</a>
+        </p>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>

@@ -1,0 +1,100 @@
+<!-- ═══════════════════════════════════════════════════════════════════
+     INTERNAL EMAIL — to the coach, not the client.
+
+     Subject line to use in GoHighLevel:
+       Intake: {{inboundWebhookRequest.merge.client_name}} — urgent review: {{inboundWebhookRequest.merge.needs_urgent_review}}
+
+     Contains health information. Send it only to staff addresses.
+     ═══════════════════════════════════════════════════════════════════ -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+       style="background:#F4EFE9;margin:0;padding:24px 12px;font-family:'Poppins',Helvetica,Arial,sans-serif">
+  <tr><td align="center">
+    <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0"
+           style="max-width:640px;width:100%;background:#ffffff;border:1px solid rgba(31,24,21,.12)">
+
+      <tr><td style="background:#2B2118;padding:9px 20px">
+        <p style="margin:0;font-size:11px;font-weight:600;letter-spacing:2.2px;
+                  text-transform:uppercase;color:#F4EFE9;text-align:center">
+          Internal · not a diagnosis · do not forward to the client
+        </p>
+      </td></tr>
+
+      <tr><td style="padding:26px 28px 0">
+        <h1 style="margin:0 0 4px;font-family:Georgia,serif;font-size:25px;font-weight:600;color:#1F1815">
+          {{inboundWebhookRequest.merge.client_name}}
+        </h1>
+        <p style="margin:0 0 20px;font-size:13px;color:#7a7570">
+          Signed {{inboundWebhookRequest.merge.signed_at}} ·
+          {{inboundWebhookRequest.merge.answered}} answered ·
+          {{inboundWebhookRequest.merge.client_email}} ·
+          {{inboundWebhookRequest.merge.client_phone}}
+        </p>
+      </td></tr>
+
+      <tr><td style="padding:0 28px 20px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               style="background:#FDF3F2;border:1px solid rgba(150,37,28,.3)">
+          <tr><td style="padding:14px 16px">
+            <p style="margin:0 0 7px;font-size:14px;font-weight:700;color:#96251C">
+              Needs urgent review: {{inboundWebhookRequest.merge.needs_urgent_review}}
+            </p>
+            <p style="margin:0;font-size:13px;line-height:1.6;color:#3a322c">
+              {{inboundWebhookRequest.merge.urgent_flags}}
+            </p>
+          </td></tr>
+        </table>
+      </td></tr>
+
+      <tr><td style="padding:0 28px 8px">
+        <p style="margin:0 0 9px;font-size:12px;font-weight:700;letter-spacing:1.2px;
+                  text-transform:uppercase;color:#7a7570">Cellular health domains</p>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"
+               style="font-size:13px;border-collapse:collapse">
+          <tr><td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1)">Energy &amp; Blood Sugar</td>
+              <td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1);font-weight:600">{{inboundWebhookRequest.merge.domain_blood_sugar}}</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1)">Immune &amp; Inflammation</td>
+              <td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1);font-weight:600">{{inboundWebhookRequest.merge.domain_inflammation}}</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1)">Detoxification &amp; Drainage</td>
+              <td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1);font-weight:600">{{inboundWebhookRequest.merge.domain_detox}}</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1)">Hormonal System</td>
+              <td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1);font-weight:600">{{inboundWebhookRequest.merge.domain_hormones}}</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1)">Digestive &amp; Nutrient Absorption</td>
+              <td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1);font-weight:600">{{inboundWebhookRequest.merge.domain_absorption}}</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1)">Heart &amp; Circulation</td>
+              <td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1);font-weight:600">{{inboundWebhookRequest.merge.domain_circulation}}</td></tr>
+          <tr><td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1)">Brain, Nervous System &amp; Stress</td>
+              <td style="padding:8px 10px;border:1px solid rgba(31,24,21,.1);font-weight:600">{{inboundWebhookRequest.merge.domain_stress}}</td></tr>
+        </table>
+      </td></tr>
+
+      <tr><td style="padding:18px 28px 0">
+        <p style="margin:0 0 9px;font-size:12px;font-weight:700;letter-spacing:1.2px;
+                  text-transform:uppercase;color:#7a7570">Review flags</p>
+        <p style="margin:0 0 7px;font-size:13px;line-height:1.6;color:#3a322c">
+          <b>Medications reported:</b> {{inboundWebhookRequest.merge.medication_flags}}</p>
+        <p style="margin:0 0 7px;font-size:13px;line-height:1.6;color:#3a322c">
+          <b>Clinician coordination:</b> {{inboundWebhookRequest.merge.coordination_flags}}</p>
+        <p style="margin:0 0 7px;font-size:13px;line-height:1.6;color:#3a322c">
+          <b>Acne needing review:</b> {{inboundWebhookRequest.merge.acne_review}}</p>
+        <p style="margin:0 0 18px;font-size:13px;line-height:1.6;color:#3a322c">
+          <b>Answered at top of scale:</b> {{inboundWebhookRequest.merge.top_scored_count}} questions</p>
+      </td></tr>
+
+      <tr><td style="padding:0 28px 28px">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
+          <td style="background:#C85A28;border-radius:100px">
+            <a href="{{inboundWebhookRequest.merge.report_url}}"
+               style="display:inline-block;padding:13px 28px;font-size:14px;font-weight:600;
+                      color:#ffffff;text-decoration:none">Open the client's report</a>
+          </td>
+        </tr></table>
+        <p style="margin:14px 0 0;font-size:12px;line-height:1.6;color:#7a7570">
+          For full scoring — every section, the 80% completion rule, and the coach worksheet —
+          open <b>coach-report.html</b> and paste the submission JSON from this workflow's
+          execution log.
+        </p>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>
