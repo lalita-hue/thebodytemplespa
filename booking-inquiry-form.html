@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book a Visit — The Body Temple Spa</title>
+<meta name="robots" content="noindex">
+<style>
+  body{margin:0;background:#FEFAF0;padding:40px 16px}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     PASTE EVERYTHING BELOW THIS LINE INTO A GOHIGHLEVEL CUSTOM CODE
+     ELEMENT. Set the webhook URL in the CONFIG block near the bottom.
+     ═══════════════════════════════════════════════════════════════════ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* Scoped to .btspa so these never collide with the GHL builder's own
+   variables. Colors and type match the service landing pages exactly. */
+.btspa{
+  --bg:#FEFAF0; --cream:#E6D8C3; --cream-soft:#F4EFE9; --cream-deep:#D9C7AC;
+  --orange:#FD6932; --orange-light:#F6AD55; --orange-deep:#D8501E;
+  --ink:#1F1815; --ink-soft:#3a322c; --muted:#7a7570; --black:#0F0E0C;
+  --line:rgba(31,24,21,.12);
+  --err:#B3261E;
+  --shadow-sm:0 2px 8px rgba(31,24,21,.06);
+  --shadow-md:0 8px 28px rgba(31,24,21,.10);
+  --shadow-btn:0 4px 12px rgba(31,24,21,.14);
+  --radius-sm:5px; --radius-pill:100px; --radius-lg:14px;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+
+  font-family:var(--sans); color:var(--ink); line-height:1.6; font-size:16px;
+  max-width:620px; margin:0 auto; -webkit-font-smoothing:antialiased;
+}
+.btspa *,.btspa *::before,.btspa *::after{box-sizing:border-box}
+
+.btspa__card{
+  background:var(--bg); border:1px solid var(--line); border-radius:var(--radius-lg);
+  padding:clamp(24px,5vw,44px); box-shadow:var(--shadow-md);
+}
+.btspa__eyebrow{
+  font-size:.78rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--orange); margin:0 0 12px; display:block;
+}
+.btspa__title{
+  font-family:var(--serif); font-weight:600; line-height:1.15; letter-spacing:-.005em;
+  font-size:clamp(1.75rem,4vw,2.4rem); margin:0 0 10px; color:var(--ink);
+}
+.btspa__sub{ color:var(--ink-soft); margin:0 0 28px; font-size:.96rem; }
+
+.btspa__row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media(max-width:520px){ .btspa__row{ grid-template-columns:1fr } }
+
+.btspa__field{ margin-bottom:18px; }
+.btspa__label{
+  display:block; font-size:.83rem; font-weight:600; letter-spacing:.02em;
+  margin-bottom:7px; color:var(--ink);
+}
+.btspa__req{ color:var(--orange); margin-left:2px; }
+.btspa__hint{ display:block; font-weight:400; font-size:.78rem; color:var(--muted); margin-top:3px; }
+
+.btspa__input,.btspa__select,.btspa__textarea{
+  width:100%; font-family:var(--sans); font-size:1rem; color:var(--ink);
+  background:#fff; border:1.5px solid var(--line); border-radius:var(--radius-sm);
+  padding:13px 14px; transition:border-color .2s ease, box-shadow .2s ease;
+  -webkit-appearance:none; appearance:none;
+}
+.btspa__textarea{ min-height:110px; resize:vertical; line-height:1.5; }
+.btspa__select{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a7570' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 12px center; background-size:18px;
+  padding-right:40px; cursor:pointer;
+}
+.btspa__input:focus,.btspa__select:focus,.btspa__textarea:focus{
+  outline:none; border-color:var(--orange); box-shadow:0 0 0 3px rgba(253,105,50,.16);
+}
+.btspa__input::placeholder,.btspa__textarea::placeholder{ color:#b5afa8; }
+
+.btspa__input[aria-invalid="true"],
+.btspa__select[aria-invalid="true"],
+.btspa__textarea[aria-invalid="true"]{ border-color:var(--err); }
+.btspa__input[aria-invalid="true"]:focus,
+.btspa__select[aria-invalid="true"]:focus,
+.btspa__textarea[aria-invalid="true"]:focus{ box-shadow:0 0 0 3px rgba(179,38,30,.14); }
+
+.btspa__error{
+  display:none; color:var(--err); font-size:.8rem; font-weight:500; margin-top:6px;
+}
+.btspa__error.is-shown{ display:block; }
+
+.btspa__consent{
+  display:flex; gap:11px; align-items:flex-start;
+  background:var(--cream-soft); border:1px solid var(--line);
+  border-radius:var(--radius-sm); padding:14px 15px; margin:22px 0 24px;
+}
+.btspa__checkbox{
+  flex:0 0 auto; width:19px; height:19px; margin:2px 0 0; cursor:pointer;
+  accent-color:var(--orange);
+}
+.btspa__consent-text{ font-size:.82rem; line-height:1.55; color:var(--ink-soft); }
+.btspa__consent-text a{ color:var(--orange-deep); text-decoration:underline; }
+
+.btspa__submit{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  width:100%; padding:17px 32px; font-family:var(--sans); font-weight:600;
+  font-size:.95rem; letter-spacing:.01em; line-height:1.3; cursor:pointer;
+  background:var(--cream); color:var(--ink);
+  border:2px solid var(--orange); border-radius:var(--radius-pill);
+  box-shadow:var(--shadow-btn); transition:all .25s ease;
+}
+.btspa__submit:hover:not(:disabled){
+  background:var(--orange); color:#fff; border-color:var(--orange-deep);
+  transform:translateY(-2px); box-shadow:var(--shadow-md);
+}
+.btspa__submit:disabled{ opacity:.6; cursor:not-allowed; transform:none; }
+.btspa__arrow{ transition:transform .25s ease; }
+.btspa__submit:hover:not(:disabled) .btspa__arrow{ transform:translateX(3px); }
+
+.btspa__footnote{
+  text-align:center; font-size:.79rem; color:var(--muted); margin:16px 0 0;
+}
+.btspa__footnote a{ color:var(--ink-soft); text-decoration:underline; }
+
+/* Honeypot — hidden from people, visible to naive bots */
+.btspa__trap{
+  position:absolute!important; width:1px; height:1px; overflow:hidden;
+  clip:rect(0 0 0 0); white-space:nowrap;
+}
+
+.btspa__formerror{
+  display:none; background:#FDECEA; border:1px solid rgba(179,38,30,.28);
+  color:#7d1a15; border-radius:var(--radius-sm); padding:13px 15px;
+  font-size:.86rem; margin-bottom:20px;
+}
+.btspa__formerror.is-shown{ display:block; }
+
+/* Success panel */
+.btspa__success{ display:none; text-align:center; padding:14px 0 6px; }
+.btspa__success.is-shown{ display:block; }
+.btspa__check{
+  width:62px; height:62px; margin:0 auto 20px; border-radius:50%;
+  background:var(--orange); display:flex; align-items:center; justify-content:center;
+}
+.btspa__success h3{
+  font-family:var(--serif); font-weight:600; font-size:clamp(1.5rem,3.4vw,1.95rem);
+  margin:0 0 10px; color:var(--ink); line-height:1.15;
+}
+.btspa__success p{ color:var(--ink-soft); margin:0 0 8px; font-size:.95rem; }
+.btspa__success .btspa__call{
+  display:inline-block; margin-top:16px; font-weight:600; color:var(--orange-deep);
+  text-decoration:none; border-bottom:1.5px solid currentColor; padding-bottom:1px;
+}
+
+@media(prefers-reduced-motion:reduce){
+  .btspa *{ transition:none!important; }
+  .btspa__submit:hover:not(:disabled){ transform:none; }
+}
+</style>
+
+<div class="btspa">
+  <div class="btspa__card">
+
+    <form class="btspa__form" id="btspaForm" novalidate>
+      <span class="btspa__eyebrow">The Body Temple Spa</span>
+      <h2 class="btspa__title">Book your visit</h2>
+      <p class="btspa__sub">Tell us what you're after and we'll reach out within one business day to get you scheduled.</p>
+
+      <div class="btspa__formerror" id="btspaFormError" role="alert"></div>
+
+      <div class="btspa__row">
+        <div class="btspa__field">
+          <label class="btspa__label" for="btspa-first">First name<span class="btspa__req">*</span></label>
+          <input class="btspa__input" type="text" id="btspa-first" name="first_name"
+                 autocomplete="given-name" placeholder="Jane"
+                 aria-describedby="btspa-first-err" required>
+          <span class="btspa__error" id="btspa-first-err"></span>
+        </div>
+        <div class="btspa__field">
+          <label class="btspa__label" for="btspa-last">Last name<span class="btspa__req">*</span></label>
+          <input class="btspa__input" type="text" id="btspa-last" name="last_name"
+                 autocomplete="family-name" placeholder="Doe"
+                 aria-describedby="btspa-last-err" required>
+          <span class="btspa__error" id="btspa-last-err"></span>
+        </div>
+      </div>
+
+      <div class="btspa__row">
+        <div class="btspa__field">
+          <label class="btspa__label" for="btspa-email">Email<span class="btspa__req">*</span></label>
+          <input class="btspa__input" type="email" id="btspa-email" name="email"
+                 autocomplete="email" inputmode="email" placeholder="jane@example.com"
+                 aria-describedby="btspa-email-err" required>
+          <span class="btspa__error" id="btspa-email-err"></span>
+        </div>
+        <div class="btspa__field">
+          <label class="btspa__label" for="btspa-phone">Phone<span class="btspa__req">*</span></label>
+          <input class="btspa__input" type="tel" id="btspa-phone" name="phone"
+                 autocomplete="tel" inputmode="tel" placeholder="(706) 555-0142"
+                 maxlength="14" aria-describedby="btspa-phone-err" required>
+          <span class="btspa__error" id="btspa-phone-err"></span>
+        </div>
+      </div>
+
+      <div class="btspa__field">
+        <label class="btspa__label" for="btspa-service">What are you interested in?<span class="btspa__req">*</span></label>
+        <select class="btspa__select" id="btspa-service" name="service"
+                aria-describedby="btspa-service-err" required>
+          <option value="">Choose a service…</option>
+          <option>Facials &amp; Skincare</option>
+          <option>Lymphatic Drainage Massage</option>
+          <option>Body Contouring &amp; Sculpting</option>
+          <option>Waxing</option>
+          <option>Permanent Makeup</option>
+          <option>Lashes</option>
+          <option>Academy / Professional Training</option>
+          <option>Not sure yet — help me choose</option>
+        </select>
+        <span class="btspa__error" id="btspa-service-err"></span>
+      </div>
+
+      <div class="btspa__row">
+        <div class="btspa__field">
+          <label class="btspa__label" for="btspa-when">Best time to reach you</label>
+          <select class="btspa__select" id="btspa-when" name="preferred_time">
+            <option value="">No preference</option>
+            <option>Weekday mornings</option>
+            <option>Weekday afternoons</option>
+            <option>Weekday evenings</option>
+            <option>Saturday</option>
+          </select>
+        </div>
+        <div class="btspa__field">
+          <label class="btspa__label" for="btspa-heard">How did you hear about us?</label>
+          <select class="btspa__select" id="btspa-heard" name="how_heard">
+            <option value="">Select…</option>
+            <option>Google search</option>
+            <option>Instagram</option>
+            <option>Facebook</option>
+            <option>Friend or family referral</option>
+            <option>Walked or drove by</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="btspa__field">
+        <label class="btspa__label" for="btspa-message">
+          Anything we should know?
+          <span class="btspa__hint">Skin concerns, recent surgery, allergies, questions — all helpful, all optional.</span>
+        </label>
+        <textarea class="btspa__textarea" id="btspa-message" name="message"
+                  placeholder="Optional"></textarea>
+      </div>
+
+      <!-- spam trap: never filled by a person -->
+      <div class="btspa__trap" aria-hidden="true">
+        <label for="btspa-company">Company</label>
+        <input type="text" id="btspa-company" name="company" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="btspa__consent">
+        <input class="btspa__checkbox" type="checkbox" id="btspa-consent" name="consent"
+               aria-describedby="btspa-consent-err" required>
+        <label class="btspa__consent-text" for="btspa-consent">
+          I agree to receive calls, texts and emails from The Body Temple Spa about my
+          inquiry and appointments. Message and data rates may apply. Reply STOP to
+          opt out at any time. See our <a href="privacy.html">Privacy Policy</a>.
+        </label>
+      </div>
+      <span class="btspa__error" id="btspa-consent-err" style="margin-top:-18px;margin-bottom:18px"></span>
+
+      <button class="btspa__submit" type="submit" id="btspaSubmit">
+        <span id="btspaSubmitText">Request My Appointment</span>
+        <span class="btspa__arrow" aria-hidden="true">→</span>
+      </button>
+
+      <p class="btspa__footnote">
+        Prefer to talk? Call <a href="tel:+19594009242">(959) 400-9242</a>.
+      </p>
+    </form>
+
+    <div class="btspa__success" id="btspaSuccess" role="status" aria-live="polite">
+      <div class="btspa__check" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff"
+             stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </div>
+      <h3>We've got it, <span id="btspaName">friend</span>.</h3>
+      <p>Your request is in. Someone from the spa will reach out within one business day to find a time that works.</p>
+      <p>Keep an eye on your phone and your inbox — check spam just in case.</p>
+      <a class="btspa__call" href="tel:+19594009242">Need us sooner? Call (959) 400-9242</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ═══════════════════════════════════════════════════════════════
+     CONFIG — the only part you need to edit.
+
+     1. In GoHighLevel: Automation → Workflows → Create Workflow →
+        Add Trigger → "Inbound Webhook". Copy the URL it gives you.
+     2. Paste that URL between the quotes on the webhookUrl line below.
+     3. In that same workflow, add a "Create/Update Contact" action and
+        map the incoming fields (they arrive with the exact names listed
+        in the FIELDS NOTE at the bottom of this file).
+
+     Leave redirectUrl empty to show the inline thank-you panel instead
+     of sending people to a separate page.
+     ═══════════════════════════════════════════════════════════════ */
+  var CONFIG = {
+    webhookUrl : '',                     // ← PASTE YOUR GHL WEBHOOK URL HERE
+    redirectUrl: '',                     // e.g. 'thank-you.html' — optional
+    source     : 'site-booking-inquiry'  // shows up on the contact in GHL
+  };
+
+  var form        = document.getElementById('btspaForm');
+  var successEl   = document.getElementById('btspaSuccess');
+  var submitBtn   = document.getElementById('btspaSubmit');
+  var submitText  = document.getElementById('btspaSubmitText');
+  var formError   = document.getElementById('btspaFormError');
+  if(!form) return;
+
+  var loadedAt = Date.now();
+  var started  = false;
+
+  /* ── dataLayer, matching the landing pages' pattern ── */
+  function dl(o){
+    try { (window.dataLayer = window.dataLayer || []).push(o); } catch(e){}
+  }
+
+  /* ── Attribution: same sessionStorage key the landing pages use, so a
+        visitor who arrives on a UTM'd page keeps their source here ── */
+  function attribution(){
+    var live = {};
+    try {
+      var p = new URLSearchParams(window.location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid']
+        .forEach(function(k){ if(p.get(k)) live[k] = p.get(k); });
+      if(Object.keys(live).length){
+        sessionStorage.setItem('btw_attr', JSON.stringify(live));
+        return live;
+      }
+      return JSON.parse(sessionStorage.getItem('btw_attr') || '{}');
+    } catch(e){ return live; }
+  }
+
+  /* ── Validation ── */
+  var RULES = {
+    'btspa-first'  : { msg:'Please enter your first name.',
+                       test:function(v){ return v.trim().length >= 2; } },
+    'btspa-last'   : { msg:'Please enter your last name.',
+                       test:function(v){ return v.trim().length >= 2; } },
+    'btspa-email'  : { msg:'Please enter a valid email address.',
+                       test:function(v){ return /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v.trim()); } },
+    'btspa-phone'  : { msg:'Please enter a 10-digit phone number.',
+                       test:function(v){ return v.replace(/\D/g,'').length === 10; } },
+    'btspa-service': { msg:'Please choose what you are interested in.',
+                       test:function(v){ return v !== ''; } },
+    'btspa-consent': { msg:'Please check the box so we can contact you.',
+                       test:function(v,el){ return el.checked; } }
+  };
+
+  function setError(id, message){
+    var el  = document.getElementById(id);
+    var err = document.getElementById(id + '-err');
+    if(!el || !err) return;
+    if(message){
+      err.textContent = message;
+      err.classList.add('is-shown');
+      el.setAttribute('aria-invalid','true');
+    } else {
+      err.textContent = '';
+      err.classList.remove('is-shown');
+      el.removeAttribute('aria-invalid');
+    }
+  }
+
+  function checkField(id){
+    var el = document.getElementById(id);
+    var r  = RULES[id];
+    if(!el || !r) return true;
+    var ok = r.test(el.value, el);
+    setError(id, ok ? '' : r.msg);
+    return ok;
+  }
+
+  Object.keys(RULES).forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    // Validate on blur, then live-correct once it has been flagged.
+    el.addEventListener('blur', function(){ checkField(id); });
+    el.addEventListener('change', function(){
+      if(el.getAttribute('aria-invalid') === 'true') checkField(id);
+    });
+    el.addEventListener('input', function(){
+      if(el.getAttribute('aria-invalid') === 'true') checkField(id);
+    });
+  });
+
+  /* ── Phone formatting as you type: (706) 555-0142 ── */
+  var phone = document.getElementById('btspa-phone');
+  if(phone){
+    phone.addEventListener('input', function(){
+      var d = phone.value.replace(/\D/g,'').slice(0,10);
+      phone.value = d.length > 6 ? '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6)
+                  : d.length > 3 ? '(' + d.slice(0,3) + ') ' + d.slice(3)
+                  : d.length     ? '(' + d
+                  : '';
+    });
+  }
+
+  /* ── First interaction fires form_start once ── */
+  form.addEventListener('input', function(){
+    if(started) return;
+    started = true;
+    dl({ event:'form_start', form_name:'Booking Inquiry', source:CONFIG.source });
+  }, { once:false });
+
+  /* ── Submit ── */
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    formError.classList.remove('is-shown');
+
+    var firstBad = null;
+    Object.keys(RULES).forEach(function(id){
+      if(!checkField(id) && !firstBad) firstBad = id;
+    });
+
+    if(firstBad){
+      dl({ event:'form_error', form_name:'Booking Inquiry', first_invalid_field:firstBad });
+      var el = document.getElementById(firstBad);
+      if(el){ el.focus(); el.scrollIntoView({ block:'center', behavior:'smooth' }); }
+      return;
+    }
+
+    // Honeypot: only a bot fills a field people cannot see. Fail silently
+    // so it learns nothing from the response.
+    var trap = document.getElementById('btspa-company');
+    if(trap && trap.value){
+      showSuccess();
+      return;
+    }
+
+    // Speed is a hint, not a verdict. Browser autofill can legitimately
+    // fill this form in a couple of seconds, and silently dropping a real
+    // booking costs far more than letting one junk lead through. So we
+    // flag it and still deliver it — filter on this field in GHL if the
+    // spam ever gets noisy.
+    var fastSubmit = (Date.now() - loadedAt) < 2500;
+
+    var payload = {
+      first_name    : document.getElementById('btspa-first').value.trim(),
+      last_name     : document.getElementById('btspa-last').value.trim(),
+      email         : document.getElementById('btspa-email').value.trim(),
+      phone         : '+1' + phone.value.replace(/\D/g,''),
+      service       : document.getElementById('btspa-service').value,
+      preferred_time: document.getElementById('btspa-when').value,
+      how_heard     : document.getElementById('btspa-heard').value,
+      message       : document.getElementById('btspa-message').value.trim(),
+      consent       : true,
+      suspected_bot : fastSubmit,
+      source        : CONFIG.source,
+      page_url      : location.href,
+      page_path     : location.pathname,
+      referrer      : document.referrer || '',
+      submitted_at  : new Date().toISOString()
+    };
+    var a = attribution();
+    Object.keys(a).forEach(function(k){ payload[k] = a[k]; });
+
+    if(!CONFIG.webhookUrl){
+      formError.textContent = 'This form is not connected yet. Add your GoHighLevel '
+                            + 'webhook URL to the CONFIG block in the page code.';
+      formError.classList.add('is-shown');
+      formError.scrollIntoView({ block:'center', behavior:'smooth' });
+      if(window.console) console.warn('[btspa] CONFIG.webhookUrl is empty. Payload was:', payload);
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitText.textContent = 'Sending…';
+
+    fetch(CONFIG.webhookUrl, {
+      method  : 'POST',
+      headers : { 'Content-Type':'application/json' },
+      body    : JSON.stringify(payload)
+    })
+    .then(function(res){
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      dl({
+        event     : 'form_submission',
+        form_name : 'Booking Inquiry',
+        source    : CONFIG.source,
+        service   : payload.service,
+        page_path : payload.page_path
+      });
+      if(CONFIG.redirectUrl){ window.location.href = CONFIG.redirectUrl; return; }
+      showSuccess(payload.first_name);
+    })
+    .catch(function(err){
+      submitBtn.disabled = false;
+      submitText.textContent = 'Request My Appointment';
+      formError.innerHTML = 'Something went wrong sending your request. Please try again, '
+                          + 'or call us at <a href="tel:+19594009242">(959) 400-9242</a>.';
+      formError.classList.add('is-shown');
+      formError.scrollIntoView({ block:'center', behavior:'smooth' });
+      dl({ event:'form_error', form_name:'Booking Inquiry', reason:String(err && err.message) });
+    });
+  });
+
+  function showSuccess(name){
+    if(name){
+      var n = document.getElementById('btspaName');
+      if(n) n.textContent = name;
+    }
+    form.style.display = 'none';
+    successEl.classList.add('is-shown');
+    successEl.scrollIntoView({ block:'center', behavior:'smooth' });
+  }
+
+})();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FIELDS NOTE — what arrives at your GHL webhook, as JSON.
+
+     Map these in the workflow's "Create/Update Contact" action:
+
+       first_name       → Contact First Name
+       last_name        → Contact Last Name
+       email            → Contact Email
+       phone            → Contact Phone   (sent as +1XXXXXXXXXX, E.164)
+       consent          → true
+
+     Also sent:
+
+       suspected_bot    → true/false. True means the form was submitted
+                          in under 2.5 seconds, which usually means a bot
+                          but can also be browser autofill. The lead is
+                          still delivered — add a workflow condition on
+                          this field only if spam becomes a problem.
+
+     Create these as custom fields in Settings → Custom Fields:
+
+       service          → dropdown, the 8 options in the form
+       preferred_time   → dropdown
+       how_heard        → dropdown
+       message          → multi-line text
+       source           → single-line text
+       page_url         → single-line text
+       page_path        → single-line text
+       referrer         → single-line text
+       submitted_at     → single-line text
+
+     Present only when the visitor arrived with them (the form carries
+     them over from the landing pages via sessionStorage):
+
+       utm_source, utm_medium, utm_campaign, utm_term, utm_content,
+       gclid, fbclid
+
+     Tracking: pushes form_start, form_submission and form_error to
+     dataLayer, matching the event names already used on the facials
+     and lymphatic landing pages, so your GTM triggers pick it up
+     with no extra setup.
+
+     PASTE ENDS HERE.
+     ═══════════════════════════════════════════════════════════════════ -->
+
+</body>
+</html>
