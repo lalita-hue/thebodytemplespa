@@ -351,11 +351,14 @@ h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.15; margin:0}
 var CONFIG = {
   webhookUrl : '',                      // ← PASTE YOUR GHL WEBHOOK URL HERE
   source     : 'acne-gut-intake',
-  // Where the report page lives. The relative path is fine for the button
-  // on the results screen; the ABSOLUTE one is what goes in an email, so
-  // set reportBase before you turn the automation on.
-  reportUrl  : 'client-report.html',
-  reportBase : '',   // e.g. 'https://thebodytemplespas.com/report'
+  // Where the report page lives on this same site. An emailed link has to
+  // be absolute, so the form builds one from whatever domain it is served
+  // on — you only touch this if you named the page something else.
+  reportUrl  : 'client-report.html',   // fallback when opened as a local file
+  reportPath : '/acne-gut-final-report-page',
+  // Only needed if the report lives on a DIFFERENT domain to the form.
+  // Leave it empty otherwise.
+  reportBase : '',
   storageKey : 'btspa_intake_v1'
 };
 
@@ -1086,6 +1089,19 @@ submitBtn.addEventListener('click', function(){
     return (sc && sc.calculated) ? Math.round(sc.normalized) : null;
   });
 
+  /* An emailed link must be absolute. Served over http(s) we can build one
+     from this page's own origin, which is the same domain the report sits
+     on — so nothing has to be typed in and it can never be a stale preview
+     URL. Opened as a local file there is no origin to borrow, so fall back
+     to the relative path, which still works for the on-screen button. */
+  function reportBaseUrl(){
+    if(CONFIG.reportBase) return CONFIG.reportBase;
+    if(location.protocol === 'http:' || location.protocol === 'https:'){
+      return location.origin + CONFIG.reportPath;
+    }
+    return CONFIG.reportUrl;
+  }
+
   function b64urlEncode(str){
     var bytes = new TextEncoder().encode(str), bin = '';
     bytes.forEach(function(b){ bin += String.fromCharCode(b); });
@@ -1099,7 +1115,7 @@ submitBtn.addEventListener('click', function(){
     d: data.signature_date || '',
     s: domainVals
   }));
-  var base = CONFIG.reportBase || CONFIG.reportUrl;
+  var base = reportBaseUrl();
   var reportUrl = base + (base.indexOf('?') > -1 ? '&' : '?') + 'r=' + reportToken;
 
   function joinOr(list, empty){
