@@ -213,8 +213,8 @@ var SYSTEMS = [
    note they are a different scale from the five bands in the internal
    coach guide, which the coach report uses. */
 var BANDS = [
-  { max:20,  name:'Optimal Cellular Balance',  n:1, label:'≤ 20'    },
-  { max:47,  name:'Early Cellular Dysfunction', n:2, label:'21 – 47' },
+  { max:9,   name:'Optimal Cellular Balance',  n:1, label:'≤ 9'     },
+  { max:47,  name:'Early Cellular Dysfunction', n:2, label:'10 – 47' },
   { max:74,  name:'High Cellular Dysfunction',  n:3, label:'48 – 74' },
   { max:100, name:'Critical Cellular Stress',   n:4, label:'75 – 100'}
 ];
@@ -232,7 +232,7 @@ var esc = function(v){ var d=document.createElement('div'); d.textContent = v==n
 function radar(values, opts){
   opts = opts || {};
   var W = 520, H = 408, cx = W/2, cy = 202, R = 148;
-  var n = SYSTEMS.length, rings = [20,47,74,100];
+  var n = SYSTEMS.length, rings = [9,47,74,100];
   var stroke = opts.stroke || 'var(--terracotta)';
   var fill   = opts.fill   || 'rgba(200,90,40,.18)';
   var pt = function(i, v){
@@ -242,10 +242,19 @@ function radar(values, opts){
   var s = '<svg class="radar" viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'
         + esc(opts.alt || 'Radar chart of seven cellular systems') + '">';
 
-  rings.forEach(function(rv){
+  // The optimal zone is only 9% of the scale, so at true proportions it is a
+  // small shape. Shading it makes it legible as a target without pretending
+  // it is larger than it is.
+  var zone = [];
+  for(var zi=0; zi<n; zi++){ var zq = pt(zi, rings[0]); zone.push(zq[0].toFixed(1)+','+zq[1].toFixed(1)); }
+  s += '<polygon points="'+zone.join(' ')+'" fill="rgba(46,125,79,.16)" stroke="none"/>';
+
+  rings.forEach(function(rv, ri){
     var p = [];
     for(var i=0;i<n;i++){ var q = pt(i, rv); p.push(q[0].toFixed(1)+','+q[1].toFixed(1)); }
-    s += '<polygon points="'+p.join(' ')+'" fill="none" stroke="rgba(31,24,21,.13)" stroke-width="1"/>';
+    s += '<polygon points="'+p.join(' ')+'" fill="none" stroke="'
+      +  (ri === 0 ? 'var(--b1)' : 'rgba(31,24,21,.13)')
+      +  '" stroke-width="'+(ri === 0 ? '1.5' : '1')+'"/>';
   });
   for(var i=0;i<n;i++){
     var e = pt(i,100);
@@ -259,8 +268,8 @@ function radar(values, opts){
   });
 
   // Series: split into runs so unscored axes leave a genuine gap.
-  var pts = values.map(function(v,i){ return v==null ? null : pt(i,v); });
-  var closed = pts.every(function(p){ return p; });
+  var pts = (values || []).map(function(v,i){ return v==null ? null : pt(i,v); });
+  var closed = pts.length === n && pts.every(function(p){ return p; });
   if(closed){
     s += '<polygon points="'+pts.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' ')
       +  '" fill="'+fill+'" stroke="'+stroke+'" stroke-width="2" stroke-linejoin="round"/>';
@@ -398,7 +407,7 @@ function build(d){
   h += '<section class="page"><h2 class="h">Your cellular health results</h2>'
     +  '<p class="lede">You were assessed across these 7 cellular systems.</p>'
     +  '<div class="chartwrap">' + radar(vals, {alt:'Your score on each of the seven systems'}) + '</div>'
-    +  '<p class="callout">Anything above 20 is worth talking through.</p><ul class="bands">';
+    +  '<p class="callout">Anything above 9 is worth talking through.</p><ul class="bands">';
   BANDS.forEach(function(b){
     h += '<li class="band" style="--bc:var(--b'+b.n+');--bt:var(--b'+b.n+'-t)">'
       +  '<b>'+b.label+'</b><span>'+esc(b.name)+'</span></li>';
@@ -415,14 +424,14 @@ function build(d){
   // ── Page 3 · the ideal profile ──
   h += '<section class="page"><h2 class="h">What should your profile look like?</h2>'
     +  '<p class="lede">When your cells are well supported, so are you.</p>'
-    +  '<p>In an ideal profile, all or almost all 7 areas sit inside the “Optimal Cellular Balance” zone — '
-    +  'the innermost ring. That is where people tend to report deep sleep, settled digestion, clear '
+    +  '<p>In an ideal profile, all or almost all 7 areas sit inside the shaded “Optimal Cellular '
+    +  'Balance” zone — everything up to 9. It is a small target, and most people are outside it in '
+    +  'at least one area. That is where people tend to report deep sleep, settled digestion, clear '
     +  'thinking, and steady energy through the day.</p>'
     +  '<p>Your shape today is a starting point, not a verdict. It shows where your body is asking for '
     +  'support first.</p>'
     +  '<div class="chartwrap">'
-    +  radar(SYSTEMS.map(function(){ return 14; }),
-            { stroke:'var(--b1)', fill:'rgba(46,125,79,.15)', alt:'An ideal profile, with all seven systems inside the optimal zone' })
+    +  radar(null, { alt:'The optimal zone, shaded at the centre of the seven axes' })
     +  '</div><p class="callout" style="color:var(--b1)">The ideal zone</p></section>';
 
   // ── Pages 4-5 · system by system ──
