@@ -213,8 +213,8 @@ var SYSTEMS = [
    note they are a different scale from the five bands in the internal
    coach guide, which the coach report uses. */
 var BANDS = [
-  { max:9,   name:'Optimal Cellular Balance',  n:1, label:'≤ 9'     },
-  { max:47,  name:'Early Cellular Dysfunction', n:2, label:'10 – 47' },
+  { max:20,  name:'Optimal Cellular Balance',  n:1, label:'≤ 20'    },
+  { max:47,  name:'Early Cellular Dysfunction', n:2, label:'21 – 47' },
   { max:74,  name:'High Cellular Dysfunction',  n:3, label:'48 – 74' },
   { max:100, name:'Critical Cellular Stress',   n:4, label:'75 – 100'}
 ];
@@ -232,7 +232,7 @@ var esc = function(v){ var d=document.createElement('div'); d.textContent = v==n
 function radar(values, opts){
   opts = opts || {};
   var W = 520, H = 408, cx = W/2, cy = 202, R = 148;
-  var n = SYSTEMS.length, rings = [9,47,74,100];
+  var n = SYSTEMS.length, rings = [20,47,74,100];
   var stroke = opts.stroke || 'var(--terracotta)';
   var fill   = opts.fill   || 'rgba(200,90,40,.18)';
   var pt = function(i, v){
@@ -407,7 +407,7 @@ function build(d){
   h += '<section class="page"><h2 class="h">Your cellular health results</h2>'
     +  '<p class="lede">You were assessed across these 7 cellular systems.</p>'
     +  '<div class="chartwrap">' + radar(vals, {alt:'Your score on each of the seven systems'}) + '</div>'
-    +  '<p class="callout">Anything above 9 is worth talking through.</p><ul class="bands">';
+    +  '<p class="callout">Anything above 20 is worth talking through.</p><ul class="bands">';
   BANDS.forEach(function(b){
     h += '<li class="band" style="--bc:var(--b'+b.n+');--bt:var(--b'+b.n+'-t)">'
       +  '<b>'+b.label+'</b><span>'+esc(b.name)+'</span></li>';
@@ -425,9 +425,8 @@ function build(d){
   h += '<section class="page"><h2 class="h">What should your profile look like?</h2>'
     +  '<p class="lede">When your cells are well supported, so are you.</p>'
     +  '<p>In an ideal profile, all or almost all 7 areas sit inside the shaded “Optimal Cellular '
-    +  'Balance” zone — everything up to 9. It is a small target, and most people are outside it in '
-    +  'at least one area. That is where people tend to report deep sleep, settled digestion, clear '
-    +  'thinking, and steady energy through the day.</p>'
+    +  'Balance” zone — everything up to 20. That is where people tend to report deep sleep, '
+    +  'settled digestion, clear thinking, and steady energy through the day.</p>'
     +  '<p>Your shape today is a starting point, not a verdict. It shows where your body is asking for '
     +  'support first.</p>'
     +  '<div class="chartwrap">'

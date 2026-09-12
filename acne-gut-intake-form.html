@@ -659,7 +659,7 @@ var MIN_COMPLETION = 0.80;
    "Early Cellular Dysfunction" to the client and "Moderate reported burden"
    to the coach, which is a bad way to start a conversation. These bands are
    still internal coaching ranges, not validated medical cutoffs. */
-var BANDS = [[9,  'Optimal Cellular Balance'], [47, 'Early Cellular Dysfunction'],
+var BANDS = [[20, 'Optimal Cellular Balance'], [47, 'Early Cellular Dysfunction'],
              [74, 'High Cellular Dysfunction'], [100,'Critical Cellular Stress']];
 function bandFor(pct){
   for(var i = 0; i < BANDS.length; i++) if(pct <= BANDS[i][0]) return BANDS[i][1];
