@@ -951,6 +951,24 @@ function setStick(){
 }
 window.addEventListener('resize', setStick);
 
+/* Phone formats as it is typed, so what the client sees matches what gets
+   stored. The payload carries E.164 regardless of how they type it. */
+var phoneEl = document.getElementById('phone');
+if(phoneEl){
+  phoneEl.addEventListener('input', function(){
+    var d = phoneEl.value.replace(/\D/g,'');
+    // Someone pasting "+1 (706) 555-0142" should not lose the last digit.
+    // No North American area code starts with 1, so a leading 1 is the
+    // country code.
+    if(d.length > 10 && d.charAt(0) === '1') d = d.slice(1);
+    d = d.slice(0,10);
+    phoneEl.value = d.length > 6 ? '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6)
+                  : d.length > 3 ? '(' + d.slice(0,3) + ') ' + d.slice(3)
+                  : d.length     ? '(' + d
+                  : '';
+  });
+}
+
 /* ── Validation + submit ───────────────────────────────────────────── */
 function validate(){
   var bad = null;
@@ -1226,11 +1244,26 @@ submitBtn.addEventListener('click', function(){
 
   /* Flat, already-worded strings so a GoHighLevel email template can merge
      them straight in — no nested lookups, no formatting in the template. */
+  /* GoHighLevel stores phone numbers in E.164 and silently drops a bare
+     ten-digit string, which is what people type. Normalise it here rather
+     than making the client format it. */
+  function e164(raw){
+    var d = String(raw || '').replace(/\D/g, '');
+    if(!d) return '';
+    if(d.length === 10) return '+1' + d;
+    if(d.length === 11 && d.charAt(0) === '1') return '+' + d;
+    return String(raw).charAt(0) === '+' ? String(raw).trim() : '+' + d;
+  }
+  /* The contact's surname, so Last Name is not the whole name over again. */
+  var wholeName = (data.full_name || data.client_name || '').trim();
+  var nameBits  = wholeName.split(/\s+/).filter(Boolean);
+
   var merge = {
-    client_name   : data.full_name || data.client_name || '',
-    client_first  : (data.full_name || data.client_name || '').split(' ')[0] || '',
-    client_email  : data.email || '',
-    client_phone  : data.phone || '',
+    client_name   : wholeName,
+    client_first  : nameBits[0] || '',
+    client_last   : nameBits.length > 1 ? nameBits.slice(1).join(' ') : '',
+    client_email  : (data.email || '').trim().toLowerCase(),
+    client_phone  : e164(data.phone),
     signed_at     : data.signature_date || '',
     answered      : String(answered) + ' of ' + String(totalQs),
     report_url    : reportUrl,
@@ -1258,10 +1291,11 @@ submitBtn.addEventListener('click', function(){
   var payload = {
     form            : 'Acne, Cellular Health & Gut Microbiome Intake',
     source          : CONFIG.source,
-    first_name      : (data.full_name || data.client_name || '').split(' ')[0] || '',
-    full_name       : data.full_name || data.client_name || '',
-    email           : data.email || '',
-    phone           : data.phone || '',
+    first_name      : merge.client_first,
+    last_name       : merge.client_last,
+    full_name       : merge.client_name,
+    email           : merge.client_email,
+    phone           : merge.client_phone,
     signed_by       : data.signature_name || '',
     signed_at       : data.signature_date || '',
     report_url      : reportUrl,
