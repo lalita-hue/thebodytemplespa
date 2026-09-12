@@ -15,7 +15,11 @@
   --ink:#1F1815; --ink-soft:#3a322c; --muted:#7a7570;
   --line:rgba(31,24,21,.12); --line2:rgba(31,24,21,.07);
   --err:#B3261E; --warn:#8A5A00;
-  --b1:#6F8F6A; --b2:#8FA05C; --b3:#C9922F; --b4:#D8701E; --b5:#B3261E;
+  /* Severity ramp. Adjacent steps separate on lightness as well as hue,
+     so bands 2 and 3 stay distinguishable under red-green colour blindness
+     and in greyscale print. Colour is still reinforcement only — every band
+     ships with its number and its name. */
+  --b1:#2E7D4F; --b2:#B5810E; --b3:#A8431A; --b4:#7C1A13;
   --radius-sm:5px; --radius-pill:100px; --radius-lg:14px;
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
@@ -75,8 +79,10 @@ td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 tr.skip td,tr.skip th{color:var(--muted)}
 
 .pill{display:inline-block;font-size:.73rem;font-weight:600;padding:3px 10px;border-radius:var(--radius-pill);white-space:nowrap;color:#fff}
-.pill--1{background:var(--b1)} .pill--2{background:var(--b2)} .pill--3{background:var(--b3)}
-.pill--4{background:var(--b4)} .pill--5{background:var(--b5)}
+.pill--1{background:var(--b1)} .pill--2{background:var(--b2)}
+.pill--3{background:var(--b3)} .pill--4{background:var(--b4)}
+/* White on the amber is only 3.4:1. Ink on it is 5.1:1. */
+.pill--2{color:#1F1815}
 .pill--na{background:transparent;color:var(--muted);border:1px solid var(--line)}
 
 .meter{position:relative;height:7px;background:var(--cream);border-radius:4px;min-width:90px;overflow:hidden}
@@ -148,9 +154,10 @@ tr.skip td,tr.skip th{color:var(--muted)}
   </div>
 
   <p class="disclaimer">
-    Section scores organise what the client reported about their own symptoms. They are
-    original internal coaching ranges — not validated medical cutoffs, not a diagnosis, and
-    not a laboratory finding. N/A and blank answers are missing values and are never scored
+    Section scores organise what the client reported about their own symptoms. The bands are
+    the same four the client sees on their own report, so you are never reading a different
+    word for the same number. They are original coaching ranges — not validated medical
+    cutoffs, not a diagnosis, and not a laboratory finding. N/A and blank answers are missing values and are never scored
     as zero. A section under 80% answered is left uncalculated rather than estimated. There is
     deliberately no combined health score. Do not show this page or these labels to a client.
   </p>
@@ -188,12 +195,13 @@ var DOMAINS = [
 ];
 var EXTRA_PART_ONE = [['digestive', 'Gut symptom burden']];
 
+/* The same four bands the client sees on their report, so coach and client
+   are never reading different words for the same number. */
 var BANDS = [
-  [9,  'Minimal reported burden',   1],
-  [24, 'Mild reported burden',      2],
-  [49, 'Moderate reported burden',  3],
-  [74, 'High reported burden',      4],
-  [100,'Very high reported burden', 5]
+  [20,  'Optimal Cellular Balance',   1],
+  [47,  'Early Cellular Dysfunction', 2],
+  [74,  'High Cellular Dysfunction',  3],
+  [100, 'Critical Cellular Stress',   4]
 ];
 function bandOf(pct){
   for(var i=0;i<BANDS.length;i++) if(pct <= BANDS[i][0]) return BANDS[i];
