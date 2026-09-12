@@ -148,6 +148,7 @@ h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.15; margin:0}
   background:#fff; font-size:.8rem; color:var(--ink-soft); transition:all .15s; user-select:none;
 }
 .q-opt--off{border:none; background:none; cursor:default}
+.q-opt--word{width:auto; min-width:42px; padding:0 9px; border-radius:100px; font-size:.74rem}
 .q-opt input{position:absolute; opacity:0; width:0; height:0}
 .q-opt span{pointer-events:none}
 .q-opt:hover:not(.q-opt--off){border-color:var(--orange-light)}
@@ -390,7 +391,9 @@ function renderOpts(name, vals, labels, extra){
   for(var i=0;i<vals.length;i++){
     if(vals[i] === null){ h += '<span class="q-opt q-opt--off" aria-hidden="true"></span>'; continue; }
     var a = extra ? extra(vals[i]) : '';
-    h += '<label class="q-opt"><input type="radio" name="'+name+'" value="'+vals[i]+'"'+a+'>'
+    // "Yes" needs more room than a 34px circle gives it.
+    var wide = /[A-Za-z]/.test(String(labels[i])) ? ' q-opt--word' : '';
+    h += '<label class="q-opt'+wide+'"><input type="radio" name="'+name+'" value="'+vals[i]+'"'+a+'>'
        + '<span>'+labels[i]+'</span></label>';
   }
   return h + '</div>';
@@ -465,17 +468,27 @@ function renderItem(it){
       return h + '</div>';
 
     case 'g':
+      // When every row in a section is yes/no, a 0-3 legend above columns
+      // reading No and Yes is just wrong. Label the legend to match.
+      var allBinary = it.v.every(function(m){ return m === '11001'; });
+      var head = allBinary ? ['No','Yes','','','N/A'] : ['0','1','2','3','N/A'];
       h = '<div class="q-grid" data-grid="'+it.i+'">'
         + '<div class="q-grid__head" aria-hidden="true"><span></span><div class="q-opts">'
-        + '<span class="q-opt-h">0</span><span class="q-opt-h">1</span><span class="q-opt-h">2</span>'
-        + '<span class="q-opt-h">3</span><span class="q-opt-h">N/A</span></div></div>';
+        + head.map(function(x){ return '<span class="q-opt-h">'+x+'</span>'; }).join('')
+        + '</div></div>';
       it.o.forEach(function(label, i){
         var name = it.i + '__' + it.k[i];
         var mask = it.v[i];                       // e.g. "11001" → 0,1,N/A offered
+        // A row offering only 0, 1 and N/A is a yes/no question — the source
+        // leaves 2 and 3 blank on these. Bare 0 and 1 under a 0-3 header reads
+        // as something failing to render, so say what they actually mean.
+        var binary = (mask === '11001');
         var vals = [], labs = [];
         ['0','1','2','3','NA'].forEach(function(v, j){
-          if(mask.charAt(j) === '1'){ vals.push(v); labs.push(v==='NA' ? 'N/A' : v); }
-          else { vals.push(null); labs.push(null); }
+          if(mask.charAt(j) === '1'){
+            vals.push(v);
+            labs.push(v === 'NA' ? 'N/A' : (binary ? (v === '0' ? 'No' : 'Yes') : v));
+          } else { vals.push(null); labs.push(null); }
         });
         var num = it.n[i] ? '<b class="q-n">'+it.n[i]+'.</b> ' : '';
         h += '<div class="q-row" role="group" aria-labelledby="lbl-'+name+'">'
@@ -598,6 +611,10 @@ function show(i, scroll){
   }
   cur = i;
   stepEls.forEach(function(el, n){ el.hidden = (n !== cur); });
+  // A submit error belongs to the submit, not to every screen afterwards.
+  // Cleared here rather than on submit, because validate() calls show()
+  // first and then sets the message.
+  formError.classList.remove('is-shown');
   rebuildJump();
   var pos = vis.indexOf(cur);
   prevBtn.disabled = (pos <= 0);
