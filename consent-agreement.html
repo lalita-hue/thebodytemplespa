@@ -1,0 +1,103 @@
+<!-- ═══════════════════════════════════════════════════════════════════
+     ACKNOWLEDGMENT AND CONSENT — printable, for paper or in-person intake.
+
+     The consent wording is character-for-character identical to the
+     Acknowledgment and Consent step inside acne-gut-intake-form.html. If
+     one is ever reworded, reword the other in the same commit: a client
+     who signs on paper and a client who signs online must be agreeing to
+     exactly the same thing.
+
+     Open in a browser and print, or print to PDF. Sized for US Letter.
+     ═══════════════════════════════════════════════════════════════════ -->
+<meta charset="utf-8">
+<title>Acknowledgment and Consent — The Body Temple Spa</title>
+<style>
+  :root{
+    --paper:#FDF5EC; --ink:#1F1815; --ink-soft:#3a322c; --muted:#7a7570;
+    --terracotta:#C85A28; --line:rgba(31,24,21,.22); --line2:rgba(31,24,21,.10);
+    --serif:Georgia,'Times New Roman',serif;
+    --sans:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0; background:#fff; color:var(--ink); font-family:var(--sans);
+       font-size:11pt; line-height:1.55; -webkit-print-color-adjust:exact; print-color-adjust:exact}
+
+  .sheet{width:8.5in; min-height:11in; margin:0 auto; padding:0.72in 0.8in;
+         background:var(--paper); display:flex; flex-direction:column}
+
+  .brand{font-size:8.5pt; font-weight:700; letter-spacing:2.4px;
+         text-transform:uppercase; color:var(--terracotta); margin:0 0 10px}
+  h1{font-family:var(--serif); font-size:25pt; line-height:1.1; font-weight:600;
+     margin:0 0 4px; color:var(--ink)}
+  .sub{margin:0 0 22px; font-size:10pt; color:var(--muted)}
+  .rule{height:2px; background:var(--terracotta); width:52px; margin:0 0 22px}
+
+  .body-text{margin:0 0 22px; font-size:10.5pt; line-height:1.72; color:var(--ink-soft)}
+
+  h2{font-size:8.5pt; font-weight:700; letter-spacing:1.7px; text-transform:uppercase;
+     color:var(--terracotta); margin:0 0 12px}
+
+  .confirm{border:1px solid var(--line2); background:#fff; padding:15px 17px; margin:0 0 26px}
+  .opt{display:flex; align-items:flex-start; gap:10px; margin:0 0 9px; font-size:10.5pt}
+  .opt:last-child{margin-bottom:0}
+  .box{flex:none; width:13px; height:13px; border:1.5px solid var(--ink);
+       margin-top:2px; background:#fff}
+
+  .sig{margin-top:30px}
+  .row{display:flex; gap:26px; margin:0 0 21px}
+  .fld{flex:1}
+  .fld--date{flex:0 0 2.05in}
+  .line{border-bottom:1px solid var(--line); height:30px}
+  .cap{margin:6px 0 0; font-size:8.5pt; letter-spacing:.4px;
+       text-transform:uppercase; color:var(--muted)}
+
+  .foot{margin-top:auto; padding-bottom:2px; padding-top:13px; border-top:1px solid var(--line2);
+        font-size:8.5pt; line-height:1.6; color:var(--muted)}
+  .foot b{color:var(--ink-soft); font-weight:600}
+
+  @page{size:letter; margin:0}
+  @media print{ body{background:var(--paper)} .sheet{margin:0; box-shadow:none} }
+  @media screen{ body{padding:24px 12px; background:#EFE7DC}
+                 .sheet{box-shadow:0 2px 18px rgba(31,24,21,.14)} }
+</style>
+
+<div class="sheet">
+
+  <p class="brand">The Body Temple Spa</p>
+  <h1>Acknowledgment and Consent</h1>
+  <p class="sub">Functional Longevity Coaching</p>
+  <div class="rule"></div>
+
+  <p class="body-text">I understand that functional longevity coaching provides education,
+  behavior-change support, and wellness planning. It does not diagnose, treat, cure, or
+  prevent disease and does not replace medical, dermatologic, mental-health, or nutrition
+  care. I will seek urgent care for emergency symptoms and will consult an appropriately
+  licensed clinician before changing prescriptions, treating a medical condition, or using
+  supplements that may interact with my health history. I confirm that the information
+  provided is accurate to the best of my knowledge and authorize its use for my coaching
+  services, subject to the business privacy practices presented to me.</p>
+
+  <h2>Please confirm</h2>
+  <div class="confirm">
+    <div class="opt"><span class="box"></span><span>I understand and agree</span></div>
+    <div class="opt"><span class="box"></span><span>I would like clarification before signing</span></div>
+  </div>
+
+  <div class="sig">
+    <div class="row">
+      <div class="fld"><div class="line"></div><p class="cap">Client name — please print</p></div>
+      <div class="fld fld--date"><div class="line"></div><p class="cap">Date of birth</p></div>
+    </div>
+    <div class="row">
+      <div class="fld"><div class="line"></div><p class="cap">Client signature</p></div>
+      <div class="fld fld--date"><div class="line"></div><p class="cap">Date</p></div>
+    </div>
+  </div>
+
+  <p class="foot">
+    <b>The Body Temple Spa</b> · 2350 Prince Ave, Athens, GA 30606 · (959) 400-9242<br>
+    This is the same agreement presented in the online intake form. A client who completed
+    the form online has already signed it and does not need to sign again.
+  </p>
+
+</div>

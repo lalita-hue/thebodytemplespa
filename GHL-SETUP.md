@@ -18,6 +18,7 @@ The Body Temple Spa, Athens GA.
 | `coach-report.html` | Internal only — **never publish** | Full clinical view, flags, worksheet |
 | `email-client.html` | GHL workflow → Send Email | Report link + answer record |
 | `email-coach.html` | GHL workflow → Internal Notification | Scores, flags, medications, diagnoses |
+| `consent-agreement.html` | Print to PDF | The agreement on paper, for in-person intake |
 
 ## The workflow
 
@@ -93,6 +94,12 @@ filled in for them:
 | `signature_confirm` | The accuracy checkbox |
 
 Typing the name at the end rewrites the consent line, so the two always agree.
+
+`consent-agreement.html` is the same agreement as a printable one-page sheet
+with blank signature lines, for a client signing in person. **Its wording is
+character-for-character identical to the online consent step. If either is ever
+reworded, reword both in the same commit** — a client signing on paper and a
+client signing online must be agreeing to the same thing.
 Locked fields use `readonly`, never `disabled` — a disabled input is dropped
 from the payload. `restore()` refills them afterwards, or a returning client
 meets a locked empty box.
