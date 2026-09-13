@@ -80,9 +80,26 @@ underlined link inside a tight coloured blob.
 **Paste the email HTML into GHL's code/source view, not the visual editor.**
 The visual editor re-parses the markup through its own builder.
 
+## Signing
+
+The client signs **once**, at the end. Everything else on the signature lines is
+filled in for them:
+
+| Field | Behaviour |
+|---|---|
+| `today_s_date`, `date`, `signature_date` | Today's date, read-only |
+| `client_signature` (consent section) | Carried from `full_name`, read-only |
+| `signature_name` (final step) | **The only thing the client types** |
+| `signature_confirm` | The accuracy checkbox |
+
+Typing the name at the end rewrites the consent line, so the two always agree.
+Locked fields use `readonly`, never `disabled` — a disabled input is dropped
+from the payload. `restore()` refills them afterwards, or a returning client
+meets a locked empty box.
+
 ## Still open
 
-- [ ] Repaste both emails after the button fix and send one confirming test
+- [ ] Repaste the intake form and both emails, then send one confirming test
 - [ ] Map **Phone** in the Create/Update Contact action — the number reaches the
       Note but is not landing in the contact's Phone field, so SMS has nothing
       to send to

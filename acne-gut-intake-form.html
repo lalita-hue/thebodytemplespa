@@ -91,6 +91,11 @@ h1,h2,h3{font-family:var(--serif); font-weight:600; line-height:1.15; margin:0}
 }
 .ta{min-height:84px; resize:vertical; line-height:1.5}
 .inp--other{margin-top:9px}
+/* Auto-filled from an answer the client already gave. Readable, clearly
+   not a blank waiting to be typed into. */
+.inp--locked{background:#F4EFE9; color:#5c544d; cursor:default}
+.inp--locked:focus{border-color:var(--line); box-shadow:none}
+.hint{margin:5px 0 0; font-size:.78rem; line-height:1.5; color:#7a7570}
 .inp--cell{padding:7px 9px; font-size:.86rem; min-width:110px}
 .inp:focus{outline:none; border-color:var(--orange); box-shadow:0 0 0 3px rgba(253,105,50,.16)}
 .inp[aria-invalid="true"]{border-color:var(--err)}
@@ -921,10 +926,40 @@ Object.keys(MIRROR).forEach(function(src){
 });
 // Dates default to today.
 var TODAY = new Date().toISOString().slice(0,10);
-['date_completed','today_s_date','signature_date'].forEach(function(id){
+['date_completed','today_s_date','signature_date','date'].forEach(function(id){
   var el = document.getElementById(id);
   if(el && !el.value) el.value = TODAY;
 });
+
+/* Nothing on this form should ask the client to type something they have
+   already given us, or to sign twice. Every date is today's date, and the
+   consent signature is their name carried forward — so the only thing left
+   to do is sign, once, at the end. */
+function lock(id, hint){
+  var el = document.getElementById(id);
+  if(!el) return null;
+  el.readOnly = true;
+  el.classList.add('inp--locked');
+  el.setAttribute('aria-readonly','true');
+  if(hint){
+    var p = document.createElement('p');
+    p.className = 'hint';
+    p.textContent = hint;
+    if(el.parentNode) el.parentNode.appendChild(p);
+  }
+  return el;
+}
+['today_s_date','date','signature_date'].forEach(function(id){ lock(id); });
+lock('client_signature', 'Carried over from your name above. You sign once, at the end of the form.');
+
+/* Keep the consent line honest if they correct their name later. */
+var nameEl = document.getElementById('full_name');
+var consentSig = document.getElementById('client_signature');
+if(nameEl && consentSig){
+  var carry = function(){ consentSig.value = nameEl.value; };
+  nameEl.addEventListener('input', carry);
+  if(!consentSig.value) carry();
+}
 
 /* Part One carries the paper form's own signature line. Rather than ask
    someone to sign twice, the Part Three signature fills it in. */
@@ -1472,6 +1507,13 @@ var startAt = restore();
   var el = document.getElementById(id);
   if(el && el.value) el.dataset.mirrored = '';   // a restored value is the client's own
 });
+/* A part-finished form saved these as empty strings, and restore() puts the
+   blanks back. Refill them, or a returning client meets a locked empty box. */
+['today_s_date','date','signature_date'].forEach(function(id){
+  var el = document.getElementById(id);
+  if(el && !el.value) el.value = TODAY;
+});
+if(nameEl && consentSig && !consentSig.value) consentSig.value = nameEl.value;
 setStick();
 recalc();
 checkSafety();
