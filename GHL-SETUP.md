@@ -69,9 +69,30 @@ revalidation.
 
 This is almost always a *test data* problem. Real clients type working addresses.
 
+## Email buttons
+
+Anchor styles get stripped somewhere between the file and the inbox, so both
+buttons put their padding and background on the `<td>` and repeat the text
+colour three ways (`style`, `<font color>`, and a coloured `<span>`). If you
+edit a button, keep that pattern — a plain styled `<a>` renders as a blue
+underlined link inside a tight coloured blob.
+
+**Paste the email HTML into GHL's code/source view, not the visual editor.**
+The visual editor re-parses the markup through its own builder.
+
 ## Still open
 
-- [ ] Delete the test contacts once the client email is confirmed sending
+- [ ] Repaste both emails after the button fix and send one confirming test
+- [ ] Map **Phone** in the Create/Update Contact action — the number reaches the
+      Note but is not landing in the contact's Phone field, so SMS has nothing
+      to send to
+- [ ] Delete the test contacts
 - [ ] Optional: If/Else branch adding an SMS when `needs_urgent_review = YES`
 - [ ] Decide whether clients should see band names at all (the coach guide says no)
 - [ ] Decide whether to keep `SHOW_RISK = true` in `client-report.html`
+
+## Known quirks, not bugs
+
+- Gmail auto-links the street address in the footer. Expected, harmless.
+- "Email is marked as Invalid" on a mailbox that works is a stale GHL flag —
+  see the section above. It does not indicate a workflow fault.
