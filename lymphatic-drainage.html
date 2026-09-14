@@ -67,10 +67,17 @@
 #bts .tag { border: 1px solid rgba(200,90,40,.4); background: rgba(200,90,40,.1); color: #C85A28; padding: .35rem 1rem; border-radius: 100px; font-size: .78rem; font-weight: 500; }
 #bts .pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 #bts .pgrid3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+#bts .pgrid4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+#bts .milenote { font-size: .78rem; color: #8A7F6E; line-height: 1.6; margin: .6rem 0 0; }
 #bts .card { background: #222018; border: 1px solid rgba(255,255,255,.07); border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; }
 #bts .dlbl { font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; color: #C85A28; margin-bottom: .5rem; }
 #bts .ct { font-family: 'Playfair Display',serif; font-size: 1.35rem; margin-bottom: .8rem; color: #EDE7DB; }
-#bts .cd { font-size: .87rem; color: #8A7F6E; line-height: 1.55; margin-bottom: 1.5rem; }
+#bts .cd { font-size: .87rem; color: #8A7F6E; line-height: 1.55; margin-bottom: 1.5rem; flex: 1; }
+#bts .card.card--wide { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.75rem; align-items: center; }
+#bts .card.card--wide .cd { flex: none; margin-bottom: 0; }
+/* Durations vary per card now, so the qualifier gets its own line rather
+   than wrapping mid-phrase beside a 2.1rem price. */
+#bts .pmeta { display: block; font-size: .74rem; color: #8A7F6E; letter-spacing: .03em; margin-top: .2rem; }
 #bts .pn { font-family: 'Playfair Display',serif; font-size: 2.1rem; font-weight: 700; color: #EDE7DB; }
 #bts .card .pn { margin-top: auto; }
 #bts .pp { font-size: .82rem; color: #8A7F6E; }
@@ -118,8 +125,13 @@
 #bts .copy { max-width: 1100px; margin: 0 auto; padding: 1.25rem 6vw; font-size: .72rem; color: #8A7F6E; border-top: 1px solid rgba(255,255,255,.07); }
 
 /* ── MOBILE ── */
+@media (max-width:1020px) {
+    #bts .pgrid4 { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width:768px) {
     #bts .stats { grid-template-columns: 1fr 1fr; }
+    #bts .pgrid4 { grid-template-columns: 1fr; }
+    #bts .card--wide { grid-template-columns: 1fr; }
     #bts .pgrid { grid-template-columns: 1fr; }
     #bts .pgrid3 { grid-template-columns: 1fr; }
     #bts .steps { grid-template-columns: 1fr; }
@@ -213,40 +225,48 @@
         <p class="dlbl">Wellness Sculpt</p>
         <h3 class="ct">Targeted · Wellness Sculpt</h3>
         <p class="cd">Focused drainage and sculpting on the areas you want to de-bloat — waist, stomach, legs or arms. Great as a standalone reset or monthly maintenance.</p>
-        <p class="pn">$135 <span class="pp">/ 60 min</span></p>
+        <p class="pn">$135<span class="pmeta">60 min · targeted</span></p>
         <a class="ckbtn" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/68cc8da5566a121ee0554857" target="_blank" rel="noopener">Book This Session</a>
       </div>
       <div class="card">
         <p class="dlbl">Post-Op Recovery</p>
         <h3 class="ct">Targeted · Post-Op</h3>
         <p class="cd">Focused post-surgical drainage on up to two treated areas — reduces swelling and bruising and helps prevent fibrosis. Performed by certified therapists.</p>
-        <p class="pn">$165 <span class="pp">/ 60 min · up to 2 areas</span></p>
+        <p class="pn">$165<span class="pmeta">60 min · up to 2 areas</span></p>
         <a class="ckbtn" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69e6aaacd28613dca80fb2fc" target="_blank" rel="noopener">Book This Session</a>
       </div>
       <div class="card">
         <p class="dlbl">Lymphedema</p>
         <h3 class="ct">Targeted · Lymphedema</h3>
         <p class="cd">Gentle, specialized technique to reduce swelling, improve lymphatic flow, and relieve heaviness. Works alongside your physician&rsquo;s protocol.</p>
-        <p class="pn">$145 <span class="pp">/ 60 min</span></p>
+        <p class="pn">$145<span class="pmeta">60 min · targeted</span></p>
         <a class="ckbtn" href="https://api.leadconnectorhq.com/booking/oz27FgTyetnlFEnG2O11/sv/69f11089bcfe20a70dd62ed4" target="_blank" rel="noopener">Book This Session</a>
       </div>
     </div>
 
-    <p style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#C85A28;margin-bottom:1rem;">Extended Sessions — Full Body &amp; Multi-Area</p>
-    <div class="pgrid3" style="margin-bottom:2.5rem;">
+    <p style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#C85A28;margin-bottom:1rem;">Extended Sessions — 90 to 100 Minutes</p>
+    <div class="pgrid4" style="margin-bottom:2rem;">
       <div class="card">
         <p class="dlbl">Wellness Sculpt</p>
         <h3 class="ct">Full Body · Wellness Sculpt</h3>
         <p class="cd">Head-to-toe lymphatic drainage and sculpting for bloating relief, immune support, and that lighter, more defined feeling. Our most complete wellness session.</p>
-        <p class="pn">$225 <span class="pp">/ 100 min · full body</span></p>
+        <p class="pn">$225<span class="pmeta">100 min · full body</span></p>
         <!-- TODO: swap in the GHL booking URL once the 100-minute service exists -->
+        <a class="ckbtn" href="sms:+19594009242">Text Us To Book</a>
+      </div>
+      <div class="card">
+        <p class="dlbl">Pre-Op Preparation</p>
+        <h3 class="ct">Pre-Op · Surgery Prep</h3>
+        <p class="cd">Drainage before your procedure to clear congestion, calm inflammation and give your body the best possible starting point for recovery.</p>
+        <p class="pn">$215<span class="pmeta">90 min</span></p>
+        <!-- TODO: swap in the GHL booking URL once the pre-op service exists -->
         <a class="ckbtn" href="sms:+19594009242">Text Us To Book</a>
       </div>
       <div class="card">
         <p class="dlbl">Post-Op Recovery</p>
         <h3 class="ct">Extended · Post-Op</h3>
         <p class="cd">Extended post-surgical drainage covering three to five treated areas, with aftercare guidance included. Best for combined procedures or full-body surgery.</p>
-        <p class="pn">$235 <span class="pp">/ 90 min · 3&ndash;5 areas</span></p>
+        <p class="pn">$235<span class="pmeta">90 min · 3&ndash;5 areas</span></p>
         <!-- TODO: swap in the GHL booking URL once the 90-minute service exists -->
         <a class="ckbtn" href="sms:+19594009242">Text Us To Book</a>
       </div>
@@ -254,17 +274,31 @@
         <p class="dlbl">Lymphedema</p>
         <h3 class="ct">Extended · Lymphedema</h3>
         <p class="cd">Full Complete Decongestive Therapy session for primary or secondary lymphedema &mdash; greater mobility, relief from heaviness, improved comfort.</p>
-        <p class="pn">$215 <span class="pp">/ 90 min</span></p>
+        <p class="pn">$215<span class="pmeta">90 min</span></p>
         <!-- TODO: swap in the GHL booking URL once the 90-minute service exists -->
         <a class="ckbtn" href="sms:+19594009242">Text Us To Book</a>
       </div>
     </div>
 
+    <p style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#C85A28;margin-bottom:1rem;">Mobile Service — We Come To You</p>
+    <div class="card card--wide" style="margin-bottom:2.5rem;">
+      <div>
+        <p class="dlbl">In-Home &amp; On-Location</p>
+        <h3 class="ct">Mobile · Targeted Drainage</h3>
+        <p class="cd">A focused drainage session in your own home &mdash; ideal in the first days after surgery, when travelling to the studio is the last thing you want to do. Same certified therapists, same technique, your own bed.</p>
+        <p class="milenote">Travel included within 15 miles of our Athens studio. Beyond that, $1 per additional mile each way. We confirm the exact travel fee before your appointment.</p>
+      </div>
+      <div>
+        <p class="pn">$69.50<span class="pmeta">45 min · in your home</span></p>
+        <!-- TODO: swap in the GHL booking URL once the mobile service exists -->
+        <a class="ckbtn" href="sms:+19594009242">Text Us To Book</a>
+      </div>
+    </div>
+
     <p style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#C85A28;margin-bottom:1rem;">Multi-Session Packages — Save up to 20%</p>
-    <div class="pgrid3">
-      <div class="card" style="text-align:center;"><span class="pill">Starter</span><p class="dlbl" style="margin-top:.5rem;">7 Sessions</p><h3 class="ct">7-Session Package</h3><p class="cd">Ideal for post-op recovery or jump-starting lymphatic health. Covers the critical early drainage phase.</p><p class="pka" style="font-size:.82rem;margin-bottom:0;"><a href="sms:+19594009242" style="color:#C85A28;text-decoration:none;">Text us for pricing →</a></p></div>
-      <div class="card" style="text-align:center;border-color:rgba(200,90,40,.3);"><span class="pill">Most Popular</span><p class="dlbl" style="margin-top:.5rem;">10 Sessions</p><h3 class="ct">10-Session Package</h3><p class="cd">Our most popular plan. Full drainage cycle — from baseline measurements through to independent lymph function.</p><p class="pka" style="font-size:.82rem;margin-bottom:0;"><a href="sms:+19594009242" style="color:#C85A28;text-decoration:none;">Text us for pricing →</a></p></div>
-      <div class="card" style="text-align:center;"><span class="pill">Best Value</span><p class="dlbl" style="margin-top:.5rem;">15 Sessions</p><h3 class="ct">15-Session Package</h3><p class="cd">Best value for chronic lymphedema, significant post-op recovery, or long-term maintenance. Maximum savings.</p><p class="pka" style="font-size:.82rem;margin-bottom:0;"><a href="sms:+19594009242" style="color:#C85A28;text-decoration:none;">Text us for pricing →</a></p></div>
+    <div class="pgrid">
+      <div class="card" style="text-align:center;border-color:rgba(200,90,40,.3);"><span class="pill">Most Popular</span><p class="dlbl" style="margin-top:.5rem;">10 Sessions</p><h3 class="ct">10-Session Package</h3><p class="cd">Our most popular plan. Full drainage cycle &mdash; from baseline measurements through to independent lymph function.</p><p class="pka" style="font-size:.82rem;margin-bottom:0;"><a href="sms:+19594009242" style="color:#C85A28;text-decoration:none;">Text us for pricing &rarr;</a></p></div>
+      <div class="card" style="text-align:center;"><span class="pill">Best Value</span><p class="dlbl" style="margin-top:.5rem;">15 Sessions</p><h3 class="ct">15-Session Package</h3><p class="cd">Best value for chronic lymphedema, significant post-op recovery, or long-term maintenance. Maximum savings.</p><p class="pka" style="font-size:.82rem;margin-bottom:0;"><a href="sms:+19594009242" style="color:#C85A28;text-decoration:none;">Text us for pricing &rarr;</a></p></div>
     </div>
     <p class="pkn">Most clients schedule 1–3 sessions per week. Packages expire 3–6 months from purchase. Text us for the full breakdown and next open slots.</p>
   </div>
