@@ -78,6 +78,13 @@
 /* Durations vary per card now, so the qualifier gets its own line rather
    than wrapping mid-phrase beside a 2.1rem price. */
 #bts .pmeta { display: block; font-size: .74rem; color: #8A7F6E; letter-spacing: .03em; margin-top: .2rem; }
+/* An upgrade offered on top of a session, not a session of its own. Set off
+   from the price so it never reads as part of it. */
+#bts .addon { margin: .85rem 0 0; padding: .7rem .85rem; border: 1px dashed rgba(200,90,40,.45);
+              border-radius: 8px; background: rgba(200,90,40,.06);
+              font-size: .78rem; line-height: 1.5; color: #B9AF9E; }
+#bts .addon b { display: block; color: #EDE7DB; font-size: .82rem; margin-bottom: .2rem; }
+#bts .addon span { color: #C85A28; }
 #bts .pn { font-family: 'Playfair Display',serif; font-size: 2.1rem; font-weight: 700; color: #EDE7DB; }
 #bts .card .pn { margin-top: auto; }
 #bts .pp { font-size: .82rem; color: #8A7F6E; }
@@ -251,6 +258,7 @@
         <h3 class="ct">Full Body · Wellness Sculpt</h3>
         <p class="cd">Head-to-toe lymphatic drainage and sculpting for bloating relief, immune support, and that lighter, more defined feeling. Our most complete wellness session.</p>
         <p class="pn">$225<span class="pmeta">100 min · full body</span></p>
+        <p class="addon"><b>Vacuum Pro Sculpt add-on available</b>See below.</p>
         <!-- TODO: swap in the GHL booking URL once the 100-minute service exists -->
         <a class="ckbtn" href="sms:+19594009242">Text Us To Book</a>
       </div>
@@ -277,6 +285,24 @@
         <p class="pn">$215<span class="pmeta">90 min</span></p>
         <!-- TODO: swap in the GHL booking URL once the 90-minute service exists -->
         <a class="ckbtn" href="sms:+19594009242">Text Us To Book</a>
+      </div>
+    </div>
+
+    <p style="font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#C85A28;margin-bottom:1rem;">Upgrade — Add To Your Session</p>
+    <div class="card card--wide" style="margin-bottom:2.5rem;">
+      <div>
+        <p class="dlbl">Add-On</p>
+        <h3 class="ct">Vacuum Pro Sculpt</h3>
+        <p class="cd">Vacuum therapy layered into your session &mdash; mechanical suction that lifts and
+        mobilises tissue hands alone cannot reach, for deeper drainage and more visible contour. Added
+        to your <b style="color:#EDE7DB;font-weight:600;">100-minute Full Body Wellness Sculpt</b>.</p>
+        <p class="milenote">Not a standalone session. Your therapist will confirm it suits you before
+        adding it &mdash; vacuum work is not appropriate for every body or every stage of recovery.</p>
+      </div>
+      <div>
+        <p class="pn">Add-on<span class="pmeta">to the 100-minute session</span></p>
+        <!-- TODO: add the price here once set, e.g. +$XX -->
+        <a class="ckbtn" href="sms:+19594009242">Ask About Pricing</a>
       </div>
     </div>
 
