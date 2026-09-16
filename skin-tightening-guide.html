@@ -70,6 +70,7 @@ a{color:var(--terracotta-dk);text-decoration:none;border-bottom:1px solid rgba(2
 .card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--apricot);
       border-radius:0 7px 7px 0;padding:9px 12px 10px;margin-bottom:8px}
 .card.tight{padding:8px 11px}
+.pad > :last-child{margin-bottom:0}
 .card h3{margin-bottom:3px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 ul{list-style:none;margin:5px 0 7px}
@@ -81,6 +82,20 @@ ol.check li{counter-increment:c;position:relative;padding-left:22px;margin-botto
 ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15px;height:15px;
       border-radius:50%;border:1px solid var(--terracotta);color:var(--terracotta);
       font-size:7pt;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--sans)}
+
+/* ── Product picks ── */
+.picks{margin:2px 0 8px}
+.picks-hd{display:flex;align-items:baseline;gap:9px;margin-bottom:5px}
+.picks-hd .kicker{margin:0}
+.picks-hd .rule{flex:1;height:1px;background:var(--line)}
+.pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pick{background:var(--blush);border:1px solid rgba(200,90,40,.22);border-radius:8px;
+      padding:9px 12px 10px}
+.pick .tag{font-size:6.4pt;letter-spacing:.18em;text-transform:uppercase;color:var(--terracotta);
+           font-weight:700}
+.pick h4{font-family:var(--serif);font-size:10.6pt;font-weight:600;line-height:1.2;margin:3px 0 3px}
+.pick p{font-size:8.8pt;line-height:1.5;margin:0 0 5px;color:#2A241C}
+.pick .lnk{font-size:8pt;font-weight:600}
 
 /* ── Notices ── */
 .note{background:var(--blush);border:1px solid rgba(200,90,40,.2);border-radius:8px;
@@ -424,18 +439,9 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
       repair. Distributing protein throughout the day may make it easier to meet daily needs and
       support strength-training goals.</p>
       <div class="kicker" style="margin-top:7px">Protein sources may include</div>
-      <div class="grid2">
-        <ul style="margin:3px 0 0">
-          <li>Chicken, turkey, lean beef, or fish</li>
-          <li>Greek yogurt or cottage cheese, when tolerated</li>
-          <li>Tofu or tempeh, when tolerated</li>
-        </ul>
-        <ul style="margin:3px 0 0">
-          <li>Lentils and beans</li>
-          <li>Protein powder that meets your dietary needs</li>
-          <li>Other individualized protein sources</li>
-        </ul>
-      </div>
+      <p>Chicken, turkey, lean beef, or fish · Greek yogurt or cottage cheese, when tolerated ·
+      Tofu or tempeh, when tolerated · Lentils and beans · A protein powder that meets your dietary
+      needs · Other individualized protein sources.</p>
       <p class="muted" style="margin:7px 0 0;font-size:9.2pt">Clients with kidney disease, liver disease,
       pregnancy, or another relevant medical condition should consult their healthcare provider before
       significantly increasing protein intake.</p>
@@ -451,36 +457,40 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
       replace the complete protein needed for muscle development.</p>
     </div>
 
-    <div class="grid2">
-      <div class="card tight">
-        <h3 style="font-size:11pt">Vitamin C-Rich Foods</h3>
-        <p class="muted" style="font-size:9.2pt;margin-bottom:2px">Supports normal collagen synthesis
-        and acts as an antioxidant.</p>
-        <ul style="margin-bottom:0">
-          <li>Bell peppers</li><li>Berries</li><li>Broccoli</li>
-          <li>Kiwi</li><li>Citrus fruit</li><li>Brussels sprouts</li>
-        </ul>
-      </div>
-      <div class="card tight">
-        <h3 style="font-size:11pt">Healthy Fats</h3>
-        <p class="muted" style="font-size:9.2pt;margin-bottom:2px">Support normal cellular function and
-        absorption of fat-soluble vitamins.</p>
-        <ul style="margin-bottom:0">
-          <li>Olive oil</li><li>Avocado</li><li>Nuts</li>
-          <li>Seeds</li><li>Suitable fatty fish</li>
-        </ul>
+    <div class="picks">
+      <div class="picks-hd"><span class="kicker">What we recommend</span><span class="rule"></span></div>
+      <div class="pick-grid">
+        <div class="pick">
+          <div class="tag">Our pick for protein</div>
+          <h4>ProT Gold Liquid Collagen Protein</h4>
+          <p>A ready-to-drink shot with <strong>17 g of protein per 1 fl oz</strong>. We like this one
+          for the protein: it moves you toward the 30 g-per-meal goal above rather than adding a
+          spoonful of collagen on the side. <strong>Add a vitamin C supplement alongside it</strong> —
+          vitamin C is what collagen synthesis requires.</p>
+          <a class="lnk" href="https://www.amazon.com/ProT-GOLD-Clinically-Hydrolyzed-Facilities/dp/B01MG1AZ1X/ref=sr_1_2?crid=2ND6LWWEAATCM&dib=eyJ2IjoiMSJ9.KmK2YniXbcy3VlsvqGVpFb-BuujeiSYXHBGL_JZPIM4frMHwHGJCRG86PvIp0-6JBCyrXrAVI30Iv2YxDEULiLVKwbQml58EkmL3bWdqHuBgkGyyCaA8xalf2LOWz8yofKDpRB4WLEzmJhKWFC0cxPkctpNCffvOAYn-sIADGW9fao316EgoJOo2o3Hy59sI-cePCfilYSk7ZenxJoSyHfo915Ut42EtHAYvqUHmacFAZT4E8zrfYDp4K7KqzdX6owRLYqsNN_arWJTrcVMsmwHRGl0m-fQ89B7-HOLpMbk.8W6CZIq9EHbX0nY4n4UyBpNEnI7jXSVooC-aJiWJdes&amp;dib_tag=se&amp;keywords=pro%2Bt%2Bgold%2Bliquid%2Bcollagen%2Bprotein&amp;qid=1789521973&amp;sprefix=pro%2Bt%2Bgold%2B%2Caps%2C153&amp;sr=8-2&amp;th=1">amazon.com/dp/B01MG1AZ1X</a>
+        </div>
+        <div class="pick">
+          <div class="tag">Our pick for simplicity</div>
+          <h4>Vital Proteins Collagen Peptides Advanced</h4>
+          <p>If you would rather buy one thing, this has everything in the scoop:
+          <strong>20 g of collagen peptides with vitamin C and hyaluronic acid</strong> already
+          included, so there is no second supplement to remember.</p>
+          <a class="lnk" href="https://www.amazon.com/dp/B00K6JUG4K?lv=shuf&amp;channelId=480&amp;plpRedirect=mhFallback&amp;th=1">amazon.com/dp/B00K6JUG4K</a>
+        </div>
       </div>
     </div>
-
-
-
 
     <div class="card">
-      <h3>Balanced Micronutrient Intake</h3>
-      <p style="margin:0">Iron, zinc, copper, vitamin D, vitamin A, vitamin C, and other nutrients
-      contribute to normal skin and tissue function. Supplements should be selected according to
-      individual needs rather than assuming that higher doses will improve the skin.</p>
+      <h3>Vitamin C-Rich Foods &amp; Healthy Fats</h3>
+      <p><strong>Vitamin C</strong> supports normal collagen synthesis and acts as an antioxidant —
+      bell peppers, berries, broccoli, kiwi, citrus fruit, Brussels sprouts.</p>
+      <p style="margin:0"><strong>Healthy fats</strong> support normal cellular function and the
+      absorption of fat-soluble vitamins — olive oil, avocado, nuts, seeds, suitable fatty fish.</p>
     </div>
+
+
+
+
   </div>
   <div class="foot"><span>Section 3 · Protein &amp; Nutrition</span><span class="num">5</span></div>
 </section>
@@ -490,7 +500,13 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
   <div class="runner"><span class="mark">Section Three</span><span>Weight Change &amp; Hydration</span></div>
   <div class="pad">
 
-    <div class="kicker" style="margin-bottom:6px">Section Three, continued</div>
+    <div class="kicker" style="margin-bottom:2px">Section Three, continued</div>
+    <div class="card">
+      <h3>Balanced Micronutrient Intake</h3>
+      <p style="margin:0">Iron, zinc, copper, vitamin D, vitamin A, vitamin C, and other nutrients
+      contribute to normal skin and tissue function. Supplements should be selected according to
+      individual needs rather than assuming that higher doses will improve the skin.</p>
+    </div>
     <div class="card">
       <h3>Gradual Weight Change</h3>
       <p style="margin:0">Rapid weight loss can make skin laxity more noticeable because the skin may
@@ -540,17 +556,8 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
       content is too small to treat a mineral deficiency or tighten the skin.</p>
       <p style="margin-bottom:3px"><strong>Use either Himalayan salt or Celtic sea salt — not both
       together.</strong> Adding salt routinely may be inappropriate for clients with:</p>
-      <div class="grid2">
-        <ul style="margin:0">
-          <li>High blood pressure</li>
-          <li>Kidney or heart disease</li>
-          <li>Fluid retention or swelling</li>
-        </ul>
-        <ul style="margin:0">
-          <li>A sodium-restricted diet</li>
-          <li>Certain medications or electrolyte disorders</li>
-        </ul>
-      </div>
+      <p style="margin:0">High blood pressure · Kidney or heart disease · Fluid retention or swelling ·
+      A sodium-restricted diet · Certain medications or electrolyte disorders.</p>
     </div>
 
   </div>
@@ -736,13 +743,6 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
       <p>These strains are available together in certain BioGaia Gastrus products. Probiotic effects are
       <strong>strain-specific</strong>, so a product containing a different <em>L. reuteri</em> strain
       should not automatically be expected to produce the same effects.</p>
-      <p>These proposed benefits are associated with Dr. Davis's approach and should not be presented as
-      guaranteed or established skin-tightening outcomes. Human evidence remains limited. A probiotic
-      should complement — not replace — adequate protein, strength training, skincare, professional
-      treatments, and recovery.</p>
-      <p class="muted" style="margin:0">People who are pregnant, immunocompromised, seriously ill, or
-      living with a complex gastrointestinal condition should consult a healthcare professional before
-      beginning a probiotic or concentrated fermented preparation.</p>
     </div>
 
     <div class="note warn">
@@ -804,6 +804,12 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
       long-term effects may be uncertain when purchased from unregulated sources.</p>
       <span class="chip no">Not recommended as a skin-tightening treatment</span>
     </div>
+    <div class="card">
+      <h3>MOTS-c</h3>
+      <p style="margin:0">MOTS-c is a mitochondrial-derived peptide being researched for its role in
+      metabolic signaling. It is sometimes marketed for energy, exercise performance, or metabolic
+      health.</p>
+    </div>
 
 
   </div>
@@ -812,20 +818,9 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
 
 <!-- ══════════════════ 11 · SECTION 7 CHECKLIST ══════════════════ -->
 <section class="page">
-  <div class="runner"><span class="mark">Section Seven</span><span>MOTS-c · Injectable Peptide Safety Checklist</span></div>
+  <div class="runner"><span class="mark">Section Seven</span><span>Injectable Peptide Safety Checklist</span></div>
   <div class="pad">
 
-    <div class="kicker" style="margin-bottom:6px">Section Seven, continued</div>
-    <div class="card">
-      <h3>MOTS-c</h3>
-      <p>MOTS-c is a mitochondrial-derived peptide being researched for its role in metabolic signaling.
-      It is sometimes marketed for energy, exercise performance, or metabolic health.</p>
-      <p style="margin:0">It is not FDA-approved for skin tightening. Safety concerns may include
-      potential immune reactions and risks related to peptide impurities or product quality.</p>
-      <span class="chip exp">Experimental · not recommended for skin tightening</span>
-    </div>
-
-    <div style="height:14px"></div>
 
     <h2 class="sec"><span class="t">Injectable Peptide Safety Checklist</span></h2>
     <div class="sec-rule"></div>
