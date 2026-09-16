@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Skin Tightening &amp; Firming Recommendation Guide — The Body Temple Spa</title>
+<meta name="description" content="A client guide to skin tightening and firming: professional treatments, strength training, nutrition, recovery, skincare, supplements and peptide safety.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+/* ═══ THE BODY TEMPLE SPA — brand tokens (see brand-tokens.css) ═══ */
+:root{
+  --apricot:#EFA068; --ember:#E58A4C; --peach:#F9D2AC; --blush:#FDE8D4;
+  --porcelain:#FEF6EC; --ink:#12100E; --terracotta:#C85A28; --terracotta-dk:#A8481E;
+  --espresso:#1A1610; --bone:#EDE7DB; --stone:#8A7F6E; --umber:#7A6D5B;
+  --line:rgba(26,22,16,.13); --line-dark:rgba(255,255,255,.09);
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans","Helvetica Neue",Arial,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--sans);color:var(--ink);background:#B9AFA0;font-size:9.9pt;line-height:1.52;
+     font-weight:400;-webkit-font-smoothing:antialiased}
+
+@page{size:8.5in 11in;margin:0}
+
+/* ── Page shell ── */
+.page{position:relative;width:8.5in;height:11in;background:var(--porcelain);
+      overflow:hidden;page-break-after:always;break-after:page;margin:0 auto 22px}
+.page:last-child{page-break-after:auto;break-after:auto;margin-bottom:0}
+.pad{position:absolute;inset:0.82in 0.78in 0.72in 0.78in;display:flex;flex-direction:column}
+
+/* ── Running header / footer ── */
+.runner{position:absolute;top:0.44in;left:0.78in;right:0.78in;display:flex;
+        justify-content:space-between;align-items:center;
+        font-size:6.6pt;letter-spacing:.2em;text-transform:uppercase;
+        color:var(--umber);font-weight:600}
+.runner::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;background:var(--line)}
+.runner .mark{color:var(--terracotta)}
+.foot{position:absolute;bottom:0.42in;left:0.78in;right:0.78in;display:flex;
+      justify-content:space-between;align-items:center;font-size:6.8pt;
+      color:var(--umber);letter-spacing:.06em;border-top:1px solid var(--line);padding-top:7px}
+.foot .num{font-family:var(--serif);font-size:9pt;color:var(--terracotta);font-weight:600;letter-spacing:0}
+
+/* ── Typography ── */
+h1,h2,h3,h4{font-family:var(--serif);font-weight:600;line-height:1.14}
+.sec-num{font-family:var(--serif);font-size:8.5pt;font-weight:600;color:#fff;
+         background:var(--terracotta);width:20px;height:20px;border-radius:50%;
+         display:inline-flex;align-items:center;justify-content:center;
+         vertical-align:middle;margin-right:9px;line-height:1}
+h2.sec{font-size:18pt;letter-spacing:-.01em;margin-bottom:5px;display:flex;align-items:center}
+h2.sec .t{display:inline-block}
+.sec-rule{height:2px;background:linear-gradient(90deg,var(--terracotta),var(--apricot) 55%,rgba(239,160,104,0));
+          margin:0 0 13px;border-radius:2px}
+h3{font-size:11.4pt;color:var(--ink);margin:0 0 3px}
+h3 + .kicker{margin-top:-2px}
+.kicker{font-family:var(--sans);font-size:6.8pt;letter-spacing:.2em;text-transform:uppercase;
+        color:var(--terracotta);font-weight:700;margin-bottom:3px}
+p{margin:0 0 6px;color:#2A241C}
+p.lead{font-size:10.5pt;color:var(--umber);line-height:1.6}
+.muted{color:var(--umber)}
+strong{font-weight:600;color:var(--ink)}
+a{color:var(--terracotta-dk);text-decoration:none;border-bottom:1px solid rgba(200,90,40,.35);
+  font-weight:500;word-break:break-word}
+
+/* ── Content blocks ── */
+.block{margin-bottom:11px}
+.block:last-child{margin-bottom:0}
+.card{background:#fff;border:1px solid var(--line);border-left:3px solid var(--apricot);
+      border-radius:0 7px 7px 0;padding:9px 12px 10px;margin-bottom:8px}
+.card.tight{padding:8px 11px}
+.card h3{margin-bottom:3px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+ul{list-style:none;margin:5px 0 7px}
+ul li{position:relative;padding-left:14px;margin-bottom:2px;color:#2A241C}
+ul li::before{content:"";position:absolute;left:2px;top:6.5px;width:4px;height:4px;
+              border-radius:50%;background:var(--apricot)}
+ol.check{list-style:none;counter-reset:c;margin:6px 0 0}
+ol.check li{counter-increment:c;position:relative;padding-left:22px;margin-bottom:5px}
+ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15px;height:15px;
+      border-radius:50%;border:1px solid var(--terracotta);color:var(--terracotta);
+      font-size:7pt;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--sans)}
+
+/* ── Notices ── */
+.note{background:var(--blush);border:1px solid rgba(200,90,40,.2);border-radius:8px;
+      padding:9px 12px;margin:8px 0}
+.note .kicker{margin-bottom:2px}
+.note.warn{background:#FBEDE4;border-color:rgba(168,72,30,.3)}
+.note.dark{background:var(--espresso);border:none}
+.note.dark p{color:var(--bone)}
+.note.dark .kicker{color:var(--apricot)}
+.chip{display:inline-block;font-size:6.6pt;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;padding:3px 8px;border-radius:99px;margin-top:5px}
+.chip.no{background:#F6E2D8;color:var(--terracotta-dk);border:1px solid rgba(168,72,30,.3)}
+.chip.exp{background:var(--peach);color:#6B4318;border:1px solid rgba(122,109,91,.3)}
+
+/* ── Cover ── */
+.cover{background:var(--espresso);color:var(--bone)}
+.cover::before{content:"";position:absolute;top:-2.6in;right:-2.2in;width:7.2in;height:7.2in;
+   border-radius:50%;background:radial-gradient(circle at 34% 34%,#EFA068 0%,#E58A4C 46%,rgba(229,138,76,0) 71%);
+   opacity:.5}
+.cover::after{content:"";position:absolute;bottom:-3.1in;left:-2.6in;width:6.4in;height:6.4in;
+   border-radius:50%;background:radial-gradient(circle at 60% 40%,rgba(249,210,172,.5) 0%,rgba(249,210,172,0) 68%)}
+.cover-inner{position:absolute;inset:0.9in 0.85in 0.8in;display:flex;flex-direction:column;z-index:2}
+.emblem{display:flex;align-items:center;gap:13px}
+.emblem .name{font-family:var(--serif);font-size:14pt;color:var(--porcelain);font-weight:600;line-height:1.1}
+.emblem .sub{display:block;font-family:var(--sans);font-size:6.4pt;letter-spacing:.26em;
+             text-transform:uppercase;color:var(--apricot);font-weight:700;margin-top:4px}
+.cover h1{font-size:40pt;line-height:1.03;letter-spacing:-.022em;color:var(--porcelain);font-weight:500}
+.cover h1 em{font-style:italic;color:var(--apricot)}
+.cover .eyebrow{font-size:7pt;letter-spacing:.32em;text-transform:uppercase;color:var(--apricot);
+                font-weight:700;margin-bottom:16px}
+.cover .deck{font-size:11.2pt;line-height:1.62;color:#CFC5B6;max-width:4.9in;margin-top:16px;font-weight:300}
+.cover .rule{width:74px;height:2px;background:var(--apricot);margin:26px 0 0;border-radius:2px}
+.cover-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:auto;
+             padding-top:18px;border-top:1px solid var(--line-dark)}
+.cover-facts .f .k{font-size:6.2pt;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);font-weight:700}
+.cover-facts .f .v{font-family:var(--serif);font-size:10.5pt;color:var(--bone);margin-top:4px;line-height:1.3}
+.cover-contact{margin-top:16px;font-size:8pt;color:#CFC5B6;letter-spacing:.04em;line-height:1.7}
+.cover-contact a{color:var(--apricot);border:none}
+
+/* ── Contents ── */
+.toc{margin-top:4px}
+.toc-row{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.toc-row:last-child{border-bottom:none}
+.toc-row .n{font-family:var(--serif);font-size:13pt;color:var(--apricot);font-weight:600;
+            width:26px;flex-shrink:0}
+.toc-row .t{font-family:var(--serif);font-size:11.4pt;font-weight:600;flex-shrink:0}
+.toc-row .d{flex:1;border-bottom:1px dotted rgba(26,22,16,.25);transform:translateY(-3px)}
+.toc-row .p{font-size:8.6pt;color:var(--umber);font-weight:600;flex-shrink:0}
+.toc-row .s{display:block;font-family:var(--sans);font-size:7.6pt;font-weight:400;color:var(--umber);margin-top:1px}
+
+/* ── Closing ── */
+.close{background:var(--espresso);color:var(--bone)}
+.close::before{content:"";position:absolute;top:-2.3in;left:-2.3in;width:6.6in;height:6.6in;border-radius:50%;
+  background:radial-gradient(circle at 60% 60%,#EFA068 0%,rgba(229,138,76,0) 66%);opacity:.38}
+.close h2{font-family:var(--serif);font-size:27pt;color:var(--porcelain);font-weight:500;line-height:1.1}
+.close h2 em{font-style:italic;color:var(--apricot)}
+.close .kicker{color:var(--apricot)}
+.close p{color:#CFC5B6}
+.step{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-dark)}
+.step .n{font-family:var(--serif);font-size:13pt;color:var(--apricot);font-weight:600;
+         width:24px;flex-shrink:0;line-height:1.2}
+.step h4{font-size:10.6pt;color:var(--bone);margin-bottom:2px}
+.step p{font-size:9pt;margin:0;color:var(--stone);line-height:1.5}
+.cta{background:rgba(239,160,104,.11);border:1px solid rgba(239,160,104,.3);border-radius:10px;
+     padding:15px 17px;margin-top:16px}
+.cta .v{font-family:var(--serif);font-size:11pt;color:var(--porcelain);line-height:1.6}
+.cta a{color:var(--apricot);border-bottom-color:rgba(239,160,104,.4)}
+.disclaim{margin-top:auto;padding-top:14px;border-top:1px solid var(--line-dark);
+          font-size:7.4pt;color:var(--stone);line-height:1.6}
+
+@media print{body{background:#fff}.page{margin:0;box-shadow:none}}
+@media screen{.page{box-shadow:0 10px 34px rgba(0,0,0,.2)}}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ 1 · COVER ══════════════════ -->
+<section class="page cover">
+  <div class="cover-inner">
+
+    <div class="emblem">
+      <svg width="54" height="54" viewBox="0 0 64 64" aria-label="The Body Temple Spa">
+        <defs>
+          <radialGradient id="bt-glow" cx="36%" cy="30%" r="78%">
+            <stop offset="0%"   stop-color="#FEF6EC"/>
+            <stop offset="34%"  stop-color="#F9D2AC"/>
+            <stop offset="72%"  stop-color="#EFA068"/>
+            <stop offset="100%" stop-color="#E58A4C"/>
+          </radialGradient>
+        </defs>
+        <circle cx="32" cy="32" r="31" fill="url(#bt-glow)"/>
+        <g fill="#12100E" opacity=".9">
+          <ellipse cx="45.5" cy="24" rx="13" ry="3.5" transform="rotate(-16 45.5 24)" opacity=".55"/>
+          <ellipse cx="18.5" cy="24" rx="13" ry="3.5" transform="rotate(16 18.5 24)"  opacity=".55"/>
+          <ellipse cx="43"   cy="33" rx="10.5" ry="3" transform="rotate(14 43 33)"    opacity=".45"/>
+          <ellipse cx="21"   cy="33" rx="10.5" ry="3" transform="rotate(-14 21 33)"   opacity=".45"/>
+          <circle cx="32" cy="16.5" r="4"/>
+          <path d="M32 20.5c1.7 0 2.6 1.3 2.6 3.2 0 2.4-.6 4.6-.8 7.2-.2 3.1-.3 6.3-.7 9.4-.3 2.6-.7 5.2-1.1 7.9-.4-2.7-.8-5.3-1.1-7.9-.4-3.1-.5-6.3-.7-9.4-.2-2.6-.8-4.8-.8-7.2 0-1.9.9-3.2 2.6-3.2z"/>
+        </g>
+      </svg>
+      <div>
+        <span class="name">The Body Temple Spa</span>
+        <span class="sub">Athens · Skin Longevity</span>
+      </div>
+    </div>
+
+    <div style="margin-top:0.95in">
+      <div class="eyebrow">Client Recommendation Guide</div>
+      <h1>Skin Tightening<br>&amp; <em>Firming</em></h1>
+      <div class="rule"></div>
+      <p class="deck">Firmness is built, not bought. This guide walks through the professional
+      treatments, training, nutrition, recovery and skincare that work together to improve the
+      look of skin laxity — and is honest about what each one can and cannot do.</p>
+    </div>
+
+    <div class="cover-facts">
+      <div class="f"><div class="k">Sections</div><div class="v">Eight</div></div>
+      <div class="f"><div class="k">Approach</div><div class="v">Treatment&nbsp;+ Lifestyle</div></div>
+      <div class="f"><div class="k">Prepared&nbsp;for</div><div class="v">Our Guests</div></div>
+    </div>
+
+    <div class="cover-contact">
+      2350 Prince Ave, Athens, GA 30606 &nbsp;·&nbsp; 959-400-9242<br>
+      <a href="mailto:hello@thebodytemplespas.com">hello@thebodytemplespas.com</a>
+      &nbsp;·&nbsp; <a href="https://thebodytemplespas.com">thebodytemplespas.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ 2 · WHAT SHAPES FIRMNESS + CONTENTS ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">The Body Temple Spa</span><span>Skin Tightening &amp; Firming Guide</span></div>
+  <div class="pad">
+
+    <h2 class="sec"><span class="t">What Actually Shapes Skin Firmness</span></h2>
+    <div class="sec-rule"></div>
+
+    <p class="lead">Skin firmness is influenced by collagen and elastin, muscle mass, nutrition,
+    hydration, sleep, age, hormones, genetics, sun exposure, and changes in body weight.</p>
+
+    <p>The best results may come from combining appropriate professional treatments with consistent
+    skincare, strength training, adequate protein, and quality recovery. No single item in this
+    guide is a stand-alone answer — the combination is the strategy.</p>
+
+    <div class="note warn">
+      <div class="kicker">Please read first</div>
+      <p style="margin:0">Results vary. <strong>No treatment, product, supplement, behavior, probiotic,
+      or peptide can guarantee that loose skin will completely tighten.</strong> This guide is
+      educational and does not replace individualized medical or nutritional advice.</p>
+    </div>
+
+    <div style="margin-top:20px">
+      <div class="kicker">Inside this guide</div>
+      <div class="toc">
+        <div class="toc-row"><span class="n">1</span><span class="t">Professional Skin-Tightening Treatments
+          <span class="s">Radiofrequency · Laser · Red light · Microchanneling · Treatment series</span></span>
+          <span class="d"></span><span class="p">3</span></div>
+        <div class="toc-row"><span class="n">2</span><span class="t">Strength Training
+          <span class="s">Rebuilding the structure beneath the skin</span></span>
+          <span class="d"></span><span class="p">4</span></div>
+        <div class="toc-row"><span class="n">3</span><span class="t">Protein &amp; Nutrition
+          <span class="s">Protein targets · Collagen · Vitamin C · Fats · Hydration</span></span>
+          <span class="d"></span><span class="p">5</span></div>
+        <div class="toc-row"><span class="n">4</span><span class="t">Circadian Rhythm &amp; Recovery
+          <span class="s">Sleep, light, meal and exercise timing, stress</span></span>
+          <span class="d"></span><span class="p">7</span></div>
+        <div class="toc-row"><span class="n">5</span><span class="t">Topical Skin-Supporting Products
+          <span class="s">Sunscreen · Retinoids · Peptides · Vitamin C</span></span>
+          <span class="d"></span><span class="p">8</span></div>
+        <div class="toc-row"><span class="n">6</span><span class="t">Oral Supplements &amp; Probiotics
+          <span class="s">Collagen · Vitamin C · Protein · Omega-3 · L. reuteri</span></span>
+          <span class="d"></span><span class="p">9</span></div>
+        <div class="toc-row"><span class="n">7</span><span class="t">Injectable Peptides — Education
+          <span class="s">GHK-Cu · BPC-157 · TB-500 · MOTS-c · Safety checklist</span></span>
+          <span class="d"></span><span class="p">10</span></div>
+        <div class="toc-row"><span class="n">8</span><span class="t">Supportive Behaviors
+          <span class="s">The habits that protect every result above</span></span>
+          <span class="d"></span><span class="p">12</span></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="foot"><span>The Body Temple Spa · Athens, GA</span><span class="num">2</span></div>
+</section>
+
+<!-- ══════════════════ 3 · SECTION 1 ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Section One</span><span>Professional Skin-Tightening Treatments</span></div>
+  <div class="pad">
+
+    <h2 class="sec"><span class="sec-num">1</span><span class="t">Professional Skin-Tightening Treatments</span></h2>
+    <div class="sec-rule"></div>
+
+    <div class="card">
+      <h3>Radiofrequency Skin Tightening</h3>
+      <p>Radiofrequency uses controlled energy to heat targeted tissue. This may stimulate collagen
+      and elastin remodeling, helping improve the appearance of mild skin laxity, texture, and firmness.</p>
+      <p class="muted" style="margin:0">Results develop gradually and usually require a series of treatments.</p>
+    </div>
+
+    <div class="card">
+      <h3>Laser Skin Tightening</h3>
+      <p>Laser skin tightening delivers controlled light-based energy into targeted layers of the skin.
+      The heat may stimulate collagen remodeling and gradually improve firmness, texture, fine lines,
+      and mild skin laxity.</p>
+      <p style="margin:0">The appropriate laser and treatment intensity depend on your skin tone, medical
+      history, treatment area, and desired results. Laser procedures must be performed by a properly
+      licensed and trained professional within their legal scope of practice.</p>
+    </div>
+
+    <div class="note">
+      <div class="kicker">At-home option</div>
+      <p style="margin:0">You can also do at-home treatments in as little as two minutes per day with
+      <a href="https://www.niraskin.com/?irclickid=14o34FT1QxyZTm3RIG3bCwv%3AUkr261yVW1pu2w0&sharedid=6aa9b87032d9890013c44177&irpid=2447408&irgwc=1&afsrc=1&gad_source=1&gad_campaignid=24175724619&gbraid=0AAAABEAG4ZJj-yi8jLd3sOGJUxvjhaeD7&gclid=CjwKCAjw2aPVBhBkEiwA0CpttyYBJeJVd1SAFnUQf5tlp_in3hOoV255K7sunMJXuHBPTzRl98G4QxoCNkIQAvD_BwE">this
+      device</a>. More impactful treatment will always require a professional.</p>
+    </div>
+
+    <div class="card">
+      <h3>Red Light Therapy</h3>
+      <p>Red light therapy, also called photobiomodulation, exposes the skin to specific wavelengths
+      of red or near-infrared light. It may support cellular activity, circulation, inflammation
+      management, and the skin's natural repair processes. With consistent use, it may help improve
+      the appearance of skin texture, fine lines, and firmness.</p>
+      <p>Red light therapy is generally used as a <strong>supportive</strong> treatment. Results depend
+      on the wavelength, strength of the device, treatment duration, frequency, and consistency.</p>
+      <p class="muted" style="margin:0">Clients taking light-sensitive medications or living with a
+      photosensitive condition should consult a qualified healthcare professional before treatment.</p>
+    </div>
+
+
+
+  </div>
+  <div class="foot"><span>Section 1 · Professional Treatments</span><span class="num">3</span></div>
+</section>
+
+<!-- ══════════════════ 4 · SECTION 2 ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Sections One &amp; Two</span><span>Treatment Series · Strength Training</span></div>
+  <div class="pad">
+
+    <div class="kicker" style="margin-bottom:6px">Section One, continued</div>
+    <div class="card">
+      <h3>Microchanneling or Microneedling</h3>
+      <p>These procedures create controlled micro-injuries that activate the skin's natural repair
+      response. They may encourage collagen production and improve texture, fine lines, acne scars,
+      and mild skin laxity.</p>
+      <p style="margin:0">Treatment eligibility depends on your skin condition, medical history,
+      treatment area, and applicable licensing requirements.</p>
+    </div>
+    <div class="note dark">
+      <div class="kicker">Personalized treatment series</div>
+      <p style="margin:0">Collagen remodeling takes time. A customized treatment series may provide
+      better results than a single appointment. The number and frequency of treatments should be based
+      on your skin condition, treatment area, selected technology, goals, and response.</p>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <h2 class="sec"><span class="sec-num">2</span><span class="t">Strength Training</span></h2>
+    <div class="sec-rule"></div>
+
+    <p class="lead">What appears to be loose skin may sometimes be partly related to reduced muscle
+    mass or muscle tone beneath the skin.</p>
+
+    <p>When the underlying muscles lose volume, an area can appear softer, less defined, or less firm.
+    Strength training helps build and preserve muscle, which may improve the shape, firmness, and
+    overall appearance of the targeted area.</p>
+
+    <div class="note warn">
+      <div class="kicker">Set the expectation honestly</div>
+      <p style="margin:0">Strength training <strong>cannot remove significant excess skin</strong>.
+      Results depend on the amount of skin laxity, age, genetics, weight changes, nutrition,
+      exercise consistency, and overall health.</p>
+    </div>
+
+    <div class="grid2" style="margin-top:14px">
+      <div class="card tight">
+        <div class="kicker">What it can do</div>
+        <ul style="margin-bottom:0">
+          <li>Build and preserve muscle volume</li>
+          <li>Improve shape and definition of an area</li>
+          <li>Support the skin from underneath</li>
+          <li>Protect muscle during weight loss</li>
+        </ul>
+      </div>
+      <div class="card tight">
+        <div class="kicker">What it cannot do</div>
+        <ul style="margin-bottom:0">
+          <li>Remove significant excess skin</li>
+          <li>Replace a professional treatment plan</li>
+          <li>Work without adequate protein</li>
+          <li>Produce results without consistency</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note dark" style="margin-top:16px">
+      <div class="kicker">Pair it with the rest of the plan</div>
+      <p style="margin:0">Training is most effective alongside sufficient protein (Section 3),
+      real recovery (Section 4), and an appropriate professional treatment series (Section 1).
+      Treat these as one plan rather than four separate projects.</p>
+    </div>
+
+  </div>
+  <div class="foot"><span>Sections 1–2 · Treatments &amp; Strength Training</span><span class="num">4</span></div>
+</section>
+
+<!-- ══════════════════ 5 · SECTION 3 (part 1) ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Section Three</span><span>Protein &amp; Nutrition</span></div>
+  <div class="pad">
+
+    <h2 class="sec"><span class="sec-num">3</span><span class="t">Protein &amp; Nutrition</span></h2>
+    <div class="sec-rule"></div>
+
+    <div class="card">
+      <h3>Approximately 30 Grams of Protein per Meal</h3>
+      <p>A practical goal is approximately 30 grams of protein at each main meal, adjusted for your
+      body size, activity level, medical needs, and total daily protein goal.</p>
+      <p>Protein provides amino acids needed to build and preserve muscle and support normal tissue
+      repair. Distributing protein throughout the day may make it easier to meet daily needs and
+      support strength-training goals.</p>
+      <div class="kicker" style="margin-top:7px">Protein sources may include</div>
+      <div class="grid2">
+        <ul style="margin:3px 0 0">
+          <li>Chicken, turkey, lean beef, or fish</li>
+          <li>Greek yogurt or cottage cheese, when tolerated</li>
+          <li>Tofu or tempeh, when tolerated</li>
+        </ul>
+        <ul style="margin:3px 0 0">
+          <li>Lentils and beans</li>
+          <li>Protein powder that meets your dietary needs</li>
+          <li>Other individualized protein sources</li>
+        </ul>
+      </div>
+      <p class="muted" style="margin:7px 0 0;font-size:9.2pt">Clients with kidney disease, liver disease,
+      pregnancy, or another relevant medical condition should consult their healthcare provider before
+      significantly increasing protein intake.</p>
+    </div>
+
+    <div class="card">
+      <h3>Collagen Peptides With Vitamin C</h3>
+      <p>Hydrolyzed collagen peptides provide amino acids commonly found in connective tissue.
+      Vitamin C is required for normal collagen synthesis, which is why collagen may be paired with
+      a source of vitamin C. That vitamin C can come from food or an appropriate supplement.</p>
+      <p style="margin:0">Collagen supplements may modestly support skin hydration or elasticity for
+      some people, but results vary. <strong>Collagen is not a complete protein</strong> and should not
+      replace the complete protein needed for muscle development.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="card tight">
+        <h3 style="font-size:11pt">Vitamin C-Rich Foods</h3>
+        <p class="muted" style="font-size:9.2pt;margin-bottom:2px">Supports normal collagen synthesis
+        and acts as an antioxidant.</p>
+        <ul style="margin-bottom:0">
+          <li>Bell peppers</li><li>Berries</li><li>Broccoli</li>
+          <li>Kiwi</li><li>Citrus fruit</li><li>Brussels sprouts</li>
+        </ul>
+      </div>
+      <div class="card tight">
+        <h3 style="font-size:11pt">Healthy Fats</h3>
+        <p class="muted" style="font-size:9.2pt;margin-bottom:2px">Support normal cellular function and
+        absorption of fat-soluble vitamins.</p>
+        <ul style="margin-bottom:0">
+          <li>Olive oil</li><li>Avocado</li><li>Nuts</li>
+          <li>Seeds</li><li>Suitable fatty fish</li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+    <div class="card">
+      <h3>Balanced Micronutrient Intake</h3>
+      <p style="margin:0">Iron, zinc, copper, vitamin D, vitamin A, vitamin C, and other nutrients
+      contribute to normal skin and tissue function. Supplements should be selected according to
+      individual needs rather than assuming that higher doses will improve the skin.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Section 3 · Protein &amp; Nutrition</span><span class="num">5</span></div>
+</section>
+
+<!-- ══════════════════ 6 · SECTION 3 (part 2) ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Section Three</span><span>Weight Change &amp; Hydration</span></div>
+  <div class="pad">
+
+    <div class="kicker" style="margin-bottom:6px">Section Three, continued</div>
+    <div class="card">
+      <h3>Gradual Weight Change</h3>
+      <p style="margin:0">Rapid weight loss can make skin laxity more noticeable because the skin may
+      not adapt as quickly as body volume changes. A gradual, medically appropriate approach to weight
+      management may allow more time for tissue adaptation while helping preserve muscle.</p>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <h2 class="sec"><span class="t">Hydration, Kangen Water &amp; Mineral Salts</span></h2>
+    <div class="sec-rule"></div>
+
+
+    <p class="lead">Adequate hydration supports normal body functions and may help the skin appear
+    less dry.</p>
+    <p>Drinking water does not independently tighten loose skin, but consistent hydration supports
+    general wellness, exercise performance, circulation, and recovery.</p>
+
+    <div class="card">
+      <h3>Kangen Water</h3>
+      <p>Kangen Water is a brand of electrically ionized alkaline water produced by an Enagic
+      water-ionizing machine. It can be used as a hydration option if the water is potable and the
+      machine is properly cleaned and maintained.</p>
+      <p>Alkaline water has not been proven to tighten skin, increase collagen, "detoxify" the body,
+      or provide better hydration than safe drinking water for most people. The kidneys and lungs
+      tightly regulate the body's internal pH, so alkaline water does not meaningfully alkalize the blood.</p>
+      <p class="muted" style="margin:0">Clients with kidney disease, electrolyte abnormalities, or
+      medications affected by mineral or electrolyte intake should consult a healthcare professional
+      before routinely consuming strongly alkaline water.</p>
+    </div>
+
+    <div class="note">
+      <div class="kicker">If you would like a machine</div>
+      <p style="margin:0">You can purchase one
+      <a href="https://thebodytemplespas.com/product-details/product/69cd674a9849f081ce352fa8">here</a>,
+      or contact us at <a href="mailto:hello@thebodytemplespas.com">hello@thebodytemplespas.com</a>
+      for payment options.</p>
+    </div>
+
+    <div class="card">
+      <h3>Himalayan or Celtic Sea Salt</h3>
+      <p>A small amount of Himalayan pink salt or Celtic sea salt adds sodium and trace minerals to
+      water. Sodium can support fluid balance when electrolytes have been lost through prolonged
+      exercise, heavy sweating, vomiting, diarrhea, or significant heat exposure.</p>
+      <p>However, these salts are <strong>not complete electrolyte products</strong> and are not
+      necessary in every glass of water. They contain mostly sodium chloride, and their trace mineral
+      content is too small to treat a mineral deficiency or tighten the skin.</p>
+      <p style="margin-bottom:3px"><strong>Use either Himalayan salt or Celtic sea salt — not both
+      together.</strong> Adding salt routinely may be inappropriate for clients with:</p>
+      <div class="grid2">
+        <ul style="margin:0">
+          <li>High blood pressure</li>
+          <li>Kidney or heart disease</li>
+          <li>Fluid retention or swelling</li>
+        </ul>
+        <ul style="margin:0">
+          <li>A sodium-restricted diet</li>
+          <li>Certain medications or electrolyte disorders</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <div class="foot"><span>Section 3 · Weight Change &amp; Hydration</span><span class="num">6</span></div>
+</section>
+
+<!-- ══════════════════ 7 · SECTION 4 ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Section Four</span><span>Circadian Rhythm &amp; Recovery</span></div>
+  <div class="pad">
+
+    <h2 class="sec"><span class="sec-num">4</span><span class="t">Circadian Rhythm &amp; Recovery</span></h2>
+    <div class="sec-rule"></div>
+
+    <div class="grid2">
+      <div class="card tight">
+        <h3 style="font-size:11pt">Consistent Sleep &amp; Wake Times</h3>
+        <p style="margin:0">Going to bed and waking up at approximately the same time each day helps
+        reinforce your circadian rhythm. A consistent schedule may improve sleep quality, recovery,
+        energy, and the ability to maintain healthy behaviors.</p>
+      </div>
+      <div class="card tight">
+        <h3 style="font-size:11pt">Sleep Duration</h3>
+        <p style="margin:0">Most adults benefit from approximately seven to nine hours of sleep,
+        although individual needs vary. Adequate sleep supports muscle recovery, appetite regulation,
+        immune function, energy, and normal tissue repair.</p>
+      </div>
+      <div class="card tight">
+        <h3 style="font-size:11pt">Morning Light Exposure</h3>
+        <p style="margin:0">Natural outdoor light shortly after waking helps signal daytime to the
+        brain and supports your internal clock. Morning light may make it easier to feel alert during
+        the day and appropriately sleepy at night.</p>
+      </div>
+      <div class="card tight">
+        <h3 style="font-size:11pt">Evening Light Reduction</h3>
+        <p style="margin:0">Bright overhead lighting and excessive screen exposure at night may delay
+        your body's natural nighttime signals. Lowering the lights and reducing stimulating screen use
+        before bed may support better sleep.</p>
+      </div>
+      <div class="card tight">
+        <h3 style="font-size:11pt">Meal Timing</h3>
+        <p style="margin:0">A consistent eating schedule can support circadian regularity. When
+        possible, avoid very large meals immediately before bedtime if they interfere with sleep
+        or digestion.</p>
+      </div>
+      <div class="card tight">
+        <h3 style="font-size:11pt">Exercise Timing</h3>
+        <p style="margin:0">Exercise should be scheduled at a time that allows you to remain consistent
+        and recover well. Intense late-night exercise may disturb sleep for some people, while others
+        tolerate it without difficulty.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:4px">
+      <h3>Stress Regulation</h3>
+      <p style="margin-bottom:3px">Chronic stress may interfere with sleep, nutrition, exercise
+      consistency, and recovery. Supportive practices may include:</p>
+      <div class="grid2">
+        <ul style="margin:0">
+          <li>Breathing exercises</li><li>Prayer</li><li>Meditation</li><li>Journaling</li>
+        </ul>
+        <ul style="margin:0">
+          <li>Gentle yoga</li><li>Time outdoors</li><li>Professional counseling when appropriate</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="note dark">
+      <div class="kicker">Recovery coordination</div>
+      <p style="margin:0">Professional treatments, strength training, sleep, hydration, and nutrition
+      should be coordinated rather than treated as unrelated activities. Treatment and training
+      schedules should allow appropriate recovery, particularly when the skin or muscles feel tender.</p>
+    </div>
+
+  </div>
+  <div class="foot"><span>Section 4 · Circadian Rhythm &amp; Recovery</span><span class="num">7</span></div>
+</section>
+
+<!-- ══════════════════ 8 · SECTION 5 ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Section Five</span><span>Topical Skin-Supporting Products</span></div>
+  <div class="pad">
+
+    <h2 class="sec"><span class="sec-num">5</span><span class="t">Topical Skin-Supporting Products</span></h2>
+    <div class="sec-rule"></div>
+
+    <div class="card">
+      <h3>Broad-Spectrum Sunscreen</h3>
+      <p>Daily broad-spectrum sunscreen helps protect the skin from ultraviolet damage that contributes
+      to premature collagen breakdown, wrinkles, discoloration, and reduced elasticity.</p>
+      <p style="margin:0">Apply sunscreen to exposed skin and reapply according to the product's
+      directions, particularly during prolonged outdoor exposure.</p>
+    </div>
+
+    <div class="card">
+      <h3>Retinol or Prescription Retinoid</h3>
+      <p>Retinoids are vitamin A derivatives that support skin-cell turnover and collagen production.
+      They may improve fine lines, uneven tone, and texture over time.</p>
+      <p>Begin gradually because retinoids can cause dryness, peeling, irritation, and increased sun
+      sensitivity. Prescription-strength products require a medical provider.</p>
+      <p class="muted" style="margin:0">Retinoids are generally avoided during pregnancy unless a
+      qualified clinician provides different instructions.</p>
+    </div>
+
+    <div class="card">
+      <h3>Topical Peptide Serum or Moisturizer</h3>
+      <p style="margin:0">Topical peptides are short chains of amino acids used in skincare products to
+      support hydration, barrier function, and a firmer-looking appearance. Results depend on the
+      formulation and consistent use. A topical peptide product should not be assumed to penetrate or
+      work like an injectable medication.</p>
+    </div>
+
+    <div class="card">
+      <h3>Copper Peptide Skincare</h3>
+      <p>Copper peptide products, commonly associated with GHK-Cu, are marketed to support the
+      appearance of skin repair, texture, and firmness. Topical use has greater cosmetic relevance than
+      injectable use, but results vary according to the formulation. Patch-test new products and stop
+      using them if significant irritation develops.</p>
+      <p style="margin:0">One of the best-formulated products with known results is
+      <strong>EllieVate Skin + Topical Rejuvenating Serum</strong> from EllieMD. You can create an
+      account and purchase at <a href="https://elliemd.com/Thebodytemplespa">elliemd.com/Thebodytemplespa</a>
+      to access partner prices.</p>
+    </div>
+
+    <div class="card">
+      <h3>Vitamin C Serum</h3>
+      <p style="margin:0">A properly formulated topical vitamin C product may provide antioxidant
+      support and improve the appearance of uneven tone. Vitamin C also participates in normal collagen
+      synthesis. Some formulas may cause irritation, so gradual introduction and proper storage
+      are important.</p>
+    </div>
+
+  </div>
+  <div class="foot"><span>Section 5 · Topical Products</span><span class="num">8</span></div>
+</section>
+
+<!-- ══════════════════ 9 · SECTION 6 ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Section Six</span><span>Oral Supplements &amp; Probiotics</span></div>
+  <div class="pad">
+
+    <h2 class="sec"><span class="sec-num">6</span><span class="t">Oral Supplements &amp; Probiotics</span></h2>
+    <div class="sec-rule"></div>
+
+    <div class="grid2">
+      <div class="card tight">
+        <h3 style="font-size:11pt">Hydrolyzed Collagen Peptides</h3>
+        <p style="margin:0">Hydrolyzed collagen is broken into smaller peptides for easier mixing and
+        digestion. Some studies suggest modest improvements in skin hydration or elasticity, but results
+        are not guaranteed and product quality varies. Collagen should complement — not replace —
+        complete dietary protein.</p>
+      </div>
+      <div class="card tight">
+        <h3 style="font-size:11pt">Vitamin C</h3>
+        <p style="margin:0">Vitamin C is required for normal collagen synthesis. Clients who already
+        consume sufficient vitamin C may not benefit from unnecessarily high supplemental doses. Large
+        doses may cause digestive symptoms and may not be appropriate for everyone.</p>
+      </div>
+      <div class="card tight">
+        <h3 style="font-size:11pt">Protein Supplement</h3>
+        <p style="margin:0">A protein powder may help you reach approximately 30 grams of protein per
+        meal when food alone is inconvenient. The product should be selected according to your
+        allergies, dietary preferences, ingredients, and medical needs.</p>
+      </div>
+      <div class="card tight">
+        <h3 style="font-size:11pt">Omega-3 Fatty Acids</h3>
+        <p style="margin:0">Omega-3 fats support general cardiovascular and inflammatory health. They
+        are not direct skin-tightening supplements. Anyone taking blood-thinning medication or preparing
+        for a procedure should ask a healthcare professional whether supplementation is appropriate.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><em>Lactobacillus reuteri</em> Probiotic</h3>
+      <p>According to <em>Super Gut</em> author Dr. William Davis, specific strains of
+      <em>Lactobacillus reuteri</em> may stimulate oxytocin-related pathways associated with increased
+      dermal collagen, improved skin thickness, fewer visible wrinkles, and muscle preservation.
+      The two strains commonly used in his approach are:</p>
+      <ul style="margin:4px 0 6px">
+        <li><em>L. reuteri</em> DSM 17938</li>
+        <li><em>L. reuteri</em> ATCC PTA 6475</li>
+      </ul>
+      <p>These strains are available together in certain BioGaia Gastrus products. Probiotic effects are
+      <strong>strain-specific</strong>, so a product containing a different <em>L. reuteri</em> strain
+      should not automatically be expected to produce the same effects.</p>
+      <p>These proposed benefits are associated with Dr. Davis's approach and should not be presented as
+      guaranteed or established skin-tightening outcomes. Human evidence remains limited. A probiotic
+      should complement — not replace — adequate protein, strength training, skincare, professional
+      treatments, and recovery.</p>
+      <p class="muted" style="margin:0">People who are pregnant, immunocompromised, seriously ill, or
+      living with a complex gastrointestinal condition should consult a healthcare professional before
+      beginning a probiotic or concentrated fermented preparation.</p>
+    </div>
+
+    <div class="note warn">
+      <div class="kicker">Supplement &amp; probiotic safety</div>
+      <p style="margin:0">Supplements and probiotics can interact with medications, health conditions,
+      and procedures. Share your complete medication and supplement list with your healthcare provider.
+      Third-party-tested products are preferred when available.</p>
+    </div>
+
+  </div>
+  <div class="foot"><span>Section 6 · Supplements &amp; Probiotics</span><span class="num">9</span></div>
+</section>
+
+<!-- ══════════════════ 10 · SECTION 7 (part 1) ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Section Seven</span><span>Injectable Peptides — Educational Information</span></div>
+  <div class="pad">
+
+    <h2 class="sec"><span class="sec-num">7</span><span class="t">Injectable Peptides: Education</span></h2>
+    <div class="sec-rule"></div>
+
+    <div class="note warn">
+      <div class="kicker">Important medical notice</div>
+      <p>Injectable peptides must be prescribed, dispensed, and monitored by a qualified healthcare
+      professional when medically and legally appropriate. We can help you arrange and order 503A and
+      FDA-approved peptides with EllieMD — create an account at
+      <a href="https://elliemd.com/Thebodytemplespa">elliemd.com/Thebodytemplespa</a> to access
+      partner prices.</p>
+      <p style="margin:0">This guide does <strong>not</strong> provide injection instructions, dosages,
+      or self-administration directions; that must come from a doctor. If you use the link above to
+      partner with EllieMD, we will provide a doctor for you.</p>
+    </div>
+
+    <div class="card">
+      <h3>Injectable GHK-Cu</h3>
+      <p>GHK-Cu is a copper-binding peptide studied for its possible roles in tissue signaling, wound
+      repair, and collagen-related processes. Topical copper-peptide skincare is different from
+      injectable GHK-Cu.</p>
+      <p style="margin:0">Injectable GHK-Cu is not FDA-approved as a skin-tightening treatment. Human
+      evidence for cosmetic injection is limited.</p>
+    </div>
+
+    <div class="card">
+      <h3>BPC-157</h3>
+      <p>BPC-157 is marketed online for injury recovery, tissue repair, and inflammation. It is not
+      FDA-approved, and reliable human safety and effectiveness data remain limited.</p>
+      <p style="margin:0">There is no established clinical evidence showing that BPC-157 tightens loose
+      skin. Unapproved injectable products may introduce risks involving sterility, contamination,
+      incorrect concentration, and immune reactions.</p>
+      <span class="chip no">Not recommended as a skin-tightening treatment</span>
+    </div>
+
+    <div class="card">
+      <h3>TB-500</h3>
+      <p>TB-500, a product associated with fragments of thymosin beta-4, is marketed for healing and
+      physical recovery.</p>
+      <p style="margin:0">It is not an FDA-approved cosmetic skin-tightening medication, and adequate
+      human evidence supporting this use is unavailable. Product identity, purity, sterility, and
+      long-term effects may be uncertain when purchased from unregulated sources.</p>
+      <span class="chip no">Not recommended as a skin-tightening treatment</span>
+    </div>
+
+
+  </div>
+  <div class="foot"><span>Section 7 · Injectable Peptides</span><span class="num">10</span></div>
+</section>
+
+<!-- ══════════════════ 11 · SECTION 7 CHECKLIST ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Section Seven</span><span>MOTS-c · Injectable Peptide Safety Checklist</span></div>
+  <div class="pad">
+
+    <div class="kicker" style="margin-bottom:6px">Section Seven, continued</div>
+    <div class="card">
+      <h3>MOTS-c</h3>
+      <p>MOTS-c is a mitochondrial-derived peptide being researched for its role in metabolic signaling.
+      It is sometimes marketed for energy, exercise performance, or metabolic health.</p>
+      <p style="margin:0">It is not FDA-approved for skin tightening. Safety concerns may include
+      potential immune reactions and risks related to peptide impurities or product quality.</p>
+      <span class="chip exp">Experimental · not recommended for skin tightening</span>
+    </div>
+
+    <div style="height:14px"></div>
+
+    <h2 class="sec"><span class="t">Injectable Peptide Safety Checklist</span></h2>
+    <div class="sec-rule"></div>
+
+    <p class="lead">Before considering an injectable peptide, confirm every item below.</p>
+
+    <div class="card" style="border-left-color:var(--terracotta)">
+      <ol class="check">
+        <li>A qualified medical provider has completed an evaluation.</li>
+        <li>The peptide's FDA approval status is current and understood.</li>
+        <li>Expected benefits have been explained as possible — not guaranteed.</li>
+        <li>Risks, contraindications, and medication interactions have been reviewed.</li>
+        <li>Appropriate baseline and follow-up monitoring have been established.</li>
+        <li>The medication comes from a lawful, appropriately licensed source.</li>
+        <li>The product is <strong>not</strong> labeled "research use only."</li>
+        <li>Pregnancy, breastfeeding, cancer history, diabetes risk, hormone conditions, and other
+        relevant conditions have been discussed.</li>
+      </ol>
+    </div>
+
+    <div class="note dark">
+      <div class="kicker">The short version</div>
+      <p style="margin:0">None of the injectable peptides in this section is an approved skin-tightening
+      treatment. If a peptide is right for you for another medical reason, it belongs in a physician's
+      hands — not in a self-administered protocol bought online.</p>
+    </div>
+
+  </div>
+  <div class="foot"><span>Section 7 · Safety Checklist</span><span class="num">11</span></div>
+</section>
+
+<!-- ══════════════════ 12 · SECTION 8 ══════════════════ -->
+<section class="page">
+  <div class="runner"><span class="mark">Section Eight</span><span>Supportive Behaviors</span></div>
+  <div class="pad">
+
+    <h2 class="sec"><span class="sec-num">8</span><span class="t">Supportive Behaviors</span></h2>
+    <div class="sec-rule"></div>
+
+    <p class="lead">These habits protect every result the rest of this guide is working toward.</p>
+
+    <div class="card">
+      <h3>Avoid Smoking and Nicotine</h3>
+      <p style="margin:0">Smoking and nicotine exposure can negatively affect circulation, wound
+      healing, and collagen health. Avoiding tobacco and nicotine supports general skin, cardiovascular,
+      and respiratory health.</p>
+    </div>
+
+    <div class="card">
+      <h3>Limit Excessive Alcohol</h3>
+      <p style="margin:0">Excessive alcohol may interfere with hydration, sleep, nutrition, exercise
+      performance, and recovery. Alcohol should be limited or avoided according to your personal
+      health needs.</p>
+    </div>
+
+    <div class="card">
+      <h3>Protect the Skin From Excessive Sun Exposure</h3>
+      <p style="margin:0">Ultraviolet exposure contributes to premature collagen and elastin breakdown.
+      Sunscreen, shade, protective clothing, and avoiding unnecessary tanning are important parts of a
+      long-term firming plan.</p>
+    </div>
+
+    <div class="card">
+      <h3>Maintain a Stable Weight</h3>
+      <p style="margin:0">Frequent or dramatic weight changes repeatedly alter tissue volume and may
+      make skin laxity more noticeable. Maintaining a reasonably stable weight after reaching a goal
+      may help preserve results.</p>
+    </div>
+
+    <div class="card">
+      <h3>Follow the Treatment Schedule</h3>
+      <p style="margin:0">Skin remodeling is gradual. Completing the recommended treatment series and
+      attending maintenance appointments may support more consistent results.</p>
+    </div>
+
+  </div>
+  <div class="foot"><span>Section 8 · Supportive Behaviors</span><span class="num">12</span></div>
+</section>
+
+<!-- ══════════════════ 13 · CLOSING ══════════════════ -->
+<section class="page close">
+  <div class="pad" style="z-index:2">
+
+    <div class="kicker">Putting it together</div>
+    <h2>Your Firming Plan,<br><em>One Page</em></h2>
+
+    <div style="margin-top:18px">
+      <div class="step"><span class="n">1</span><div>
+        <h4>Book a consultation and build the treatment series</h4>
+        <p>We assess your skin, history, and goals, then recommend the technology and cadence that fit —
+        radiofrequency, laser, red light, microchanneling, or a combination.</p></div></div>
+      <div class="step"><span class="n">2</span><div>
+        <h4>Train for strength two to four times a week</h4>
+        <p>Build and preserve the muscle underneath the area you want to firm.</p></div></div>
+      <div class="step"><span class="n">3</span><div>
+        <h4>Anchor roughly 30 g of protein to every main meal</h4>
+        <p>Add a vitamin C source, healthy fats, and steady hydration. Change weight gradually.</p></div></div>
+      <div class="step"><span class="n">4</span><div>
+        <h4>Protect sleep and recovery</h4>
+        <p>Consistent sleep and wake times, morning light, dimmer evenings, seven to nine hours.</p></div></div>
+      <div class="step"><span class="n">5</span><div>
+        <h4>Keep the daily skincare simple and consistent</h4>
+        <p>Broad-spectrum sunscreen every day, a retinoid as tolerated, peptides and vitamin C.</p></div></div>
+      <div class="step" style="border-bottom:none"><span class="n">6</span><div>
+        <h4>Run anything injectable through a physician</h4>
+        <p>We can connect you with a provider through EllieMD.</p></div></div>
+    </div>
+
+    <div class="cta">
+      <div class="kicker">Ready when you are</div>
+      <div class="v">
+        The Body Temple Spa &nbsp;·&nbsp; 2350 Prince Ave, Athens, GA 30606<br>
+        959-400-9242 &nbsp;·&nbsp; <a href="mailto:hello@thebodytemplespas.com">hello@thebodytemplespas.com</a><br>
+        <a href="https://thebodytemplespas.com">thebodytemplespas.com</a>
+      </div>
+    </div>
+
+    <div class="disclaim">
+      This guide is provided for general education by The Body Temple Spa and is not medical, nutritional,
+      or pharmaceutical advice, diagnosis, or treatment. Results vary between individuals. No treatment,
+      product, supplement, behavior, probiotic, or peptide can guarantee that loose skin will completely
+      tighten. Always consult a qualified healthcare professional before beginning a new treatment,
+      supplement, probiotic, prescription, or significant change to nutrition or exercise — particularly
+      if you are pregnant or breastfeeding, or living with kidney, liver, heart, hormonal, immune, or
+      gastrointestinal conditions. Products and providers referenced here are named for convenience;
+      some links are partner links. &nbsp;© 2026 The Body Temple Spa.
+    </div>
+
+  </div>
+  <div class="foot" style="border-top-color:rgba(255,255,255,.09);color:var(--stone)">
+    <span>The Body Temple Spa · Skin Tightening &amp; Firming Guide</span><span class="num">13</span>
+  </div>
+</section>
+
+</body>
+</html>
