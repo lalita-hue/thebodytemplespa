@@ -103,7 +103,12 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
 .cover::after{content:"";position:absolute;bottom:-3.1in;left:-2.6in;width:6.4in;height:6.4in;
    border-radius:50%;background:radial-gradient(circle at 60% 40%,rgba(249,210,172,.5) 0%,rgba(249,210,172,0) 68%)}
 .cover-inner{position:absolute;inset:0.9in 0.85in 0.8in;display:flex;flex-direction:column;z-index:2}
-.emblem{display:flex;align-items:center;gap:13px}
+.emblem{display:flex;align-items:center;gap:16px}
+.emblem-mark{width:1.42in;height:1.42in;display:block;flex-shrink:0}
+.emblem-cap{font-family:var(--serif);font-size:12pt;color:var(--porcelain);font-weight:500;
+            line-height:1.25;letter-spacing:.01em}
+.emblem-cap span{display:block;font-family:var(--sans);font-size:6.4pt;letter-spacing:.26em;
+                 text-transform:uppercase;color:var(--apricot);font-weight:700;margin-top:5px}
 .emblem .name{font-family:var(--serif);font-size:14pt;color:var(--porcelain);font-weight:600;line-height:1.1}
 .emblem .sub{display:block;font-family:var(--sans);font-size:6.4pt;letter-spacing:.26em;
              text-transform:uppercase;color:var(--apricot);font-weight:700;margin-top:4px}
@@ -151,6 +156,42 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
 .disclaim{margin-top:auto;padding-top:14px;border-top:1px solid var(--line-dark);
           font-size:7.4pt;color:var(--stone);line-height:1.6}
 
+/* ── Logo lockup in the closing CTA ── */
+.cta{display:flex;align-items:center;gap:16px}
+.cta-mark{width:0.78in;height:0.78in;flex-shrink:0}
+
+/* ── Back cover ── */
+.backcover{background:var(--porcelain)}
+.bc-hero{position:absolute;top:0;left:0;right:0;height:4.78in;overflow:hidden}
+.bc-hero img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.bc-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:0.9in;
+  background:linear-gradient(180deg,rgba(254,246,236,0),var(--porcelain))}
+.bc-body{position:absolute;top:4.62in;left:0.78in;right:0.78in;bottom:0.42in;
+  display:flex;flex-direction:column;text-align:center;align-items:center}
+.bc-body h2{font-family:var(--serif);font-size:24pt;font-weight:500;letter-spacing:-.015em;
+  line-height:1.12;margin-top:2px}
+.bc-body h2 em{font-style:italic;color:var(--terracotta)}
+.bc-body .lede{font-size:10.4pt;color:var(--umber);line-height:1.62;max-width:5.1in;margin:11px 0 0}
+.routes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 0;
+  width:100%;max-width:6.3in;text-align:left}
+.routes .r{background:#fff;border:1px solid var(--line);border-top:2px solid var(--apricot);
+  border-radius:0 0 7px 7px;padding:11px 13px 12px}
+.routes .r .k{font-size:6.6pt;letter-spacing:.2em;text-transform:uppercase;color:var(--terracotta);
+  font-weight:700}
+.routes .r h4{font-family:var(--serif);font-size:11.2pt;font-weight:600;margin:4px 0 3px}
+.routes .r p{font-size:8.4pt;color:var(--umber);line-height:1.5;margin:0}
+.routes .r a{font-size:7.6pt;letter-spacing:-.004em}
+.bc-tag{margin:auto 0;font-family:var(--serif);font-size:16pt;font-style:italic;
+  color:var(--terracotta);letter-spacing:.01em;line-height:1.3}
+.bc-tag span{display:block;font-family:var(--sans);font-size:6.4pt;font-style:normal;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--umber);font-weight:700;margin-top:9px}
+.bc-foot{margin-top:0;width:100%;border-top:1px solid var(--line);padding-top:16px;
+  display:flex;align-items:center;justify-content:center;gap:15px}
+.bc-foot img{width:0.72in;height:0.72in;flex-shrink:0}
+.bc-foot .c{text-align:left;font-size:9pt;color:var(--umber);line-height:1.65}
+.bc-foot .c strong{display:block;font-family:var(--serif);font-size:11.5pt;color:var(--ink);
+  font-weight:600;margin-bottom:3px}
+
 @media print{body{background:#fff}.page{margin:0;box-shadow:none}}
 @media screen{.page{box-shadow:0 10px 34px rgba(0,0,0,.2)}}
 </style>
@@ -162,32 +203,11 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
   <div class="cover-inner">
 
     <div class="emblem">
-      <svg width="54" height="54" viewBox="0 0 64 64" aria-label="The Body Temple Spa">
-        <defs>
-          <radialGradient id="bt-glow" cx="36%" cy="30%" r="78%">
-            <stop offset="0%"   stop-color="#FEF6EC"/>
-            <stop offset="34%"  stop-color="#F9D2AC"/>
-            <stop offset="72%"  stop-color="#EFA068"/>
-            <stop offset="100%" stop-color="#E58A4C"/>
-          </radialGradient>
-        </defs>
-        <circle cx="32" cy="32" r="31" fill="url(#bt-glow)"/>
-        <g fill="#12100E" opacity=".9">
-          <ellipse cx="45.5" cy="24" rx="13" ry="3.5" transform="rotate(-16 45.5 24)" opacity=".55"/>
-          <ellipse cx="18.5" cy="24" rx="13" ry="3.5" transform="rotate(16 18.5 24)"  opacity=".55"/>
-          <ellipse cx="43"   cy="33" rx="10.5" ry="3" transform="rotate(14 43 33)"    opacity=".45"/>
-          <ellipse cx="21"   cy="33" rx="10.5" ry="3" transform="rotate(-14 21 33)"   opacity=".45"/>
-          <circle cx="32" cy="16.5" r="4"/>
-          <path d="M32 20.5c1.7 0 2.6 1.3 2.6 3.2 0 2.4-.6 4.6-.8 7.2-.2 3.1-.3 6.3-.7 9.4-.3 2.6-.7 5.2-1.1 7.9-.4-2.7-.8-5.3-1.1-7.9-.4-3.1-.5-6.3-.7-9.4-.2-2.6-.8-4.8-.8-7.2 0-1.9.9-3.2 2.6-3.2z"/>
-        </g>
-      </svg>
-      <div>
-        <span class="name">The Body Temple Spa</span>
-        <span class="sub">Athens · Skin Longevity</span>
-      </div>
+      <img class="emblem-mark" src="assets/brand-logo-circle.png" alt="The Body Temple Spa">
+      <div class="emblem-cap">Athens, Georgia<span>Skin Longevity &amp; Esthetics</span></div>
     </div>
 
-    <div style="margin-top:0.95in">
+    <div style="margin-top:0.72in">
       <div class="eyebrow">Client Recommendation Guide</div>
       <h1>Skin Tightening<br>&amp; <em>Firming</em></h1>
       <div class="rule"></div>
@@ -915,11 +935,14 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
     </div>
 
     <div class="cta">
+      <img class="cta-mark" src="assets/brand-logo-circle.png" alt="">
+      <div>
       <div class="kicker">Ready when you are</div>
       <div class="v">
         The Body Temple Spa &nbsp;·&nbsp; 2350 Prince Ave, Athens, GA 30606<br>
         959-400-9242 &nbsp;·&nbsp; <a href="mailto:hello@thebodytemplespas.com">hello@thebodytemplespas.com</a><br>
         <a href="https://thebodytemplespas.com">thebodytemplespas.com</a>
+      </div>
       </div>
     </div>
 
@@ -937,6 +960,50 @@ ol.check li::before{content:counter(c);position:absolute;left:0;top:1px;width:15
   </div>
   <div class="foot" style="border-top-color:rgba(255,255,255,.09);color:var(--stone)">
     <span>The Body Temple Spa · Skin Tightening &amp; Firming Guide</span><span class="num">13</span>
+  </div>
+</section>
+
+<!-- ══════════════════ 14 · BACK COVER ══════════════════ -->
+<section class="page backcover">
+  <div class="bc-hero">
+    <img src="assets/longevity-academy-banner.webp" alt="The Longevity Academy by The Body Temple Spa">
+  </div>
+  <div class="bc-body">
+    <div class="kicker">Keep going</div>
+    <h2>There is more to learn,<br>and we <em>teach it</em></h2>
+    <p class="lede">The Longevity Academy is where this guide continues — the education behind the
+    treatments, the habits, and the science of aging well.</p>
+    <div class="routes">
+      <div class="r">
+        <div class="k">Start here</div>
+        <h4>Book a consultation</h4>
+        <p>We build your treatment series around your skin, history, and goals.<br>
+        <a href="https://thebodytemplespas.com">thebodytemplespas.com</a></p>
+      </div>
+      <div class="r">
+        <div class="k">At home</div>
+        <h4>Shop what we recommend</h4>
+        <p>Partner pricing on the serums and peptides named in this guide.<br>
+        <a href="https://elliemd.com/Thebodytemplespa">elliemd.com/Thebodytemplespa</a></p>
+      </div>
+      <div class="r">
+        <div class="k">Go deeper</div>
+        <h4>Join the Academy</h4>
+        <p>Ask us about upcoming courses, trainings, and certifications.<br>
+        <a href="mailto:hello@thebodytemplespas.com">hello@thebodytemplespas.com</a></p>
+      </div>
+    </div>
+    <div class="bc-tag">Self care is self love<span>The Body Temple Spa · Athens, Georgia</span></div>
+
+    <div class="bc-foot">
+      <img src="assets/brand-logo-circle.png" alt="">
+      <div class="c">
+        <strong>The Body Temple Spa</strong>
+        2350 Prince Ave, Athens, GA 30606 &nbsp;·&nbsp; 959-400-9242<br>
+        <a href="mailto:hello@thebodytemplespas.com">hello@thebodytemplespas.com</a>
+        &nbsp;·&nbsp; <a href="https://thebodytemplespas.com">thebodytemplespas.com</a>
+      </div>
+    </div>
   </div>
 </section>
 
