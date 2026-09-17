@@ -3,13 +3,9 @@
      Paste into ONE custom-code element on the funnel step that the guide
      form redirects to. This is where the download actually lives.
 
-     BEFORE IT GOES LIVE, REPLACE ONE THING:
-
-       REPLACE_ME #2 — PDF_URL
-         Upload The-Body-Temple-Spa-Skin-Tightening-Guide.pdf to your GHL
-         media library, copy its public URL, and find-and-replace every
-         "PDF_URL" in this file with it. It appears twice (the main download
-         button and the backup link).
+     NOTHING LEFT TO REPLACE — the download button points at the guide in
+     your media library. Just make sure the guide form redirects here after
+     submit.
 
      GTM: reuse ghl-clean-gtm-head.txt / ghl-clean-gtm-body.txt, same as
      every other page. Scoped to #btgt so nothing leaks.
@@ -144,16 +140,15 @@
       <h1>Your guide is <em>ready</em></h1>
       <p>Fourteen pages on what actually firms skin — and what doesn't. Download it now, and
       check your inbox: we've emailed you a copy so you always have it.</p>
-      <!-- REPLACE_ME #2 — swap PDF_URL for the guide's URL in your media library. -->
       <a class="cta" id="downloadBtn"
-         href="PDF_URL"
+         href="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6aab418437639ce00cae0cbb.pdf"
          download="The-Body-Temple-Spa-Skin-Tightening-Guide.pdf">
         Download the guide (PDF)
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
       </a>
-      <p class="deliver__note">Not downloading? <a href="PDF_URL" id="downloadAlt"
+      <p class="deliver__note">Not downloading? <a href="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6aab418437639ce00cae0cbb.pdf" id="downloadAlt"
       style="color:var(--apricot)">Open it in your browser instead</a> · Didn't get the email?
       Check spam, or write to <a href="mailto:hello@thebodytemplespas.com"
       style="color:var(--apricot)">hello@thebodytemplespas.com</a></p>
