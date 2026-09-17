@@ -2,17 +2,13 @@
      THE BODY TEMPLE SPA — "Skin Tightening & Firming Guide" opt-in page
      Paste this whole file into ONE custom-code / HTML element in GoHighLevel.
 
-     BEFORE IT GOES LIVE, REPLACE TWO THINGS — both marked REPLACE_ME below:
+     ONE THING LEFT TO DO:
 
-       1. GUIDE_FORM_ID   Create a GHL form that collects first name + email
-                          and delivers the PDF, then find-and-replace every
-                          "GUIDE_FORM_ID" in this file with its form ID.
-                          It appears 4 times (3 in the iframe, 1 in the
-                          tracking script) plus twice in these notes.
-
-       2. Thank-you page  Point the form's "on submit" redirect at the
+       Thank-you page     Point the form's "on submit" redirect at the
                           companion page, GHL-guide-thankyou.html, which is
                           where the actual PDF download lives.
+
+     The form is wired up already: GHL form 9OePVm1nO0CwGVhJift5.
 
      GTM: reuse the existing snippets — ghl-clean-gtm-head.txt in the page
      <head> and ghl-clean-gtm-body.txt right after <body>. No new container.
@@ -301,10 +297,9 @@
   <div class="modal__box">
     <button class="modal__close" id="modalClose" aria-label="Close">×</button>
     <div class="modal__iframe-wrap">
-      <!-- REPLACE_ME #1 — swap every GUIDE_FORM_ID below for your GHL form ID. -->
       <iframe
-        src="https://api.leadconnectorhq.com/widget/form/GUIDE_FORM_ID"
-        id="inline-GUIDE_FORM_ID"
+        src="https://api.leadconnectorhq.com/widget/form/9OePVm1nO0CwGVhJift5"
+        id="inline-9OePVm1nO0CwGVhJift5"
         data-layout="{'id':'INLINE'}"
         data-trigger-type="alwaysShow"
         data-trigger-value=""
@@ -314,7 +309,7 @@
         data-deactivation-value=""
         data-form-name="Lead magnet - Skin Tightening &amp; Firming Guide"
         data-height="620"
-        data-layout-iframe-id="inline-GUIDE_FORM_ID"
+        data-layout-iframe-id="inline-9OePVm1nO0CwGVhJift5"
         title="Get the free Skin Tightening &amp; Firming Guide">
       </iframe>
     </div>
@@ -398,8 +393,7 @@
   'use strict';
 
   var PAGE_SOURCE = 'lp-guide-skin-tightening';
-  /* REPLACE_ME #1 (last occurrence) — your GHL form ID. */
-  var FORM_ID     = 'GUIDE_FORM_ID';
+  var FORM_ID     = '9OePVm1nO0CwGVhJift5';
 
   var dl = function(o){
     try { (window.dataLayer = window.dataLayer || []).push(o); } catch(e){}
