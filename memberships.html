@@ -118,7 +118,15 @@
 #bts .tier li { font-size: .9rem; padding: .55rem 0; border-bottom: 1px solid var(--line-dk); color: var(--bone); }
 #bts .tier li::before { content: "—"; color: var(--apricot); margin-right: .6rem; }
 #bts .tier__btns { display: grid; grid-template-columns: 1fr; gap: .5rem; }
-#bts .tier .btn { width: 100%; padding: 1rem 1rem; white-space: nowrap; }
+#bts .tier .btn, #bts .season .btn { width: 100%; padding: 1rem 1rem; white-space: nowrap; }
+#bts .season { display: grid; grid-template-columns: 1.1fr 1fr .9fr; gap: 3rem; align-items: center; margin-top: 3rem; padding: 2.75rem; border: 1px solid rgba(239,160,104,.35); border-radius: 6px; background: var(--espresso-2); }
+#bts .season h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1; margin-bottom: .9rem; }
+#bts .season h3 em { font-style: italic; color: var(--apricot); }
+#bts .season ul { list-style: none; }
+#bts .season li { font-size: .9rem; padding: .55rem 0; border-bottom: 1px solid var(--line-dk); }
+#bts .season li:first-child { border-top: 1px solid var(--line-dk); }
+#bts .season li::before { content: "—"; color: var(--apricot); margin-right: .6rem; }
+#bts .season .tier__opts { margin: 1rem 0 1.5rem; }
 #bts .tiers__note { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line-dk); color: var(--stone); font-size: .9rem; }
 #bts .tiers__note strong { color: var(--bone); font-weight: 600; }
 
@@ -191,6 +199,8 @@
 @media (max-width: 1024px) {
     #bts .tiers__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     #bts .tier__btns { grid-template-columns: 1fr 1fr; }
+    #bts .season { grid-template-columns: 1fr 1fr; }
+    #bts .season > :first-child { grid-column: 1 / -1; }
     #bts .tier, #bts .tier + .tier { padding: 2.5rem 1.5rem; border-right: 1px solid var(--line-dk); border-bottom: 1px solid var(--line-dk); }
     #bts .tier:nth-child(2n) { border-right: 0; padding-right: 0; }
     #bts .tier:nth-child(2n+1) { padding-left: 0; }
@@ -208,6 +218,7 @@
     #bts .tier, #bts .tier + .tier, #bts .tier:nth-child(2n), #bts .tier:nth-child(2n+1) { padding: 2.5rem 0; border-right: 0; }
     #bts .tier__img { aspect-ratio: 16 / 11; }
     #bts .hero .btn, #bts .cta .btn { width: 100%; }
+    #bts .season { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.5rem; }
     #bts .cta { padding: 5rem 0; }
 }
 </style>
@@ -378,13 +389,39 @@
                     <li>6- or 12-month commitment</li>
                     <li>$50 one-time setup</li>
                 </ul>
-                <!-- REPLACE: swap this link for the Lymphatic 100 membership checkout link when it's ready -->
-                <a class="btn btn--solid" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20join%20the%20Lymphatic%20100%20membership.">Join Lymphatic 100</a>
+                <a class="btn btn--solid" href="https://link.thebodytemplespas.com/payment-link/6acd48bc075ea22a20cddfc9">Join Lymphatic 100</a>
             </article>
 
         </div>
 
-        <p class="tiers__note"><strong>All memberships:</strong> $50 one-time setup fee · your chosen service each month at the member rate · 10% off every other service · gift or roll over any session you can't use · choose a 6- or 12-month commitment.</p>
+        <!-- The Seasons (quarterly) -->
+        <article class="season">
+            <div>
+                <span class="tier__tag">Quarterly · every 3 months</span>
+                <h3>The <em>Seasons</em></h3>
+                <p class="tier__desc" style="margin-bottom:0">Not ready for monthly? Get a Deep Recovery massage once every season, at the member rate. A reset for your body as the year turns.</p>
+            </div>
+            <ul>
+                <li>1 Deep Recovery massage every 3 months (60 or 90 min)</li>
+                <li>10% off all other services</li>
+                <li>Gift it or roll it over if you can't come in</li>
+                <li>6- or 12-month commitment</li>
+                <li>$50 one-time setup</li>
+            </ul>
+            <div>
+                <div class="tier__amt"><small>from</small> $125 <small>/ season</small></div>
+                <div class="tier__opts">
+                    <div class="tier__opt"><span>60 min · <s>$170</s> <span class="tier__save">Save $45</span></span><b>$125</b></div>
+                    <div class="tier__opt"><span>90 min · <s>$195</s> <span class="tier__save">Save $30</span></span><b>$165</b></div>
+                </div>
+                <div class="tier__btns" style="grid-template-columns:1fr 1fr">
+                    <a class="btn btn--solid" href="https://link.thebodytemplespas.com/payment-link/6acd2f97075ea22a20cddf57" aria-label="Join The Seasons, 60 minutes">Join 60 min</a>
+                    <a class="btn btn--solid" href="https://link.thebodytemplespas.com/payment-link/6acd2fc1c0e70c7fefb74162" aria-label="Join The Seasons, 90 minutes">Join 90 min</a>
+                </div>
+            </div>
+        </article>
+
+        <p class="tiers__note"><strong>All memberships:</strong> $50 one-time setup fee · your chosen service at the member rate (monthly, or quarterly with The Seasons) · 10% off every other service · gift or roll over any session you can't use · choose a 6- or 12-month commitment.</p>
     </div>
 </section>
 
@@ -482,7 +519,7 @@
             <div>
                 <details open>
                     <summary>How does the membership work?</summary>
-                    <p>You pay a one-time $50 setup fee, then choose one membership: Rejuvenate, Deep Recovery, Lash Lift or Lymphatic 100. Each month you receive that service at the member rate.</p>
+                    <p>You pay a one-time $50 setup fee, then choose one membership: Rejuvenate, Deep Recovery, Lash Lift or Lymphatic 100 each month, or The Seasons, a Deep Recovery massage every 3 months. You receive that service at the member rate.</p>
                 </details>
                 <details>
                     <summary>What is the $50 setup fee?</summary>
@@ -502,7 +539,7 @@
                 </details>
                 <details>
                     <summary>Which membership is right for me?</summary>
-                    <p>Choose Rejuvenate for stress and everyday aches, Deep Recovery for tight muscles and active bodies, Lash Lift for effortless lashes, or Lymphatic 100 for swelling, bloating and post-op recovery. Not sure? Text us and we'll help you pick.</p>
+                    <p>Choose Rejuvenate for stress and everyday aches, Deep Recovery for tight muscles and active bodies, Lash Lift for effortless lashes, Lymphatic 100 for swelling, bloating and post-op recovery, or The Seasons if you'd rather come in every 3 months. Not sure? Text us and we'll help you pick.</p>
                 </details>
                 <details>
                     <summary>How do I sign up?</summary>
