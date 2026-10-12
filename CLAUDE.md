@@ -81,7 +81,10 @@ Every membership:
   makeup services.
 - Peptides & Longevity Therapies (section 14): no prices, a "Text to
   Inquire" button per category. **Never mention the supplier (EllieMD)** —
-  their "EllieVate Skin+" is listed as "Skin+". Products: GLP-1 and
+  their "EllieVate Skin+" is listed as "Skin+".
+- Functional Longevity Coaching includes Autoimmune Condition Support
+  ($155, same consultation booking link). Framed as support alongside
+  the client's doctor, never as a cure. Products: GLP-1 and
   GLP-1/GIP injections and oral drops (+B12, L-Carnitine, Glycine, NAD),
   longevity microdoses, GLP-1 Support+, Sermorelin (injection, capsules),
   B12, NAD+ (injection, nasal), Glutathione, Semax, Selank, Methylene
