@@ -108,6 +108,9 @@
 #bts .tier__price { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--line-dk); }
 #bts .tier__amt { font-weight: 300; font-size: 3rem; letter-spacing: -.03em; line-height: 1; }
 #bts .tier__amt small { font-size: .95rem; letter-spacing: 0; color: var(--stone); font-weight: 400; }
+#bts .tier__opts { margin-top: 1rem; }
+#bts .tier__opt { display: flex; justify-content: space-between; align-items: baseline; gap: .75rem; padding: .5rem 0; border-top: 1px solid var(--line-dk); font-size: .88rem; color: var(--stone); }
+#bts .tier__opt b { color: var(--bone); font-weight: 600; font-size: 1rem; }
 #bts .tier__was { font-size: .88rem; color: var(--stone); margin-top: .6rem; }
 #bts .tier__was s { color: var(--stone); }
 #bts .tier__save { color: var(--apricot); font-weight: 600; }
@@ -285,12 +288,14 @@
                 <h3>Rejuvenate</h3>
                 <p class="tier__desc">A monthly massage designed to melt stress and ease everyday aches, so tension never gets the chance to build up.</p>
                 <div class="tier__price">
-                    <!-- REPLACE: Rejuvenate monthly price and regular price -->
-                    <div class="tier__amt">$___ <small>/ month</small></div>
-                    <div class="tier__was">Regular <s>$___</s></div>
+                    <div class="tier__amt"><small>from</small> $99 <small>/ month</small></div>
+                    <div class="tier__opts">
+                        <div class="tier__opt"><span>60 min · <s>$120</s> <span class="tier__save">Save $21</span></span><b>$99</b></div>
+                        <div class="tier__opt"><span>90 min · <s>$155</s> <span class="tier__save">Save $15</span></span><b>$140</b></div>
+                    </div>
                 </div>
                 <ul>
-                    <li>1 Rejuvenate massage each month</li>
+                    <li>1 Rejuvenate massage each month (60 or 90 min)</li>
                     <li>10% off all other services</li>
                     <li>Unused month? Gift it or roll it over</li>
                     <li>6- or 12-month commitment</li>
@@ -304,14 +309,17 @@
                 <img class="tier__img" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4eee2763b2eec10e8e3.jpg" alt="Therapist treating a client at The Body Temple Spa">
                 <span class="tier__tag">Deep tissue &amp; recovery</span>
                 <h3>Deep Recovery</h3>
-                <p class="tier__desc">Focused, deeper work for tight muscles, active bodies and anyone who carries their stress in their back and shoulders.</p>
+                <p class="tier__desc">Focused, deeper work for tight muscles, active bodies and anyone who carries their stress in their back and shoulders. Every extra product upgrade is on us.</p>
                 <div class="tier__price">
-                    <!-- REPLACE: Deep Recovery monthly price and regular price -->
-                    <div class="tier__amt">$___ <small>/ month</small></div>
-                    <div class="tier__was">Regular <s>$___</s></div>
+                    <div class="tier__amt"><small>from</small> $125 <small>/ month</small></div>
+                    <div class="tier__opts">
+                        <div class="tier__opt"><span>60 min · <s>$170</s> <span class="tier__save">Save $45</span></span><b>$125</b></div>
+                        <div class="tier__opt"><span>90 min · <s>$195</s> <span class="tier__save">Save $30</span></span><b>$165</b></div>
+                    </div>
                 </div>
                 <ul>
-                    <li>1 Deep Recovery massage each month</li>
+                    <li>1 Deep Recovery massage each month (60 or 90 min)</li>
+                    <li>All extra product upgrades included free</li>
                     <li>10% off all other services</li>
                     <li>Unused month? Gift it or roll it over</li>
                     <li>6- or 12-month commitment</li>
@@ -381,7 +389,7 @@
             <div>
                 <div class="perk">
                     <span class="perk__n">01</span>
-                    <div><h3>A member rate, every month</h3><p>Your chosen service costs less than booking it on its own — up to $30 less each visit.</p></div>
+                    <div><h3>A member rate, every month</h3><p>Your chosen service costs less than booking it on its own — up to $45 less each visit.</p></div>
                 </div>
                 <div class="perk">
                     <span class="perk__n">02</span>
