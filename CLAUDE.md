@@ -72,3 +72,18 @@ Every membership:
 - Older detail pages: /stresspainreliefmembership (Rejuvenate),
   /deeprecoverymassagemembership
 - Still unknown: cancellation policy.
+
+## Services menu (`services-menu.html`, pasted into GoHighLevel)
+
+- The page's CSS lives in GoHighLevel, not in this file; only the search
+  styles are inline.
+- First-time special: 10% off when a new client books two permanent
+  makeup services.
+- Peptides & Longevity Therapies (section 14): no prices, a "Text to
+  Inquire" button per category. **Never mention the supplier (EllieMD)** —
+  their "EllieVate Skin+" is listed as "Skin+". Products: GLP-1 and
+  GLP-1/GIP injections and oral drops (+B12, L-Carnitine, Glycine, NAD),
+  longevity microdoses, GLP-1 Support+, Sermorelin (injection, capsules),
+  B12, NAD+ (injection, nasal), Glutathione, Semax, Selank, Methylene
+  Blue, Thymosin Alpha-1, KLOW, Dihexa, Epitalon, Menopausal Hormone
+  Therapy, PT-141, The Thrill Pill, Elate Spray, Skin+, Melanotan II.
