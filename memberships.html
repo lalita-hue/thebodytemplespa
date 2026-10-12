@@ -97,7 +97,7 @@
 #bts .tiers__head h2 { font-weight: 300; font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.02; letter-spacing: -.03em; margin-top: 1rem; }
 #bts .tiers__head h2 em { font-family: var(--serif); font-style: italic; color: var(--apricot); }
 #bts .tiers__head p { color: var(--stone); max-width: 380px; font-size: .98rem; }
-#bts .tiers__grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line-dk); }
+#bts .tiers__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line-dk); }
 #bts .tier { display: flex; flex-direction: column; padding: 2.5rem 2rem 2.5rem 0; border-right: 1px solid var(--line-dk); }
 #bts .tier + .tier { padding-left: 2rem; }
 #bts .tier:last-child { border-right: 0; padding-right: 0; }
@@ -117,6 +117,7 @@
 #bts .tier ul { list-style: none; margin: 1.5rem 0 2rem; }
 #bts .tier li { font-size: .9rem; padding: .55rem 0; border-bottom: 1px solid var(--line-dk); color: var(--bone); }
 #bts .tier li::before { content: "—"; color: var(--apricot); margin-right: .6rem; }
+#bts .tier__btns { display: grid; grid-template-columns: 1fr; gap: .5rem; }
 #bts .tier .btn { width: 100%; padding: 1rem 1rem; white-space: nowrap; }
 #bts .tiers__note { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line-dk); color: var(--stone); font-size: .9rem; }
 #bts .tiers__note strong { color: var(--bone); font-weight: 600; }
@@ -188,7 +189,8 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-    #bts .tiers__grid { grid-template-columns: repeat(2, 1fr); }
+    #bts .tiers__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    #bts .tier__btns { grid-template-columns: 1fr 1fr; }
     #bts .tier, #bts .tier + .tier { padding: 2.5rem 1.5rem; border-right: 1px solid var(--line-dk); border-bottom: 1px solid var(--line-dk); }
     #bts .tier:nth-child(2n) { border-right: 0; padding-right: 0; }
     #bts .tier:nth-child(2n+1) { padding-left: 0; }
@@ -306,7 +308,10 @@
                     <li>6- or 12-month commitment</li>
                     <li>$50 one-time setup</li>
                 </ul>
-                <a class="btn btn--solid" href="https://thebodytemplespas.com/stresspainreliefmembership">Join Rejuvenate</a>
+                <div class="tier__btns">
+                    <a class="btn btn--solid" href="https://link.thebodytemplespas.com/payment-link/6acd2ebec0e70c7fefb7415a" aria-label="Join Rejuvenate, 60 minutes">Join 60 min</a>
+                    <a class="btn btn--solid" href="https://link.thebodytemplespas.com/payment-link/6acd2d63c0e70c7fefb74158" aria-label="Join Rejuvenate, 90 minutes">Join 90 min</a>
+                </div>
             </article>
 
             <!-- Deep Recovery -->
@@ -330,7 +335,10 @@
                     <li>6- or 12-month commitment</li>
                     <li>$50 one-time setup</li>
                 </ul>
-                <a class="btn btn--solid" href="https://thebodytemplespas.com/deeprecoverymassagemembership">Join Deep Recovery</a>
+                <div class="tier__btns">
+                    <a class="btn btn--solid" href="https://link.thebodytemplespas.com/payment-link/6acd2f49075ea22a20cddf55" aria-label="Join Deep Recovery, 60 minutes">Join 60 min</a>
+                    <a class="btn btn--solid" href="https://link.thebodytemplespas.com/payment-link/6acd2f00c0e70c7fefb7415d" aria-label="Join Deep Recovery, 90 minutes">Join 90 min</a>
+                </div>
             </article>
 
             <!-- Lash Lift -->
@@ -350,8 +358,7 @@
                     <li>6- or 12-month commitment</li>
                     <li>$50 one-time setup</li>
                 </ul>
-                <!-- REPLACE: swap this link for the Lash Lift membership checkout link when it's ready -->
-                <a class="btn btn--solid" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20join%20the%20Lash%20Lift%20membership.">Join Lash Lift</a>
+                <a class="btn btn--solid" href="https://link.thebodytemplespas.com/payment-link/6acd2c82075ea22a20cddf4d">Join Lash Lift</a>
             </article>
 
             <!-- Lymphatic 100 -->
@@ -499,7 +506,7 @@
                 </details>
                 <details>
                     <summary>How do I sign up?</summary>
-                    <p>Tap "Join" on the membership you want, or call or text us at (959) 400-9242 and we'll get you set up.</p>
+                    <p>Tap "Join" on the membership you want to check out securely online, or call or text us at (959) 400-9242 and we'll get you set up.</p>
                 </details>
             </div>
         </div>
