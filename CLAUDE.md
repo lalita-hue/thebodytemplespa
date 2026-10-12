@@ -60,6 +60,11 @@ Every membership:
 
 - Deep Recovery includes all extra product upgrades free. Rejuvenate
   does not.
+- Deep Recovery is **not** about deeper muscle work. Clients choose their
+  pressure (deep tissue or Swedish); the enhancements are designed to take
+  mind and body into deeper recovery states than most people can reach on
+  their own.
+- The Lymphatic 100 card should show abdominal (stomach) lymphatic work.
 - The Seasons is a **12-month commitment only** (4 visits); no 6-month
   option. Whether it includes the free product upgrades hasn't been
   confirmed.
