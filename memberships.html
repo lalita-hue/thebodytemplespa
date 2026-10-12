@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memberships | The Body Temple Spa — Athens, GA</title>
+<meta name="description" content="Monthly spa memberships in Athens, GA. One $50 setup fee, your choice of service every month, and 10% off everything else we offer.">
+<link rel="canonical" href="https://thebodytemplespas.com/memberships">
+<meta name="theme-color" content="#1A1610">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
+/* ═══ THE BODY TEMPLE SPA — Memberships landing page ═══
+   Every rule is scoped to #bts so nothing here can leak into
+   the rest of your site, and your builder's styles can't break it. */
+
+#bts, #bts * { box-sizing: border-box; margin: 0; padding: 0; }
+
+#bts {
+    --ink: #12100E;
+    --espresso: #1A1610;
+    --espresso-2: #221D16;
+    --bone: #EDE7DB;
+    --stone: #8A7F6E;
+    --umber: #7A6D5B;
+    --porcelain: #FEF6EC;
+    --blush: #FDE8D4;
+    --apricot: #EFA068;
+    --terra: #C85A28;
+    --terra-dk: #A8481E;
+    --line: rgba(26,22,16,.13);
+    --line-dk: rgba(255,255,255,.09);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+
+    font-family: var(--sans);
+    background: var(--porcelain);
+    color: var(--ink);
+    line-height: 1.6;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+#bts img { display: block; max-width: 100%; }
+#bts a { color: inherit; }
+#bts .wrap { max-width: 1240px; margin: 0 auto; padding: 0 6vw; }
+#bts .eyebrow { font-size: .68rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--umber); }
+#bts .dark .eyebrow { color: var(--stone); }
+
+/* ── BUTTONS ── */
+#bts .btn { display: inline-block; font-family: var(--sans); font-size: 1rem; font-weight: 600; letter-spacing: .04em; text-decoration: none; padding: 1rem 2.1rem; border-radius: 100px; transition: background .2s, color .2s, border-color .2s; text-align: center; }
+#bts .btn--solid { background: var(--terra); color: #fff; border: 1.5px solid var(--terra); }
+#bts .btn--solid:hover { background: var(--terra-dk); border-color: var(--terra-dk); }
+#bts .btn--ghost { border: 1.5px solid currentColor; color: var(--ink); background: transparent; }
+#bts .btn--ghost:hover { background: var(--ink); color: var(--porcelain); }
+#bts .dark .btn--ghost { color: var(--bone); }
+#bts .dark .btn--ghost:hover { background: var(--bone); color: var(--espresso); }
+
+/* ── HEADER ── */
+#bts .top { border-bottom: 1px solid var(--line); background: var(--porcelain); }
+#bts .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.1rem; padding-bottom: 1.1rem; }
+#bts .logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+#bts .logo img { height: 44px; width: auto; border-radius: 8px; }
+#bts .logo span { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; line-height: 1.1; }
+#bts .top .btn { padding: .7rem 1.4rem; font-size: .9rem; }
+
+/* ── HERO ── */
+#bts .hero { position: relative; min-height: 88vh; display: flex; align-items: flex-end; color: var(--bone); background: var(--espresso); overflow: hidden; }
+#bts .hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .55; }
+#bts .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,22,16,.15) 0%, rgba(26,22,16,.85) 100%); }
+#bts .hero .wrap { position: relative; z-index: 1; width: 100%; padding-top: 8rem; padding-bottom: 5rem; }
+#bts .hero h1 { font-family: var(--sans); font-weight: 300; font-size: clamp(3rem, 8.5vw, 7.5rem); line-height: .98; letter-spacing: -.035em; max-width: 13ch; margin: 1.25rem 0 2rem; }
+#bts .hero h1 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--apricot); letter-spacing: -.01em; }
+#bts .hero p { font-size: 1.1rem; max-width: 520px; color: var(--bone); opacity: .9; margin-bottom: 2.5rem; }
+#bts .hero .actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ── STATEMENT ── */
+#bts .statement { padding: 7rem 0; }
+#bts .statement p.big { font-weight: 300; font-size: clamp(1.7rem, 3.6vw, 3rem); line-height: 1.25; letter-spacing: -.02em; max-width: 24ch; margin-top: 1.5rem; }
+#bts .statement p.big em { font-family: var(--serif); font-style: italic; color: var(--terra); }
+
+/* ── HOW IT WORKS ── */
+#bts .how { border-top: 1px solid var(--line); }
+#bts .how__grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+#bts .step { padding: 3rem 2.5rem 3.5rem 0; border-right: 1px solid var(--line); }
+#bts .step + .step { padding-left: 2.5rem; }
+#bts .step:last-child { border-right: 0; }
+#bts .step__n { font-family: var(--serif); font-size: 1rem; color: var(--terra); margin-bottom: 2.5rem; display: block; }
+#bts .step__fig { font-weight: 300; font-size: clamp(2.6rem, 4.5vw, 3.8rem); letter-spacing: -.03em; line-height: 1; margin-bottom: 1rem; }
+#bts .step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: .5rem; }
+#bts .step p { color: var(--umber); font-size: .95rem; max-width: 32ch; }
+
+/* ── MEMBERSHIPS ── */
+#bts .tiers { background: var(--espresso); color: var(--bone); padding: 7rem 0; }
+#bts .tiers__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: 4rem; }
+#bts .tiers__head h2 { font-weight: 300; font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.02; letter-spacing: -.03em; margin-top: 1rem; }
+#bts .tiers__head h2 em { font-family: var(--serif); font-style: italic; color: var(--apricot); }
+#bts .tiers__head p { color: var(--stone); max-width: 380px; font-size: .98rem; }
+#bts .tiers__grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line-dk); }
+#bts .tier { display: flex; flex-direction: column; padding: 2.5rem 2rem 2.5rem 0; border-right: 1px solid var(--line-dk); }
+#bts .tier + .tier { padding-left: 2rem; }
+#bts .tier:last-child { border-right: 0; padding-right: 0; }
+#bts .tier__img { aspect-ratio: 4 / 5; width: 100%; object-fit: cover; border-radius: 4px; margin-bottom: 2rem; filter: saturate(.9); }
+#bts .tier__tag { font-size: .66rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--apricot); margin-bottom: .75rem; }
+#bts .tier h3 { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; line-height: 1.15; margin-bottom: .9rem; }
+#bts .tier__desc { color: var(--stone); font-size: .93rem; margin-bottom: 2rem; }
+#bts .tier__price { margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--line-dk); }
+#bts .tier__amt { font-weight: 300; font-size: 3rem; letter-spacing: -.03em; line-height: 1; }
+#bts .tier__amt small { font-size: .95rem; letter-spacing: 0; color: var(--stone); font-weight: 400; }
+#bts .tier__was { font-size: .88rem; color: var(--stone); margin-top: .6rem; }
+#bts .tier__was s { color: var(--stone); }
+#bts .tier__save { color: var(--apricot); font-weight: 600; }
+#bts .tier ul { list-style: none; margin: 1.5rem 0 2rem; }
+#bts .tier li { font-size: .9rem; padding: .55rem 0; border-bottom: 1px solid var(--line-dk); color: var(--bone); }
+#bts .tier li::before { content: "—"; color: var(--apricot); margin-right: .6rem; }
+#bts .tier .btn { width: 100%; padding: 1rem 1rem; white-space: nowrap; }
+#bts .tiers__note { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line-dk); color: var(--stone); font-size: .9rem; }
+#bts .tiers__note strong { color: var(--bone); font-weight: 600; }
+
+/* ── PERKS ── */
+#bts .perks { padding: 7rem 0; }
+#bts .perks__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+#bts .perks h2 { font-weight: 300; font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.05; letter-spacing: -.03em; margin: 1rem 0 1.5rem; }
+#bts .perks h2 em { font-family: var(--serif); font-style: italic; color: var(--terra); }
+#bts .perks__lead { color: var(--umber); max-width: 42ch; margin-bottom: 2.5rem; }
+#bts .perks__img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
+#bts .perk { display: grid; grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.6rem 0; border-top: 1px solid var(--line); }
+#bts .perk:last-child { border-bottom: 1px solid var(--line); }
+#bts .perk__n { font-family: var(--serif); color: var(--terra); font-size: 1rem; }
+#bts .perk h3 { font-size: 1.08rem; font-weight: 600; margin-bottom: .3rem; }
+#bts .perk p { color: var(--umber); font-size: .94rem; }
+
+/* ── SERVICES (10% off) ── */
+#bts .svc { background: var(--blush); padding: 7rem 0; }
+#bts .svc__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+#bts .svc__head h2 { font-weight: 300; font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.05; letter-spacing: -.03em; margin-top: 1rem; max-width: 16ch; }
+#bts .svc__head h2 em { font-family: var(--serif); font-style: italic; color: var(--terra); }
+#bts .svc__badge { font-weight: 300; font-size: clamp(4rem, 9vw, 7rem); line-height: .9; letter-spacing: -.05em; color: var(--terra); }
+#bts .svc__badge small { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--umber); margin-top: .5rem; }
+#bts .svc__list { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 4rem; border-top: 1px solid var(--line); }
+#bts .svc__item { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 1.4rem 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+#bts .svc__item span:first-child { font-family: var(--serif); font-size: clamp(1.25rem, 2.2vw, 1.6rem); }
+#bts .svc__item span:last-child { font-size: .85rem; color: var(--umber); text-align: right; }
+#bts a.svc__item:hover span:first-child { color: var(--terra); }
+
+/* ── REVIEWS ── */
+#bts .rev { padding: 7rem 0; }
+#bts .rev__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 3rem; }
+#bts .rev blockquote { font-family: var(--serif); font-size: 1.2rem; line-height: 1.5; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+#bts .rev cite { display: block; font-family: var(--sans); font-style: normal; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--umber); margin-top: 1.25rem; }
+
+/* ── FAQ ── */
+#bts .faq { padding: 7rem 0; border-top: 1px solid var(--line); }
+#bts .faq__grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; }
+#bts .faq h2 { font-weight: 300; font-size: clamp(2.2rem, 4.5vw, 3.6rem); line-height: 1.05; letter-spacing: -.03em; margin-top: 1rem; }
+#bts .faq details { border-top: 1px solid var(--line); }
+#bts .faq details:last-child { border-bottom: 1px solid var(--line); }
+#bts .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 1.5rem; padding: 1.5rem 0; font-size: 1.08rem; font-weight: 500; }
+#bts .faq summary::-webkit-details-marker { display: none; }
+#bts .faq summary::after { content: "+"; font-weight: 300; font-size: 1.6rem; line-height: 1; color: var(--terra); transition: transform .2s; }
+#bts .faq details[open] summary::after { transform: rotate(45deg); }
+#bts .faq details p { color: var(--umber); padding: 0 0 1.6rem; max-width: 60ch; }
+
+/* ── FINAL CTA ── */
+#bts .cta { background: var(--espresso); color: var(--bone); padding: 8rem 0; text-align: center; }
+#bts .cta h2 { font-weight: 300; font-size: clamp(2.6rem, 6.5vw, 5.5rem); line-height: 1; letter-spacing: -.035em; margin: 1.25rem auto 1.75rem; max-width: 14ch; }
+#bts .cta h2 em { font-family: var(--serif); font-style: italic; color: var(--apricot); }
+#bts .cta p { color: var(--stone); max-width: 480px; margin: 0 auto 2.5rem; }
+#bts .cta .actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+#bts .foot { background: var(--espresso); color: var(--stone); border-top: 1px solid var(--line-dk); padding: 2.5rem 0; font-size: .85rem; }
+#bts .foot .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+#bts .foot a { color: var(--bone); text-decoration: none; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+    #bts .tiers__grid { grid-template-columns: repeat(2, 1fr); }
+    #bts .tier, #bts .tier + .tier { padding: 2.5rem 1.5rem; border-right: 1px solid var(--line-dk); border-bottom: 1px solid var(--line-dk); }
+    #bts .tier:nth-child(2n) { border-right: 0; padding-right: 0; }
+    #bts .tier:nth-child(2n+1) { padding-left: 0; }
+}
+@media (max-width: 760px) {
+    #bts .wrap { padding: 0 20px; }
+    #bts .top .logo span { display: none; }
+    #bts .hero { min-height: 80vh; }
+    #bts .hero .wrap { padding-bottom: 3.5rem; }
+    #bts .statement, #bts .tiers, #bts .perks, #bts .svc, #bts .rev, #bts .faq { padding: 4.5rem 0; }
+    #bts .how__grid, #bts .tiers__grid, #bts .perks__grid, #bts .svc__list, #bts .rev__grid, #bts .faq__grid { grid-template-columns: 1fr; }
+    #bts .perks__grid, #bts .faq__grid { gap: 2.5rem; }
+    #bts .step, #bts .step + .step { padding: 2.25rem 0; border-right: 0; border-bottom: 1px solid var(--line); }
+    #bts .step__n { margin-bottom: 1.25rem; }
+    #bts .tier, #bts .tier + .tier, #bts .tier:nth-child(2n), #bts .tier:nth-child(2n+1) { padding: 2.5rem 0; border-right: 0; }
+    #bts .tier__img { aspect-ratio: 16 / 11; }
+    #bts .hero .btn, #bts .cta .btn { width: 100%; }
+    #bts .cta { padding: 5rem 0; }
+}
+</style>
+</head>
+<body style="margin:0">
+<div id="bts">
+
+<!-- ═══ HEADER ═══ -->
+<header class="top">
+    <div class="wrap">
+        <a class="logo" href="https://thebodytemplespas.com">
+            <img src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a7621287a46c6dc51653eb1.png" alt="The Body Temple Spa">
+            <span>The Body Temple Spa</span>
+        </a>
+        <a class="btn btn--solid" href="#bts-memberships">Become a member</a>
+    </div>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero dark">
+    <img class="hero__img" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cce.jpg" alt="Private treatment room at The Body Temple Spa in Athens, GA">
+    <div class="wrap">
+        <span class="eyebrow">The Body Temple Spa · Memberships</span>
+        <h1>Care that <em>keeps</em> showing up.</h1>
+        <p>One monthly ritual of your choosing, a member rate on every visit, and 10% off everything else we offer. Start with a one-time $50 setup.</p>
+        <div class="actions">
+            <a class="btn btn--solid" href="#bts-memberships">Choose your membership</a>
+            <a class="btn btn--ghost" href="#bts-how">How it works</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ STATEMENT ═══ -->
+<section class="statement">
+    <div class="wrap">
+        <span class="eyebrow">Why membership</span>
+        <p class="big">Real results come from <em>consistency</em>, not a once-a-year treat. Membership makes your monthly visit the easy part.</p>
+    </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="how" id="bts-how">
+    <div class="wrap">
+        <div class="how__grid">
+            <div class="step">
+                <span class="step__n">01</span>
+                <div class="step__fig">$50</div>
+                <h3>One-time setup</h3>
+                <p>A single $50 setup fee when you join. You pay it once, never again.</p>
+            </div>
+            <div class="step">
+                <span class="step__n">02</span>
+                <div class="step__fig">1 service</div>
+                <h3>Your monthly ritual</h3>
+                <p>Pick the membership that fits your body: massage, lash lift or lymphatic drainage, at the member rate.</p>
+            </div>
+            <div class="step">
+                <span class="step__n">03</span>
+                <div class="step__fig">10% off</div>
+                <h3>Everything else</h3>
+                <p>Members save 10% on every other service we offer, from facials to waxing to body contouring.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ MEMBERSHIPS ═══ -->
+<section class="tiers dark" id="bts-memberships">
+    <div class="wrap">
+        <div class="tiers__head">
+            <div>
+                <span class="eyebrow">The memberships</span>
+                <h2>Choose your <em>ritual.</em></h2>
+            </div>
+            <p>Every membership includes the same benefits: a one-time $50 setup fee and 10% off all our other services.</p>
+        </div>
+
+        <div class="tiers__grid">
+
+            <!-- Rejuvenate -->
+            <article class="tier">
+                <img class="tier__img" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4ef163e40d8625f7d98.jpg" alt="Customized massage session at The Body Temple Spa">
+                <span class="tier__tag">Stress &amp; pain relief</span>
+                <h3>Rejuvenate</h3>
+                <p class="tier__desc">A monthly massage designed to melt stress and ease everyday aches, so tension never gets the chance to build up.</p>
+                <div class="tier__price">
+                    <!-- REPLACE: Rejuvenate monthly price and regular price -->
+                    <div class="tier__amt">$___ <small>/ month</small></div>
+                    <div class="tier__was">Regular <s>$___</s></div>
+                </div>
+                <ul>
+                    <li>1 Rejuvenate massage each month</li>
+                    <li>10% off all other services</li>
+                    <li>$50 one-time setup</li>
+                </ul>
+                <a class="btn btn--solid" href="https://thebodytemplespas.com/stresspainreliefmembership">Join Rejuvenate</a>
+            </article>
+
+            <!-- Deep Recovery -->
+            <article class="tier">
+                <img class="tier__img" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4eee2763b2eec10e8e3.jpg" alt="Therapist treating a client at The Body Temple Spa">
+                <span class="tier__tag">Deep tissue &amp; recovery</span>
+                <h3>Deep Recovery</h3>
+                <p class="tier__desc">Focused, deeper work for tight muscles, active bodies and anyone who carries their stress in their back and shoulders.</p>
+                <div class="tier__price">
+                    <!-- REPLACE: Deep Recovery monthly price and regular price -->
+                    <div class="tier__amt">$___ <small>/ month</small></div>
+                    <div class="tier__was">Regular <s>$___</s></div>
+                </div>
+                <ul>
+                    <li>1 Deep Recovery massage each month</li>
+                    <li>10% off all other services</li>
+                    <li>$50 one-time setup</li>
+                </ul>
+                <a class="btn btn--solid" href="https://thebodytemplespas.com/deeprecoverymassagemembership">Join Deep Recovery</a>
+            </article>
+
+            <!-- Lash Lift -->
+            <article class="tier">
+                <img class="tier__img" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a8866dcad59e6cfed06270b.jpg" alt="Finished Korean lash lift and tint at The Body Temple Spa">
+                <span class="tier__tag">Lashes</span>
+                <h3>Lash Lift</h3>
+                <p class="tier__desc">Our Korean lash lift plus tint: your own lashes lifted from the root and darkened. Wake up ready, every month.</p>
+                <div class="tier__price">
+                    <div class="tier__amt">$100 <small>/ month</small></div>
+                    <div class="tier__was">Regular <s>$125</s> · <span class="tier__save">Save $25</span></div>
+                </div>
+                <ul>
+                    <li>Korean lash lift + tint each month</li>
+                    <li>10% off all other services</li>
+                    <li>$50 one-time setup</li>
+                </ul>
+                <!-- REPLACE: swap this link for the Lash Lift membership checkout link when it's ready -->
+                <a class="btn btn--solid" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20join%20the%20Lash%20Lift%20membership.">Join Lash Lift</a>
+            </article>
+
+            <!-- Lymphatic 100 -->
+            <article class="tier">
+                <img class="tier__img" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e75dd1fd13ce648ab7.jpg" alt="Treatment room at The Body Temple Spa's Athens studio">
+                <span class="tier__tag">Lymphatic drainage</span>
+                <h3>Lymphatic 100</h3>
+                <p class="tier__desc">A full 100-minute manual lymphatic drainage session for swelling, bloating, post-op recovery and that light, de-puffed feeling.</p>
+                <div class="tier__price">
+                    <div class="tier__amt">$185 <small>/ month</small></div>
+                    <div class="tier__was">Regular <s>$215</s> · <span class="tier__save">Save $30</span></div>
+                </div>
+                <ul>
+                    <li>100-min lymphatic drainage each month</li>
+                    <li>10% off all other services</li>
+                    <li>$50 one-time setup</li>
+                </ul>
+                <!-- REPLACE: swap this link for the Lymphatic 100 membership checkout link when it's ready -->
+                <a class="btn btn--solid" href="sms:+19594009242?&amp;body=Hi!%20I'd%20like%20to%20join%20the%20Lymphatic%20100%20membership.">Join Lymphatic 100</a>
+            </article>
+
+        </div>
+
+        <p class="tiers__note"><strong>All memberships:</strong> $50 one-time setup fee · your chosen service each month at the member rate · 10% off every other service at The Body Temple Spa.</p>
+    </div>
+</section>
+
+<!-- ═══ PERKS ═══ -->
+<section class="perks">
+    <div class="wrap">
+        <div class="perks__grid">
+            <div>
+                <span class="eyebrow">Member benefits</span>
+                <h2>More than a <em>discount.</em></h2>
+                <p class="perks__lead">Membership turns self-care from something you squeeze in into something you can count on.</p>
+                <img class="perks__img" src="https://assets.cdn.filesafe.space/oz27FgTyetnlFEnG2O11/media/6a3ea4e5163e40d8625f7cd3.jpg" alt="Client lounge with velvet sofa at The Body Temple Spa" loading="lazy">
+            </div>
+            <div>
+                <div class="perk">
+                    <span class="perk__n">01</span>
+                    <div><h3>A member rate, every month</h3><p>Your chosen service costs less than booking it on its own — up to $30 less each visit.</p></div>
+                </div>
+                <div class="perk">
+                    <span class="perk__n">02</span>
+                    <div><h3>10% off everything else</h3><p>Add a facial, a wax or a body contouring session whenever you like, and save on all of it.</p></div>
+                </div>
+                <div class="perk">
+                    <span class="perk__n">03</span>
+                    <div><h3>Results that build</h3><p>Massage, lymphatic work and lash lifts all work best on a steady rhythm. Monthly visits keep the benefits going.</p></div>
+                </div>
+                <div class="perk">
+                    <span class="perk__n">04</span>
+                    <div><h3>One simple start</h3><p>A single $50 setup fee and you're in. No complicated packages to track.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ SERVICES (10% OFF) ═══ -->
+<section class="svc">
+    <div class="wrap">
+        <div class="svc__head">
+            <div>
+                <span class="eyebrow">Member savings</span>
+                <h2>10% off <em>everything</em> we offer.</h2>
+            </div>
+            <div class="svc__badge">10%<small>Off for members</small></div>
+        </div>
+        <div class="svc__list">
+            <a class="svc__item" href="https://thebodytemplespas.com"><span>Massage therapy</span><span>Relaxation · deep tissue · recovery</span></a>
+            <a class="svc__item" href="https://thebodytemplespas.com/lymphatic-drainage"><span>Lymphatic drainage</span><span>Post-op · swelling · detox</span></a>
+            <a class="svc__item" href="https://thebodytemplespas.com"><span>Facials</span><span>Customized skin treatments</span></a>
+            <a class="svc__item" href="https://thebodytemplespas.com"><span>Lashes &amp; brows</span><span>Korean lash lift · tint</span></a>
+            <a class="svc__item" href="https://thebodytemplespas.com"><span>Waxing</span><span>Face &amp; body</span></a>
+            <a class="svc__item" href="https://thebodytemplespas.com"><span>Permanent makeup</span><span>Brows · lips · liner</span></a>
+            <a class="svc__item" href="https://thebodytemplespas.com"><span>Body contouring</span><span>Sculpting treatments</span></a>
+            <a class="svc__item" href="https://thebodytemplespas.com"><span>Lymphatic academy</span><span>Professional training</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section class="rev">
+    <div class="wrap">
+        <span class="eyebrow">From our clients</span>
+        <div class="rev__grid">
+            <blockquote>"The Body Temple Spa is definitely a must for relaxation and rejuvenation! The therapist was friendly, welcoming and listened to my needs. Her hands were like magic. 10/10."<cite>Google review</cite></blockquote>
+            <blockquote>"A nice clean facility with friendly and knowledgeable staff, and I left way less stressed than I came!"<cite>Google review</cite></blockquote>
+            <blockquote>"I got a lymphatic drainage facial and had an amazing experience."<cite>Google review</cite></blockquote>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq">
+    <div class="wrap">
+        <div class="faq__grid">
+            <div>
+                <span class="eyebrow">Questions</span>
+                <h2>Good to know.</h2>
+            </div>
+            <div>
+                <details open>
+                    <summary>How does the membership work?</summary>
+                    <p>You pay a one-time $50 setup fee, then choose one membership: Rejuvenate, Deep Recovery, Lash Lift or Lymphatic 100. Each month you receive that service at the member rate.</p>
+                </details>
+                <details>
+                    <summary>What is the $50 setup fee?</summary>
+                    <p>It's a one-time fee you pay when you join. It applies to every membership and is not charged again each month.</p>
+                </details>
+                <details>
+                    <summary>What does the 10% discount cover?</summary>
+                    <p>As a member you get 10% off all of our other services: massage, lymphatic drainage, facials, lashes and brows, waxing, permanent makeup and body contouring.</p>
+                </details>
+                <details>
+                    <summary>Which membership is right for me?</summary>
+                    <p>Choose Rejuvenate for stress and everyday aches, Deep Recovery for tight muscles and active bodies, Lash Lift for effortless lashes, or Lymphatic 100 for swelling, bloating and post-op recovery. Not sure? Text us and we'll help you pick.</p>
+                </details>
+                <details>
+                    <summary>How do I sign up?</summary>
+                    <p>Tap "Join" on the membership you want, or call or text us at (959) 400-9242 and we'll get you set up.</p>
+                </details>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="cta dark">
+    <div class="wrap">
+        <span class="eyebrow">Your temple, every month</span>
+        <h2>Make it a <em>ritual.</em></h2>
+        <p>$50 to start. Your favorite service every month. 10% off everything else.</p>
+        <div class="actions">
+            <a class="btn btn--solid" href="#bts-memberships">Choose your membership</a>
+            <a class="btn btn--ghost" href="sms:+19594009242?&amp;body=Hi!%20I%E2%80%99d%20like%20to%20learn%20more%20about%20your%20memberships.">Text us a question</a>
+        </div>
+    </div>
+</section>
+
+<footer class="foot">
+    <div class="wrap">
+        <span>The Body Temple Spa · 2350 Prince Ave, Athens, GA 30606</span>
+        <span><a href="tel:+19594009242">(959) 400-9242</a> · <a href="mailto:thebodytemplespa@gmail.com">thebodytemplespa@gmail.com</a></span>
+    </div>
+</footer>
+
+</div>
+</body>
+</html>
