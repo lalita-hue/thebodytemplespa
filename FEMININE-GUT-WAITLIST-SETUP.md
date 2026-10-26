@@ -88,7 +88,7 @@ Click **Save**, then flip the toggle from **Draft** to **Publish**.
 ## Step 4 — Put the form on the page
 
 1. Open `GHL-feminine-gut-waitlist.html` and replace **every** `FORM_ID_HERE`
-   with the form ID from Step 1 (it appears 4 times).
+   with the form ID from Step 1 (use Find & Replace to catch them all).
 2. In GHL, open the funnel/website page → add a **Custom JS/HTML** element →
    paste the whole file in → Save.
 
