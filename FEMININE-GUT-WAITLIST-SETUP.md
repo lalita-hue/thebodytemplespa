@@ -19,6 +19,27 @@ Hiii! This is Lalita! So honor you are here! Save my number so we can communicat
 > "**Looking** forward to **seeing** you soon." The text above is exactly as
 > you wrote it — use whichever you prefer.
 
+### Alternate versions — the "I know like, I know like, I know" play
+
+Repetition building to certainty: she already knows this is for her.
+
+**A — closest to Lalita's line**
+```
+Hiii {{contact.first_name}}! This is Lalita! I know like, I know like, I know... you want this. And I'm so honored you're here! Save my number so we can stay close. Any questions, just text me. Looking forward to seeing you soon. ❤️
+```
+
+**B — the knowing goes to her body**
+```
+Hiii {{contact.first_name}}! It's Lalita! I know like, I know like, I know... your body is ready for this. So honored you're here! Save my number so we can talk anytime. Looking forward to seeing you soon. ❤️
+```
+
+**C — short and certain**
+```
+Hiii {{contact.first_name}}! Lalita here. I know like, I know like, I know... this is your time. Save my number & text me anything! Looking forward to seeing you soon. ❤️
+```
+
+Optional last line for carrier compliance: `Reply STOP to opt out.`
+
 ---
 
 ## Step 1 — Create the form
