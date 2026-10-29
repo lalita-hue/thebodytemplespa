@@ -232,30 +232,34 @@ def food_card(kind, title, items, wide=False):
             lis += f"<li>{e(it)}</li>"
     return f'<div class="food food--{kind}{" food--wide" if wide else ""}"><h3>{e(title)}</h3><ul>{lis}</ul></div>'
 
-for doc in DOCS:
-    total = len(doc["pages"])
-    pages = []
-    for i, pg in enumerate(doc["pages"], 1):
-        blocks = "".join(render_block(b) for b in pg["blocks"])
-        pages.append(f"""
-<section class="page">
-  <header class="top">
-    <div class="brand">{DRAGONFLY}<div><div class="brand__name">The Body Temple Spa</div><div class="brand__sub">The Feminine Gut</div></div></div>
-    <div class="series">Guide <b>{doc['num']}</b> · {e(doc['series'])}<br>The TEMPLE Method</div>
-  </header>
-  <div class="hero">
-    <div class="eyebrow">The Feminine Gut · {e(doc['series'])}</div>
-    <h1>{pg['title']}</h1>
-    <p class="sub">{e(pg['sub'])}</p>
-  </div>
-  <div class="body">{blocks}</div>
-  <footer class="foot"><span>The Feminine Gut | The TEMPLE Method</span><span class="tag">The future is yours.</span><span>{i:02d} / {total:02d}</span></footer>
-</section>""")
-    title = doc["slug"].replace("_", " ")
-    page_html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{e(title)}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<style>{CSS}</style></head><body>{''.join(pages)}</body></html>"""
-    with open(os.path.join(OUT, doc["slug"] + ".html"), "w") as f:
-        f.write(page_html)
-    print("wrote", doc["slug"])
+def main():
+    for doc in DOCS:
+        total = len(doc["pages"])
+        pages = []
+        for i, pg in enumerate(doc["pages"], 1):
+            blocks = "".join(render_block(b) for b in pg["blocks"])
+            pages.append(f"""
+    <section class="page">
+      <header class="top">
+        <div class="brand">{DRAGONFLY}<div><div class="brand__name">The Body Temple Spa</div><div class="brand__sub">The Feminine Gut</div></div></div>
+        <div class="series">Guide <b>{doc['num']}</b> · {e(doc['series'])}<br>The TEMPLE Method</div>
+      </header>
+      <div class="hero">
+        <div class="eyebrow">The Feminine Gut · {e(doc['series'])}</div>
+        <h1>{pg['title']}</h1>
+        <p class="sub">{e(pg['sub'])}</p>
+      </div>
+      <div class="body">{blocks}</div>
+      <footer class="foot"><span>The Feminine Gut | The TEMPLE Method</span><span class="tag">The future is yours.</span><span>{i:02d} / {total:02d}</span></footer>
+    </section>""")
+        title = doc["slug"].replace("_", " ")
+        page_html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{e(title)}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>{CSS}</style></head><body>{''.join(pages)}</body></html>"""
+        with open(os.path.join(OUT, doc["slug"] + ".html"), "w") as f:
+            f.write(page_html)
+        print("wrote", doc["slug"])
+
+if __name__ == "__main__":
+    main()

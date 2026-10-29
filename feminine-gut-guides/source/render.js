@@ -10,7 +10,7 @@ fs.mkdirSync(pngDir, { recursive: true });
 
 (async () => {
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 816, height: 1056 } });
+  const page = await browser.newPage({ viewport: { width: 1056, height: 1056 } });
   for (const f of fs.readdirSync(dir).filter(n => n.endsWith('.html'))) {
     await page.goto('file://' + path.join(dir, f), { waitUntil: 'networkidle' });
     await page.evaluate(() => document.fonts.ready);
