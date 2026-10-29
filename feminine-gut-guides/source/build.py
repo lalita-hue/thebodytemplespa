@@ -1,6 +1,8 @@
 import html, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import DOCS
+from core_content import CORE
+DOCS = DOCS + [CORE]
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "html")
 os.makedirs(OUT, exist_ok=True)
@@ -137,6 +139,24 @@ ul.chk li::before { content:""; position:absolute; left:0; top:1px; width:13px; 
 .shop__cat a .go { color:var(--terra); font-size:10px; }
 .shop__cat li.plain { color:var(--umber); font-weight:300; }
 
+.food { border-radius:16px; padding:22px 26px; }
+.food h3 { font-family:var(--sans); font-size:10px; letter-spacing:.28em; text-transform:uppercase; font-weight:500; margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+.food h3::before { content:""; width:9px; height:9px; border-radius:50%; background:currentColor; }
+.food > ul { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.food li { font-size:14px; line-height:1.4; }
+.food li ul { list-style:none; margin:6px 0 2px 4px; display:flex; flex-direction:column; gap:4px; }
+.food li ul li { font-size:12.6px; font-weight:300; padding-left:14px; position:relative; }
+.food li ul li::before { content:"–"; position:absolute; left:0; opacity:.7; }
+.food--wide > ul { display:block; column-count:2; column-gap:28px; }
+.food--wide > ul > li { break-inside:avoid; margin-bottom:7px; }
+.food--avoid { background:var(--espresso); color:var(--bone); }
+.food--avoid h3 { color:var(--apricot); }
+.food--reduce { background:rgba(255,255,255,.75); border:1px solid rgba(200,90,40,.2); }
+.food--reduce h3 { color:var(--terra); }
+.food--more { background:linear-gradient(150deg, var(--peach) 0%, var(--apricot) 100%); }
+.food--more h3 { color:var(--ink); }
+.foodpair { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
 .disclaimer { margin-top:auto; font-size:9px; line-height:1.55; color:var(--umber); font-weight:300; padding-top:10px; border-top:1px solid var(--line); }
 
 .foot { display:flex; align-items:center; justify-content:space-between; padding-top:12px; margin-top:12px; border-top:1px solid var(--terra); font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--umber); }
@@ -197,7 +217,20 @@ def render_block(b):
                 for name, url in items)
             out += f'<div class="shop__cat"><h4>{e(cat)}</h4><ul>{lis}</ul></div>'
         return out + "</div>"
+    if t == "foods":
+        return food_card(b[1], b[2], b[3], wide=True)
+    if t == "foodpair":
+        return '<div class="foodpair">' + "".join(food_card(k, h, items) for k, h, items in b[1]) + "</div>"
     raise ValueError(t)
+
+def food_card(kind, title, items, wide=False):
+    lis = ""
+    for it in items:
+        if isinstance(it, tuple):
+            lis += f'<li>{e(it[0])}<ul>' + "".join(f"<li>{e(x)}</li>" for x in it[1]) + "</ul></li>"
+        else:
+            lis += f"<li>{e(it)}</li>"
+    return f'<div class="food food--{kind}{" food--wide" if wide else ""}"><h3>{e(title)}</h3><ul>{lis}</ul></div>'
 
 for doc in DOCS:
     total = len(doc["pages"])
