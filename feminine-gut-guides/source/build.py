@@ -128,6 +128,15 @@ ul.chk li::before { content:""; position:absolute; left:0; top:1px; width:13px; 
 .fill .ln { display:flex; align-items:flex-end; gap:10px; margin-top:14px; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--umber); font-weight:500; }
 .fill .ln i { flex:1; border-bottom:1px solid rgba(26,22,16,.35); height:1px; }
 
+.shop { column-count:2; column-gap:14px; }
+.shop__cat { break-inside:avoid; margin-bottom:12px; border-radius:14px; background:rgba(255,255,255,.72); border:1px solid rgba(200,90,40,.16); padding:12px 16px 10px; }
+.shop__cat h4 { font-size:8.5px; letter-spacing:.26em; text-transform:uppercase; color:var(--terra); font-weight:500; padding-bottom:7px; margin-bottom:4px; border-bottom:1px solid var(--line); }
+.shop__cat ul { list-style:none; }
+.shop__cat li { font-size:11.2px; line-height:1.3; font-weight:400; padding:3.5px 0; }
+.shop__cat a { color:var(--ink); text-decoration:none; display:flex; justify-content:space-between; gap:8px; }
+.shop__cat a .go { color:var(--terra); font-size:10px; }
+.shop__cat li.plain { color:var(--umber); font-weight:300; }
+
 .disclaimer { margin-top:auto; font-size:9px; line-height:1.55; color:var(--umber); font-weight:300; padding-top:10px; border-top:1px solid var(--line); }
 
 .foot { display:flex; align-items:center; justify-content:space-between; padding-top:12px; margin-top:12px; border-top:1px solid var(--terra); font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--umber); }
@@ -179,6 +188,15 @@ def render_block(b):
         return f'<div class="fill"><h3>{e(b[1])}</h3>{lines}</div>'
     if t == "disclaimer":
         return f'<p class="disclaimer">{e(b[1])}</p>'
+    if t == "shop":
+        out = '<div class="shop">'
+        for cat, items in b[1]:
+            lis = "".join(
+                f'<li><a href="{e(url)}" target="_blank" rel="noopener">{e(name)}<span class="go">↗</span></a></li>' if url
+                else f'<li class="plain">{e(name)}</li>'
+                for name, url in items)
+            out += f'<div class="shop__cat"><h4>{e(cat)}</h4><ul>{lis}</ul></div>'
+        return out + "</div>"
     raise ValueError(t)
 
 for doc in DOCS:

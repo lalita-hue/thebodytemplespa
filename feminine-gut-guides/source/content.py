@@ -1,6 +1,8 @@
 # Content for the Feminine Gut guide series. Wording is kept exactly as in the
 # original PDFs; only the structure is tagged so the template can style it.
 
+from shop_links import SHOP
+
 DISCLAIMER = ("Educational guidance. Follow your individual plan and discuss persistent symptoms or "
               "dietary restrictions with your healthcare provider. Avoid known allergens; "
               "recommendations should fit your needs.")
@@ -179,6 +181,15 @@ DOCS = [
                     ("p", "Choose the most suitable available option and return to your usual routine at the next opportunity. One different meal is a useful experience to discuss, not a reason to abandon your plan."),
                     ("fill", "Plan one busy day", ["My food options", "My backup", "My storage plan"]),
                     ("disclaimer", DISCLAIMER),
+                ],
+            },
+            {
+                "title": "Your Grab-and-Go <em>Shopping List</em>",
+                "sub": "Shelf-stable snacks and travel foods, ready when you are.",
+                "blocks": [
+                    ("intro", "Consider putting together a bag of these snacks to easily grab and go on busy days. These items are great for road trips and air travel. Tap any item to view it online."),
+                    ("shop", SHOP),
+                    ("disclaimer", "Please keep in mind that not all food recommendations are appropriate if you have food allergies or intolerances. Read every label and choose what fits your individual plan."),
                 ],
             },
         ],

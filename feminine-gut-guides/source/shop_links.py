@@ -1,0 +1,61 @@
+# Product links carried over from the Cellular Health snacks & travel list.
+# URLs are unchanged from the source PDF.
+
+SHOP = [
+    ('Fruits, veggies, chips & more', [
+        ("Anthony's - Organic Peeled Tiger Nuts", 'https://www.amazon.com/gp/product/B07CPFN7GK/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07CPFN7GK&linkId=e829a1b7cd873ba7039e3cc2b81ea260'),
+        ('Casabi - Artisan Crackers', 'https://www.amazon.com/gp/product/B07F33C31S/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07F33C31S&linkId=895d80696431a81a41028bbad1c90f9e'),
+        ('Casabi - Cassava Flat Bread', 'https://www.amazon.com/gp/product/B08PDRMNBN/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B08PDRMNBN&linkId=ecef24fcfa0a805423b170a6c17a0e31'),
+        ('Cassava Strips - Sea Salt', 'https://www.amazon.com/gp/product/B06X9YT5K8/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B06X9YT5K8&linkId=1eec63d69e174b93af9f99737613929c'),
+        ('Barnana - Plantain Sea Salt', 'https://barnana.com/collections/plantain-chips?srsltid=AfmBOop6CKN5sJMISUb8rxMmjrB88B92gcKWhuwHz_zUYEEMcohdy-X1'),
+        ("Jackson's Honest - Sweet Potato Chips", 'https://shopaip.com/jacksons-honest-sweet-potato-chips-5-oz/'),
+        ('Purely Elizabeth Granola', 'https://purelyelizabeth.com/products/original-granola'),
+        ('RW Garcia Sweet Potato Crackers', 'https://www.amazon.com/RW-Garcia-Sweet-Potato-Crackers/dp/B088MR3ZZC/ref=asc_df_B088MR3ZZC?mcid=25be4d4f57c933ed8ce3c9ddc4e67b5f&tag=hyprod-20&linkCode=df0&hvadid=693425825493&hvpos=&hvnetw=g&hvrand=2452463314229826092&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9033594&hvtargid=pla-948316618012&th=1'),
+        ('SeaSnax - Roasted Seaweed', 'https://www.amazon.com/gp/product/B004UB6IFQ/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B004UB6IFQ&linkId=5a4453b60ada3b872ee63dcf113c411e'),
+        ('Siete Grain Free Tortilla Chips', 'https://www.amazon.com/Siete-Sea-Salt-Tortilla-Chips/dp/B071XY8BDQ/ref=sr_1_7_f3_0o_newsm_mod_primary_alm?dib=eyJ2IjoiMSJ9.h-dFSQlaljv-j21i1WRIJBronBlAct0SDtvZA47R9ZEeKj7-6DMmkISzF5vOXJFWVECAU80DsnLvWtm0NrW_2O4vDi1CKlRBluBgY82gzOVOpmIX6rgDKkZV5RLcpISCcDjlm1HoxKnW2pdgnl4ECn9hWkH5SSUcqN71FbuSaRlm6n5pgii1ZswABHdbNJ8czpGA7aFsjBApu6FsXfFZcvivHt6KrkXyMZaNPKsfz6EH-UDbV08FzN4sGnUSOQ38OYQ-70UNRiNssN06Ll_gLxJ2iSpW4H45IVkMVyhWADM.9xCzDNkvsJZdoukbQuzHPbH7XGuU-mBfZlx1t1i04go&dib_tag=se&hvadid=598851016255&hvdev=c&hvlocphy=9033594&hvnetw=g&hvqmt=e&hvrand=8327408738050449922&hvtargid=kwd-432037224846&hydadcr=3364_13571865&keywords=siete%2Bcassava%2Bchips&qid=1732552538&sbo=m6DjfpMzMLDmL8pSMKX8hw%3D%3D&sr=8-7&th=1'),
+        ('Soley - Organic Mango Fruit Jerky', 'https://www.amazon.com/gp/product/B07NQCGKZP/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07NQCGKZP&linkId=979f8f753b548a2f298d98cb4962896f'),
+        ('Soley - Organic Pineapple Fruit Jerky', 'https://www.amazon.com/gp/product/B07NQGYYX7/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07NQGYYX7&linkId=b7cebb97e59474a4d4db4a7a3691f385'),
+        ('TERRA Vegetable Chips - Sweet Medley', 'https://shopaip.com/terra-sweets-medley-made-with-avocado-oil-5-oz/'),
+        ('Whiteleaf Provisions - Organic Biodynamic Apple Sauce', 'https://shopaip.com/whiteleaf-provisions-organic-biodynamic-apple-sauce-and-cinnamon-16-oz/'),
+    ]),
+    ('Meat & protein snacks', [
+        ('Chomps Beef Sticks', 'https://www.amazon.com/Chomps-Grass-Fed-Finished-Original-10-Pack/dp/B07D3NS8NW/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.1TaRditX47VrrE8-gaMugxIVlUbQiJ4ojC_FDNLMwQmprR09CQuMAtKoEbzYiux2OxywFfHImxKJGvcKUvmtorQhJbIa6qDwL1Wn3QwsS7bsDLu2V_ry_MwJHJwSE4e3AhBBtNUdSvpn5HAKCVseZNyVqCaqSsBvwDH-ao8tFGg0doIlK6tzhYHV-z-iHFi54NpPmojlALki3J-AMe7OyL8lhAEMk3C3fhE3Bd-lz5a7zJiR6OBA_oIGcLtZCEtduWl-quBuKtHOpmYRvv0YuCEsupyXubHWbbyuACmhNpg.YofsTNVq7jmNGhTNNDlnK0voYLkOgb6mVCdwC5ErnlI&dib_tag=se&hvadid=698564519933&hvdev=c&hvlocphy=9033594&hvnetw=g&hvqmt=e&hvrand=6380033883977971379&hvtargid=kwd-2190738151609&hydadcr=3392_13571871&keywords=chomps%2Bbeef%2Bsticks%2Bflavors&qid=1732552333&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1'),
+        ('Egg Bites', None),
+        ('EPIC - Baked Pork Rinds', 'https://www.amazon.com/gp/product/B0795XSYZC/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0795XSYZC&linkId=c20f3f6fbf5bd18ffd966486717871b9'),
+        ('EPIC - Beef Apple Bacon Bars', 'https://www.amazon.com/gp/product/B010SXA5OY/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B010SXA5OY&linkId=e5ec680f6f3efc98c1cfe3d876ae35a0'),
+        ('EPIC - Bison Bacon Cranberry Bars', 'https://www.amazon.com/gp/product/B00ET7LPK4/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00ET7LPK4&linkId=5cd1327f7606f31a4c4e37fa27d9cb53'),
+        ('EPIC - Maple Bacon Pork Cracklings', 'https://www.amazon.com/gp/product/B01LZWHX2S/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01LZWHX2S&linkId=01f45828553458a9a0619c05aede24b8'),
+        ('EPIC - Uncured Bacon Bars', 'https://www.amazon.com/gp/product/B010SXA5ZS/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B010SXA5ZS&linkId=33f0763acfdb8a99c3c79c8152f26738'),
+        ('Paleo Angel - Power Balls', 'https://www.amazon.com/gp/product/B01MYCSDB2/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01MYCSDB2&linkId=d22272da68790f4ba388b7554b816ded'),
+        ('Safe Catch Wild Caught Pink Salmon', 'https://www.amazon.com/Safe-Catch-Alaska-Salmon-Mercury/dp/B07J6RDNKV?tag=googhydr-20&source=dsa&hvcampaign=catchall&gclid=CjwKCAiA3ZC6BhBaEiwAeqfvymh3h0qBniSWp92Htse9aWEG7pxnsAQicrbVKbmJPfz3FTnnuAegwBoC30cQAvD_BwE&th=1'),
+        ('Safe Catch Wild-Caught Tuna', 'https://www.amazon.com/Safe-Catch-Lowest-Mercury-Pouch/dp/B01LZE96FH/ref=sr_1_5?dib=eyJ2IjoiMSJ9.X7XkOPqiee5J0PPrfTMJl1QnAuxcsMNEvMC79GIOQl8kLJRnP9o9c4zYcQEKLaJ1pwTgIh6hwyhX5u8Fvrf2OEnmUiiCiamwKMvoaLoJtLxlxUZFck4JyXORBldZQufp4ex4PZV7yPiui77np48dNt9u2-7CrOVzZS1OHjMuRBKSMWtV5jta8I8MyawLN4VWa2N1BTCNex7AwxN2YwrN5zDfh64oCiZDarX2KtV2NptRDyjZPGBxC0UkK-UxYTGMjuunOmZh8dtneBcz8ayzpMDvzthVArElrpLI1ywaVMs.pgds_V7zXFK7rByaG83URF4XNhzjfWZf-jFOtS78_kc&dib_tag=se&hvadid=697472842039&hvdev=c&hvlocphy=9033594&hvnetw=g&hvqmt=e&hvrand=12089084078475977824&hvtargid=kwd-2295479388909&hydadcr=27885_14488751&keywords=safe+catch+tuna+packs&qid=1732553509&sr=8-5'),
+        ('Season - Sardines', 'https://www.amazon.com/gp/product/B000HDMW8S/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B000HDMW8S&linkId=7677efc3c8709268c240e74bdc74c782'),
+    ]),
+    ('Healthy fats', [
+        ('Artisana Organics - Raw Coconut Butter Packets', 'https://www.amazon.com/gp/product/B0048IH71A/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0048IH71A&linkId=3db39901f134a954a9e0abdb1449db4a'),
+        ('Artisana Organics - Raw Coconut Oil Packets', 'https://www.amazon.com/gp/product/B0048IH75G/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0048IH75G&linkId=e3d0a4692be0ca624b4fa65f026b4da0'),
+        ('Bulletproof - MCT Oil Single Packets', 'https://www.amazon.com/gp/product/B076N6XLQ4/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B076N6XLQ4&linkId=e20e97da085007041ba7d65c3253cbbb'),
+        ('Dang Coconut Chips - Lightly Salted', 'https://www.amazon.com/gp/product/B0157PR4I8/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0157PR4I8&linkId=28b37e62f02515ab75389e4378fccaf5'),
+        ('Olives', None),
+        ('Walnuts', None),
+    ]),
+    ('Single-packet collagen powders', [
+        ('Ancient Nutrition - Multi Collagen', 'https://www.amazon.com/gp/product/B074PC5JGC/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B074PC5JGC&linkId=e12caa00c7590fc08491319597720163'),
+        ('Bulletproof - Collagen Protein, Unflavored', 'https://www.amazon.com/gp/product/B07N1K84DL/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07N1K84DL&linkId=1a1559596bbebe8490321dec658ea8ba'),
+        ('Great Lakes - Collagen Hydrolysate, Unflavored', 'https://www.amazon.com/gp/product/B01L81XFVA/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01L81XFVA&linkId=935db70945eca10661428ce355cdb7c7'),
+        ('Vital Proteins - Collagen Peptides, Unflavored', 'https://www.amazon.com/gp/product/B01INKB54I/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B01INKB54I&linkId=c08b0224e6496c014667a38f6d9d7117'),
+    ]),
+    ('Herbal tea bags', [
+        ('Teeccino - Dandelion Dark Roast', 'https://www.amazon.com/gp/product/B00C6X6E4K/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00C6X6E4K&linkId=07ad05cd36c320456b9bd21f827e406f'),
+        ('Traditional Medicinals - Ginger', 'https://www.amazon.com/gp/product/B014UHJN0G/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B014UHJN0G&linkId=4864dfd5e19c9d02851d7110512ac910'),
+        ('Traditional Medicinals - Ginger w/Chamomile', 'https://www.amazon.com/gp/product/B07DP7HZGZ/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07DP7HZGZ&linkId=fe0aba01ec64dcb9327e00759deda9f8'),
+        ('Traditional Medicinals - Hibiscus', 'https://www.amazon.com/gp/product/B07DM59276/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B07DM59276&linkId=d9e0ea74be43dae5714e4e308d06e969'),
+        ('Traditional Medicinals - Peppermint', 'https://www.amazon.com/gp/product/B0009F3PJ4/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B0009F3PJ4&linkId=4f5d664fec2a52a5a50a9cc1e33f4974'),
+        ('Traditional Medicinals - Roasted Dandelion Root', 'https://www.amazon.com/gp/product/B00R24JFY4/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00R24JFY4&linkId=33a068ae69b0ab45d5bd3362ccd268e6'),
+        ('Traditional Medicinals - Spearmint', 'https://www.amazon.com/gp/product/B00AEJWPC8/ref=as_li_tl?ie=UTF8&tag=keycellularnu-20&camp=1789&creative=9325&linkCode=as2&creativeASIN=B00AEJWPC8&linkId=61cb49aca197c4ee1295264406c7aa72'),
+    ]),
+    ('Beverages', [
+        ('Water', None),
+        ('Sparkling Water', None),
+    ]),
+]
