@@ -1,17 +1,23 @@
 # Phase 1 meal plan prompt for clients to paste into an AI assistant.
-# Prompt wording is verbatim from Lalita; only the "How to use it" steps are added.
+# Prompt wording is Lalita's; the client attaches only the hair analysis report,
+# and the Dirty Dozen section is added at her request.
 
 P_OPEN = ("pp", "Help me create a detailed four-week meal plan for Phase 1 of The Feminine Gut: Tune In, Eliminate Triggers & Meet Nutritional Needs.")
-P_ATTACH = ("pp", "I am attaching my hair analysis report and my practitioner’s Phase 1 instructions.")
+P_ATTACH = ("pp", "I am attaching my hair analysis report.")
 P_READ = [
-    ("ph", "Read my documents first:"),
+    ("ph", "Read my report first:"),
     ("pul", [
         "Check the report’s legend and identify foods labeled high reactivity, moderate reactivity, and green-dot items.",
         "Show me these three food lists for confirmation. Ask about anything unclear or unreadable.",
-        "Follow my practitioner’s temporary Phase 1 instructions to avoid high and moderate reactivity items throughout all four weeks and build meals primarily around green-dot foods.",
+        "For Phase 1, temporarily avoid high and moderate reactivity items throughout all four weeks and build meals primarily around green-dot foods.",
         "Check every ingredient, including cooking oils, seasonings, sauces, dressings, beverages, and substitutions.",
         "Do not assume unlisted foods are green-dot items. Ask before including them.",
         "Treat these as the report’s categories, not medically confirmed sensitivities. Hair testing does not reliably establish food sensitivities, and green dots do not guarantee tolerance. Always respect known allergies, intolerances, and previous reactions.",
+    ]),
+    ("ph", "Shop with the Dirty Dozen in mind:"),
+    ("pul", [
+        "Use the Environmental Working Group’s (EWG) most recent Dirty Dozen list. In my menus and grocery lists, mark any Dirty Dozen produce as “buy organic.”",
+        "If organic is unavailable or over budget, suggest frozen organic or a green-dot alternative from EWG’s Clean Fifteen list. Never substitute a high or moderate reactivity food.",
     ]),
 ]
 P_ASK = [
@@ -51,13 +57,12 @@ PROMPT = {
             "title": "Your Phase 1 <em>Meal Plan Prompt</em>",
             "sub": "Tune In, Eliminate Triggers & Meet Nutritional Needs.",
             "blocks": [
-                ("intro", "Use this prompt with an AI assistant to build a four-week Phase 1 meal plan around your report and your practitioner’s instructions."),
+                ("intro", "Use this prompt with an AI assistant to build a four-week Phase 1 meal plan around your hair analysis report, with the Dirty Dozen in mind."),
                 ("trio", [
-                    ("1. Gather", "Your hair analysis report and your practitioner’s Phase 1 instructions."),
-                    ("2. Copy & attach", "Copy the full prompt (both pages) into the chat and attach both documents."),
-                    ("3. Answer", "Confirm the three food lists and answer each question before the plan is built."),
+                    ("1. Gather", "Your hair analysis report, saved as a PDF or clear photos."),
+                    ("2. Copy & attach", "Copy the full prompt (both pages) into the chat and attach your report."),
+                    ("3. Answer", "Confirm the food lists and answer each question. Then review your finished plan with your practitioner."),
                 ]),
-                ("warm", "Before you begin Phase 1", "Bring your finished plan to your practitioner for review."),
                 ("prompt", "start", [P_OPEN, P_ATTACH] + P_READ),
             ],
         },
