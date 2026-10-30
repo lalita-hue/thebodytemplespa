@@ -13,7 +13,8 @@ BRANDS = {
                 ("intro", "These are the brands we reach for again and again. Each one makes it a little easier to nourish your body and keep your home clean and calm. Tap any card to shop."),
                 ("brands", [
                     ("Nourish", [
-                        ("Kettle & Fire", "Bone broth", "Slow-simmered bone broth, naturally rich in collagen. Shelf-stable and easy to sip warm or use in soups and sauces.", "https://www.amazon.com/dp/B01MU6XD17"),
+                        ("Kettle & Fire", "Classic beef bone broth", "Made with 100% grass-fed beef bones and high in protein and collagen. Easy to sip warm or use in soups and sauces.", "https://www.amazon.com/dp/B01MU6XD17"),
+                        ("Pacific Foods", "Unsweetened hemp milk", "A plant-based, unsweetened hemp milk for smoothies, coffee, and cooking.", "https://www.amazon.com/dp/B00MFCHYS2"),
                         ("Pluck", "Organ-meat seasoning", "An all-purpose seasoning that blends nutrient-dense organ meats with herbs and spices. Sprinkle it on everyday meals.", "https://eatpluck.com/"),
                         ("Primal Palate", "Organic spice blends", "Organic herb and spice blends that bring big flavor to simple, clean cooking.", "https://shop.primalpalate.com/?sca_ref=774156.0PBF2bvcFY"),
                     ]),
@@ -21,9 +22,22 @@ BRANDS = {
                         ("Everyday Dose", "Mushroom coffee", "A smooth coffee alternative made with functional mushrooms and collagen, with less caffeine than a regular cup.", "https://www.everydaydose.com/"),
                         ("Keto-Mojo", "Glucose & ketone meter", "An at-home meter that measures blood glucose and ketones, so you can see how your body responds to your meals.", "https://keto-mojo.com/"),
                     ]),
+                ]),
+            ],
+        },
+        {
+            "title": "Clean <em>Beauty</em>",
+            "sub": "Gentle care for your skin, hair, and body.",
+            "blocks": [
+                ("brands", [
                     ("Clean Beauty & Body", [
-                        ("Burt’s Bees", "Sensitive mineral sunscreen", "A lightweight mineral sunscreen made for sensitive skin.", "https://www.amazon.com/dp/B09BGGM51D"),
-                        ("GranNaturals", "Slick Back Stick", "A hair wax stick that tames flyaways for sleek, polished styles.", "https://www.amazon.com/dp/B0G4MQ6ZLX"),
+                        ("Burt’s Bees", "SPF 30 calming day lotion", "A daily face lotion with SPF 30, aloe, and rice milk, made for sensitive skin.", "https://www.amazon.com/dp/B09BGGM51D"),
+                        ("Handcraft Blends", "Organic castor oil", "USDA organic, 100% pure castor oil for hair, skin, and nails.", "https://www.amazon.com/dp/B0734849YK"),
+                        ("Botanic Hearth", "Rosemary hair oil", "Rosemary oil enriched with biotin, castor, and jojoba oils to nourish the scalp and hair.", "https://www.amazon.com/dp/B0F141W131"),
+                        ("GranNaturals", "Slick Back Stick", "A hair wax stick with castor, jojoba, coconut, and meadowfoam oils plus rosemary leaf extract. Tames flyaways for sleek buns and ponytails.", "https://www.amazon.com/dp/B0G4MQ6ZLX"),
+                        ("Embryolisse", "Lait-Crème Fluid+", "A lightweight, fast-absorbing face and body cream with shea butter and aloe vera, for all skin types.", "https://www.amazon.com/dp/B0CV12BF8S"),
+                        ("Drunk Elephant", "B-Goldi Bright Drops", "Illuminating serum drops for a natural glow, free of essential oils, silicones, and fragrance.", "https://www.amazon.com/dp/B0C3H55MLT"),
+                        ("The Naked Bee", "Restoration foot balm", "An orange blossom honey foot balm that softens and restores dry feet.", "https://www.amazon.com/dp/B00LADQ2XK"),
                     ]),
                 ]),
             ],
