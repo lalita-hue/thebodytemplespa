@@ -166,6 +166,9 @@ ul.chk li::before { content:""; position:absolute; left:0; top:1px; width:13px; 
 .prompt ul, .prompt ol { padding-left:20px; display:flex; flex-direction:column; gap:6px; }
 .prompt li { font-size:12px; line-height:1.55; font-weight:300; padding-left:4px; }
 .prompt li b { font-weight:500; }
+.prompt .txtnum { list-style:none; padding-left:0; }
+.prompt .txtnum li { padding-left:18px; text-indent:-18px; }
+.prompt .txtnum .n { color:var(--terra); font-weight:500; margin-right:4px; }
 .prompt ul li::marker { color:var(--terra); }
 .prompt ol li::marker { color:var(--terra); font-weight:500; }
 
@@ -235,8 +238,8 @@ def render_block(b):
         for k, v in b[2]:
             if k == "pp": inner += f"<p>{e(v)}</p>"
             elif k == "ph": inner += f"<h4>{e(v)}</h4>"
-            elif k == "pul": inner += "<ul>" + "".join(f"<li>{x}</li>" for x in v) + "</ul>"
-            elif k == "pol": inner += "<ol>" + "".join(f"<li>{x}</li>" for x in v) + "</ol>"
+            elif k == "pul": inner += '<ul class="txtnum">' + "".join(f'<li><span class="n">-</span> {x}</li>' for x in v) + "</ul>"
+            elif k == "pol": inner += '<ol class="txtnum">' + "".join(f'<li><span class="n">{i}.</span> {x}</li>' for i, x in enumerate(v, 1)) + "</ol>"
         end = '<div class="prompt__end">End of prompt</div>' if b[1] == "end" else ""
         return f'<div class="prompt"><div class="prompt__tag">{tag}</div>{inner}{end}</div>'
     if t == "foods":
