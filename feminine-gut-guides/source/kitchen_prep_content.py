@@ -22,6 +22,12 @@ KITCHEN_PREP = {
                     "Inflammatory oils (canola, soybean, vegetable oil)",
                 ]),
                 ("dark", "The Feminine Gut", "This isn’t about shame, it’s about creating an environment that aligns with your goals. If it’s not in your kitchen, it won’t end up on your plate!"),
+                ("h", "Choose your prep style: food prep vs. meal prep"),
+                ("pair", [
+                    ("Meal Prep", "Make full meals in advance so you\u2019re ready to grab-and-go."),
+                    ("Food Prep", "Chop veggies, cook proteins, prep sauces, then mix and match throughout the week."),
+                ]),
+                ("p", "Keep in mind, there\u2019s no one \u201cright\u201d way - just the way that works for your schedule and lifestyle."),
             ],
         },
     ],
