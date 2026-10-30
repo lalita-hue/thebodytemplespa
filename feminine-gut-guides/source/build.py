@@ -5,7 +5,8 @@ from core_content import CORE
 from prompt_content import PROMPT
 from kitchen_prep_content import KITCHEN_PREP
 from kitchen_tools_fav_content import KITCHEN_TOOLS_FAV
-DOCS = DOCS + [CORE, PROMPT, KITCHEN_PREP, KITCHEN_TOOLS_FAV]
+from meal_prep_content import MEAL_PREP
+DOCS = DOCS + [CORE, PROMPT, KITCHEN_PREP, KITCHEN_TOOLS_FAV, MEAL_PREP]
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "html")
 os.makedirs(OUT, exist_ok=True)
