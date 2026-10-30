@@ -4,7 +4,8 @@ from content import DOCS
 from core_content import CORE
 from prompt_content import PROMPT
 from kitchen_prep_content import KITCHEN_PREP
-DOCS = DOCS + [CORE, PROMPT, KITCHEN_PREP]
+from kitchen_tools_fav_content import KITCHEN_TOOLS_FAV
+DOCS = DOCS + [CORE, PROMPT, KITCHEN_PREP, KITCHEN_TOOLS_FAV]
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "html")
 os.makedirs(OUT, exist_ok=True)
@@ -173,6 +174,14 @@ ul.chk li::before { content:""; position:absolute; left:0; top:1px; width:13px; 
 .prompt ul li::marker { color:var(--terra); }
 .prompt ol li::marker { color:var(--terra); font-weight:500; }
 
+.rbadge { display:block; width:max-content; font-style:normal; font-family:var(--sans); font-size:7.5px; letter-spacing:.2em; text-transform:uppercase; font-weight:500; color:var(--terra); background:var(--blush); border-radius:999px; padding:2px 8px; margin-top:4px; }
+.recipes { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.recipe { border-radius:16px; background:rgba(255,255,255,.78); border:1px solid rgba(200,90,40,.16); padding:18px 20px; border-top:3px solid var(--apricot); }
+.recipe h4 { font-size:9px; letter-spacing:.26em; text-transform:uppercase; color:var(--terra); font-weight:500; margin-bottom:8px; }
+.recipe a { display:flex; justify-content:space-between; gap:10px; align-items:baseline; padding:9px 0; border-top:1px solid var(--line); color:var(--ink); text-decoration:none; font-family:var(--serif); font-size:18px; font-weight:500; line-height:1.2; }
+.recipe a:first-of-type { border-top:none; }
+.recipe a .go { color:var(--terra); font-family:var(--sans); font-size:12px; }
+
 .disclaimer { margin-top:auto; font-size:9px; line-height:1.55; color:var(--umber); font-weight:300; padding-top:10px; border-top:1px solid var(--line); }
 
 .foot { display:flex; align-items:center; justify-content:space-between; padding-top:12px; margin-top:12px; border-top:1px solid var(--terra); font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--umber); }
@@ -197,7 +206,8 @@ def render_block(b):
         (h1, h2), rows = b[1], b[2]
         out = f'<div class="table"><div class="table__head"><div>{e(h1)}</div><div>{e(h2)}</div></div><div>'
         for i, (k, v) in enumerate(rows, 1):
-            out += f'<div class="row"><div class="row__k"><span>{i:02d}</span>{e(k)}</div><div class="row__v">{e(v)}</div></div>'
+            badge = '<em class="rbadge">Recipe</em>' if k.endswith(" *") else ""
+            out += f'<div class="row"><div class="row__k"><span>{i:02d}</span><div>{e(k.removesuffix(" *"))}{badge}</div></div><div class="row__v">{e(v)}</div></div>'
         return out + "</div></div>"
     if t == "steps":
         out = '<div class="steps">'
@@ -243,6 +253,12 @@ def render_block(b):
             elif k == "pol": inner += '<ol class="txtnum">' + "".join(f'<li><span class="n">{i}.</span> {x}</li>' for i, x in enumerate(v, 1)) + "</ol>"
         end = '<div class="prompt__end">End of prompt</div>' if b[1] == "end" else ""
         return f'<div class="prompt"><div class="prompt__tag">{tag}</div>{inner}{end}</div>'
+    if t == "recipes":
+        out = '<div class="recipes">'
+        for tool, items in b[1]:
+            links = "".join(f'<a href="{e(u)}" target="_blank" rel="noopener"><span>{e(n)}</span><span class="go">↗</span></a>' for n, u in items)
+            out += f'<div class="recipe"><h4>{e(tool)}</h4>{links}</div>'
+        return out + "</div>"
     if t == "foods":
         return food_card(b[1], b[2], b[3], wide=True)
     if t == "foodpair":
