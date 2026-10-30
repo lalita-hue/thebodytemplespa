@@ -3,7 +3,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import DOCS
 from core_content import CORE
 from prompt_content import PROMPT
-DOCS = DOCS + [CORE, PROMPT]
+from kitchen_prep_content import KITCHEN_PREP
+DOCS = DOCS + [CORE, PROMPT, KITCHEN_PREP]
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "html")
 os.makedirs(OUT, exist_ok=True)
