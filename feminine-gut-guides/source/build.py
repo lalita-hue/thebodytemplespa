@@ -2,7 +2,8 @@ import html, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import DOCS
 from core_content import CORE
-DOCS = DOCS + [CORE]
+from prompt_content import PROMPT
+DOCS = DOCS + [CORE, PROMPT]
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "html")
 os.makedirs(OUT, exist_ok=True)
@@ -157,6 +158,17 @@ ul.chk li::before { content:""; position:absolute; left:0; top:1px; width:13px; 
 .food--more h3 { color:var(--ink); }
 .foodpair { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 
+.prompt { border-radius:16px; background:#fff; border:1px solid rgba(200,90,40,.22); border-left:4px solid var(--terra); padding:18px 24px 18px; display:flex; flex-direction:column; gap:10px; box-shadow:0 16px 30px -26px rgba(168,72,30,.6); }
+.prompt__tag, .prompt__end { font-size:8.5px; letter-spacing:.28em; text-transform:uppercase; font-weight:500; color:var(--terra); }
+.prompt__end { margin-top:4px; padding-top:10px; border-top:1px dashed rgba(200,90,40,.4); }
+.prompt p { font-size:12.4px; line-height:1.6; }
+.prompt h4 { font-family:var(--serif); font-size:18px; font-weight:600; margin-top:4px; }
+.prompt ul, .prompt ol { padding-left:20px; display:flex; flex-direction:column; gap:6px; }
+.prompt li { font-size:12px; line-height:1.55; font-weight:300; padding-left:4px; }
+.prompt li b { font-weight:500; }
+.prompt ul li::marker { color:var(--terra); }
+.prompt ol li::marker { color:var(--terra); font-weight:500; }
+
 .disclaimer { margin-top:auto; font-size:9px; line-height:1.55; color:var(--umber); font-weight:300; padding-top:10px; border-top:1px solid var(--line); }
 
 .foot { display:flex; align-items:center; justify-content:space-between; padding-top:12px; margin-top:12px; border-top:1px solid var(--terra); font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--umber); }
@@ -217,6 +229,16 @@ def render_block(b):
                 for name, url in items)
             out += f'<div class="shop__cat"><h4>{e(cat)}</h4><ul>{lis}</ul></div>'
         return out + "</div>"
+    if t == "prompt":
+        tag = {"start": "Copy from here", "cont": "Prompt, continued", "end": "Prompt, continued"}[b[1]]
+        inner = ""
+        for k, v in b[2]:
+            if k == "pp": inner += f"<p>{e(v)}</p>"
+            elif k == "ph": inner += f"<h4>{e(v)}</h4>"
+            elif k == "pul": inner += "<ul>" + "".join(f"<li>{x}</li>" for x in v) + "</ul>"
+            elif k == "pol": inner += "<ol>" + "".join(f"<li>{x}</li>" for x in v) + "</ol>"
+        end = '<div class="prompt__end">End of prompt</div>' if b[1] == "end" else ""
+        return f'<div class="prompt"><div class="prompt__tag">{tag}</div>{inner}{end}</div>'
     if t == "foods":
         return food_card(b[1], b[2], b[3], wide=True)
     if t == "foodpair":
