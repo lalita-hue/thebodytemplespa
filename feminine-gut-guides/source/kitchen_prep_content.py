@@ -24,48 +24,5 @@ KITCHEN_PREP = {
                 ("dark", "The Feminine Gut", "This isn’t about shame, it’s about creating an environment that aligns with your goals. If it’s not in your kitchen, it won’t end up on your plate!"),
             ],
         },
-        {
-            "title": "Prep <em>Your Way</em>",
-            "sub": "Systems that make the week ahead simpler.",
-            "blocks": [
-                ("h", "Choose your prep style: food prep vs. meal prep"),
-                ("pair", [
-                    ("Meal Prep", "Make full meals in advance so you’re ready to grab-and-go."),
-                    ("Food Prep", "Chop veggies, cook proteins, prep sauces, then mix and match throughout the week."),
-                ]),
-                ("p", "See the Meal Prep vs Food Prep guide in your resources for more prepping guidance."),
-                ("note", "Keep in mind, there’s no one “right” way - just the way that works for your schedule and lifestyle."),
-                ("h", "Set up for success"),
-                ("checks", [
-                    "Keep your blender, cutting board, and favorite prep tools visible and ready to use.",
-                    "Batch-cook when you have energy. Make leftovers your friend.",
-                    "And celebrate every small step forward.",
-                ]),
-                ("h", "Make a family-friendly plan"),
-                ("p", "Ask yourself:"),
-                ("bullets", [
-                    "Will you adapt meals for your family or prepare separate components?",
-                    "Can you double-batch favorite recipes to keep everyone satisfied?",
-                    "What meals can your family join in on to make this a team effort?",
-                ]),
-            ],
-        },
-        {
-            "title": "Shop <em>Smart</em>",
-            "sub": "Fill your kitchen with foods that support your healing.",
-            "blocks": [
-                ("h", "Stick to the perimeter"),
-                ("p", "The outer edges of the grocery store are where the magic lives—fresh produce, clean proteins, healthy fats, and whole-food staples."),
-                ("warm", "Pro tip", "Hit the frozen aisle for organic veggies and fruits to keep on hand for quick meals and smoothies."),
-                ("h", "Build your staples list"),
-                ("p", "Stock your fridge and pantry with the basics:"),
-                ("chips", [
-                    "Clean proteins (wild fish, pasture-raised meats, eggs)",
-                    "Healthy fats (avocados, olives, coconut oil, ghee)",
-                    "Colorful veggies + fruits",
-                    "Herbs, spices, and healing extras (like bone broth or sauerkraut!)",
-                ]),
-            ],
-        },
     ],
 }
