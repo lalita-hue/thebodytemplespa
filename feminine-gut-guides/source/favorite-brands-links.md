@@ -4,7 +4,7 @@ Identified:
 - Everyday Dose — https://www.everydaydose.com/
 - Kettle & Fire bone broth — https://www.amazon.com/dp/B01MU6XD17
 - Burt's Bees Sensitive lightweight sunscreen — https://www.amazon.com/dp/B09BGGM51D
-- Pluck (seasoning) — https://eatpluck.com/?ref=DRJOSHAXE
+- Pluck (seasoning) — https://eatpluck.com/ (no Dr. Axe referral, per Lalita)
 - Primal Palate (spices) — https://shop.primalpalate.com/?sca_ref=774156.0PBF2bvcFY
 - GranNaturals Slick Back Stick for Women — https://www.amazon.com/dp/B0G4MQ6ZLX
 - ECOS laundry — https://www.ecos.com/laundry/

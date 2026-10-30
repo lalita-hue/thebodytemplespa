@@ -6,7 +6,8 @@ from prompt_content import PROMPT
 from kitchen_prep_content import KITCHEN_PREP
 from kitchen_tools_fav_content import KITCHEN_TOOLS_FAV
 from meal_prep_content import MEAL_PREP
-DOCS = DOCS + [CORE, PROMPT, KITCHEN_PREP, KITCHEN_TOOLS_FAV, MEAL_PREP]
+from brands_content import BRANDS
+DOCS = DOCS + [CORE, PROMPT, KITCHEN_PREP, KITCHEN_TOOLS_FAV, MEAL_PREP, BRANDS]
 
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "html")
 os.makedirs(OUT, exist_ok=True)
@@ -183,6 +184,15 @@ ul.chk li::before { content:""; position:absolute; left:0; top:1px; width:13px; 
 .recipe a:first-of-type { border-top:none; }
 .recipe a .go { color:var(--terra); font-family:var(--sans); font-size:12px; }
 
+.brand-cat { display:flex; flex-direction:column; gap:10px; }
+.brand-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.brand-card { display:block; text-decoration:none; color:var(--ink); border-radius:14px; background:rgba(255,255,255,.8); border:1px solid rgba(200,90,40,.16); border-top:3px solid var(--apricot); padding:14px 18px 14px; box-shadow:0 14px 28px -26px rgba(168,72,30,.6); }
+.brand-card__top { display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+.brand-card h4 { font-family:var(--serif); font-size:21px; font-weight:600; line-height:1.1; }
+.brand-card .go { font-size:8.5px; letter-spacing:.2em; text-transform:uppercase; color:var(--terra); font-weight:500; white-space:nowrap; }
+.brand-card__kind { font-size:8.5px; letter-spacing:.24em; text-transform:uppercase; color:var(--umber); font-weight:500; margin:4px 0 8px; }
+.brand-card p { font-size:11.6px; line-height:1.5; font-weight:300; }
+
 .disclaimer { margin-top:auto; font-size:9px; line-height:1.55; color:var(--umber); font-weight:300; padding-top:10px; border-top:1px solid var(--line); }
 
 .foot { display:flex; align-items:center; justify-content:space-between; padding-top:12px; margin-top:12px; border-top:1px solid var(--terra); font-size:8.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--umber); }
@@ -254,6 +264,15 @@ def render_block(b):
             elif k == "pol": inner += '<ol class="txtnum">' + "".join(f'<li><span class="n">{i}.</span> {x}</li>' for i, x in enumerate(v, 1)) + "</ol>"
         end = '<div class="prompt__end">End of prompt</div>' if b[1] == "end" else ""
         return f'<div class="prompt"><div class="prompt__tag">{tag}</div>{inner}{end}</div>'
+    if t == "brands":
+        out = ""
+        for cat, items in b[1]:
+            cards = "".join(
+                f'<a class="brand-card" href="{e(u)}" target="_blank" rel="noopener"><div class="brand-card__top"><h4>{e(n)}</h4><span class="go">Shop ↗</span></div>'
+                f'<div class="brand-card__kind">{e(k)}</div><p>{e(d)}</p></a>'
+                for n, k, d, u in items)
+            out += f'<div class="brand-cat"><h2>{e(cat)}</h2><div class="brand-grid">{cards}</div></div>'
+        return out
     if t == "recipes":
         out = '<div class="recipes">'
         for tool, items in b[1]:
