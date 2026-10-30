@@ -21,3 +21,7 @@ Identified from Lalita's screenshots / still to confirm:
 - Embryolisse Lait-Crème Fluid+ (B0CV12BF8S) — https://www.amazon.com/dp/B0CV12BF8S
 - The Naked Bee Orange Blossom Honey Foot Balm (B00LADQ2XK) — https://www.amazon.com/dp/B00LADQ2XK
 - Drunk Elephant B-Goldi Bright Drops (B0C3H55MLT) — https://www.amazon.com/dp/B0C3H55MLT
+
+Added later:
+- doTERRA essential oils — https://www.doterra.com/US/en/shop?OwnerID=15905233
+- Kangen Water (Enagic K8) — https://thebodytemplespas.com/product-details-3747/product/69cd674a9849f081ce352fa8
