@@ -13,8 +13,8 @@ Identified:
 - Keto-Mojo — https://keto-mojo.com/
 
 Identified from Lalita's screenshots / still to confirm:
-- https://pachamana.com/ (spelling?)
-- LongevityRx Stem Cell Protein — https://trylongevityrx.com/products/stem-cell-protein
+- Pacha Mana ceremonial cacao — https://pachamana.com/
+- LongevityRx StemCell Protein (confirmed) — https://trylongevityrx.com/products/stem-cell-protein
 - Handcraft Blends Organic Castor Oil (B0734849YK) — https://www.amazon.com/gp/product/B0734849YK?smid=A2KJ38C2ZIB8X9&psc=1
 - Pacific Foods Hemp Milk Unsweetened (B00MFCHYS2) — https://www.amazon.com/dp/B00MFCHYS2
 - Botanic Hearth Rosemary Hair Oil (B0F141W131) — https://www.amazon.com/dp/B0F141W131

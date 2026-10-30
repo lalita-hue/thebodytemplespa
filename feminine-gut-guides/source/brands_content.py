@@ -15,12 +15,9 @@ BRANDS = {
                     ("Nourish", [
                         ("Kettle & Fire", "Classic beef bone broth", "Made with 100% grass-fed beef bones and high in protein and collagen. Easy to sip warm or use in soups and sauces.", "https://www.amazon.com/dp/B01MU6XD17"),
                         ("Pacific Foods", "Unsweetened hemp milk", "A plant-based, unsweetened hemp milk for smoothies, coffee, and cooking.", "https://www.amazon.com/dp/B00MFCHYS2"),
+                        ("LongevityRx", "StemCell Protein", "A protein blend of bone marrow, grass-fed beef organ peptides, and collagen-rich bone broth. 20 grams of protein per serving, in vanilla or chocolate.", "https://trylongevityrx.com/products/stem-cell-protein"),
                         ("Pluck", "Organ-meat seasoning", "An all-purpose seasoning that blends nutrient-dense organ meats with herbs and spices. Sprinkle it on everyday meals.", "https://eatpluck.com/"),
                         ("Primal Palate", "Organic spice blends", "Organic herb and spice blends that bring big flavor to simple, clean cooking.", "https://shop.primalpalate.com/?sca_ref=774156.0PBF2bvcFY"),
-                    ]),
-                    ("Daily Rituals", [
-                        ("Everyday Dose", "Mushroom coffee", "A smooth coffee alternative made with functional mushrooms and collagen, with less caffeine than a regular cup.", "https://www.everydaydose.com/"),
-                        ("Keto-Mojo", "Glucose & ketone meter", "An at-home meter that measures blood glucose and ketones, so you can see how your body responds to your meals.", "https://keto-mojo.com/"),
                     ]),
                 ]),
             ],
@@ -43,10 +40,15 @@ BRANDS = {
             ],
         },
         {
-            "title": "A Clean <em>Home</em>",
-            "sub": "Healthier everyday spaces, from laundry to the air you breathe.",
+            "title": "Rituals <em>&amp; Home</em>",
+            "sub": "Grounding daily rituals and healthier everyday spaces.",
             "blocks": [
                 ("brands", [
+                    ("Daily Rituals", [
+                        ("Everyday Dose", "Mushroom coffee", "A smooth coffee alternative made with functional mushrooms and collagen, with less caffeine than a regular cup.", "https://www.everydaydose.com/"),
+                        ("Pacha Mana", "Ceremonial cacao", "Pure Peruvian ceremonial cacao from heirloom Chuncho beans, direct traded from family farms. A warm, grounding daily ritual.", "https://pachamana.com/"),
+                        ("Keto-Mojo", "Glucose & ketone meter", "An at-home meter that measures blood glucose and ketones, so you can see how your body responds to your meals.", "https://keto-mojo.com/"),
+                    ]),
                     ("Clean Home", [
                         ("ECOS", "Laundry detergent", "Plant-powered laundry detergent that is gentle on skin and on your home.", "https://www.ecos.com/laundry/"),
                         ("Avocado", "Green mattress", "Certified organic mattresses made with natural latex, wool, and cotton.", "https://www.avocadogreenmattress.com/"),
