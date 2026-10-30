@@ -1,6 +1,6 @@
 # Phase 1 meal plan prompt for clients to paste into an AI assistant.
 # Prompt wording is Lalita's; the client attaches only the hair analysis report,
-# and the Dirty Dozen section is added at her request.
+# and the Dirty Dozen section (EWG 2026 lists) is added at her request.
 
 P_OPEN = ("pp", "Help me create a detailed four-week meal plan for Phase 1 of The Feminine Gut: Tune In, Eliminate Triggers & Meet Nutritional Needs.")
 P_ATTACH = ("pp", "I am attaching my hair analysis report.")
@@ -14,10 +14,16 @@ P_READ = [
         "Do not assume unlisted foods are green-dot items. Ask before including them.",
         "Treat these as the report’s categories, not medically confirmed sensitivities. Hair testing does not reliably establish food sensitivities, and green dots do not guarantee tolerance. Always respect known allergies, intolerances, and previous reactions.",
     ]),
+]
+P_DD = [
     ("ph", "Shop with the Dirty Dozen in mind:"),
+    ("pp", "Use EWG’s 2026 Shopper’s Guide to Pesticides in Produce (ewg.org/foodnews):"),
     ("pul", [
-        "Use the Environmental Working Group’s (EWG) most recent Dirty Dozen list. In my menus and grocery lists, mark any Dirty Dozen produce as “buy organic.”",
-        "If organic is unavailable or over budget, suggest frozen organic or a green-dot alternative from EWG’s Clean Fifteen list. Never substitute a high or moderate reactivity food.",
+        "<b>Dirty Dozen (buy organic when possible):</b> spinach; kale, collard & mustard greens; strawberries; grapes; nectarines; peaches; cherries; apples; blackberries; pears; potatoes; blueberries; plus green beans and bell & hot peppers.",
+        "<b>Clean Fifteen (conventional is fine):</b> pineapple, sweet corn, avocados, papaya, onions, sweet peas, asparagus, cabbage, cauliflower, watermelon, mangoes, bananas, carrots, mushrooms, kiwi.",
+        "In my menus and grocery lists, mark any Dirty Dozen produce as “buy organic.”",
+        "If organic is unavailable or over budget, suggest frozen organic or a green-dot alternative from the Clean Fifteen. Never substitute a high or moderate reactivity food.",
+        "These lists are about pesticide residues only. A Clean Fifteen item still has to be a green-dot food from my report to be included.",
     ]),
 ]
 P_ASK = [
@@ -60,17 +66,25 @@ PROMPT = {
                 ("intro", "Use this prompt with an AI assistant to build a four-week Phase 1 meal plan around your hair analysis report, with the Dirty Dozen in mind."),
                 ("trio", [
                     ("1. Gather", "Your hair analysis report, saved as a PDF or clear photos."),
-                    ("2. Copy & attach", "Copy the full prompt (both pages) into the chat and attach your report."),
+                    ("2. Copy & attach", "Copy the full prompt (all three pages) into the chat and attach your report."),
                     ("3. Answer", "Confirm the food lists and answer each question. Then review your finished plan with your practitioner."),
                 ]),
                 ("prompt", "start", [P_OPEN, P_ATTACH] + P_READ),
             ],
         },
         {
-            "title": "Before <em>the Plan</em>",
-            "sub": "The rest of your prompt: questions to answer and how your plan is organized.",
+            "title": "Shop <em>Clean</em>",
+            "sub": "Your prompt, continued: the Dirty Dozen and the questions to answer.",
             "blocks": [
-                ("prompt", "end", P_ASK + P_ORG + P_CLOSE),
+                ("prompt", "cont", P_DD + P_ASK),
+            ],
+        },
+        {
+            "title": "Your Four <em>Weeks</em>",
+            "sub": "Your prompt, continued: how your plan is organized.",
+            "blocks": [
+                ("prompt", "end", P_ORG + P_CLOSE),
+                ("note", "Dirty Dozen and Clean Fifteen lists: EWG’s 2026 Shopper’s Guide to Pesticides in Produce. Learn more at ewg.org/foodnews."),
                 ("disclaimer", "Educational guidance. Follow your individual plan and discuss persistent symptoms or dietary restrictions with your healthcare provider. Avoid known allergens; recommendations should fit your needs."),
             ],
         },
