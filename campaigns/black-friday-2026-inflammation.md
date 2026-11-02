@@ -29,9 +29,9 @@
 
 | # | Date | Phase | Subject |
 |---|---|---|---|
-| 1 | Tue Nov 3 | Educate | Inflammation isn't always loud |
-| 2 | Fri Nov 6 | Educate | I know like, I know like, I know… you're tired of guessing |
-| 3 | Tue Nov 10 | Educate | The fire starts in your gut |
+| 1 | Tue Nov 3 | Educate | Are you feeling inflamed? |
+| 2 | Fri Nov 6 | Educate | Is your inflammation holding you back? |
+| 3 | Tue Nov 10 | Educate | Are you ready to understand why your body is inflamed? |
 | 4 | Fri Nov 13 | Educate | What a hair test can (and can't) tell you |
 | 5 | Tue Nov 17 | Story | "I finally stopped guessing" |
 | 6 | Fri Nov 20 | Tease | Something special opens Monday |
@@ -48,24 +48,22 @@
 
 ## Email 1 — Tue Nov 3
 
-**Subject:** Inflammation isn't always loud
-**Preview:** Sometimes it whispers. Here's how to listen.
+**Subject:** Are you feeling inflamed?
+**Preview:** Let's look beyond the lymphatic system.
 
 Hiii {{contact.first_name}}!
 
-When most people hear "inflammation," they picture a swollen ankle or a red, angry cut.
+**Are you feeling inflamed?**
 
-But the kind I see every day in my clients is quieter. It whispers:
+Maybe it's the puffiness in your face when you wake up. The bloating that shows up after almost every meal. The heaviness in your legs, the 3 PM crash, the skin that just won't settle.
 
-- Bloating that shows up after almost every meal
-- Puffiness in your face and hands in the morning
-- That heavy, foggy, 3 PM crash
-- Skin that flares when you're stressed
-- Feeling tired even after a full night's sleep
+So many of you come to me for lymphatic drainage because of exactly this, and I love that work. It can help your body feel lighter, less puffy, and more like *you* again.
 
-These are signs many women live with for years, thinking it's just "normal." It's common. But common doesn't mean it's how you're meant to feel.
+But I want to take you **beyond the lymphatic system** this month.
 
-Over the next few weeks I'm going to share what I've learned about calming that inner fire, starting with the gut, where so much of it begins.
+Because when the puffiness keeps coming back, it's worth asking a bigger question: *what is your body reacting to?* Often the answer starts in your gut and on your plate.
+
+Over the next few weeks I'm going to share what I've learned about calming that inner fire at its source, not just soothing it on the surface.
 
 Keep an eye on your inbox. I've got something special coming for you this Black Friday.
 
@@ -77,22 +75,24 @@ The Body Temple Spa
 
 ## Email 2 — Fri Nov 6
 
-**Subject:** I know like, I know like, I know… you're tired of guessing
-**Preview:** Cutting foods at random isn't a plan.
+**Subject:** Is your inflammation holding you back?
+**Preview:** You weren't meant to just "push through."
 
 Hiii {{contact.first_name}},
+
+**Is your inflammation holding you back?**
+
+Holding you back from feeling confident in your clothes. From having energy for your family, your work, your joy. From waking up and feeling *good* in your body.
 
 I know like, I know like, I know… you've tried *so* much already.
 
 You cut gluten. Then dairy. Then sugar. Maybe you tried a cleanse, a new supplement, a whole new way of eating. Some things helped a little. Most didn't stick.
 
-Here's what I've seen over and over: when we guess, we often remove foods we didn't need to remove and miss the ones that matter. That's exhausting, and it can leave you eating less variety and less nourishment than your body needs.
+When we guess, we often remove foods we didn't need to remove and miss the ones that matter. That's exhausting, and it can leave you eating less nourishment than your body needs.
 
-That's why I love starting with information instead of guesswork. A hair test gives us a starting map: a list of foods to pay attention to, and foods that may be friendlier for you to build around.
+You weren't meant to just push through. You were meant to feel at home in your body.
 
-It's not magic, and it's not a diagnosis. It's a smarter place to begin.
-
-More on that next week. For now, notice how you feel after your meals this weekend. Your body is always talking.
+Next week, I'll show you where so much of this begins.
 
 With love,
 Lalita
@@ -101,25 +101,20 @@ Lalita
 
 ## Email 3 — Tue Nov 10
 
-**Subject:** The fire starts in your gut
-**Preview:** Why so much of how you feel begins with digestion.
+**Subject:** Are you ready to understand why your body is inflamed?
+**Preview:** It starts with your gut, and a smarter place to begin.
 
 Hiii {{contact.first_name}},
 
-Your gut does so much more than digest your food. It's home to a huge part of your immune system, and it's in constant conversation with the rest of your body.
+**Are you ready to understand *why* your body is inflamed?**
 
-When your gut is struggling, the effects rarely stay in your stomach. They can show up as:
+Your gut does so much more than digest food. It's home to a huge part of your immune system, and it's in constant conversation with the rest of your body. When it's struggling, it rarely stays in your stomach. It can show up as bloating, puffiness, brain fog, low energy, and skin that won't calm down.
 
-- Bloating and irregular digestion
-- Low energy and brain fog
-- Skin that won't settle
-- Cravings that feel impossible to control
+This is the heart of The Feminine Gut and The TEMPLE Method: we tune in, calm what's irritating your body, and rebuild with nourishment, not restriction.
 
-This is the heart of The Feminine Gut and The TEMPLE Method: we tune in to your body, calm what's irritating it, and rebuild with nourishment, not restriction.
+And the first step is knowing where to start. That's why I love the hair test: it gives us a starting map of foods to pay attention to and foods that may be friendlier to build around. No more guessing.
 
-And the very first step is knowing where to start.
-
-On Friday I'm going to be really honest about what a hair test can tell you, and what it can't. I think you'll appreciate it.
+On Friday I'll be really honest about what a hair test can tell you, and what it can't.
 
 With love,
 Lalita
