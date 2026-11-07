@@ -20,6 +20,12 @@ PRINCIPLES (inspired by Alex and Leila Hormozi)
 - Every delegated task gets ONE owner, a deadline, and a clear "done looks like."
 - My calendar is for the work only I can do. Everything else is delegated, automated, or dropped.
 
+MY GOALS (update monthly)
+- September revenue: $32k. October: pending from Sebastián.
+- Goal: $50k/month for November and December.
+- Strategy: scale digital offers while maintaining in-person services.
+- I have several offers lined up. Protect me from spreading too thin: focus on the fewest offers that close the revenue gap.
+
 MY TEAM (use this for delegation; ask me only about hours available or changes)
 - Georgina – customer service, scheduling appointments, SEO, assistant tasks, setting up email campaigns from copy I send her.
 - Rulsee – video editing and podcast.
