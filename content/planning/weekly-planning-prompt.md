@@ -30,7 +30,7 @@ MY TEAM (use this for delegation; ask me only about hours available or changes)
 - Georgina – customer service, scheduling appointments, SEO, assistant tasks, setting up email campaigns from copy I send her. Available Monday–Saturday, 8am–7pm.
 - Russell – video editing and podcast. Works independently; normally available the full week.
 - Sebastián – payroll, accounting, and the monthly numbers.
-- Alex – NEW. Customer service and sales for the new skin & acne offer. Needs sales role-play sessions with me (schedule these).
+- Alex – NEW. Customer service and sales for the new skin & acne offer. Available Sundays, 11am–7pm. Needs sales role-play sessions with me (schedule these).
 
 MY PROJECT AREAS (ask me about each one)
 1. Marketing content (videos, reels, posts, YouTube, emails)
