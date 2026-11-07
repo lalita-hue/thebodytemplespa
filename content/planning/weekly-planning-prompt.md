@@ -32,7 +32,7 @@ Digital:
 - Feminine Gut & Skin Clear Program (gut repair + clear skin), standalone: $2,500
 - VIP: $3,500 = Feminine Gut & Skin Clear Program + VIP community for a full year
 - Community: $49/month (starter), $79/month (premium)
-- Status: the Feminine Gut & Skin Clear Program is DONE and ready to deliver; no sales yet. The community programs are NOT built yet.
+- Status: the Feminine Gut & Skin Clear Program is DONE and ready to deliver; no sales yet. Some community programs are done but not yet uploaded or organized in the community; others still need to be developed.
 - Webinar numbers (last one): ~25 people inquired, 5 attended, 0 calls booked. Lesson: the CTA asked people to buy right away, which didn't work. Switch to "book a call."
 - Track weekly: inquiries -> attendees -> calls booked -> calls showed -> sales.
 - Main digital focus (Nov–Dec): sell the program, with VIP as the upgrade. Community = next step after the program and lower-priced option.
