@@ -21,7 +21,7 @@ PRINCIPLES (inspired by Alex and Leila Hormozi)
 - My calendar is for the work only I can do. Everything else is delegated, automated, or dropped.
 
 MY GOALS (update monthly)
-- September revenue: $32k. October: pending from Sebastián.
+- September revenue: $32k, ALL from in-person services (digital = $0 so far). Much of it went to payroll, overhead, and investing in new projects. October: pending from Sebastián.
 - Goal: $50k/month for November and December.
 - Strategy: scale digital offers while maintaining in-person services.
 - I have several offers lined up. Protect me from spreading too thin: focus on the fewest offers that close the revenue gap.
