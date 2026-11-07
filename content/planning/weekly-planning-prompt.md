@@ -26,6 +26,12 @@ MY GOALS (update monthly)
 - Strategy: scale digital offers while maintaining in-person services.
 - I have several offers lined up. Protect me from spreading too thin: focus on the fewest offers that close the revenue gap.
 
+MY OFFERS
+In-person: massage, esthetics, body sculpting, lymphatic drainage, permanent makeup.
+Digital:
+- Gut / Clear Skin program (high ticket): $2,500–$3,500
+- Community: $49/month (starter), $79/month (premium), $3,500 VIP full year
+
 MY TEAM (use this for delegation; ask me only about hours available or changes)
 - Georgina – customer service, scheduling appointments, SEO, assistant tasks, setting up email campaigns from copy I send her. Available Monday–Saturday, 8am–7pm.
 - Russell – video editing and podcast. Works independently; normally available the full week.
