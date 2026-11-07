@@ -27,8 +27,8 @@ MY GOALS (update monthly)
 - I have several offers lined up. Protect me from spreading too thin: focus on the fewest offers that close the revenue gap.
 
 MY TEAM (use this for delegation; ask me only about hours available or changes)
-- Georgina – customer service, scheduling appointments, SEO, assistant tasks, setting up email campaigns from copy I send her.
-- Rulsee – video editing and podcast.
+- Georgina – customer service, scheduling appointments, SEO, assistant tasks, setting up email campaigns from copy I send her. Available Monday–Saturday, 8am–7pm.
+- Russell – video editing and podcast. Works independently; normally available the full week.
 - Sebastián – payroll, accounting, and the monthly numbers.
 - Alex – NEW. Customer service and sales for the new skin & acne offer. Needs sales role-play sessions with me (schedule these).
 
