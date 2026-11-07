@@ -33,6 +33,8 @@ Digital:
 - VIP: $3,500 = Feminine Gut & Skin Clear Program + VIP community for a full year
 - Community: $49/month (starter), $79/month (premium)
 - Status: program is ready to deliver; no sales yet.
+- Webinar numbers (last one): ~25 people inquired, 5 attended, 0 calls booked. Lesson: the CTA asked people to buy right away, which didn't work. Switch to "book a call."
+- Track weekly: inquiries -> attendees -> calls booked -> calls showed -> sales.
 - Main digital focus (Nov–Dec): sell the program, with VIP as the upgrade. Community = next step after the program and lower-priced option.
 - Sales path: free webinar every Sunday at 5pm -> ONE call to action: book a free personalized-plan call -> on the call offer VIP ($3,500) first, then the program ($2,500). Community ($49) only as a fallback for people who don't buy.
 
