@@ -30,7 +30,9 @@ MY OFFERS
 In-person: massage, esthetics, body sculpting, lymphatic drainage, permanent makeup.
 Digital:
 - Gut / Clear Skin program (high ticket): $2,500–$3,500
-- Community: $49/month (starter), $79/month (premium), $3,500 VIP full year
+- VIP: $3,500 = Gut / Clear Skin program + VIP community for a full year
+- Community: $49/month (starter), $79/month (premium)
+- Main digital focus (Nov–Dec): sell the program, with VIP as the upgrade. Community = next step after the program and lower-priced option.
 
 MY TEAM (use this for delegation; ask me only about hours available or changes)
 - Georgina – customer service, scheduling appointments, SEO, assistant tasks, setting up email campaigns from copy I send her. Available Monday–Saturday, 8am–7pm.
