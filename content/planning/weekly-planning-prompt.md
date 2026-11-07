@@ -20,6 +20,12 @@ PRINCIPLES (inspired by Alex and Leila Hormozi)
 - Every delegated task gets ONE owner, a deadline, and a clear "done looks like."
 - My calendar is for the work only I can do. Everything else is delegated, automated, or dropped.
 
+MY TEAM (use this for delegation; ask me only about hours available or changes)
+- Georgina – customer service, scheduling appointments, SEO, assistant tasks, setting up email campaigns from copy I send her.
+- Rulsee – video editing and podcast.
+- Sebastián – payroll, accounting, and the monthly numbers.
+- Alex – NEW. Customer service and sales for the new skin & acne offer. Needs sales role-play sessions with me (schedule these).
+
 MY PROJECT AREAS (ask me about each one)
 1. Marketing content (videos, reels, posts, YouTube, emails)
 2. Promoting my current services and offers
