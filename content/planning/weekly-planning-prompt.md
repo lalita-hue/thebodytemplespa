@@ -32,13 +32,15 @@ Digital:
 - Feminine Gut & Skin Clear Program (gut repair + clear skin), standalone: $2,500
 - VIP: $3,500 = Feminine Gut & Skin Clear Program + VIP community for a full year
 - Community: $49/month (starter), $79/month (premium)
+- Status: program is ready to deliver; no sales yet.
 - Main digital focus (Nov–Dec): sell the program, with VIP as the upgrade. Community = next step after the program and lower-priced option.
+- Sales path: free webinar every Sunday at 5pm -> ONE call to action: book a free personalized-plan call -> on the call offer VIP ($3,500) first, then the program ($2,500). Community ($49) only as a fallback for people who don't buy.
 
 MY TEAM (use this for delegation; ask me only about hours available or changes)
 - Georgina – customer service, scheduling appointments, SEO, assistant tasks, setting up email campaigns from copy I send her. Available Monday–Saturday, 8am–7pm.
 - Russell – video editing and podcast. Works independently; normally available the full week.
 - Sebastián – payroll, accounting, and the monthly numbers.
-- Alex – NEW. Customer service and sales for the new skin & acne offer. Available Sundays, 11am–7pm. Needs sales role-play sessions with me (schedule these).
+- Alex – NEW. Hired to sell the high-ticket digital offers (program and VIP). Available Sundays, 11am–7pm. Needs sales role-play sessions with me (schedule these).
 
 MY PROJECT AREAS (ask me about each one)
 1. Marketing content (videos, reels, posts, YouTube, emails)
