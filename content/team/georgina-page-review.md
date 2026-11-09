@@ -65,3 +65,8 @@ URL: thebodytemplespas.com/waxing-hair-removal-spa-athens-ga
 URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/winged-cat-eye-liner-in-athens-ga
 - Not promoting this service right now. Keep the page as a draft (unpublished).
 - Make sure no other page or menu links to it.
+
+### 13. Permanent Makeup Consultation (20 minutes) in 2350 Prince Ave (service page)
+URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/permanent-makeup-consultation-in-athens-ga
+- **What's wrong:** The intro has no link to the category page it supports.
+- **What it should be:** Add a link in the first paragraph to the Permanent Make Up Clinic category page: thebodytemplespas.com/permanent-make-up-clinic-athens-ga (for example on "Permanent Makeup Consultation").
