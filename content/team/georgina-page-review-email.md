@@ -15,6 +15,14 @@ Please check every page you've built for this, not only the ones listed below.
 
 Also: click every link before publishing. No broken links, and service mentions should link to our own pages.
 
+CROSS-LINKS IN THE FAQ SECTION
+Besides the first link in the intro, pages that belong together should link to EACH OTHER in the FAQ section:
+- A topical (supporting) page links to its service page.
+- That service page links back to the topical page.
+- Use descriptive anchor text (the clickable words), not "click here." Example: on the Lymphatic Post Operation Treatment page, an FAQ answer could link "what comes out during lymphatic drainage massage" to the topical page, and that topical page's FAQ links "lymphatic post-operation treatment in Athens" back.
+
+Question for you: does every page already have these cross-links in its FAQ? Please check all pages and send me a list of the ones that are missing them.
+
 GOOD EXAMPLES TO FOLLOW (APPROVED)
 - How Lymphatic Drainage Massage Works
 - Microblading - Brow PMU
