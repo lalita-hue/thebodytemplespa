@@ -54,3 +54,9 @@ URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/areola-restoration
 URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/lip-blush-pmu-in-athens-ga
 - **What's wrong:** The intro has no link to the category page it supports.
 - **What it should be:** Add a link in the first paragraph to the Permanent Make Up Clinic category page: thebodytemplespas.com/permanent-make-up-clinic-athens-ga (for example on "Lip blush").
+
+### 11. Waxing Hair-Removal Spa in Athens (category page)
+URL: thebodytemplespas.com/waxing-hair-removal-spa-athens-ga
+- **What's wrong:** This is a category page, but the first link on the page is the booking link ("here"), not the home page.
+- **What it should be:** Make the FIRST link on the page go to the home page (thebodytemplespas.com), in the first paragraph (for example on "Brazilian Wax" or a mention of The Body Temple Spa).
+- **Also fix:** typo "you ccan book it here" -> "you can book it here".
