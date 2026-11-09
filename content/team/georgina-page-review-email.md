@@ -4,6 +4,17 @@ Hi Georgina,
 
 I reviewed 20 pages. Thank you for all the work you've put into these! Most of the fixes are the same thing, so once you know the rule below, they should go fast.
 
+BEFORE YOU START: CONFIRM IN THE SEO COMMUNITY
+Before making any of these changes, please post this question in the SEO community and share the answer with me:
+
+"For our site structure, does the FIRST link on each page have to point to the page it supports?
+- Topical page -> service page
+- Service page -> category page
+- Category page -> home page
+And should pages that belong together also cross-link in the FAQ (topical page <-> service page) with descriptive anchor text?"
+
+Once we have their answer, go ahead with the fixes below.
+
 THE MAIN RULE: THE FIRST LINK IN THE INTRO
 Every page needs a link in the first paragraph that points one level up:
 
