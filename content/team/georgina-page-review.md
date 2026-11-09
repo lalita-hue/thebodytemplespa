@@ -28,5 +28,5 @@ URL: thebodytemplespas.com/lymph-drainage-therapist-athens-ga/what-comes-out-dur
 
 ### 5. Lymphatic Post Operation Treatment at 2350 Prince Ave
 URL: thebodytemplespas.com/lymph-drainage-therapist-athens-ga/lymphatic-post-operation-treatment-in-athens-ga
-- **What's wrong:** The first link on the page ("Lymphatic drainage uses gentle hand movements to help fluid move again") doesn't go to the service page this page supports.
-- **What it should be:** Make the FIRST link on the page point to the service page it supports: [SERVICE PAGE TO CONFIRM].
+- **What's wrong:** The first link on the page ("Lymphatic drainage uses gentle hand movements to help fluid move again") doesn't go to the category page this page supports.
+- **What it should be:** Make the FIRST link on the page point to the Lymphatic Drainage category page: thebodytemplespas.com/lymph-drainage-therapist-athens-ga
