@@ -30,3 +30,8 @@ URL: thebodytemplespas.com/lymph-drainage-therapist-athens-ga/what-comes-out-dur
 URL: thebodytemplespas.com/lymph-drainage-therapist-athens-ga/lymphatic-post-operation-treatment-in-athens-ga
 - **What's wrong:** The first link on the page ("Lymphatic drainage uses gentle hand movements to help fluid move again") doesn't go to the category page this page supports.
 - **What it should be:** Make the FIRST link on the page point to the Lymph Drainage Therapist category page: thebodytemplespas.com/lymph-drainage-therapist-athens-ga
+
+### 6. Brazilian Ombré/Powder Brows-PMU at 2350 Prince Ave
+URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/brazilian-ombre-powder-brows-pmu-in-athens-ga
+- **What's wrong:** The intro has no link to the category page it supports.
+- **What it should be:** Add a link in the first paragraph to the Permanent Make Up Clinic category page: thebodytemplespas.com/permanent-make-up-clinic-athens-ga (for example on "Ombré powder brows" or "permanent makeup").
