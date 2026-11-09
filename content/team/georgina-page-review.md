@@ -89,3 +89,9 @@ URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/full-lip-color-ath
 URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/smokey-shadow-lliner-2-5-hr
 - Not promoting this service right now. Keep the page as a draft (unpublished).
 - Make sure no other page or menu links to it.
+
+### 18–20. Eyeliner pages ⛔ DO NOT PUBLISH
+- Classic Eyeliner (Top 1.5 hr)
+- Top & Bottom Liner Eye (2.5 hr)
+- Lash Line Enhancement (1.5 hr)
+- Not promoting these services right now. Keep as drafts (unpublished), with no links to them from other pages or menus.
