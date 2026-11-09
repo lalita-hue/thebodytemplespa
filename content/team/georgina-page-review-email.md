@@ -72,6 +72,10 @@ We're not promoting these services right now. Keep them as drafts, and make sure
 - Top & Bottom Liner Eye
 - Lash Line Enhancement
 
+AFTER YOU FINISH: UPDATE THE PBN LINKS SHEET
+Once the pages are done, make sure EVERY page is logged in the PBN links Google Sheet, where we track which pages have links.
+- On-hold pages (the "Do not publish" list above): put them together in one group, highlight those rows in gray, and leave their link columns blank. Gray means we will not add links to them.
+
 DEADLINE
 Please finish these fixes by Wednesday, November 11. I'll do a final check on Friday. If anything is unclear, ask me before you start so we get it right the first time.
 
