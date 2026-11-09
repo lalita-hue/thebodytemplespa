@@ -74,3 +74,8 @@ URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/permanent-makeup-c
 ### 14. Microchanneling Athens GA ✅ APPROVED
 URL: thebodytemplespas.com/facial-spa-athens-ga/microchanneling-athens-ga
 - Good job.
+
+### 15. Lip Liner / Contour (2 h) in 2350 Prince Ave (service page)
+URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/lip-liner-contour-2-h
+- **What's wrong:** The intro has no link to the category page it supports.
+- **What it should be:** Add a link in the first paragraph to the Permanent Make Up Clinic category page: thebodytemplespas.com/permanent-make-up-clinic-athens-ga (for example on "Lip Liner / Contour").
