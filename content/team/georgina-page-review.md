@@ -49,3 +49,8 @@ URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/combination-brows-
 URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/areola-restoration-pmu-in-athens-ga
 - We are not promoting this service right now. Keep the page as a draft (unpublished).
 - Make sure no other page or menu links to it.
+
+### 10. Lip Blush in Athens, GA (service page)
+URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/lip-blush-pmu-in-athens-ga
+- **What's wrong:** The intro has no link to the category page it supports.
+- **What it should be:** Add a link in the first paragraph to the Permanent Make Up Clinic category page: thebodytemplespas.com/permanent-make-up-clinic-athens-ga (for example on "Lip blush").
