@@ -44,3 +44,8 @@ URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/microblading-brows
 URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/combination-brows-pmu-in-athens-ga
 - **What's wrong:** The intro has no link to the category page it supports.
 - **What it should be:** Add a link in the first paragraph to the Permanent Make Up Clinic category page: thebodytemplespas.com/permanent-make-up-clinic-athens-ga (for example on "Combination brows").
+
+### 9. Areola Restoration in Athens, GA ⛔ DO NOT PUBLISH
+URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/areola-restoration-pmu-in-athens-ga
+- We are not promoting this service right now. Keep the page as a draft (unpublished).
+- Make sure no other page or menu links to it.
