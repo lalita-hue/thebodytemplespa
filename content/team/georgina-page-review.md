@@ -79,3 +79,8 @@ URL: thebodytemplespas.com/facial-spa-athens-ga/microchanneling-athens-ga
 URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/lip-liner-contour-2-h
 - **What's wrong:** The intro has no link to the category page it supports.
 - **What it should be:** Add a link in the first paragraph to the Permanent Make Up Clinic category page: thebodytemplespas.com/permanent-make-up-clinic-athens-ga (for example on "Lip Liner / Contour").
+
+### 16. Full Lip Color in Athens, GA (service page)
+URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/full-lip-color-athens-ga
+- **What's wrong:** The intro has no link to the category page it supports.
+- **What it should be:** Add a link in the first paragraph to the Permanent Make Up Clinic category page: thebodytemplespas.com/permanent-make-up-clinic-athens-ga (for example on "Full Lip Color").
