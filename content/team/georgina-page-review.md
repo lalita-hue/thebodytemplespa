@@ -35,3 +35,7 @@ URL: thebodytemplespas.com/lymph-drainage-therapist-athens-ga/lymphatic-post-ope
 URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/brazilian-ombre-powder-brows-pmu-in-athens-ga
 - **What's wrong:** The intro has no link to the category page it supports.
 - **What it should be:** Add a link in the first paragraph to the Permanent Make Up Clinic category page: thebodytemplespas.com/permanent-make-up-clinic-athens-ga (for example on "Ombré powder brows" or "permanent makeup").
+
+### 7. Microblading - Brow PMU in 2350 Prince Ave ✅ APPROVED
+URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/microblading-brows-pmu-in-athens-ga
+- Good job.
