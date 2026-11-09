@@ -21,3 +21,7 @@ URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga
 - **What's wrong:** This is a category page, and it doesn't link to the home page at the beginning.
 - **What it should be:** Add a link to the home page (thebodytemplespas.com) in the first paragraph, for example on "The Body Temple Spa."
 - **Rule for every category page:** link UP to the home page near the top, and DOWN to each of its service pages.
+
+### 4. How Lymphatic Drainage Massage Works ✅ APPROVED
+URL: thebodytemplespas.com/lymph-drainage-therapist-athens-ga/what-comes-out-during-lymphatic-drainage-massage-2
+- Good job: links to the category page at the start, and it reads well. Use this page as the example for the others.
