@@ -15,3 +15,9 @@ URL: thebodytemplespas.com/facial-spa-athens-ga/ultrasonic-skin-scrubber-facial-
 - **What's wrong:** The page doesn't link to the category page it supports (Facials).
 - **What it should be:** Add a link to the Facials category page (thebodytemplespas.com/facial-spa-athens-ga). Put it early in the text, on words like "facial in Athens GA" or "our facials."
 - **Rule for every service page:** each one links UP to its category page. That's how Google understands the site structure.
+
+### 3. Permanent Make Up Clinic (category page)
+URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga
+- **What's wrong:** This is a category page, and it doesn't link to the home page at the beginning.
+- **What it should be:** Add a link to the home page (thebodytemplespas.com) in the first paragraph, for example on "The Body Temple Spa."
+- **Rule for every category page:** link UP to the home page near the top, and DOWN to each of its service pages.
