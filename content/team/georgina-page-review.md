@@ -60,3 +60,8 @@ URL: thebodytemplespas.com/waxing-hair-removal-spa-athens-ga
 - **What's wrong:** This is a category page, but the first link on the page is the booking link ("here"), not the home page.
 - **What it should be:** Make the FIRST link on the page go to the home page (thebodytemplespas.com), in the first paragraph (for example on "Brazilian Wax" or a mention of The Body Temple Spa).
 - **Also fix:** typo "you ccan book it here" -> "you can book it here".
+
+### 12. Winged/Cat-Eye Liner in Athens, GA ⛔ DO NOT PUBLISH
+URL: thebodytemplespas.com/permanent-make-up-clinic-athens-ga/winged-cat-eye-liner-in-athens-ga
+- Not promoting this service right now. Keep the page as a draft (unpublished).
+- Make sure no other page or menu links to it.
