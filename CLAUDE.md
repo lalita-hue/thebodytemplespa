@@ -9,3 +9,5 @@
 - Lalita's GHL user ID: `l9RzLvtlZA2vYqYLhGIM`. Team: Georgina (pages/SEO), Russell (content/editing),
   Sebastián (numbers), Alex (role-play/calls).
 - Also check Google Calendar for the day's client appointments.
+- Mark a task done: `PUT /locations/oz27FgTyetnlFEnG2O11/tasks/{taskId}` with body `{"completed":true}`
+  (tasks linked to a contact: `PUT /contacts/{contactId}/tasks/{taskId}/completed`).
