@@ -11,3 +11,8 @@
 - Also check Google Calendar for the day's client appointments.
 - Mark a task done: `PUT /locations/oz27FgTyetnlFEnG2O11/tasks/{taskId}` with body `{"completed":true}`
   (tasks linked to a contact: `PUT /contacts/{contactId}/tasks/{taskId}/completed`).
+
+## Priorities (Nov 10, 2026)
+- Lalita chose the webinar attendee automation as the top priority (highest leverage), ahead of the YouTube outlines.
+  Build sheet: `webinar-attendee-followup-workflow.md`.
+- Webinar tags in GHL: `attended` (set by "Webinar Link Clicked -> Attended"), `webinar cycle completed`, `webinar_opt`.
