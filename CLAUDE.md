@@ -21,3 +21,4 @@
 - Nov 11 (later): automation for webinar attendees is FINISHED (GHL task marked done). YouTube outlines still NOT done.
 - Webinar tags in GHL: `attended` (set by "Webinar Link Clicked -> Attended"), `webinar cycle completed`, `webinar_opt`.
 - Added GHL task "Create webinar automation for Sunday" due Fri Nov 13, 5pm ET (for the Nov 15 webinar attendees).
+- Fri Nov 13 10:00-10:30 AM ET: Georgina added to the performance meeting with Sebastian (joint meeting, Zoom). Calendar invite sent to Georgina; recap email drafted for Lalita to send.
