@@ -17,4 +17,5 @@
   Build sheet: `webinar-attendee-followup-workflow.md`.
 - Nov 11: she has NOT built the automation yet; she wants to talk to her agency first. She has texted the
   Nov 8 attendees (14 contacts, tag `attended 11/8/2026`) and is calling them next. YouTube outlines still pending.
+- Nov 11 (later): automation for webinar attendees is FINISHED (GHL task marked done). YouTube outlines still NOT done.
 - Webinar tags in GHL: `attended` (set by "Webinar Link Clicked -> Attended"), `webinar cycle completed`, `webinar_opt`.
