@@ -15,4 +15,6 @@
 ## Priorities (Nov 10, 2026)
 - Lalita chose the webinar attendee automation as the top priority (highest leverage), ahead of the YouTube outlines.
   Build sheet: `webinar-attendee-followup-workflow.md`.
+- Nov 11: she has NOT built the automation yet; she wants to talk to her agency first. She has texted the
+  Nov 8 attendees (14 contacts, tag `attended 11/8/2026`) and is calling them next. YouTube outlines still pending.
 - Webinar tags in GHL: `attended` (set by "Webinar Link Clicked -> Attended"), `webinar cycle completed`, `webinar_opt`.
