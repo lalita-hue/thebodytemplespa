@@ -25,3 +25,9 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
 
 Lalita wants everything she tells Claude saved. Record standing preferences and
 business facts in this file.
+
+## Content
+
+- YouTube/live outlines live in `content/youtube-outlines.md`. Add new outlines there.
+- Topics so far: "Is It My Hormones or My Gut?" and "Is This Really a Toxic Relationship?"
+  (Nov 2026). Earlier outline: "Detox Him First".
