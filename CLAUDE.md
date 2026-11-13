@@ -20,7 +20,14 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
   with body `{"completed":true}` (same headers as above).
 - Create a task: `POST https://services.leadconnectorhq.com/locations/oz27FgTyetnlFEnG2O11/tasks`
   with `{"title","body","assignedTo":"<userId>","dueDate":"<ISO>","completed":false}`.
-- Team user IDs: Georgina Mc Bain `GsYbT3st89lCZ9br97vA`, Ann Loyer `okHTaQE5BnJLGV2nmymL`.
+- Team user IDs: Georgina Mc Bain `GsYbT3st89lCZ9br97vA`, Ann Loyer `okHTaQE5BnJLGV2nmymL`,
+  Mabry Cooper `aWwBfmjczARmKisaDBIQ`, Russel Cabudbud `XZ6Y7sGrTw5BHJ5jtdLd`,
+  Sebastián Sáenz `s0rDQ5D7HFkFbYkRyuMT`, Malynda Barakadyn `gszFoEKVK6cxXYTyuWAI`.
+  Full list with emails: `GET /users/?locationId=oz27FgTyetnlFEnG2O11`.
+- Emailing the team: Gmail connector often needs re-auth, so send via GHL instead:
+  find the person's contact (`GET /contacts/?locationId=...&query=<email>`), then
+  `POST /conversations/messages` (header `Version: 2021-04-15`) with
+  `{"type":"Email","contactId","subject","html"}`. Georgina's contact ID: `ZiopFUcKiv1FXnBPLugV`.
 - Lalita's tasks are the ones assigned to "Lalita Sundari - Owner". Show those first,
   sorted by due date, then team tasks (Georgina, Russell, Sebastian, Alex, Ann) and unassigned ones.
 
