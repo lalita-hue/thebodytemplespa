@@ -14,6 +14,20 @@ and learn to read your own results."
 ---
 
 ## Module 0: Welcome & How the Program Works
+
+**Description (member-facing):**
+> Welcome to The Hair Temple Blueprint. You've spent enough time guessing: trying the supplement
+> everyone's talking about, cutting out foods, wondering if it's your hormones, your gut or just
+> "getting older." This program is where the guessing stops. In this first module, I'll share why
+> I created The Hair Temple Blueprint and walk you through exactly how it works, from taking your
+> hair sample to receiving your results, starting your personalized supplement plan, and retesting
+> to see your progress. You'll know what's included, what to expect and when, and how to get the
+> most out of this community. By the end, you'll have a clear map of the journey ahead, and the
+> confidence that your body already holds the answers. We're simply going to learn to read them together.
+
+**Short version (card/thumbnail):**
+> Your journey starts here. Learn how The Hair Temple Blueprint works, from your hair sample to your
+> personalized plan, and what to expect every step of the way.
 - Welcome video from Lalita: why I created The Hair Temple Blueprint (your story).
 - The roadmap: test → results → plan → support → retest.
 - What's included: kit, results report, supplement plan, results call/live, community support.
