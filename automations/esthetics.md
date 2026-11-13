@@ -3,6 +3,13 @@
 Source: pre-care texts from **Mabry**, sent to Lalita (screenshots in `screenshots/esthetics-precare-1..5.png`).
 Goal: every client who books one of these services automatically gets the matching pre-care instructions.
 
+## Decision (Nov 13, 2026)
+
+- **Owner:** Georgina. **Due:** Fri Nov 20, 2026 (GHL task "Build pre-care instruction automations for each esthetics service").
+- One automation per service: when the service is booked, email that service's pre-care instructions.
+- Add an extra email and/or text to the **existing confirmation sequence** saying "we sent your prep instructions to your email" and asking the client to confirm they got it.
+- The reminder timing below is optional (my suggestion), not part of Lalita's request.
+
 ## The 4 automations
 
 | # | Service group | Send full instructions | Reminder |
