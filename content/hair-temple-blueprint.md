@@ -36,18 +36,39 @@ and learn to read your own results."
   starting supplements if you're pregnant, nursing or on medication.
 
 ## Module 1: Why a Hair Test? (The Mistake of Guessing)
+
+**Description (member-facing):**
+> Your symptoms are real, but they don't tell you *why*. Fatigue, bloating, mood swings, breakouts and stubborn weight can come from many different places, and that's why guessing keeps so many women stuck. In this module, you'll learn what a hair test actually shows: a picture of your mineral patterns and heavy metal exposure over the last few months. You'll also learn what it doesn't show, and how your minerals connect to your energy, stress, thyroid, blood sugar, gut, hormones, sleep and skin. By the end, you'll understand why your hair is one of the clearest windows into what your body has been going through.
+
+**Short version (card/thumbnail):**
+> Why guessing from symptoms keeps you stuck, and what your hair can reveal that your symptoms can't.
+
 - Ties to the YouTube video "Is It My Hormones or My Gut?"
 - What a hair test shows: a picture of mineral patterns and heavy metal exposure over roughly the last 2–3 months.
 - What it does *not* show: it's not a blood test and it doesn't diagnose disease.
 - How minerals connect to energy, stress, thyroid, blood sugar, gut, hormones, sleep, skin and hair.
 
 ## Module 2: Taking Your Sample the Right Way
+
+**Description (member-facing):**
+> Your results are only as good as your sample. In this module, I'll walk you step by step through collecting your hair the right way: where to cut, how much you need, and how close to the scalp. You'll learn what to do if your hair is dyed, treated or short, how to fill out your form, and how to mail your kit. Follow along with the video and the checklist, and you'll send your sample off with confidence, knowing your results will be accurate.
+
+**Short version (card/thumbnail):**
+> Step-by-step guidance to collect and send your hair sample correctly, so your results are accurate.
+
 - Video walkthrough: where to cut, how much hair, how close to the scalp.
 - Do's and don'ts: wash timing, no fresh dye/treatments, what to do with dyed, permed or short hair (body hair options).
 - Filling out the form and mailing the kit.
 - Checklist PDF.
 
 ## Module 3: How to Read Your Hair Test
+
+**Description (member-facing):**
+> This is where your blueprint comes to life. Together, we'll open up a real report and I'll show you how to read it, section by section. You'll learn what each key mineral means for your body, why a "high" number isn't always too much, and how the ratios between minerals reveal your stress level, thyroid and adrenal patterns, blood sugar balance and hormone health. You'll discover your metabolic pattern, understand what toxic metals are showing up and why, and practice with sample reports until reading your own feels natural. By the end, your results won't look like a page of numbers anymore. They'll tell your body's story.
+
+**Short version (card/thumbnail):**
+> Learn to read your own results: the minerals, the ratios and the patterns that tell your body's story.
+
 *The core teaching module. Walk through a sample report on screen.*
 
 ### 3.1 The layout of your report
@@ -83,6 +104,13 @@ and learn to read your own results."
 - Worksheet: "My top 3 findings."
 
 ## Module 4: Your Supplement Plan
+
+**Description (member-facing):**
+> Your supplement plan isn't one-size-fits-all. It's built from your results. In this module, you'll learn why each supplement was chosen for you, how and when to take them, and how to start in a way your body can handle. We'll talk about what you might feel in the first few weeks, when to reach out, and how to track your energy, sleep, digestion, mood, cycle and skin so you can see your progress. By the end, you'll know exactly what you're taking, why you're taking it, and what to watch for.
+
+**Short version (card/thumbnail):**
+> Understand your personalized supplement plan: what to take, when, why, and what to expect.
+
 - How your plan is built from your results (not one-size-fits-all).
 - How to take them: timing, with food, starting slow.
 - What you may feel in the first weeks and when to reach out.
@@ -90,6 +118,13 @@ and learn to read your own results."
 - Safety: check with your provider if you're pregnant, nursing, on medication or have a medical condition.
 
 ## Module 5: Foundations That Make It Work
+
+**Description (member-facing):**
+> Supplements work best when the foundations are in place. In this module, we'll cover the daily habits that help your body rebuild its minerals and get the most out of your plan: eating for steady blood sugar, getting minerals from food, real hydration, calming your nervous system, and lowering the toxins in your water, kitchen and personal care products. You'll also learn how body work like lymphatic drainage supports what's happening on the inside. These are simple, doable changes that turn your results into lasting change.
+
+**Short version (card/thumbnail):**
+> The daily habits (food, hydration, stress and toxin reduction) that turn your results into lasting change.
+
 - Food: protein, minerals from food, blood sugar balance.
 - Hydration and electrolytes.
 - Stress and nervous system care (ties to "Why Successful Women Attract Relationships That Drain Their Bodies").
@@ -97,6 +132,13 @@ and learn to read your own results."
 - Body support at the spa: lymphatic drainage and other services that help.
 
 ## Module 6: Retest & Next Steps
+
+**Description (member-facing):**
+> This is where you get to see how far you've come. In this module, you'll learn when to retest, how to compare your new report with your first one, and how to recognize real progress, even when it doesn't look like a straight line. We'll talk about why some numbers shift before they settle, how your plan is adjusted as your body changes, and what comes next for you in the community. By the end, you'll have a clear picture of your progress and a plan for continuing to care for your temple.
+
+**Short version (card/thumbnail):**
+> Retest, compare your results, celebrate your progress, and map out your next steps.
+
 - When to retest (typically 3–4 months) and how to compare reports.
 - Why progress isn't a straight line.
 - Adjusting the plan.
