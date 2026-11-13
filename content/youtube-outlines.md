@@ -101,3 +101,57 @@ Live-only additions are marked **[LIVE]**. Swap in real client stories where it 
 - **[LIVE]** Take anonymous questions (have people DM you or use a question box). Keep the hotline on screen.
 
 **Disclaimer (on screen + description):** Educational only, not therapy or medical advice.
+
+---
+
+## 3. Why Successful Women Attract Relationships That Drain Their Bodies
+
+**Promise to the viewer:** You'll see the pattern, understand why your body keeps paying for it, and learn what to change so love stops costing you your health.
+
+### Hook (0:00–0:45)
+- "You run the business, the house, the calendar, everyone's feelings... and somehow you're the one with the bloating, the insomnia and the hair falling out."
+- "It's not bad luck. There's a pattern, and your body is keeping the receipts."
+- **[LIVE]** "Comment **ME** if you're the one who holds everything together."
+
+### 1. The pattern (and why it's not your fault)
+- Successful women are often rewarded for being the one who handles it all: over-functioning, fixing, providing, planning.
+- That skill set walks into the relationship with you. You end up partnering with people who let you carry it, or who need rescuing.
+- Key line: "'Attract' doesn't mean you caused it. It means a pattern is running, and patterns can change."
+
+### 2. Why it feels familiar
+- Hyper-independence: "If I don't do it, it won't get done."
+- Love learned as earning: being needed feels like being loved.
+- Always "on": in work mode 24/7 with no switch to receive, rest or soften.
+- *(your story: your own experience or a client's, shared with permission)*
+
+### 3. What it does to your body
+- **Stress hormones stay high:** a nervous system that never powers down.
+- **Gut:** digestion slows in survival mode, bringing bloating, constipation and food reactions.
+- **Hormones:** cycle changes, low libido, worse PMS, a harder perimenopause.
+- **Sleep and energy:** tired but wired, needing coffee to start and wine to stop.
+- **Lymphatic system:** stagnation, puffiness, heaviness.
+- Key line: "Your body can't heal in a relationship that keeps it in survival mode."
+
+### 4. Signs your relationship is draining your body
+- You feel physically tense when they walk in, or relieved when they leave.
+- You're the default for every decision, plan and emotional repair.
+- Your symptoms ease on vacation alone or when they travel.
+- You can't remember the last time you were cared for without asking.
+
+### 5. What to do
+1. **Notice the load:** list everything you carry at home. Is any of it shared?
+2. **Practice receiving:** ask for one thing this week and let it be done imperfectly.
+3. **Switch modes on purpose:** a transition ritual from work to home (walk, shower, breathwork, music).
+4. **Support your body:** blood sugar, sleep, nervous system care, lymphatic work, gut support.
+5. **Have the conversation:** about what you need, timed for when you're both rested and fed.
+6. **Get support:** a coach or therapist if the pattern runs deep. If you ever feel unsafe, reach out for help (US hotline: 1-800-799-7233).
+
+### 6. How we help at The Body Temple Spa
+- Body work to bring you out of survival mode, plus the community. Natural tie-in to **Feminal Resurrection** once it's live.
+
+### CTA
+- "Book your free personal session. Let's get your body out of survival mode."
+- "Comment the one thing you're going to stop carrying this week."
+- **[LIVE]** Q&A. Ask, "Where do you feel the load in your body?"
+
+**Disclaimer (on screen + description):** Educational only, not therapy or medical advice.

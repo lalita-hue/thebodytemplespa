@@ -29,5 +29,6 @@ business facts in this file.
 ## Content
 
 - YouTube/live outlines live in `content/youtube-outlines.md`. Add new outlines there.
-- Topics so far: "Is It My Hormones or My Gut?" and "Is This Really a Toxic Relationship?"
+- Topics so far: "Is It My Hormones or My Gut?", "Is This Really a Toxic Relationship?",
+  "Why Successful Women Attract Relationships That Drain Their Bodies"
   (Nov 2026). Earlier outline: "Detox Him First".
