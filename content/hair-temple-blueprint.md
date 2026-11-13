@@ -1,4 +1,6 @@
-# Insight Program: Community Course Outline
+# The Hair Temple Blueprint: Community Course Outline
+
+*(Formerly working-titled "Insight Program.")*
 
 **What it is:** A hair test (hair tissue mineral analysis, HTMA) + a personalized supplement plan +
 teaching members how to read their own results.
@@ -12,7 +14,7 @@ and learn to read your own results."
 ---
 
 ## Module 0: Welcome & How the Program Works
-- Welcome video from Lalita: why I created Insight (your story).
+- Welcome video from Lalita: why I created The Hair Temple Blueprint (your story).
 - The roadmap: test → results → plan → support → retest.
 - What's included: kit, results report, supplement plan, results call/live, community support.
 - Timeline: when to expect results, when supplements start, when to retest.
@@ -97,4 +99,4 @@ and learn to read your own results."
 ## Marketing hooks
 - "Your hair already knows what's going on. Let's read it."
 - "Stop guessing from symptoms."
-- Lead magnet idea: free "How to Read Your Hair Test" cheat sheet → invite to Insight.
+- Lead magnet idea: free "How to Read Your Hair Test" cheat sheet → invite to The Hair Temple Blueprint.
