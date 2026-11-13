@@ -24,7 +24,8 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
   Mabry Cooper `aWwBfmjczARmKisaDBIQ`, Russel Cabudbud `XZ6Y7sGrTw5BHJ5jtdLd`,
   Sebastián Sáenz `s0rDQ5D7HFkFbYkRyuMT`, Malynda Barakadyn `gszFoEKVK6cxXYTyuWAI`.
   Full list with emails: `GET /users/?locationId=oz27FgTyetnlFEnG2O11`.
-- Emailing the team: Gmail connector often needs re-auth, so send via GHL instead:
+- Emailing the team: use Gmail drafts (see "Sending emails" below). GHL sending is only a last resort
+  when Lalita explicitly asks for it:
   find the person's contact (`GET /contacts/?locationId=...&query=<email>`), then
   `POST /conversations/messages` (header `Version: 2021-04-15`) with
   `{"type":"Email","contactId","subject","html"}`. Georgina's contact ID: `ZiopFUcKiv1FXnBPLugV`.
@@ -35,6 +36,9 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
 
 - **Never send an email or text without Lalita's approval.** Always show her the full draft
   (to, subject, body) first and wait for her OK before sending.
+- **Send emails through Gmail, not GHL.** The Gmail connector can only create drafts: put the
+  email in Lalita's Gmail Drafts, she reviews and hits Send. If Gmail isn't connected, tell her
+  to reconnect it at https://claude.ai/customize/connectors and start a new session (don't fall back to GHL).
 - **Georgina's work email is `hello@thebodytemplespas.com`** (note the "s" in temple**spas**). Send to that,
   not her Gmail. In GHL it's saved as an additional email on her contact, so pass `"emailTo":"hello@thebodytemplespas.com"`.
 
