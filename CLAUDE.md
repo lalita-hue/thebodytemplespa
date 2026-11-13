@@ -31,6 +31,13 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
 - Lalita's tasks are the ones assigned to "Lalita Sundari - Owner". Show those first,
   sorted by due date, then team tasks (Georgina, Russell, Sebastian, Alex, Ann) and unassigned ones.
 
+## Sending emails / messages: ALWAYS get approval first
+
+- **Never send an email or text without Lalita's approval.** Always show her the full draft
+  (to, subject, body) first and wait for her OK before sending.
+- **Georgina's work email is `hello@thebodytemplespas.com`** (note the "s" in temple**spas**). Send to that,
+  not her Gmail. In GHL it's saved as an additional email on her contact, so pass `"emailTo":"hello@thebodytemplespas.com"`.
+
 ## Saving information
 
 Lalita wants everything she tells Claude saved. Record standing preferences and
