@@ -1,0 +1,24 @@
+# Notes for Claude
+
+## Tasks = GoHighLevel (GHL), never Asana
+
+When Lalita asks for "my tasks", "pending tasks", "what's on my plate", etc.,
+pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
+
+- API host: `services.leadconnectorhq.com` (auth is injected by the session proxy; no key needed)
+- Location ID: `oz27FgTyetnlFEnG2O11` (The Body Temple Spa)
+- Open tasks:
+
+  ```bash
+  curl -sS -X POST -H "Version: 2021-07-28" -H "Content-Type: application/json" \
+    "https://services.leadconnectorhq.com/locations/oz27FgTyetnlFEnG2O11/tasks/search" \
+    -d '{"completed":false,"limit":100}'
+  ```
+
+- Lalita's tasks are the ones assigned to "Lalita Sundari - Owner". Show those first,
+  sorted by due date, then team tasks (Georgina, Russell, Sebastian, Alex, Ann) and unassigned ones.
+
+## Saving information
+
+Lalita wants everything she tells Claude saved. Record standing preferences and
+business facts in this file.
