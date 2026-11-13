@@ -35,3 +35,11 @@ business facts in this file.
 - Topics so far: "Is It My Hormones or My Gut?", "Is This Really a Toxic Relationship?",
   "Why Successful Women Attract Relationships That Drain Their Bodies"
   (Nov 2026). Earlier outline: "Detox Him First".
+
+## Automations
+
+- Esthetics pre-care automations (facials, waxing, lash & brow, chemical peels): `automations/esthetics.md`.
+  Instructions written by Mabry (esthetics; has "Mabry's Personal Calendar" in GHL). Screenshots in `automations/screenshots/`.
+- GHL calendars: Body Sculpting services, Personalized Acne Consultation, Mabry's Personal Calendar,
+  Lalita Sundari's Personal Calendar, Malynda's Practicioner Calendar, Virtual Assistant's Personal Calendar.
+- GHL workflows can't be created via API; they're built in the dashboard.
