@@ -15,6 +15,9 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
     -d '{"completed":false,"limit":100}'
   ```
 
+- Mark a task complete (only when Lalita says it's done):
+  `PUT https://services.leadconnectorhq.com/locations/oz27FgTyetnlFEnG2O11/tasks/<taskId>`
+  with body `{"completed":true}` (same headers as above).
 - Lalita's tasks are the ones assigned to "Lalita Sundari - Owner". Show those first,
   sorted by due date, then team tasks (Georgina, Russell, Sebastian, Alex, Ann) and unassigned ones.
 
