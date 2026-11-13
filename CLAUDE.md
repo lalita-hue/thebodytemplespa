@@ -37,8 +37,9 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
 - **Never send an email or text without Lalita's approval.** Always show her the full draft
   (to, subject, body) first and wait for her OK before sending.
 - Connected Gmail account: **lalita@thebodytemplespas.com** (Lalita's spa email).
-- **Send emails through Gmail, not GHL.** The Gmail connector can only create drafts: put the
-  email in Lalita's Gmail Drafts, she reviews and hits Send. If Gmail isn't connected, tell her
+- **Send emails through Gmail, not GHL.** Gmail can now send directly (send_message, reply,
+  forward) and create drafts. Either way, show Lalita the full email here first and only send
+  after she approves. If Gmail isn't connected, tell her
   to reconnect it at https://claude.ai/customize/connectors and start a new session (don't fall back to GHL).
 - **Georgina's work email is `hello@thebodytemplespas.com`** (note the "s" in temple**spas**). Send to that,
   not her Gmail. In GHL it's saved as an additional email on her contact, so pass `"emailTo":"hello@thebodytemplespas.com"`.
