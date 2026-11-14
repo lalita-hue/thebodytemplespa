@@ -1,0 +1,438 @@
+<!-- ================================================================
+     THE FEMININE GUT AUDIT (by The Body Temple Spa)
+     Paste this whole file into a GoHighLevel "Custom JS/HTML" element.
+     Settings to fill in are at the top of the <script> below:
+       GHL_WEBHOOK_URL  -> your GHL Inbound Webhook URL
+       CHECKOUT_URL     -> your $37 order form page URL
+       COACHING_URL     -> your Sovereign Self VIP coaching page URL
+     ================================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+#fg-audit-widget{
+  --fg-cream:#FAF7F2; --fg-card:#FFFFFF; --fg-forest:#2C3E35; --fg-forest-soft:#4A5E52;
+  --fg-terra:#C07A65; --fg-terra-dark:#A8634F; --fg-sand:#EFE7DC; --fg-line:#E4DACB;
+  --fg-text:#2B2B28; --fg-muted:#6B6A63;
+  --fg-serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --fg-sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  background:var(--fg-cream); color:var(--fg-text); font-family:var(--fg-sans);
+  font-size:16px; line-height:1.6; padding:48px 16px; box-sizing:border-box; width:100%;
+  -webkit-font-smoothing:antialiased;
+}
+#fg-audit-widget *,#fg-audit-widget *::before,#fg-audit-widget *::after{box-sizing:border-box;}
+#fg-audit-widget .fg-wrap{max-width:680px;margin:0 auto;}
+#fg-audit-widget .fg-screen{display:none;animation:fgFade .45s ease both;}
+#fg-audit-widget .fg-screen.fg-active{display:block;}
+@keyframes fgFade{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+
+#fg-audit-widget .fg-eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-terra);font-weight:600;margin:0 0 14px;text-align:center;}
+#fg-audit-widget h1,#fg-audit-widget h2,#fg-audit-widget h3{font-family:var(--fg-serif);color:var(--fg-forest);font-weight:600;line-height:1.15;margin:0 0 14px;}
+#fg-audit-widget h1{font-size:clamp(32px,6vw,48px);text-align:center;}
+#fg-audit-widget h2{font-size:clamp(28px,5vw,38px);text-align:center;}
+#fg-audit-widget h3{font-size:clamp(22px,4vw,28px);}
+#fg-audit-widget p{margin:0 0 14px;}
+#fg-audit-widget .fg-sub{font-size:clamp(16px,2.6vw,19px);color:var(--fg-muted);text-align:center;max-width:540px;margin:0 auto 28px;}
+#fg-audit-widget .fg-center{text-align:center;}
+#fg-audit-widget .fg-leaf{display:block;margin:0 auto 18px;width:44px;height:44px;}
+
+#fg-audit-widget .fg-card{background:var(--fg-card);border:1px solid var(--fg-line);border-radius:20px;padding:32px 28px;box-shadow:0 10px 40px -18px rgba(44,62,53,.25);}
+
+#fg-audit-widget .fg-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--fg-terra);color:#fff;border:0;border-radius:999px;
+  padding:17px 34px;font-family:var(--fg-sans);font-size:16px;font-weight:600;letter-spacing:.02em;cursor:pointer;text-decoration:none;
+  transition:background .25s ease,transform .2s ease,box-shadow .25s ease;box-shadow:0 8px 22px -10px rgba(192,122,101,.75);min-height:52px;}
+#fg-audit-widget .fg-btn:hover{background:var(--fg-terra-dark);transform:translateY(-2px);}
+#fg-audit-widget .fg-btn:focus-visible{outline:3px solid var(--fg-forest);outline-offset:3px;}
+#fg-audit-widget .fg-btn[disabled]{opacity:.6;cursor:wait;transform:none;}
+#fg-audit-widget .fg-btn-block{width:100%;}
+#fg-audit-widget .fg-btn-ghost{background:transparent;color:var(--fg-forest);box-shadow:none;border:1px solid var(--fg-line);}
+#fg-audit-widget .fg-btn-ghost:hover{background:var(--fg-sand);}
+#fg-audit-widget .fg-trust{font-size:13px;color:var(--fg-muted);margin-top:14px;text-align:center;}
+
+/* Progress */
+#fg-audit-widget .fg-progress-head{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--fg-muted);margin-bottom:8px;}
+#fg-audit-widget .fg-progress-head strong{color:var(--fg-forest);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:12px;}
+#fg-audit-widget .fg-progress{height:6px;background:var(--fg-sand);border-radius:999px;overflow:hidden;margin-bottom:28px;}
+#fg-audit-widget .fg-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--fg-forest),var(--fg-terra));border-radius:999px;transition:width .5s ease;}
+
+#fg-audit-widget .fg-part-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-terra);font-weight:600;margin-bottom:6px;}
+#fg-audit-widget .fg-instr{color:var(--fg-muted);font-size:15px;margin-bottom:20px;}
+
+/* Checklist */
+#fg-audit-widget .fg-q{position:relative;display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border:1px solid var(--fg-line);border-radius:14px;margin-bottom:12px;
+  cursor:pointer;background:var(--fg-cream);transition:border-color .2s ease,background .2s ease,transform .15s ease;}
+#fg-audit-widget .fg-q:hover{border-color:var(--fg-terra);}
+#fg-audit-widget .fg-q input{position:absolute;opacity:0;width:1px;height:1px;}
+#fg-audit-widget .fg-box{flex:0 0 24px;width:24px;height:24px;border-radius:7px;border:1.5px solid var(--fg-forest-soft);background:#fff;display:flex;align-items:center;justify-content:center;
+  transition:background .2s ease,border-color .2s ease;margin-top:1px;}
+#fg-audit-widget .fg-box svg{width:14px;height:14px;opacity:0;transform:scale(.5);transition:opacity .2s ease,transform .2s ease;}
+#fg-audit-widget .fg-q input:checked ~ .fg-box{background:var(--fg-forest);border-color:var(--fg-forest);}
+#fg-audit-widget .fg-q input:checked ~ .fg-box svg{opacity:1;transform:scale(1);}
+#fg-audit-widget .fg-q:has(input:checked){background:#F3EEE6;border-color:var(--fg-forest);}
+#fg-audit-widget .fg-q input:focus-visible ~ .fg-box{outline:3px solid var(--fg-terra);outline-offset:2px;}
+#fg-audit-widget .fg-q-text{font-size:15.5px;line-height:1.5;}
+#fg-audit-widget .fg-nav{display:flex;gap:12px;justify-content:space-between;margin-top:24px;}
+#fg-audit-widget .fg-nav .fg-btn{flex:1;}
+
+/* Form */
+#fg-audit-widget .fg-field{margin-bottom:16px;text-align:left;}
+#fg-audit-widget .fg-field label{display:block;font-size:13px;font-weight:600;color:var(--fg-forest);margin-bottom:6px;letter-spacing:.02em;}
+#fg-audit-widget .fg-field input{width:100%;padding:15px 16px;border:1px solid var(--fg-line);border-radius:12px;font-family:var(--fg-sans);font-size:16px;color:var(--fg-text);
+  background:var(--fg-cream);transition:border-color .2s ease,box-shadow .2s ease;}
+#fg-audit-widget .fg-field input:focus{outline:none;border-color:var(--fg-forest);box-shadow:0 0 0 3px rgba(44,62,53,.12);}
+#fg-audit-widget .fg-field.fg-err input{border-color:#B4483A;}
+#fg-audit-widget .fg-err-msg{display:none;color:#B4483A;font-size:13px;margin-top:6px;}
+#fg-audit-widget .fg-field.fg-err .fg-err-msg{display:block;}
+#fg-audit-widget .fg-lock{display:inline-flex;align-items:center;gap:6px;}
+
+/* Results */
+#fg-audit-widget .fg-score-ring{width:168px;height:168px;margin:6px auto 18px;position:relative;}
+#fg-audit-widget .fg-score-ring svg{width:100%;height:100%;transform:rotate(-90deg);}
+#fg-audit-widget .fg-score-ring .fg-ring-bg{stroke:var(--fg-sand);}
+#fg-audit-widget .fg-score-ring .fg-ring-fg{stroke:var(--fg-terra);stroke-linecap:round;transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1);}
+#fg-audit-widget .fg-score-num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+#fg-audit-widget .fg-score-num b{font-family:var(--fg-serif);font-size:54px;color:var(--fg-forest);line-height:1;}
+#fg-audit-widget .fg-score-num small{font-size:13px;color:var(--fg-muted);letter-spacing:.08em;}
+#fg-audit-widget .fg-tier{display:inline-block;padding:7px 16px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;}
+#fg-audit-widget .fg-tier.t1{background:#E3EDE6;color:var(--fg-forest);}
+#fg-audit-widget .fg-tier.t2{background:#F6E8DA;color:#9A5B2E;}
+#fg-audit-widget .fg-tier.t3{background:#F5DED7;color:#9C4433;}
+#fg-audit-widget .fg-pillars{margin:26px 0 8px;}
+#fg-audit-widget .fg-pillar{padding:14px 16px;border-radius:14px;border:1px solid transparent;margin-bottom:10px;transition:background .3s ease;}
+#fg-audit-widget .fg-pillar.fg-top{background:#FBF1EC;border-color:#EBCFC4;}
+#fg-audit-widget .fg-pillar-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:15px;font-weight:600;color:var(--fg-forest);margin-bottom:8px;}
+#fg-audit-widget .fg-pillar-head span:last-child{font-weight:500;color:var(--fg-muted);white-space:nowrap;}
+#fg-audit-widget .fg-flag{display:none;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--fg-terra);font-weight:700;margin-bottom:4px;}
+#fg-audit-widget .fg-pillar.fg-top .fg-flag{display:block;}
+#fg-audit-widget .fg-bar{height:10px;background:var(--fg-sand);border-radius:999px;overflow:hidden;}
+#fg-audit-widget .fg-bar span{display:block;height:100%;width:0;background:var(--fg-forest-soft);border-radius:999px;transition:width 1s ease .2s;}
+#fg-audit-widget .fg-pillar.fg-top .fg-bar span{background:var(--fg-terra);}
+#fg-audit-widget .fg-insight{background:var(--fg-cream);border-left:3px solid var(--fg-terra);padding:16px 18px;border-radius:0 12px 12px 0;margin-top:18px;font-size:15.5px;}
+
+/* Offer */
+#fg-audit-widget .fg-offer{margin-top:30px;background:var(--fg-forest);color:#F4EFE7;border-radius:22px;padding:34px 28px;position:relative;overflow:hidden;}
+#fg-audit-widget .fg-offer::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(192,122,101,.35),transparent 70%);pointer-events:none;}
+#fg-audit-widget .fg-badge{display:inline-block;background:var(--fg-terra);color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em;padding:7px 14px;border-radius:999px;margin-bottom:16px;}
+#fg-audit-widget .fg-offer h3{color:#FFFFFF;font-size:clamp(26px,4.6vw,34px);}
+#fg-audit-widget .fg-offer p{color:#E2DCD1;font-size:15.5px;}
+#fg-audit-widget .fg-stack-title{font-family:var(--fg-serif);font-size:22px;color:#fff;margin:22px 0 4px;}
+#fg-audit-widget .fg-price{display:flex;align-items:baseline;gap:10px;margin-bottom:14px;}
+#fg-audit-widget .fg-price b{font-family:var(--fg-serif);font-size:44px;color:#fff;line-height:1;}
+#fg-audit-widget .fg-price span{font-size:13px;color:#CFC8BC;letter-spacing:.06em;text-transform:uppercase;}
+#fg-audit-widget .fg-stack{list-style:none;padding:0;margin:0 0 24px;}
+#fg-audit-widget .fg-stack li{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(255,255,255,.12);font-size:15px;color:#F4EFE7;}
+#fg-audit-widget .fg-stack li svg{flex:0 0 20px;width:20px;height:20px;margin-top:2px;}
+#fg-audit-widget .fg-stack li em{font-style:normal;color:#E8B7A6;font-weight:600;}
+#fg-audit-widget .fg-offer .fg-btn{width:100%;font-size:17px;padding:19px 24px;}
+#fg-audit-widget .fg-secondary{display:block;text-align:center;margin-top:16px;color:#D9D2C6;font-size:14px;text-decoration:underline;text-underline-offset:3px;}
+#fg-audit-widget .fg-secondary:hover{color:#fff;}
+#fg-audit-widget .fg-disclaimer{font-size:12px;color:var(--fg-muted);text-align:center;margin-top:28px;line-height:1.5;}
+
+@media (max-width:560px){
+  #fg-audit-widget{padding:32px 16px;}
+  #fg-audit-widget .fg-card{padding:24px 18px;border-radius:16px;}
+  #fg-audit-widget .fg-offer{padding:28px 20px;}
+  #fg-audit-widget .fg-q{padding:14px;}
+  #fg-audit-widget .fg-btn{padding:16px 22px;}
+}
+@media (prefers-reduced-motion:reduce){
+  #fg-audit-widget *{animation:none !important;transition:none !important;}
+}
+</style>
+
+<div id="fg-audit-widget">
+  <div class="fg-wrap">
+
+    <!-- 1. INTRO -->
+    <section class="fg-screen fg-active" data-screen="intro">
+      <div class="fg-card fg-center">
+        <svg class="fg-leaf" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 44c0-14 4-26 16-36-14 2-26 10-26 24 0 5 4 10 10 12z" stroke="#2C3E35" stroke-width="1.8" stroke-linejoin="round"/><path d="M24 44c-1-9 2-18 10-27" stroke="#C07A65" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <p class="fg-eyebrow">The Feminine Gut &middot; by The Body Temple Spa</p>
+        <h1>The Feminine GLP-1 &amp; Hormone Gut Audit</h1>
+        <p class="fg-sub">Discover in 60 seconds if your metabolism, skin, or mood is stuck in survival mode.</p>
+        <button type="button" class="fg-btn" data-action="start">Start My Free Audit &rarr;</button>
+        <p class="fg-trust">12 quick questions &middot; 3 pillars &middot; personalized results</p>
+      </div>
+    </section>
+
+    <!-- 2. QUIZ -->
+    <section class="fg-screen" data-screen="quiz">
+      <div class="fg-card">
+        <div class="fg-progress-head"><strong id="fg-step-label">Step 1 of 3</strong><span id="fg-step-count">0 selected</span></div>
+        <div class="fg-progress" role="progressbar" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1" id="fg-progress"><span id="fg-progress-fill"></span></div>
+        <div id="fg-step-body"></div>
+        <div class="fg-nav">
+          <button type="button" class="fg-btn fg-btn-ghost" data-action="back">&larr; Back</button>
+          <button type="button" class="fg-btn" data-action="next" id="fg-next-btn">Next Step &rarr;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. LEAD GATE -->
+    <section class="fg-screen" data-screen="gate">
+      <div class="fg-card">
+        <p class="fg-eyebrow">Audit complete</p>
+        <h2>Your Feminine Gut Audit is Ready!</h2>
+        <p class="fg-sub">Enter your name and email below to unlock your personalized score breakdown and see which pillar is holding your metabolism and skin back.</p>
+        <form id="fg-lead-form" novalidate>
+          <div class="fg-field">
+            <label for="fg-first">First Name</label>
+            <input id="fg-first" name="first_name" type="text" autocomplete="given-name" placeholder="Your first name" required>
+            <div class="fg-err-msg">Please enter your first name.</div>
+          </div>
+          <div class="fg-field">
+            <label for="fg-email">Email Address</label>
+            <input id="fg-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+            <div class="fg-err-msg">Please enter a valid email address.</div>
+          </div>
+          <button type="submit" class="fg-btn fg-btn-block" id="fg-submit"><span class="fg-lock">Unlock My Results &rarr;</span></button>
+          <p class="fg-trust">Your information is private. We'll also email you your results.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 4. RESULTS + OFFER -->
+    <section class="fg-screen" data-screen="results">
+      <div class="fg-card fg-center">
+        <p class="fg-eyebrow" id="fg-res-eyebrow">Your results</p>
+        <div class="fg-score-ring">
+          <svg viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="fg-ring-bg" cx="60" cy="60" r="52" fill="none" stroke-width="10"/>
+            <circle class="fg-ring-fg" id="fg-ring" cx="60" cy="60" r="52" fill="none" stroke-width="10" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+          </svg>
+          <div class="fg-score-num"><b id="fg-score">0</b><small>OUT OF 12</small></div>
+        </div>
+        <span class="fg-tier" id="fg-tier">Tier</span>
+        <h2 id="fg-tier-title" style="font-size:clamp(26px,4.6vw,34px)"></h2>
+        <p id="fg-tier-copy" style="color:var(--fg-muted)"></p>
+
+        <div class="fg-pillars" id="fg-pillars" style="text-align:left"></div>
+        <div class="fg-insight" id="fg-insight" style="text-align:left"></div>
+      </div>
+
+      <div class="fg-offer">
+        <span class="fg-badge">SPECIAL LIVE ATTENDEE &amp; AUDIT OFFER</span>
+        <h3>Ready to Reset All 3 Pillars in the Next 7 Days?</h3>
+        <p>Here's why the serums, cleanses and strict diets haven't stuck: your body won't let go of cravings, puffiness or breakouts while it still feels unsafe. When your gut is in survival mode, your natural fullness signals (GLP-1) go quiet, used hormones don't clear properly, and your nervous system keeps digestion on pause.</p>
+        <p>Fixing one pillar at a time keeps you chasing symptoms. This reset works on all three together, so your body can finally switch out of survival mode.</p>
+
+        <div class="fg-stack-title">The 7-Day Feminine GLP-1 &amp; Nervous System Reset</div>
+        <div class="fg-price"><b>$37</b><span>One-time</span></div>
+        <ul class="fg-stack">
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="#C07A65" stroke-width="1.5"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>7-Day Akkermansia &amp; Natural GLP-1 Meal Map</strong> (skin &amp; hormone friendly)</span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="#C07A65" stroke-width="1.5"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Pre-Meal 60-Second Vagal &amp; Somatic Audio Rituals</strong></span></li>
+          <li><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="9" stroke="#C07A65" stroke-width="1.5"/><path d="M6 10.2l2.6 2.6L14 7.4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span><em>BONUS:</em> <strong>14 Days of VIP Access inside The Feminine Gut</strong> (Radiant Self &mdash; Premium, $79/mo value) on Kollab</span></li>
+        </ul>
+        <a class="fg-btn" id="fg-checkout" href="#checkout">Yes! Unlock My 7-Day Reset for $37 &rarr;</a>
+        <a class="fg-secondary" id="fg-coaching" href="#coaching">Or explore our Sovereign Self 1-on-1 VIP Coaching &rarr;</a>
+      </div>
+
+      <p class="fg-disclaimer">Educational &amp; wellness coaching self-audit only. Does not diagnose, treat, or cure any medical condition.</p>
+    </section>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  /* =================================================================
+     SETTINGS: PASTE YOUR LINKS HERE
+     1) GHL_WEBHOOK_URL: In GHL go to Automation > Workflows > new workflow
+        > trigger "Inbound Webhook" > copy the URL it gives you and paste it below.
+     2) CHECKOUT_URL: the URL of your $37 1-step / 2-step order form page.
+     3) COACHING_URL: the URL of your Sovereign Self VIP coaching page.
+     Leave the quotes in place. The audit still works (and shows results)
+     before the webhook URL is pasted; leads just won't be sent yet.
+     ================================================================= */
+  const GHL_WEBHOOK_URL = "YOUR_GHL_WEBHOOK_URL_HERE";
+  const CHECKOUT_URL    = "#checkout";
+  const COACHING_URL    = "#coaching";
+  /* ================================================================= */
+
+  var root = document.getElementById('fg-audit-widget');
+  if (!root) return;
+
+  var PARTS = [
+    { key: 'part1_glp1_score', label: 'Part 1', title: 'Natural GLP-1 & Craving Signals', short: 'GLP-1 & Cravings', qs: [
+      'I feel hungry again 1–2 hours after eating a full meal, or rarely feel naturally "satisfied."',
+      'I get intense afternoon or late-night sugar, carb, or wine cravings.',
+      'My weight feels stubbornly stuck around my midsection even when I eat clean or exercise.',
+      'I experience energy crashes or brain fog after meals.'
+    ]},
+    { key: 'part2_hormone_score', label: 'Part 2', title: 'Hormone Clearance & Skin Clarity (Estrobolome)', short: 'Hormone Clearance & Skin', qs: [
+      'I get hormonal breakouts along my jawline, chin, or neck—or sudden skin dullness/redness.',
+      'My PMS symptoms (mood swings, breast tenderness, heavy cycles, or water retention) feel worse than they used to.',
+      'My digestion slows down (constipation or feeling heavy) right before my cycle or under pressure.',
+      'I wake up feeling puffy in my face, hands, or belly.'
+    ]},
+    { key: 'part3_nervous_system_score', label: 'Part 3', title: 'Nervous System & Vagal Gut Safety', short: 'Nervous System & Gut Safety', qs: [
+      'I often eat while rushing, working, scrolling my phone, or feeling emotionally tense.',
+      'I bloat within 30–60 minutes of eating—even when I eat "healthy" foods like salads or smoothies.',
+      'When there is tension in my relationship or family, I feel it immediately in my stomach (knots, nausea, or tightness).',
+      'I have trouble winding down at night, feeling "tired but wired."'
+    ]}
+  ];
+
+  var INSIGHTS = {
+    part1_glp1_score: "<strong>Your biggest bottleneck: Natural GLP-1 & Craving Signals.</strong> Your body's natural fullness signals seem to be running quiet, which can show up as constant hunger, cravings and stubborn belly weight. The good news: these signals respond quickly to the right foods, meal rhythm and gut support.",
+    part2_hormone_score: "<strong>Your biggest bottleneck: Hormone Clearance & Skin Clarity.</strong> Your gut plays a big role in clearing used hormones. When that slows down, it often shows up on your skin, in your cycle and as puffiness. Supporting your estrobolome and daily elimination is your first lever.",
+    part3_nervous_system_score: "<strong>Your biggest bottleneck: Nervous System & Vagal Gut Safety.</strong> Your gut is reacting to stress before food even arrives. When your body doesn't feel safe, digestion goes on pause, which brings bloating, knots and \"tired but wired\" nights. Calming your system before meals changes everything."
+  };
+
+  var TIERS = [
+    { max: 3,  cls: 't1', name: 'Resilient Foundation', title: 'You have a resilient foundation',
+      copy: 'Your gut, hormones and nervous system are mostly working with you. A few small signals are worth supporting now, so they don\'t grow into bigger patterns.' },
+    { max: 7,  cls: 't2', name: 'Mild Survival Mode', title: 'Your body is in mild survival mode',
+      copy: 'Your body is sending clear signals that it\'s compensating. This is the ideal time to reset, before cravings, skin and mood patterns become your "normal."' },
+    { max: 12, cls: 't3', name: 'High Survival Mode', title: 'Your body is in high survival mode',
+      copy: 'Your body has been working overtime to keep you going. This isn\'t a willpower problem. Your gut, hormones and nervous system need support together, and they respond quickly when they get it.' }
+  ];
+
+  var answers = PARTS.map(function (p) { return p.qs.map(function () { return false; }); });
+  var step = 0;
+  var CHECK_SVG = '<svg viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 7.3l2.6 2.6L11 4.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function $(sel) { return root.querySelector(sel); }
+  function show(name) {
+    root.querySelectorAll('.fg-screen').forEach(function (s) {
+      s.classList.toggle('fg-active', s.getAttribute('data-screen') === name);
+    });
+    var top = root.getBoundingClientRect().top + window.pageYOffset - 20;
+    if (Math.abs(window.pageYOffset - top) > 40) window.scrollTo({ top: top, behavior: 'smooth' });
+  }
+  function partScore(i) { return answers[i].filter(Boolean).length; }
+  function total() { return answers.reduce(function (s, a) { return s + a.filter(Boolean).length; }, 0); }
+  function tierFor(score) { for (var i = 0; i < TIERS.length; i++) if (score <= TIERS[i].max) return TIERS[i]; return TIERS[2]; }
+  function track(event, data) { try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: event }, data || {})); } catch (e) {} }
+
+  function renderStep() {
+    var p = PARTS[step], n = 0;
+    var html = '<div class="fg-part-label">' + p.label + '</div><h3>' + p.title.replace(/&/g, '&amp;') + '</h3>' +
+      '<p class="fg-instr">Tap every statement that applied to you over the last 30 days.</p>';
+    p.qs.forEach(function (q, qi) {
+      n = step * 4 + qi + 1;
+      html += '<label class="fg-q"><input type="checkbox" data-q="' + qi + '"' + (answers[step][qi] ? ' checked' : '') + '>' +
+        '<span class="fg-box">' + CHECK_SVG + '</span><span class="fg-q-text">' + q + '</span></label>';
+    });
+    $('#fg-step-body').innerHTML = html;
+    $('#fg-step-label').textContent = 'Step ' + (step + 1) + ' of 3';
+    $('#fg-progress').setAttribute('aria-valuenow', step + 1);
+    $('#fg-progress-fill').style.width = ((step + 1) / 3 * 100) + '%';
+    $('#fg-next-btn').innerHTML = step === 2 ? 'See My Results &rarr;' : 'Next Step &rarr;';
+    updateCount();
+  }
+  function updateCount() {
+    var c = partScore(step);
+    $('#fg-step-count').textContent = c + ' selected';
+  }
+
+  function renderResults(firstName) {
+    var score = total(), tier = tierFor(score);
+    var scores = PARTS.map(function (_, i) { return partScore(i); });
+    var maxScore = Math.max.apply(null, scores);
+    var topIdx = scores.indexOf(maxScore);
+
+    $('#fg-res-eyebrow').textContent = firstName ? firstName + ', here are your results' : 'Your results';
+    var tierEl = $('#fg-tier'); tierEl.textContent = tier.name; tierEl.className = 'fg-tier ' + tier.cls;
+    $('#fg-tier-title').textContent = tier.title;
+    $('#fg-tier-copy').textContent = tier.copy;
+
+    var ph = '';
+    PARTS.forEach(function (p, i) {
+      var top = maxScore > 0 && i === topIdx;
+      ph += '<div class="fg-pillar' + (top ? ' fg-top' : '') + '"><div class="fg-flag">Your biggest bottleneck</div>' +
+        '<div class="fg-pillar-head"><span>' + p.short.replace(/&/g, '&amp;') + '</span><span>' + scores[i] + ' / 4</span></div>' +
+        '<div class="fg-bar"><span data-w="' + (scores[i] / 4 * 100) + '"></span></div></div>';
+    });
+    $('#fg-pillars').innerHTML = ph;
+    $('#fg-insight').innerHTML = maxScore > 0 ? INSIGHTS[PARTS[topIdx].key]
+      : '<strong>Beautiful.</strong> None of the survival-mode signals showed up for you right now. The reset below is a great way to keep your foundation strong.';
+
+    // animate score, ring and bars
+    var circ = 326.73, ring = $('#fg-ring'), num = $('#fg-score'), cur = 0;
+    requestAnimationFrame(function () {
+      ring.style.strokeDashoffset = circ - (score / 12) * circ;
+      root.querySelectorAll('.fg-bar span').forEach(function (b) { b.style.width = b.getAttribute('data-w') + '%'; });
+    });
+    if (score === 0) { num.textContent = '0'; }
+    else { var iv = setInterval(function () { cur++; num.textContent = cur; if (cur >= score) clearInterval(iv); }, 70); }
+
+    return { score: score, tier: tier.name, scores: scores, top: maxScore > 0 ? PARTS[topIdx].short : 'None' };
+  }
+
+  function sendLead(payload) {
+    if (!GHL_WEBHOOK_URL || GHL_WEBHOOK_URL.indexOf('http') !== 0) {
+      console.info('[Feminine Gut Audit] Webhook URL not set yet. Lead not sent:', payload);
+      return Promise.resolve();
+    }
+    var body = JSON.stringify(payload);
+    var timeout = new Promise(function (r) { setTimeout(r, 4000); });
+    var req = fetch(GHL_WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body })
+      .catch(function () {
+        // Fallback if the browser blocks the request (CORS): send it without reading the reply.
+        return fetch(GHL_WEBHOOK_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: body });
+      })
+      .catch(function (err) { console.warn('[Feminine Gut Audit] Webhook failed:', err); });
+    return Promise.race([req, timeout]);
+  }
+
+  // Events
+  root.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-action]');
+    if (!btn) return;
+    var a = btn.getAttribute('data-action');
+    if (a === 'start') { step = 0; renderStep(); show('quiz'); track('fg_audit_start'); }
+    if (a === 'next') {
+      if (step < 2) { step++; renderStep(); show('quiz'); }
+      else { show('gate'); track('fg_audit_complete', { total_score: total() }); setTimeout(function () { $('#fg-first').focus(); }, 300); }
+    }
+    if (a === 'back') {
+      if (step > 0) { step--; renderStep(); show('quiz'); } else { show('intro'); }
+    }
+  });
+  root.addEventListener('change', function (e) {
+    if (e.target.matches('.fg-q input')) {
+      answers[step][+e.target.getAttribute('data-q')] = e.target.checked;
+      updateCount();
+    }
+  });
+
+  $('#fg-lead-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var fF = $('#fg-first'), fE = $('#fg-email');
+    var first = fF.value.trim(), email = fE.value.trim();
+    var okF = first.length > 0, okE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    fF.parentNode.classList.toggle('fg-err', !okF);
+    fE.parentNode.classList.toggle('fg-err', !okE);
+    if (!okF) { fF.focus(); return; }
+    if (!okE) { fE.focus(); return; }
+
+    var res = renderResults(first);
+    var payload = {
+      first_name: first,
+      email: email,
+      total_score: res.score,
+      part1_glp1_score: res.scores[0],
+      part2_hormone_score: res.scores[1],
+      part3_nervous_system_score: res.scores[2],
+      result_tier: res.tier,
+      top_pillar: res.top,
+      source: 'Feminine Gut Audit',
+      page_url: window.location.href
+    };
+    var btn = $('#fg-submit'); btn.disabled = true; btn.textContent = 'Unlocking your results…';
+    sendLead(payload).then(function () {
+      track('fg_audit_lead', { result_tier: res.tier, total_score: res.score });
+      show('results');
+      btn.disabled = false; btn.innerHTML = 'Unlock My Results &rarr;';
+    });
+  });
+
+  // Links
+  var co = $('#fg-checkout'), coach = $('#fg-coaching');
+  co.href = CHECKOUT_URL; coach.href = COACHING_URL;
+  co.addEventListener('click', function () { track('fg_tripwire_click', { offer: '7-Day Reset $37' }); });
+  coach.addEventListener('click', function () { track('fg_coaching_click'); });
+})();
+</script>
