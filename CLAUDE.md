@@ -30,6 +30,8 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
   find the person's contact (`GET /contacts/?locationId=...&query=<email>`), then
   `POST /conversations/messages` (header `Version: 2021-04-15`) with
   `{"type":"Email","contactId","subject","html"}`. Georgina's contact ID: `ZiopFUcKiv1FXnBPLugV`.
+- **Before creating or changing several GHL tasks, show Lalita the plan (titles, owners, due dates) and wait
+  for her OK.**
 - Lalita's tasks are the ones assigned to "Lalita Sundari - Owner". Show those first,
   sorted by due date, then team tasks (Georgina, Russell, Sebastian, Alex, Ann) and unassigned ones.
 
@@ -70,7 +72,8 @@ business facts in this file.
   (Nov 2026). Earlier outline: "Detox Him First".
 - **Live Audit (Thu Nov 19, 2026, 6pm ET):** "How to Activate Natural GLP-1 & Balance Female Hormones Through
   Your Gut (Live Audit)". Sells the $37 Hormonal Reset. On Google Calendar + GHL task.
-- Google Calendar connector is on **lalita@lalitasundari.com** (Gmail connector is lalita@thebodytemplespas.com).
+- Calendar: Lalita's **personal Google Calendar, lalita@lalitasundari.com**, is the one she uses; put her events there.
+  The spa Gmail (lalita@thebodytemplespas.com) is for emails to the team.
 - **The Hair Temple Blueprint** (community course; formerly "Insight Program"): hair test (HTMA) +
   supplements + teaching members to read their results. Outline: `content/hair-temple-blueprint.md`.
 
