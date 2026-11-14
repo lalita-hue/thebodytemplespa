@@ -68,6 +68,9 @@ business facts in this file.
 - Topics so far: "Is It My Hormones or My Gut?", "Is This Really a Toxic Relationship?",
   "Why Successful Women Attract Relationships That Drain Their Bodies"
   (Nov 2026). Earlier outline: "Detox Him First".
+- **Live Audit (Thu Nov 19, 2026, 6pm ET):** "How to Activate Natural GLP-1 & Balance Female Hormones Through
+  Your Gut (Live Audit)". Sells the $37 Hormonal Reset. On Google Calendar + GHL task.
+- Google Calendar connector is on **lalita@lalitasundari.com** (Gmail connector is lalita@thebodytemplespas.com).
 - **The Hair Temple Blueprint** (community course; formerly "Insight Program"): hair test (HTMA) +
   supplements + teaching members to read their results. Outline: `content/hair-temple-blueprint.md`.
 
