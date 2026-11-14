@@ -66,6 +66,9 @@ business facts in this file.
   webhook, results + $37 tripwire ("7-Day Feminine GLP-1 & Nervous System Reset"; bonus 14 days VIP in
   The Feminine Gut, Radiant Self Premium $79/mo, on Kollab). Upsell: Sovereign Self 1-on-1 VIP Coaching.
   Settings at top of the script: GHL_WEBHOOK_URL, CHECKOUT_URL, COACHING_URL.
+  Look: night-bloom (deep indigo, violet, sunset orange) from Lalita's flower photo; dragonfly from the
+  spa logo at the top. Lead form asks first name, email and phone (all required).
+  Brand: logo is a dragonfly over "THE BODY TEMPLE SPA", tagline "Self care is self love", peach/orange glow.
 
 ## Automations
 
