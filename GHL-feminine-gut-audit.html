@@ -95,6 +95,9 @@
 #fg-audit-widget .fg-field.fg-err input{border-color:#FF8DA6;}
 #fg-audit-widget .fg-err-msg{display:none;color:#FF9DB2;font-size:13px;margin-top:6px;}
 #fg-audit-widget .fg-field.fg-err .fg-err-msg{display:block;}
+#fg-audit-widget .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;}
+#fg-audit-widget .fg-row > *{min-width:0;}
+@media (max-width:480px){#fg-audit-widget .fg-row{grid-template-columns:1fr;}}
 #fg-audit-widget .fg-lock{display:inline-flex;align-items:center;gap:6px;}
 
 /* Results */
@@ -193,10 +196,17 @@
         <h2>Your Feminine Gut Audit is Ready!</h2>
         <p class="fg-sub">Enter your name, email and phone below to unlock your personalized score breakdown and see which pillar is behind your weight resistance and skin issues.</p>
         <form id="fg-lead-form" novalidate>
-          <div class="fg-field">
-            <label for="fg-first">First Name</label>
-            <input id="fg-first" name="first_name" type="text" autocomplete="given-name" placeholder="Your first name" required>
-            <div class="fg-err-msg">Please enter your first name.</div>
+          <div class="fg-row">
+            <div class="fg-field">
+              <label for="fg-first">First Name</label>
+              <input id="fg-first" name="first_name" type="text" autocomplete="given-name" placeholder="First name" required>
+              <div class="fg-err-msg">Please enter your first name.</div>
+            </div>
+            <div class="fg-field">
+              <label for="fg-last">Last Name</label>
+              <input id="fg-last" name="last_name" type="text" autocomplete="family-name" placeholder="Last name" required>
+              <div class="fg-err-msg">Please enter your last name.</div>
+            </div>
           </div>
           <div class="fg-field">
             <label for="fg-email">Email Address</label>
@@ -427,19 +437,22 @@
 
   $('#fg-lead-form').addEventListener('submit', function (e) {
     e.preventDefault();
-    var fF = $('#fg-first'), fE = $('#fg-email'), fP = $('#fg-phone');
-    var first = fF.value.trim(), email = fE.value.trim(), phone = fP.value.trim();
-    var okF = first.length > 0, okE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email), okP = phone.replace(/\D/g, '').length >= 10;
+    var fF = $('#fg-first'), fL = $('#fg-last'), fE = $('#fg-email'), fP = $('#fg-phone');
+    var first = fF.value.trim(), last = fL.value.trim(), email = fE.value.trim(), phone = fP.value.trim();
+    var okF = first.length > 0, okL = last.length > 0, okE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email), okP = phone.replace(/\D/g, '').length >= 10;
     fF.parentNode.classList.toggle('fg-err', !okF);
+    fL.parentNode.classList.toggle('fg-err', !okL);
     fE.parentNode.classList.toggle('fg-err', !okE);
     fP.parentNode.classList.toggle('fg-err', !okP);
     if (!okF) { fF.focus(); return; }
+    if (!okL) { fL.focus(); return; }
     if (!okE) { fE.focus(); return; }
     if (!okP) { fP.focus(); return; }
 
     var res = renderResults(first);
     var payload = {
       first_name: first,
+      last_name: last,
       email: email,
       phone: phone,
       total_score: res.score,
