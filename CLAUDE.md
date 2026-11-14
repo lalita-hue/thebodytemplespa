@@ -52,6 +52,11 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
 - Logo: a dragonfly over "THE BODY TEMPLE SPA" on a peach/orange glow.
 - Footers: "© <year> The Body Temple Spa. All rights reserved."
 
+## Services & add-ons
+
+- **Vibration Plate Lymphatic Reset**: add-on, $15, no time added. Offered on all services,
+  featured on lymphatic services. Georgina setting it up in GHL (task due Wed Nov 18, 2026).
+
 ## Saving information
 
 Lalita wants everything she tells Claude saved. Record standing preferences and
