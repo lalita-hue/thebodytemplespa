@@ -22,7 +22,8 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
   with `{"title","body","assignedTo":"<userId>","dueDate":"<ISO>","completed":false}`.
 - Team user IDs: Georgina Mc Bain `GsYbT3st89lCZ9br97vA`, Ann Loyer `okHTaQE5BnJLGV2nmymL`,
   Mabry Cooper `aWwBfmjczARmKisaDBIQ`, Russel Cabudbud `XZ6Y7sGrTw5BHJ5jtdLd`,
-  Sebastián Sáenz `s0rDQ5D7HFkFbYkRyuMT`, Malynda Barakadyn `gszFoEKVK6cxXYTyuWAI`.
+  Sebastián Sáenz `s0rDQ5D7HFkFbYkRyuMT`, Malynda Barakadyn `gszFoEKVK6cxXYTyuWAI`,
+  Lalita `l9RzLvtlZA2vYqYLhGIM`, Frank Mike `dcYvkU2P7BDRGUDWXJjM` (Frank handles email/Kit: moving contacts from GHL to Kit).
   Full list with emails: `GET /users/?locationId=oz27FgTyetnlFEnG2O11`.
 - Emailing the team: use Gmail drafts (see "Sending emails" below). GHL sending is only a last resort
   when Lalita explicitly asks for it:
@@ -44,6 +45,13 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
 - **Georgina's work email is `hello@thebodytemplespas.com`** (note the "s" in temple**spas**). Send to that,
   not her Gmail. In GHL it's saved as an additional email on her contact, so pass `"emailTo":"hello@thebodytemplespas.com"`.
 
+## Brand
+
+- **Slogan: "The Future Is Yours."** Use it in footers and brand copy (exactly these words, nothing added).
+- The logo's small tagline reads "Self care is self love". It is not the slogan.
+- Logo: a dragonfly over "THE BODY TEMPLE SPA" on a peach/orange glow.
+- Footers: "© <year> The Body Temple Spa. All rights reserved."
+
 ## Saving information
 
 Lalita wants everything she tells Claude saved. Record standing preferences and
@@ -55,6 +63,19 @@ business facts in this file.
 - Topics so far: "Is It My Hormones or My Gut?", "Is This Really a Toxic Relationship?",
   "Why Successful Women Attract Relationships That Drain Their Bodies"
   (Nov 2026). Earlier outline: "Detox Him First".
+- **The Hair Temple Blueprint** (community course; formerly "Insight Program"): hair test (HTMA) +
+  supplements + teaching members to read their results. Outline: `content/hair-temple-blueprint.md`.
+
+## Funnels / widgets
+
+- **The Feminine Gut** (by The Body Temple Spa) quiz funnel: `GHL-feminine-gut-audit.html`.
+  "Feminine GLP-1 & Hormone Gut Audit", 12 questions in 3 pillars, lead gate posting to a GHL inbound
+  webhook, results + $37 tripwire ("7-Day Feminine GLP-1 & Nervous System Reset"; bonus 14 days VIP in
+  The Feminine Gut, Radiant Self Premium $79/mo, on Kollab). Upsell: Sovereign Self 1-on-1 VIP Coaching.
+  Settings at top of the script: GHL_WEBHOOK_URL, CHECKOUT_URL, COACHING_URL.
+  Look: night-bloom (deep indigo, violet, sunset orange) from Lalita's flower photo; dragonfly from the
+  spa logo at the top. Lead form asks first name, email and phone (all required).
+  Footer: slogan "The Future Is Yours" + "© <year> The Body Temple Spa. All rights reserved."
 
 ## Automations
 
