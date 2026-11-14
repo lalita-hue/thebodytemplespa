@@ -77,7 +77,7 @@ business facts in this file.
   "Feminine GLP-1 & Hormone Gut Audit", 12 questions in 3 pillars, lead gate posting to a GHL inbound
   webhook, results + $37 tripwire ("The 7-Day Feminine GLP-1 & Nervous System Hormonal Reset", see `offers/7-day-hormonal-reset.md`; bonus 14 days VIP in
   The Feminine Gut, Radiant Self Premium $79/mo, on Kollab). Upsell: Sovereign Self 1-on-1 VIP Coaching.
-  Settings at top of the script: GHL_WEBHOOK_URL, CHECKOUT_URL, COACHING_URL.
+  Settings at top of the script: GHL_WEBHOOK_URL (set: inbound webhook 82ceacda-ca11-466e-bad2-dffc08d7e4f8), CHECKOUT_URL (set), COACHING_URL (not set yet).
   Look: night-bloom (deep indigo, violet, sunset orange) from Lalita's flower photo; dragonfly from the
   spa logo at the top. Lead form asks first name, email and phone (all required).
   Footer: slogan "The Future Is Yours" + "© <year> The Body Temple Spa. All rights reserved."
