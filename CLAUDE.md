@@ -47,7 +47,7 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
 
 ## Brand
 
-- **Slogan: "The Future Is Your Now."** Use it in footers and brand copy.
+- **Slogan: "The Future Is Yours."** Use it in footers and brand copy (exactly these words, nothing added).
 - The logo's small tagline reads "Self care is self love". It is not the slogan.
 - Logo: a dragonfly over "THE BODY TEMPLE SPA" on a peach/orange glow.
 - Footers: "© <year> The Body Temple Spa. All rights reserved."
@@ -75,7 +75,7 @@ business facts in this file.
   Settings at top of the script: GHL_WEBHOOK_URL, CHECKOUT_URL, COACHING_URL.
   Look: night-bloom (deep indigo, violet, sunset orange) from Lalita's flower photo; dragonfly from the
   spa logo at the top. Lead form asks first name, email and phone (all required).
-  Footer: slogan "The Future Is Your Now" + "© <year> The Body Temple Spa. All rights reserved."
+  Footer: slogan "The Future Is Yours" + "© <year> The Body Temple Spa. All rights reserved."
 
 ## Automations
 
