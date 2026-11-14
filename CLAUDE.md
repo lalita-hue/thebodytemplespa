@@ -54,6 +54,12 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
 - Logo: a dragonfly over "THE BODY TEMPLE SPA" on a peach/orange glow.
 - Footers: "© <year> The Body Temple Spa. All rights reserved."
 
+## Links & handles
+
+- Kollab community (The Feminine Gut): https://thebodytempleacademy.app.clientclub.net/communities/groups/the-feminine-gut
+- Gut Audit page: https://thebodytemplespas.com/gut-audit
+- Instagram @iam.lalita.sundari · TikTok @lalita.sundari · Facebook lalita.sundari.atl · YouTube @LalitaSundari
+
 ## Services & add-ons
 
 - **Vibration Plate Lymphatic Reset**: add-on, $15, no time added. Offered on all services,
