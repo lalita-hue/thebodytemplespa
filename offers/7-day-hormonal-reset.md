@@ -4,6 +4,7 @@
 - **Sold from:** The Feminine Gut Audit results page (`GHL-feminine-gut-audit.html`), as the tripwire offer.
 - **Brand:** The Feminine Gut, by The Body Temple Spa.
 - **Checkout:** https://thebodytemplespas.com/product-details-3747/product/7-day-feminine-glp1-nervous-system-hormonal-reset
+- **GHL form** (exists, not used in the audit): "The 7-Day Feminine GLP-1 & Nervous System Hormonal Reset.", form ID `dCeYmqYCQSBwBuAM0Q9Q`, embed https://link.thebodytemplespas.com/widget/form/dCeYmqYCQSBwBuAM0Q9Q (sticky sidebar layout).
 - To confirm: delivery method ("Instant access after purchase" assumes immediate access).
 
 ## Short description (order form / checkout)
