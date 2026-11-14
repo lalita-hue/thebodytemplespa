@@ -45,6 +45,13 @@ pull them from **GoHighLevel**, not Asana. Do not use the Asana tools for tasks.
 - **Georgina's work email is `hello@thebodytemplespas.com`** (note the "s" in temple**spas**). Send to that,
   not her Gmail. In GHL it's saved as an additional email on her contact, so pass `"emailTo":"hello@thebodytemplespas.com"`.
 
+## Brand
+
+- **Slogan: "The Future Is Your Now."** Use it in footers and brand copy.
+- The logo's small tagline reads "Self care is self love". It is not the slogan.
+- Logo: a dragonfly over "THE BODY TEMPLE SPA" on a peach/orange glow.
+- Footers: "© <year> The Body Temple Spa. All rights reserved."
+
 ## Saving information
 
 Lalita wants everything she tells Claude saved. Record standing preferences and
@@ -68,7 +75,7 @@ business facts in this file.
   Settings at top of the script: GHL_WEBHOOK_URL, CHECKOUT_URL, COACHING_URL.
   Look: night-bloom (deep indigo, violet, sunset orange) from Lalita's flower photo; dragonfly from the
   spa logo at the top. Lead form asks first name, email and phone (all required).
-  Brand: logo is a dragonfly over "THE BODY TEMPLE SPA", tagline "Self care is self love", peach/orange glow.
+  Footer: slogan "The Future Is Your Now" + "© <year> The Body Temple Spa. All rights reserved."
 
 ## Automations
 
