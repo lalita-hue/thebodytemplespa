@@ -284,7 +284,7 @@
      ================================================================= */
   const GHL_WEBHOOK_URL = "https://services.leadconnectorhq.com/hooks/oz27FgTyetnlFEnG2O11/webhook-trigger/82ceacda-ca11-466e-bad2-dffc08d7e4f8";
   const CHECKOUT_URL    = "https://thebodytemplespas.com/product-details-3747/product/7-day-feminine-glp1-nervous-system-hormonal-reset";
-  const COACHING_URL    = "#coaching";
+  const COACHING_URL    = "";   // leave empty to hide the coaching link
   /* ================================================================= */
 
   var root = document.getElementById('fg-audit-widget');
@@ -476,7 +476,8 @@
 
   // Links
   var co = $('#fg-checkout'), coach = $('#fg-coaching');
-  co.href = CHECKOUT_URL; coach.href = COACHING_URL;
+  co.href = CHECKOUT_URL;
+  if (COACHING_URL && COACHING_URL.charAt(0) !== '#') { coach.href = COACHING_URL; } else { coach.style.display = 'none'; }
   co.addEventListener('click', function () { track('fg_tripwire_click', { offer: '7-Day Reset $37' }); });
   coach.addEventListener('click', function () { track('fg_coaching_click'); });
 })();
