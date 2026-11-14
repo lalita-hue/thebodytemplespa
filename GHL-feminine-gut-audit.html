@@ -142,6 +142,9 @@
 #fg-audit-widget .fg-secondary{display:block;text-align:center;margin-top:16px;color:#DCCFEF;font-size:14px;text-decoration:underline;text-underline-offset:3px;}
 #fg-audit-widget .fg-secondary:hover{color:#fff;}
 #fg-audit-widget .fg-disclaimer{font-size:12px;color:var(--fg-muted);text-align:center;margin-top:28px;line-height:1.5;}
+#fg-audit-widget .fg-footer{margin-top:40px;padding-top:24px;border-top:1px solid var(--fg-line);text-align:center;}
+#fg-audit-widget .fg-slogan{font-family:var(--fg-serif);font-size:15px;letter-spacing:.32em;text-transform:uppercase;color:#F6E4D6;margin:0 0 8px;}
+#fg-audit-widget .fg-copy{font-size:12px;color:var(--fg-muted);margin:0;}
 
 @media (max-width:560px){
   #fg-audit-widget{padding:32px 16px;}
@@ -249,6 +252,11 @@
 
       <p class="fg-disclaimer">Educational &amp; wellness coaching self-audit only. Does not diagnose, treat, or cure any medical condition.</p>
     </section>
+
+    <footer class="fg-footer">
+      <p class="fg-slogan">Self Care Is Self Love</p>
+      <p class="fg-copy">&copy; <span id="fg-year">2026</span> The Body Temple Spa. All rights reserved.</p>
+    </footer>
 
   </div>
 </div>
@@ -450,6 +458,8 @@
       btn.disabled = false; btn.innerHTML = 'Unlock My Results &rarr;';
     });
   });
+
+  var yr = $('#fg-year'); if (yr) yr.textContent = new Date().getFullYear();
 
   // Links
   var co = $('#fg-checkout'), coach = $('#fg-coaching');
