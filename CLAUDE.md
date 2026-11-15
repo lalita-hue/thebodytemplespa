@@ -77,6 +77,10 @@ business facts in this file.
   spa logo at the top. Lead form asks first name, email and phone (all required).
   Footer: slogan "The Future Is Yours" + "© <year> The Body Temple Spa. All rights reserved."
 
+- **The Feminine Gut Clear Skin webinar**: live, Sun Nov 15 2026 at 5:15 PM Eastern. Countdown page:
+  https://claude.ai/artifact/7JvcbiQvBmMAtuJv29TRjU (night-bloom look, dragonfly, slogan footer).
+- The spa's GHL time zone is America/New_York (Eastern). Use it for times Lalita gives without a zone.
+
 ## Automations
 
 - Esthetics pre-care automations (facials, waxing, lash & brow, chemical peels): `automations/esthetics.md`.
