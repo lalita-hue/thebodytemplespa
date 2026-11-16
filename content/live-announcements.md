@@ -14,8 +14,8 @@ Format: Live Training / Deep-Dive Conversation
 "How to Activate Natural GLP-1 & Balance Female Hormones Through Your Gut"
 Covers hormones too, which matters, but the "How to" wording promises the how. Reworked to what/why:
 
-- **Recommended: "Natural GLP-1 & Your Female Hormones: What Your Gut Is Trying to Tell You"**
-- "Why Your Gut Stopped Making Natural GLP-1 (And What It's Doing to Your Hormones)"
+- **CHOSEN (live title): "Natural GLP-1 & Your Female Hormones: What Your Gut Is Trying to Tell You"**
+- **CHOSEN (hook line on Slide 2 + caption): "Why Your Gut Stopped Making Natural GLP-1 (And What It's Doing to Your Hormones)"**
 - "The Gut-Hormone Connection: What's Really Blocking Your Natural GLP-1"
 - "Your Gut, Your Hormones & the GLP-1 Signal You Were Born With"
 
@@ -50,7 +50,10 @@ It's protecting you.
 That's why the diets, the cleanses and the quick fixes stop working in your 30s and 40s.
 They're aimed at the symptom. The root is somewhere else.
 
-This Thursday at 6:00 PM [time zone], I'm going live on [platform] for a deep-dive conversation on:
+This Thursday at 6:00 PM [time zone], I'm going live on [platform]:
+**"Natural GLP-1 & Your Female Hormones: What Your Gut Is Trying to Tell You"**
+
+We'll go deep on:
 ✨ What actually shuts down your natural GLP-1
 ✨ Why your gut and nervous system are throwing your perimenopause hormones off balance
 ✨ Why your glow-up starts in your nervous system, not your skincare drawer
@@ -72,6 +75,7 @@ The Future Is Yours.
 - Visual: close-up, soft light, a woman with a hand on her belly or looking tired into a mirror. Night-bloom colors (deep indigo, violet, sunset orange).
 
 **Slide 2: Hidden root cause**
+- Headline: **"Why your gut stopped making natural GLP-1 (and what it's doing to your hormones)"**
 - Text: *"It's not your willpower. It's not just 'getting older.'*
   *When your nervous system is stuck in survival mode, your gut stops sending your body's natural GLP-1 signal, and your perimenopause hormones follow.*
   *Your body isn't broken. It's protecting you."*
@@ -79,7 +83,7 @@ The Future Is Yours.
 - Visual: dragonfly logo, slow zoom; text revealed line by line.
 
 **Slide 3: Countdown**
-- Text: *"LIVE: Your Natural GLP-1, Your Hormones & Your Nervous System Glow-Up"*
+- Text: *"LIVE: Natural GLP-1 & Your Female Hormones: What Your Gut Is Trying to Tell You"*
   *"Thursday · 6:00 PM [time zone]"*
 - Sticker: **Countdown** titled "Feminine Gut LIVE", set for Thu Nov 19, 6:00 PM, with reminders on.
 - CTA: *"Tap the countdown to get reminded 🔔 or DM me 'LIVE' for the link."*
