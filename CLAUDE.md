@@ -63,6 +63,13 @@ business facts in this file.
 - Topics so far: "Is It My Hormones or My Gut?", "Is This Really a Toxic Relationship?",
   "Why Successful Women Attract Relationships That Drain Their Bodies"
   (Nov 2026). Earlier outline: "Detox Him First".
+- Live/social announcements: `content/live-announcements.md`.
+- **Content rule ("What, not How"):** public lives and social posts only cover the what and why
+  (awareness, root cause, mindset, why conventional approaches fail). Never give protocols, recipes,
+  supplements or how-to routines; those are saved for the paid course and lead magnets.
+- **Audience (The Feminine Gut):** women in their 30s-40s in perimenopause/menopause wanting root-cause,
+  non-synthetic results. Struggles: stubborn weight, heartburn/bloating, exhaustion, lost glow,
+  toxic/draining relationships. Tone: empathetic, authoritative, luxury.
 - **The Hair Temple Blueprint** (community course; formerly "Insight Program"): hair test (HTMA) +
   supplements + teaching members to read their results. Outline: `content/hair-temple-blueprint.md`.
 
