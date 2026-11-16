@@ -10,7 +10,16 @@ routines). The "How" is saved for the paid course and lead magnets.
 **Thursday, Nov 19, 2026 · 6:00 PM [time zone] · [platform]**
 Format: Live Training / Deep-Dive Conversation
 
-### 3 Live Titles
+### Original working title (Lalita's)
+"How to Activate Natural GLP-1 & Balance Female Hormones Through Your Gut"
+Covers hormones too, which matters, but the "How to" wording promises the how. Reworked to what/why:
+
+- **Recommended: "Natural GLP-1 & Your Female Hormones: What Your Gut Is Trying to Tell You"**
+- "Why Your Gut Stopped Making Natural GLP-1 (And What It's Doing to Your Hormones)"
+- "The Gut-Hormone Connection: What's Really Blocking Your Natural GLP-1"
+- "Your Gut, Your Hormones & the GLP-1 Signal You Were Born With"
+
+### 3 Live Titles (first draft)
 1. **"Your Body Already Makes GLP-1. Here's What Shut It Off."**
 2. **"The Weight Isn't the Problem. Your Nervous System Is Keeping It There."**
 3. **"Heartburn, Bloating & Losing Your Glow: The Perimenopause Signal Nobody Is Reading"**
