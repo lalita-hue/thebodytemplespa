@@ -84,6 +84,18 @@ business facts in this file.
   spa logo at the top. Lead form asks first name, email and phone (all required).
   Footer: slogan "The Future Is Yours" + "© <year> The Body Temple Spa. All rights reserved."
 
+## Payroll
+
+- Google Sheet **"Payroll "** (Drive ID `15ueU6Vd5ef6S9x3NW6awN-dRo3dxZ9kmnZIb-vzHe1w`, owner thewomenstemplecoaching@gmail.com).
+  One tab per 2-week cycle (e.g. "Cycle OCT 25 - Nov 7 2026"): summary at top, WEEK 1 entries from row 17,
+  WEEK 2 entries further down, then an add-ons log (Georgina gets $0.10 per add-on she books).
+  Other tabs: Georgina Bonus, Matriz (DONT TOUCH), Data (auto), Dashboard, Payslip (template).
+- Commission rates: Lalita 50%, Marty 35%, Adam/Julia/Mabry/Malynda/Russel 33%, Kaitlin 31%, Ann 60%.
+- Payslips: export the sheet as .xlsx with the Drive connector, then run
+  `python3 -I payroll/make_payslips.py <file.xlsx> "<cycle tab>" <out_dir>` and `node payroll/html_to_pdf.js <out_dir>`.
+  Same layout as the sheet's Payslip tab (contact: WhatsApp (321) 364-2679, sebastiansaenz628@gmail.com).
+  Don't commit payslips or payroll data to git (client names).
+
 ## Automations
 
 - Esthetics pre-care automations (facials, waxing, lash & brow, chemical peels): `automations/esthetics.md`.
