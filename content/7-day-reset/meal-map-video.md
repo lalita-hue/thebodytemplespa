@@ -70,7 +70,7 @@ Bonuses included: kimchi/sauerkraut/kefir (gut boost) and the 60-second pre-meal
 > - 1 cup of cooked lentils is about 18 grams.
 > - 1 scoop of protein powder is usually 20 to 25 grams.
 >
-> The biggest shift: have your protein at **breakfast**, within two hours of waking. Most of us save all our protein for dinner. Toast and coffee in the morning is exactly why you're hungry by 10.
+> The biggest shift: have your protein at **breakfast**, within one hour of waking. Most of us save all our protein for dinner. Toast and coffee in the morning is exactly why you're hungry by 10.
 >
 > If this is a lot more protein than you're used to, start at 15 to 20 grams and build up over a few days.
 >

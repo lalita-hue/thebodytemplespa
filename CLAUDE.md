@@ -73,6 +73,7 @@ business facts in this file.
   The 7-Day Reset covers Week 1 only. Keep later-week topics (timing, mindful eating, movement, sleep, stress) out
   unless labeled as a bonus. Current bonuses: kimchi/sauerkraut/kefir (gut boost) and the 60-second pre-meal audio.
   Companion video outline + script: `content/7-day-reset/meal-map-video.md`.
+  **Breakfast must be within 1 hour of waking** (Lalita's rule; overrides the book's "within 2 hours").
 
 ## Funnels / widgets
 
