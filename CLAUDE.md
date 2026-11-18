@@ -66,6 +66,8 @@ business facts in this file.
 - **The Hair Temple Blueprint** (community course; formerly "Insight Program"): hair test (HTMA) +
   supplements + teaching members to read their results. Outline: `content/hair-temple-blueprint.md`.
 - **7-Day Reset ($37) build prompts** (Canva Meal Map PDF + pre-meal somatic audio script): `content/7-day-reset-prompts.md`.
+  Finished Meal Map PDF (2 pages, includes probiotic/fermented foods like kimchi): `content/7-day-reset/7-Day-Feminine-GLP-1-Meal-Map.pdf`
+  (source `content/7-day-reset/meal-map.html`; edit the HTML and re-render to change it).
 
 ## Funnels / widgets
 

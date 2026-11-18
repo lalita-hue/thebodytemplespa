@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>7-Day Feminine GLP-1 Meal Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --apricot:#EFA068; --peach:#F9D2AC; --blush:#FDE8D4; --porcelain:#FEF6EC;
+    --terra:#C85A28; --terra-deep:#A8481E; --ink:#12100E; --muted:#5E544A;
+  }
+  @page{size:Letter;margin:0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#ddd}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{width:8.5in;height:11in;margin:0 auto;position:relative;overflow:hidden;
+    background:var(--blush);padding:.5in .55in .42in;display:flex;flex-direction:column;page-break-after:always}
+  .page:last-child{page-break-after:auto}
+  /* soft organic shapes */
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);z-index:0}
+  .b1{width:4.2in;height:3.6in;top:-1.6in;right:-1.3in;background:radial-gradient(circle,var(--apricot) 0%,rgba(239,160,104,.35) 55%,transparent 72%)}
+  .b2{width:3.4in;height:3in;bottom:-1.4in;left:-1.2in;background:radial-gradient(circle,var(--peach) 0%,rgba(249,210,172,.5) 55%,transparent 72%)}
+  .b3{width:3in;height:3in;top:3.6in;left:-1.6in;background:radial-gradient(circle,rgba(249,210,172,.9) 0%,transparent 70%)}
+  .page>*:not(.blob){position:relative;z-index:1}
+  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;color:var(--terra);font-weight:600}
+  .eyebrow{font-size:8.5pt;letter-spacing:.22em;text-transform:uppercase;color:var(--terra-deep);font-weight:600}
+  header{display:flex;align-items:flex-start;gap:.18in}
+  header .dfly{width:.78in;flex:none;margin-top:.02in}
+  h1{font-size:31pt;line-height:1;margin:.05in 0 .08in;letter-spacing:-.005em}
+  h1 em{font-style:italic;font-weight:500;color:var(--ink)}
+  .sub{font-size:10pt;line-height:1.45;color:var(--muted);max-width:5.6in}
+  .rule{height:1px;background:linear-gradient(90deg,var(--terra),rgba(200,90,40,0));margin:.2in 0 .18in;opacity:.5}
+  h2{font-size:21pt;margin-bottom:.12in;display:flex;align-items:center;gap:.1in}
+  h2 svg{width:.26in;height:.26in}
+  /* golden rules */
+  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:.14in}
+  .card{background:var(--porcelain);border:1px solid rgba(200,90,40,.18);border-radius:16px;padding:.16in .16in .17in}
+  .num{width:.34in;height:.34in;border-radius:50%;background:var(--terra);color:#fff;font-family:"Cormorant Garamond",serif;
+    font-size:15pt;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:.08in}
+  .card h3{font-size:14.5pt;line-height:1.1;margin-bottom:.06in;color:var(--ink)}
+  .card p{font-size:8.6pt;line-height:1.5;color:#2b2520}
+  .card p b{color:var(--terra-deep);font-weight:600}
+  /* plate grid */
+  .plate{display:grid;grid-template-columns:repeat(4,1fr);gap:.12in;margin-top:.02in}
+  .col{background:rgba(254,246,236,.75);border-radius:14px;padding:.14in .13in;border-top:3px solid var(--apricot)}
+  .col h3{font-size:14pt;display:flex;align-items:center;gap:.06in;margin-bottom:.08in}
+  .col h3 svg{width:.22in;height:.22in;flex:none}
+  .col ul{list-style:none}
+  .col li{font-size:8.4pt;line-height:1.42;padding:.055in 0;border-bottom:1px dashed rgba(200,90,40,.25)}
+  .col li:last-child{border-bottom:0}
+  .tip{margin-top:.14in;background:var(--terra);color:#fff;border-radius:12px;padding:.11in .18in;font-size:8.8pt;line-height:1.45;display:flex;gap:.12in;align-items:center}
+  .tip b{font-family:"Cormorant Garamond",serif;font-size:13pt;font-weight:600;white-space:nowrap}
+  /* footer */
+  footer{margin-top:auto;padding-top:.14in;border-top:1px solid rgba(200,90,40,.3);display:flex;justify-content:space-between;align-items:flex-end;font-size:7.6pt;color:var(--muted)}
+  footer .slogan{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:13pt;color:var(--terra);font-weight:600}
+  footer .right{text-align:right;line-height:1.5}
+  /* page 2 */
+  .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:.14in}
+  .group{background:var(--porcelain);border-radius:14px;padding:.15in .15in .12in;border:1px solid rgba(200,90,40,.16)}
+  .group h3{font-size:13.5pt;line-height:1.1;margin-bottom:.08in;min-height:.36in;display:flex;align-items:flex-end}
+  .group.feature{background:#fff4e8;border:1.5px solid var(--apricot)}
+  .group .tag{display:inline-block;font-size:6.8pt;letter-spacing:.14em;text-transform:uppercase;background:var(--terra);color:#fff;border-radius:20px;padding:.02in .08in;margin-bottom:.05in;font-weight:600}
+  .group ul{list-style:none}
+  .group li{font-size:8.7pt;line-height:1.25;padding:.042in 0;display:flex;gap:.08in;align-items:flex-start}
+  .box{flex:none;width:.13in;height:.13in;border:1.3px solid var(--terra);border-radius:3px;margin-top:.01in;background:#fff}
+  .rhythm{margin-top:.18in;display:grid;grid-template-columns:1.35in 1fr;gap:.18in;align-items:center;
+    background:linear-gradient(120deg,var(--peach),var(--apricot));border-radius:18px;padding:.2in .24in}
+  .rhythm h3{font-size:20pt;color:var(--ink);line-height:1}
+  .rhythm h3 span{display:block;font-family:Inter,sans-serif;font-size:7.5pt;letter-spacing:.2em;text-transform:uppercase;color:var(--terra-deep);margin-bottom:.05in;font-weight:600}
+  .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:.1in}
+  .step{background:rgba(254,246,236,.85);border-radius:12px;padding:.1in .09in;font-size:8pt;line-height:1.35;text-align:center}
+  .step svg{width:.28in;height:.28in;display:block;margin:0 auto .05in}
+  .note{margin-top:.16in;font-size:8.8pt;line-height:1.5;color:#2b2520;text-align:center;font-style:italic;font-family:"Cormorant Garamond",serif;font-size:12pt;color:var(--terra-deep)}
+  @media print{html,body{background:none}.page{margin:0}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="dragonfly" viewBox="0 0 120 120">
+      <g fill="none" stroke="#C85A28" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="60" cy="24" r="5"/>
+        <path d="M60 29 v8"/>
+        <path d="M60 37 c-3 0 -4 4 -4 8 s1 8 4 8 s4 -4 4 -8 s-1 -8 -4 -8z"/>
+        <path d="M60 53 L60 110"/>
+        <path d="M57.5 60h5M57.5 68h5M57.5 76h5M57.5 84h5M57.5 92h5M58 100h4"/>
+        <path d="M56 41 C40 30 14 26 8 34 C4 41 22 47 56 45"/>
+        <path d="M64 41 C80 30 106 26 112 34 C116 41 98 47 64 45"/>
+        <path d="M56 48 C42 52 20 64 22 72 C25 78 44 66 57 52"/>
+        <path d="M64 48 C78 52 100 64 98 72 C95 78 76 66 63 52"/>
+        <path d="M18 36 C30 37 42 40 54 43M102 36 C90 37 78 40 66 43M28 68 C36 62 46 56 56 50M92 68 C84 62 74 56 64 50" stroke-width="1" opacity=".55"/>
+      </g>
+    </symbol>
+    <symbol id="leaf" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19 13 11"/></g></symbol>
+    <symbol id="sun" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round"><path d="M4 17h16"/><path d="M7 17a5 5 0 0 1 10 0"/><path d="M12 6v2M5.6 9.6l1.4 1.4M18.4 9.6 17 11M3 13h2M19 13h2"/></g></symbol>
+    <symbol id="bowl" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18a9 9 0 0 1-18 0z"/><path d="M9 7c0-2 2-2 2-4M13 7c0-2 2-2 2-4"/></g></symbol>
+    <symbol id="moon" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 15A8 8 0 0 1 9 5a8 8 0 1 0 10 10z"/></g></symbol>
+    <symbol id="berry" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="15" r="4"/><circle cx="16" cy="14" r="3.5"/><path d="M9 11c0-3 2-6 5-7M16 10.5c-.5-2-1-4-2-6.5"/></g></symbol>
+    <symbol id="lemon" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round"><path d="M7 5h10l-1 15H8z"/><circle cx="12" cy="11" r="2.5"/></g></symbol>
+    <symbol id="clock" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></g></symbol>
+    <symbol id="jar" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v3H8z"/><path d="M7 6h10l1 3v10a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9z"/><path d="M9 13c1 1 2-1 3 0s2-1 3 0"/></g></symbol>
+    <symbol id="bed" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V8M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/><circle cx="7" cy="11" r="1.6"/></g></symbol>
+    <symbol id="walk" viewBox="0 0 24 24"><g fill="none" stroke="#C85A28" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1.8"/><path d="M10 21l2-6 3 3v3M12 15l1-6 3 3h3M13 9l-4 2-1 3"/></g></symbol>
+  </defs>
+</svg>
+
+<!-- PAGE 1 -->
+<section class="page">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <header>
+    <svg class="dfly" viewBox="0 0 120 120"><use href="#dragonfly"/></svg>
+    <div>
+      <div class="eyebrow">The Body Temple Spa &nbsp;·&nbsp; 7-Day Reset</div>
+      <h1>The 7-Day Feminine <em>GLP-1</em> Meal&nbsp;Map</h1>
+      <p class="sub">Akkermansia &amp; Natural GLP-1 foods that are skin &amp; hormone friendly. Part of The 7-Day Feminine GLP-1 &amp; Nervous System Reset.</p>
+    </div>
+  </header>
+  <div class="rule"></div>
+
+  <h2><svg><use href="#leaf"/></svg>The 3 Golden Rules</h2>
+  <div class="rules">
+    <div class="card">
+      <div class="num">1</div>
+      <h3>Protein &amp; Fiber First</h3>
+      <p>Start every meal with <b>25–30 g of protein</b> and veggies before any starch or sweets. This wakes up your natural fullness signals <b style="white-space:nowrap">(GLP-1)</b>.</p>
+    </div>
+    <div class="card">
+      <div class="num">2</div>
+      <h3>Feed Your Akkermansia Daily</h3>
+      <p>Colorful <b>polyphenols</b> (berries, pomegranate, green tea, cacao) + <b>prebiotic fiber</b> (onion, garlic, leeks, asparagus, green banana, oats) every day, plus a forkful of <b>probiotic-rich fermented food</b> (kimchi, sauerkraut, kefir) to bring in friendly bacteria.</p>
+    </div>
+    <div class="card">
+      <div class="num">3</div>
+      <h3>Calm Before You Chew</h3>
+      <p>Play your <b>60-second pre-meal audio</b>, sit down, no screens, and chew slowly. A body that feels safe digests, balances hormones and lets go.</p>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+  <h2><svg><use href="#bowl"/></svg>Build Your Plate</h2>
+  <div class="plate">
+    <div class="col">
+      <h3><svg><use href="#sun"/></svg>Breakfast</h3>
+      <ul>
+        <li>Yogurt bowl with berries, ground flax &amp; chia</li>
+        <li>Veggie omelet with avocado &amp; sautéed spinach</li>
+        <li>Overnight oats with pomegranate, walnuts &amp; protein powder</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3><svg><use href="#leaf"/></svg>Lunch</h3>
+      <ul>
+        <li>Salmon or chicken salad with arugula, olive oil &amp; lemon</li>
+        <li>Quinoa bowl with roasted broccoli, chickpeas &amp; tahini</li>
+        <li>Lentil-leek soup with a side of greens</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3><svg><use href="#moon"/></svg>Dinner</h3>
+      <ul>
+        <li>Wild salmon with asparagus &amp; sweet potato</li>
+        <li>Beef or turkey stir-fry with bok choy, garlic &amp; onion</li>
+        <li>Chicken thighs with Brussels sprouts &amp; cauliflower mash</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3><svg><use href="#berry"/></svg>Snacks</h3>
+      <ul>
+        <li>Kefir or coconut kefir smoothie with berries</li>
+        <li>Green apple + almond butter</li>
+        <li>Berries &amp; pumpkin seeds</li>
+        <li>Boiled eggs + cucumber</li>
+        <li>2 squares 85% dark chocolate + green tea</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tip"><b>Fermented boost</b><span>Add a forkful of kimchi or sauerkraut to any lunch or dinner to feed your gut friendly bacteria.</span></div>
+
+  <footer>
+    <div class="slogan">The Future Is Yours.</div>
+    <div class="right">© 2026 The Body Temple Spa. All rights reserved.<br>This guide is educational and not medical advice.</div>
+  </footer>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+  <div class="blob b1"></div><div class="blob b3"></div>
+  <header>
+    <svg class="dfly" viewBox="0 0 120 120" style="width:.6in"><use href="#dragonfly"/></svg>
+    <div>
+      <div class="eyebrow">The 7-Day Feminine GLP-1 Meal Map</div>
+      <h1 style="font-size:30pt">Your 7-Day <em>Grocery</em> Checklist</h1>
+      <p class="sub">Shop once, nourish all week. Check off each item as it goes in your cart.</p>
+    </div>
+  </header>
+  <div class="rule"></div>
+
+  <div class="groups">
+    <div class="group"><h3>Proteins</h3><ul>
+      <li><span class="box"></span>Wild salmon</li><li><span class="box"></span>Sardines</li><li><span class="box"></span>Pasture-raised eggs</li>
+      <li><span class="box"></span>Chicken</li><li><span class="box"></span>Turkey</li><li><span class="box"></span>Grass-fed beef</li>
+      <li><span class="box"></span>Greek or coconut yogurt</li><li><span class="box"></span>Lentils</li><li><span class="box"></span>Chickpeas</li></ul></div>
+    <div class="group"><h3>Akkermansia &amp; Polyphenol Foods</h3><ul>
+      <li><span class="box"></span>Blueberries</li><li><span class="box"></span>Raspberries</li><li><span class="box"></span>Pomegranate</li>
+      <li><span class="box"></span>Cranberries</li><li><span class="box"></span>Green tea</li><li><span class="box"></span>85% dark chocolate</li>
+      <li><span class="box"></span>Extra-virgin olive oil</li></ul></div>
+    <div class="group feature"><span class="tag">Gut boost</span><h3 style="min-height:0">Probiotic-Rich Fermented Foods</h3><ul>
+      <li><span class="box"></span>Kimchi</li><li><span class="box"></span>Sauerkraut (raw, refrigerated)</li><li><span class="box"></span>Kefir or coconut kefir</li>
+      <li><span class="box"></span>Plain yogurt with live cultures</li><li><span class="box"></span>Miso</li><li><span class="box"></span>Tempeh</li>
+      <li><span class="box"></span>Kombucha (low sugar)</li></ul></div>
+    <div class="group"><h3>Prebiotic Fiber</h3><ul>
+      <li><span class="box"></span>Onions</li><li><span class="box"></span>Garlic</li><li><span class="box"></span>Leeks</li>
+      <li><span class="box"></span>Asparagus</li><li><span class="box"></span>Artichokes</li><li><span class="box"></span>Green bananas</li>
+      <li><span class="box"></span>Oats</li><li><span class="box"></span>Ground flaxseed</li><li><span class="box"></span>Chia seeds</li></ul></div>
+    <div class="group"><h3>Hormone-Friendly Veggies</h3><ul>
+      <li><span class="box"></span>Broccoli</li><li><span class="box"></span>Brussels sprouts</li><li><span class="box"></span>Cauliflower</li>
+      <li><span class="box"></span>Kale</li><li><span class="box"></span>Arugula</li><li><span class="box"></span>Bok choy</li>
+      <li><span class="box"></span>Spinach</li><li><span class="box"></span>Cucumber</li><li><span class="box"></span>Sweet potato</li></ul></div>
+    <div class="group"><h3>Healthy Fats &amp; Extras</h3><ul>
+      <li><span class="box"></span>Avocado</li><li><span class="box"></span>Walnuts</li><li><span class="box"></span>Almonds</li>
+      <li><span class="box"></span>Pumpkin seeds</li><li><span class="box"></span>Tahini</li><li><span class="box"></span>Almond butter</li>
+      <li><span class="box"></span>Lemons</li><li><span class="box"></span>Fresh herbs</li><li><span class="box"></span>Sea salt</li></ul></div>
+  </div>
+
+  <div class="rhythm">
+    <h3><span>Every day</span>Daily Rhythm</h3>
+    <div class="steps">
+      <div class="step"><svg><use href="#lemon"/></svg>Lemon water on waking</div>
+      <div class="step"><svg><use href="#clock"/></svg>3 meals, 4–5 hours apart</div>
+      <div class="step"><svg><use href="#jar"/></svg>A forkful of kimchi or sauerkraut with lunch or dinner</div>
+      <div class="step"><svg><use href="#bed"/></svg>Last meal 3 hours before bed</div>
+      <div class="step"><svg><use href="#walk"/></svg>10-minute walk after meals</div>
+    </div>
+  </div>
+
+  <p class="note">Your body was never broken. It was waiting to feel safe.</p>
+
+  <footer>
+    <div class="slogan">The Future Is Yours.</div>
+    <div class="right">© 2026 The Body Temple Spa. All rights reserved.<br>This guide is educational and not medical advice.</div>
+  </footer>
+</section>
+
+</body>
+</html>
