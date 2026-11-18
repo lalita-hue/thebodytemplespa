@@ -68,6 +68,11 @@ business facts in this file.
 - **7-Day Reset ($37) build prompts** (Canva Meal Map PDF + pre-meal somatic audio script): `content/7-day-reset-prompts.md`.
   Finished Meal Map PDF (2 pages, includes probiotic/fermented foods like kimchi): `content/7-day-reset/7-Day-Feminine-GLP-1-Meal-Map.pdf`
   (source `content/7-day-reset/meal-map.html`; edit the HTML and re-render to change it).
+  The PDF follows **Week 1 "Nourish First"** (protein 20-30 g/meal, soluble fiber every meal, water = half body weight in oz)
+  from Lalita's book "Natural GLP-1 Production: Food, Sleep, Movement, and Stress Management" (a 4-week plan).
+  The 7-Day Reset covers Week 1 only. Keep later-week topics (timing, mindful eating, movement, sleep, stress) out
+  unless labeled as a bonus. Current bonuses: kimchi/sauerkraut/kefir (gut boost) and the 60-second pre-meal audio.
+  Companion video outline + script: `content/7-day-reset/meal-map-video.md`.
 
 ## Funnels / widgets
 
