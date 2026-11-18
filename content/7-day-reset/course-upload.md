@@ -26,7 +26,7 @@ Your body already makes its own GLP-1, the hormone that tells your brain "we're 
 
 This 7-day reset gently turns those signals back on by supporting your gut, your hormones and your nervous system together. This is not a diet, a cleanse or a challenge. There are no forbidden foods and no perfect days. This week you add, you don't subtract.
 
-Your Week 1 focus: Nourish First.
+This is Week 1 of our full 4-week plan: Nourish First.
 Every day you'll aim for 3 simple wins:
 • Protein Win: 20-30 g at each meal, with breakfast within 1 hour of waking
 • Fiber Win: soluble and prebiotic fiber at every meal to feed Akkermansia and the gut bacteria that make GLP-1
@@ -40,11 +40,16 @@ What's inside:
 • BONUS: Gut Boost with probiotic-rich fermented foods (kimchi, sauerkraut, kefir)
 • BONUS: 14 days of Radiant Self Premium inside The Feminine Gut, with our wellness library, community and expert support
 
+Your next step after Day 7:
+At the end of your week, you'll choose the path that fits your body.
+• If these foods felt good in your body, continue to the full month. We build on your foundation with mindful eating, meal timing, sleep, movement and nervous system support, one gentle layer at a time.
+• If you have food sensitivities, or some of these foods didn't feel good, start with the hair test inside The Hair Temple Blueprint. It shows your mineral patterns and what your body has been going through, so your plan is built for you instead of guessing.
+
 Your body already knows what to do. This week, we give it what it needs.
 
 The Future Is Yours.
 
-This program is educational and not medical advice.
+This program is educational and not medical advice. A hair test does not diagnose disease or test for allergies.
 ```
 
 ---
