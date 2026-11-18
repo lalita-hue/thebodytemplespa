@@ -68,14 +68,15 @@ GHL's template gave one module ("Course Contents") with 5 lessons. Layout used:
 - **Module 1: Start Here & Your Tools** (renamed "Course Contents"): Welcome Aboard! → Welcome & Overview · Lesson 1 → How to Use Your Meal Map · Lesson 2 → Your 7-Day Meal Map (PDF) · Lesson 3 → Pre-Meal Audio Ritual
 - **Module 2: Your 7 Days**: Day 1–7 lessons
 - **Module 3: Your Bonuses**: Gut Boost · 14 Days of Radiant Self Premium
-- **Module 4: Your Next Step**: "What's Next?" (moved here) → Your Next Step: Continue Your Reset
+- **Module 4: Celebrate & Keep Your Results** (rewards module, before the upgrades): Day 7 Reflection · Recipe Cards · Cheat Sheet · Eat Out & Busy Days Guide · Wins Wall & Certificate · Gift From the Spa (optional)
+- **Module 5: Your Next Step**: "What's Next?" (moved here) → Your Next Step: Continue Your Reset
 - Welcome Badge: "Welcome to Your Reset" · Course Completion Credential: "Nourish First: 7-Day Reset Complete"
 
 ---
 
 ## Course structure (add after creating the course)
 
-### Module 1: Start Here
+### Module 1: Start Here & Your Tools
 
 **Lesson 1.1: Welcome & Overview**
 Video: Part 1 of the welcome video
@@ -89,7 +90,7 @@ Video: Part 2 of the welcome video. Attach: Meal Map PDF
 Let's walk through your 7-Day Meal Map together: your 3 Daily Wins (protein, fiber and water), your 7 days of meals, your grocery checklist, how to prep once and eat all week, and how to track your wins. Download and print your Meal Map below before you go shopping.
 ```
 
-### Module 2: Your Tools
+### Module 1 (continued): Your Tools
 
 **Lesson 2.1: Your 7-Day Feminine GLP-1 Meal Map (PDF)**
 Attach: Meal Map PDF
@@ -103,7 +104,7 @@ Attach or upload: the audio file
 Press play before each meal. In 60 seconds you'll breathe, hum and ground your body so your nervous system shifts out of stress and into "rest and digest." A body that feels safe can digest. Save this lesson so it's one tap away at mealtime.
 ```
 
-### Module 3: Your 7 Days
+### Module 2: Your 7 Days
 One lesson per day, text only (no video needed). Paste each one.
 
 **Day 1: Begin With Nourishment**
@@ -216,7 +217,7 @@ Check-in: What changed for me this week: energy, fullness, cravings, digestion o
 Share your biggest win in the community!
 ```
 
-### Module 4: Your Bonuses
+### Module 3: Your Bonuses
 
 **Lesson 4.1: Bonus: Gut Boost with Fermented Foods**
 ```
@@ -228,6 +229,42 @@ Add a button or link to The Feminine Gut community:
 https://thebodytempleacademy.app.clientclub.net/communities/groups/the-feminine-gut
 ```
 Your Reset includes 14 days of Radiant Self Premium inside The Feminine Gut community: our wellness library, community and expert support. Join below, introduce yourself, post your daily wins and ask your questions. We're here to support you.
+```
+
+### Module 4: Celebrate & Keep Your Results
+Module description:
+```
+You didn't just finish a week, you built a foundation. This module is our gift to you: see your results, get the recipes behind your Meal Map, and keep your 3 Daily Wins going on busy days, at restaurants and when you travel.
+```
+
+**Lesson 4.1: Your Day 7 Reflection: Before & After** (attach the reflection worksheet PDF, to be built)
+```
+Let's make your progress visible. Rate your energy, cravings, fullness, digestion, bloating, mood, skin and sleep from 1 to 10, the way you felt before Day 1 and how you feel today. Then write down your 3 biggest wins. Most women are surprised by how much shifted in just 7 days. Keep this page. It's the beginning of your story.
+```
+
+**Lesson 4.2: Bonus: Nourish-First Recipe Cards** (attach the recipe cards PDF, to be built)
+```
+Every meal from your Meal Map as a simple recipe card: the lentil-leek soup, the turkey stir-fry and its sauce, the overnight oats, the tahini dressing, the Greek yogurt bowl and more. Each card shows the protein and fiber in the meal, so you can make these favorites again and again, long after this week.
+```
+
+**Lesson 4.3: Bonus: Your Protein & Fiber Cheat Sheet** (attach the cheat sheet PDF, to be built)
+```
+Your one-page guide to hitting your wins without counting: how much protein is in your favorite foods (3 eggs, 1 cup Greek yogurt, 4 oz salmon, 1 cup lentils), your best soluble and prebiotic fiber foods, and simple ways to add them to any meal. Save it on your phone or stick it on your fridge.
+```
+
+**Lesson 4.4: Bonus: Eat Out, Travel & Busy Days Guide** (attach the guide PDF, to be built)
+```
+Real life doesn't pause, and your wins don't have to either. Here's how to hit protein, fiber and water at restaurants, coffee shops, the airport, on road trips and on your busiest days, plus a list of 10-minute "emergency meals" you can make with what's in your pantry.
+```
+
+**Lesson 4.5: Your Wins Wall & Certificate**
+```
+You did it! Share your biggest win from this week on the Wins Wall inside The Feminine Gut community. Your story might be exactly what another woman needs to hear today. Then claim your "Nourish First: 7-Day Reset Complete" certificate. You earned it.
+```
+
+**Lesson 4.6: A Gift From The Body Temple Spa** (optional; confirm the offer with Lalita first)
+```
+As a thank-you for completing your Reset, here's a gift from our spa: [OFFER, e.g. $__ off a lymphatic drainage session or facial]. Use code [CODE] by [DATE]. Because self care is self love.
 ```
 
 ### Module 5: Your Next Step
