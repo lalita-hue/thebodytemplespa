@@ -65,6 +65,7 @@ business facts in this file.
   (Nov 2026). Earlier outline: "Detox Him First".
 - **The Hair Temple Blueprint** (community course; formerly "Insight Program"): hair test (HTMA) +
   supplements + teaching members to read their results. Outline: `content/hair-temple-blueprint.md`.
+- **7-Day Reset ($37) build prompts** (Canva Meal Map PDF + pre-meal somatic audio script): `content/7-day-reset-prompts.md`.
 
 ## Funnels / widgets
 
