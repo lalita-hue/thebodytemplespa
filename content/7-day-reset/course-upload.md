@@ -68,7 +68,7 @@ GHL's template gave one module ("Course Contents") with 5 lessons. Layout used:
 - **Module 1: Start Here & Your Tools** (renamed "Course Contents"): Welcome Aboard! → Welcome & Overview · Lesson 1 → How to Use Your Meal Map · Lesson 2 → Your 7-Day Meal Map (PDF) · Lesson 3 → Pre-Meal Audio Ritual
 - **Module 2: Your 7 Days**: Day 1–7 lessons
 - **Module 3: Your Bonuses**: Gut Boost · 14 Days of Radiant Self Premium
-- **Module 4: Celebrate & Keep Your Results** (rewards module, before the upgrades): Day 7 Reflection · Recipe Cards · Cheat Sheet · Eat Out & Busy Days Guide · Wins Wall & Certificate · Gift From the Spa (optional)
+- **Module 4: Keep & Enhance Your Results** (rewards module, before the upgrades): Day 7 Reflection · Recipe Cards · Cheat Sheet · Eat Out & Busy Days Guide · Wins Wall & Certificate · Gift From the Spa (optional)
 - **Module 5: Your Next Step**: "What's Next?" (moved here) → Your Next Step: Continue Your Reset
 - Welcome Badge: "Welcome to Your Reset" · Course Completion Credential: "Nourish First: 7-Day Reset Complete"
 
@@ -231,7 +231,7 @@ https://thebodytempleacademy.app.clientclub.net/communities/groups/the-feminine-
 Your Reset includes 14 days of Radiant Self Premium inside The Feminine Gut community: our wellness library, community and expert support. Join below, introduce yourself, post your daily wins and ask your questions. We're here to support you.
 ```
 
-### Module 4: Celebrate & Keep Your Results
+### Module 4: Keep & Enhance Your Results
 Module description:
 ```
 You didn't just finish a week, you built a foundation. This module is our gift to you: see your results, get the recipes behind your Meal Map, and keep your 3 Daily Wins going on busy days, at restaurants and when you travel.

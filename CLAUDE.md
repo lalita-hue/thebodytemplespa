@@ -82,7 +82,7 @@ business facts in this file.
   who are NOT sensitive to the foods; (2) the hair test (HTMA, The Hair Temple Blueprint), for women WITH food sensitivities.
   Closing upgrade video script: `content/7-day-reset/upgrade-video.md` (Module 5). Still needed from Lalita: full-month
   program name, price and link; hair test price and link; any discount for Reset buyers.
-  Lalita wants the course to feel like much more than expected: Module 4 "Celebrate & Keep Your Results" (rewards: Day 7
+  Lalita wants the course to feel like much more than expected: Module 4 "Keep & Enhance Your Results" (rewards: Day 7
   reflection, recipe cards, protein & fiber cheat sheet, eat-out/travel guide, Wins Wall + certificate, optional spa gift)
   comes right before Module 5 "Your Next Step" (upgrades).
   **Breakfast must be within 1 hour of waking** (Lalita's rule; overrides the book's "within 2 hours").
