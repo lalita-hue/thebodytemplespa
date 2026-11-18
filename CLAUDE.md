@@ -72,7 +72,10 @@ business facts in this file.
   from Lalita's book "Natural GLP-1 Production: Food, Sleep, Movement, and Stress Management" (a 4-week plan).
   The 7-Day Reset covers Week 1 only. Keep later-week topics (timing, mindful eating, movement, sleep, stress) out
   unless labeled as a bonus. Current bonuses: kimchi/sauerkraut/kefir (gut boost) and the 60-second pre-meal audio.
-  Companion video outline + script: `content/7-day-reset/meal-map-video.md`.
+  Welcome video outline + script (Part 1 intro/overview of the subject, Part 2 Meal Map walkthrough): `content/7-day-reset/meal-map-video.md`.
+  Product mockup (night-bloom flowers, "THE FEMININE GUT" wordmark): `content/7-day-reset/source/product-mockup.webp`.
+  Full product name on the mockup: "The 7-Day Feminine GLP-1 & Nervous System Hormonal Reset". Included: 7-Day Meal Map,
+  Pre-Meal Audio Rituals, 14 Days of Radiant Self Premium (Wellness Library, Community & Expert Support).
   **Breakfast must be within 1 hour of waking** (Lalita's rule; overrides the book's "within 2 hours").
 
 ## Funnels / widgets
