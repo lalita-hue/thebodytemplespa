@@ -30,7 +30,8 @@ PAGE 1
      signals (GLP-1).
   2. Feed Your Akkermansia Daily: eat colorful polyphenols (berries, pomegranate,
      green tea, cacao) plus prebiotic fiber (onion, garlic, leeks, asparagus,
-     green banana, oats) every day.
+     green banana, oats) every day, plus a forkful of probiotic-rich fermented food
+     (kimchi, sauerkraut, kefir) to bring in friendly bacteria.
   3. Calm Before You Chew: play your 60-second pre-meal audio ritual, sit down,
      no screens, and chew slowly. A body that feels safe digests, balances hormones
      and lets go.
@@ -44,16 +45,18 @@ PAGE 1
     greens.
   Dinner: baked wild salmon with asparagus & sweet potato; grass-fed beef or turkey
     stir-fry with bok choy, garlic & onion; chicken thighs with roasted Brussels
-    sprouts & cauliflower mash.
-  Snacks: green apple with almond butter; a handful of berries & pumpkin seeds;
+    sprouts & cauliflower mash. Add a side of kimchi or sauerkraut to any lunch or dinner.
+  Snacks: kefir or coconut kefir smoothie with berries; green apple with almond butter; a handful of berries & pumpkin seeds;
     hard-boiled eggs with cucumber; 2 squares 85% dark chocolate with green tea.
 
 PAGE 2
-- Section "Your 7-Day Grocery Checklist" with checkbox lists in 5 groups:
+- Section "Your 7-Day Grocery Checklist" with checkbox lists in 6 groups:
   Proteins: wild salmon, sardines, pasture eggs, chicken, turkey, grass-fed beef,
     Greek or coconut yogurt, lentils, chickpeas.
   Akkermansia & Polyphenol Foods: blueberries, raspberries, pomegranate, cranberries,
     green tea, 85% dark chocolate, extra-virgin olive oil.
+  Probiotic-Rich Fermented Foods: kimchi, sauerkraut (raw, refrigerated), kefir or
+    coconut kefir, plain yogurt with live cultures, miso, tempeh, kombucha (low sugar).
   Prebiotic Fiber: onions, garlic, leeks, asparagus, artichokes, green bananas,
     oats, ground flaxseed, chia seeds.
   Hormone-Friendly Veggies: broccoli, Brussels sprouts, cauliflower, kale, arugula,
@@ -61,7 +64,7 @@ PAGE 2
   Healthy Fats & Extras: avocado, walnuts, almonds, pumpkin seeds, tahini, almond
     butter, lemons, fresh herbs, sea salt.
 - Small box "Daily Rhythm": water + lemon on waking, 3 meals 4-5 hours apart,
-  last meal 3 hours before bed, a 10-minute walk after meals.
+  a forkful of kimchi or sauerkraut with lunch or dinner, last meal 3 hours before bed, a 10-minute walk after meals.
 - Footer on both pages: "The Future Is Yours." and
   "© 2026 The Body Temple Spa. All rights reserved."
   Plus small print: "This guide is educational and not medical advice."
