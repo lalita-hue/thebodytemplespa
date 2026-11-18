@@ -78,6 +78,10 @@ business facts in this file.
   Pre-Meal Audio Rituals, 14 Days of Radiant Self Premium (Wellness Library, Community & Expert Support).
   Being built as a GHL Membership course (new course creator). Upload copy (title, description, pricing, modules,
   Day 1-7 lessons) in `content/7-day-reset/course-upload.md`; thumbnail `content/7-day-reset/course-thumbnail-1280x720.jpg`.
+  **The 7-Day Reset is the entry to a full plan, with 2 upgrades at the end:** (1) the full 4-week / full-month plan, for women
+  who are NOT sensitive to the foods; (2) the hair test (HTMA, The Hair Temple Blueprint), for women WITH food sensitivities.
+  Closing upgrade video script: `content/7-day-reset/upgrade-video.md` (Module 5). Still needed from Lalita: full-month
+  program name, price and link; hair test price and link; any discount for Reset buyers.
   **Breakfast must be within 1 hour of waking** (Lalita's rule; overrides the book's "within 2 hours").
 
 ## Funnels / widgets

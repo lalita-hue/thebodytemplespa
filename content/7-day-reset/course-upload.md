@@ -214,3 +214,20 @@ https://thebodytempleacademy.app.clientclub.net/communities/groups/the-feminine-
 ```
 Your Reset includes 14 days of Radiant Self Premium inside The Feminine Gut community: our wellness library, community and expert support. Join below, introduce yourself, post your daily wins and ask your questions. We're here to support you.
 ```
+
+### Module 5: Your Next Step
+
+**Lesson 5.1: Your Next Step: Continue Your Reset**
+Video: closing video (script: `content/7-day-reset/upgrade-video.md`)
+Buttons: **"Continue to the Full Month"** → [FULL MONTH LINK] · **"Get My Hair Test"** → [HAIR TEST LINK]
+```
+You finished your foundation week! This was Week 1 of a full 4-week plan. Watch this video to choose your next step.
+
+If your body felt good with these foods: continue to the full month. We'll build on your foundation with mindful eating, meal timing, sleep, movement and nervous system support, one gentle layer at a time.
+
+If you have food sensitivities, or some of these foods didn't feel good: start with the hair test inside The Hair Temple Blueprint. It shows your mineral patterns and what your body has been going through, so your plan is built for you instead of guessing.
+
+Not sure? Post in the community and ask us.
+
+A hair test is educational. It does not diagnose disease or test for allergies.
+```
