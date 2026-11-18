@@ -76,6 +76,8 @@ business facts in this file.
   Product mockup (night-bloom flowers, "THE FEMININE GUT" wordmark): `content/7-day-reset/source/product-mockup.webp`.
   Full product name on the mockup: "The 7-Day Feminine GLP-1 & Nervous System Hormonal Reset". Included: 7-Day Meal Map,
   Pre-Meal Audio Rituals, 14 Days of Radiant Self Premium (Wellness Library, Community & Expert Support).
+  Being built as a GHL Membership course (new course creator). Upload copy (title, description, pricing, modules,
+  Day 1-7 lessons) in `content/7-day-reset/course-upload.md`; thumbnail `content/7-day-reset/course-thumbnail-1280x720.jpg`.
   **Breakfast must be within 1 hour of waking** (Lalita's rule; overrides the book's "within 2 hours").
 
 ## Funnels / widgets
