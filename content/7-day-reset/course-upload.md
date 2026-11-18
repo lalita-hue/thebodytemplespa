@@ -63,6 +63,16 @@ Upload `course-thumbnail-1280x720.jpg`.
 
 ---
 
+## GHL layout (how it's actually built)
+GHL's template gave one module ("Course Contents") with 5 lessons. Layout used:
+- **Module 1: Start Here & Your Tools** (renamed "Course Contents"): Welcome Aboard! → Welcome & Overview · Lesson 1 → How to Use Your Meal Map · Lesson 2 → Your 7-Day Meal Map (PDF) · Lesson 3 → Pre-Meal Audio Ritual
+- **Module 2: Your 7 Days**: Day 1–7 lessons
+- **Module 3: Your Bonuses**: Gut Boost · 14 Days of Radiant Self Premium
+- **Module 4: Your Next Step**: "What's Next?" (moved here) → Your Next Step: Continue Your Reset
+- Welcome Badge: "Welcome to Your Reset" · Course Completion Credential: "Nourish First: 7-Day Reset Complete"
+
+---
+
 ## Course structure (add after creating the course)
 
 ### Module 1: Start Here
