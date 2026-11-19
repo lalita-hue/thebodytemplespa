@@ -81,7 +81,7 @@ business facts in this file.
   `GHL-glp1-countdown.html`, a GHL Custom JS/HTML widget in the same night-bloom look with the dragonfly.
   Settings at top of the script: EVENT_START (date/time with time-zone offset), REGISTER_URL.
   Turns into "We're live now" + "Join the Live Now" button when the time arrives.
-  Event date/time not confirmed yet (placeholder: Dec 3, 2026, 6 pm Eastern).
+  Event: Thu Nov 19, 2026 at 6:00 pm Eastern (spa time zone in GHL is America/New_York).
 
 ## Automations
 
