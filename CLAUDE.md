@@ -98,6 +98,10 @@ business facts in this file.
   dermaplaning, collagen, chemical peels, acne), Korean lash lift & tint, permanent makeup (brows, lips), waxing,
   plus The Feminine Gut community and The Hair Temple Blueprint (hair mineral test). Studio is on Prince Ave, Athens, GA;
   "Athens' First Longevity Spa", non-toxic, longevity approach.
+- **Services are presented in 3 problem-based categories** (never the full list, it bores clients): **Body** (lymphatic,
+  post-op, lymphedema, vibration plate, body contouring), **Skin & Beauty** (skin analysis, facials, acne, peels,
+  dermaplaning, collagen/sculpting, lash lift, permanent makeup, waxing), **Inner Wellness** (The Feminine Gut, 7-Day Reset,
+  Hair Temple Blueprint). Say all 3 briefly, then go deeper only on the one matching the client's intake goals.
 
 ## Funnels / widgets
 

@@ -19,7 +19,7 @@ approach), confirms their intake form, and leaves knowing what else we can do fo
 | 3 | Offer our water (or tea) | 1:30 | Client has a drink and knows about our water |
 | 4 | Review the intake form together | 2:00–6:00 | Form complete, signed, any concerns flagged |
 | 5 | Place the neck wrap | 6:00 | Wrap on, client relaxed |
-| 6 | Share our services (tailored) | 6:30–8:00 | Client knows 1–2 services that fit their goals |
+| 6 | Share our 3 service categories | 6:30–8:00 | Client heard the 3 categories + 1–2 services for their goal |
 | 7 | Walk them to the room | 8:00 | Client knows what to expect in the session |
 | 8 | After the session (bonus) | after | Water refill, aftercare, next visit booked |
 
@@ -93,36 +93,48 @@ Ask permission first.
 >
 > "How does that feel? Too warm?"
 
-## Step 6: Share our services (tailored to their goals)
-The client is relaxed and seated, so this is the moment. Keep it to about a minute. Lead with what **matches their goals
-from the intake form**, then briefly mention the rest. Hand them the **service menu card**.
+## Step 6: Share our services (3 categories, by problem)
+Don't list every service, that's too much. Say the **3 categories in one breath (about 20 seconds)**, framed by the
+problem each one solves. Then **go deeper only on the category that matches their intake goals**, and ask a question.
+Hand them the service menu card for the rest.
 
-> "While you relax, I'd love to give you a quick picture of everything we offer, so you know we're here for you
-> whenever you need us."
+> "While you relax, I'd love to share how we can help you, so you know we're here whenever you need us.
+>
+> Everything we do falls into three areas:
+>
+> **Body:** for when you feel swollen, heavy or puffy, you're healing after surgery, or you want to reshape stubborn areas.
+>
+> **Skin & Beauty:** for breakouts, dullness, fine lines, and for waking up already put together.
+>
+> And **Inner Wellness:** for bloating, cravings, hormones and fatigue, when you want to understand what's going on inside.
+>
+> Since you mentioned **[their goal from the intake form]**, I think **[category]** is where we could help you most."
 
-**Our services (say it naturally, not as a list):**
-- **Lymphatic drainage:** wellness, post-op and lymphedema, targeted or full-body, with session packages.
-  *Add-on:* our **Vibration Plate Lymphatic Reset** for $15.
-- **Body contouring & sculpting:** non-surgical, no downtime, for the waist, back, legs, arms, jawline and cellulite.
-- **Facials & skincare:** advanced skin analysis first, then facials, sculpting, dermaplaning, collagen,
-  chemical peels and acne treatments.
-- **Korean lash lift & tint.**
-- **Permanent makeup:** brows and lips, designed for your face.
-- **Waxing:** face and body, with hard wax and non-toxic aftercare.
-- **Wellness beyond the spa:** The Feminine Gut community for gut and hormone health, and our hair mineral test,
-  The Hair Temple Blueprint, for women who want to stop guessing about what their body needs.
+Then go deeper on **only that category**, using the table below. Pick 1–2 services, not all of them.
 
-> "Since you mentioned **[their goal]**, I think you'd really love **[1 matching service]**. Your practitioner
-> can tell you more after your session today. No pressure at all, I just want you to know it's here for you."
+> "For that, our clients love **[service]**. It **[one-line benefit]**. Your practitioner can tell you more after
+> your session today. No pressure at all, I just want you to know it's here for you."
 
-**Goal → service ideas:**
-| They said… | Suggest |
-|---|---|
-| Puffiness, swelling, heaviness, post-surgery | Lymphatic drainage, Vibration Plate add-on |
-| Stubborn areas, shape, cellulite | Body contouring & sculpting |
-| Breakouts, dullness, fine lines | Skin analysis + facial or peel |
-| Bloating, cravings, hormones, fatigue | The Feminine Gut, the hair mineral test |
-| Saving time getting ready | Lash lift & tint, permanent makeup brows |
+If their goals don't point anywhere, ask:
+> "Out of those three, is there one that speaks to you most right now?"
+
+### The 3 categories
+
+| Category | The problem they mention | Services to offer | One-line benefit to say |
+|---|---|---|---|
+| **1. Body**<br>*Feel lighter, heal and reshape* | Swelling, puffiness, heaviness, water retention | **Lymphatic drainage** (wellness), targeted or full-body; **Vibration Plate Lymphatic Reset** add-on ($15) | "It helps your body release fluid, so you leave feeling lighter and less puffy." |
+| | Recovering after surgery (BBL, lipo, tummy tuck) | **Post-op lymphatic drainage** and session packages (7, 10 or 15) | "It supports your healing and helps reduce swelling after surgery." |
+| | Lymphedema | **Lymphedema lymphatic drainage** | "Gentle, specialized work for ongoing swelling." |
+| | Stubborn areas, shape, cellulite | **Body contouring & sculpting** (waist, back, legs, arms, jawline, cellulite), 3- or 6-session packages | "Visible results with no surgery and no downtime." |
+| **2. Skin & Beauty**<br>*Glow, clear and wake up ready* | Breakouts, acne | **Skin analysis** + **acne treatment** or **chemical peel** | "We analyze your skin first, so you get exactly what it needs." |
+| | Dull, tired skin, texture, peach fuzz | **Facial**, **dermaplaning** | "Instantly brighter, smoother skin." |
+| | Fine lines, loss of firmness, jaw tension | **Collagen** or **sculpting facial** | "Lifts and firms in a natural way." |
+| | Spending too long getting ready | **Korean lash lift & tint**, **permanent makeup brows or lips** | "You wake up already put together." |
+| | Unwanted hair | **Waxing** (face & body, hard wax, non-toxic aftercare) | "Smooth, with less redness and fewer ingrowns." |
+| **3. Inner Wellness**<br>*Understand what's going on inside* | Bloating, cravings, hormones, weight | **The Feminine Gut** community and the **7-Day Reset** | "A simple plan to support your gut and hormones from home." |
+| | Fatigue, food sensitivities, "I've tried everything" | **The Hair Temple Blueprint** (hair mineral test) | "It shows what your body has been going through, so you stop guessing." |
+
+**Tip:** Body and Inner Wellness go well together. A lymphatic client with bloating is a great fit for The Feminine Gut.
 
 ## Step 7: Walk them to the room
 > "Your room is ready. **[Practitioner name]** will be taking care of you today. Bring your water with you.
@@ -144,7 +156,8 @@ Introduce the practitioner by name and pass on anything important from the intak
 ## Short version (when the lobby is busy)
 > "Hi **[Name]**, welcome to The Body Temple Spa! Please have a seat. Can I get you a glass of our hydrogen alkaline
 > water, or a cup of tea? I'll place a warm neck wrap on you while we quickly go over your intake form together,
-> then we'll take you right in. Here's our menu too, so you can see everything we offer."
+> then we'll take you right in. Here's our menu too. We help with three things: your body, your skin and beauty,
+> and your inner wellness, so ask us anytime."
 
 ---
 
@@ -155,6 +168,6 @@ Introduce the practitioner by name and pass on anything important from the intak
 - [ ] Water introduced and handed over (or tea)
 - [ ] Intake reviewed together, signed, concerns passed to practitioner
 - [ ] Warm neck wrap placed (with permission)
-- [ ] Services shared, 1 matched to their goals, menu card given
+- [ ] 3 categories shared (Body, Skin & Beauty, Inner Wellness), went deeper on 1, menu card given
 - [ ] Walked to the room, practitioner introduced
 - [ ] After: water refill, aftercare, next visit offered, review asked
