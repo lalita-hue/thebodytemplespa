@@ -77,6 +77,12 @@ business facts in this file.
   spa logo at the top. Lead form asks first name, email and phone (all required).
   Footer: slogan "The Future Is Yours" + "© <year> The Body Temple Spa. All rights reserved."
 
+- **Countdown: "Natural GLP-1 & Gut Health: Why Your Body Stopped Making It"** (live event):
+  `GHL-glp1-countdown.html`, a GHL Custom JS/HTML widget in the same night-bloom look with the dragonfly.
+  Settings at top of the script: EVENT_START (date/time with time-zone offset), REGISTER_URL.
+  Turns into "We're live now" + "Join the Live Now" button when the time arrives.
+  Event date/time not confirmed yet (placeholder: Dec 3, 2026, 6 pm Eastern).
+
 ## Automations
 
 - Esthetics pre-care automations (facials, waxing, lash & brow, chemical peels): `automations/esthetics.md`.
