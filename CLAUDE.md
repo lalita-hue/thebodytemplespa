@@ -87,6 +87,18 @@ business facts in this file.
   comes right before Module 5 "Your Next Step" (upgrades).
   **Breakfast must be within 1 hour of waking** (Lalita's rule; overrides the book's "within 2 hours").
 
+## Front desk / client experience
+
+- **First-visit welcome** (steps + script): `content/front-desk/first-visit-welcome.md`.
+  Lalita's current flow: client arrives → offered a seat → water or tea → intake form check → neck wrap.
+  Refined flow adds: welcome speech, introducing our **hydrogen alkaline, medical-grade water**, a short services
+  overview matched to their intake goals, walk to the room, and after-session water refill / aftercare / rebook / review.
+- Services: lymphatic drainage (wellness, post-op, lymphedema; targeted or full-body; packages), Vibration Plate
+  Lymphatic Reset add-on ($15), body contouring & sculpting, facials & esthetics (skin analysis, facials, sculpting,
+  dermaplaning, collagen, chemical peels, acne), Korean lash lift & tint, permanent makeup (brows, lips), waxing,
+  plus The Feminine Gut community and The Hair Temple Blueprint (hair mineral test). Studio is on Prince Ave, Athens, GA;
+  "Athens' First Longevity Spa", non-toxic, longevity approach.
+
 ## Funnels / widgets
 
 - **The Feminine Gut** (by The Body Temple Spa) quiz funnel: `GHL-feminine-gut-audit.html`.
