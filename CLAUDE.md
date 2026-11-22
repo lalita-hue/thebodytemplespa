@@ -80,6 +80,9 @@ business facts in this file.
   Tells buyers to check their email (and to please check Promotions and Spam folders, highlighted)
   to access the program and full community; concerns → call
   (959) 400-9242 or email hello@thebodytemplespas.com.
+- The Feminine Gut **webinar countdown**: `GHL-feminine-gut-webinar-countdown.html` (night-bloom look).
+  First webinar: Sun Nov 22, 2026, 5:15 PM Eastern. Settings at top of the script: WEBINAR_START
+  (date/time with offset) and JOIN_URL (button shows when live). Shows time in each visitor's time zone.
 - Spa phone number used on pages: (959) 400-9242. Body sculpting pages use (959) 600-7342.
 
 ## Automations
