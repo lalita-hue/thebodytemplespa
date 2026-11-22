@@ -77,7 +77,8 @@ business facts in this file.
   spa logo at the top. Lead form asks first name, email and phone (all required).
   Footer: slogan "The Future Is Yours" + "© <year> The Body Temple Spa. All rights reserved."
 - Thank-you page after buying the 7-Day Reset: `GHL-reset-thankyou.html` (same night-bloom look).
-  Tells buyers to check their email to access the program and full community; concerns → call
+  Tells buyers to check their email (and to please check Promotions and Spam folders, highlighted)
+  to access the program and full community; concerns → call
   (959) 400-9242 or email hello@thebodytemplespas.com.
 - Spa phone number used on pages: (959) 400-9242. Body sculpting pages use (959) 600-7342.
 
