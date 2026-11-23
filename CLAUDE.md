@@ -95,7 +95,7 @@ Used on the facials thank-you page `GHL-facials-thankyou.html`. Base: `https://l
 | The Reveal Custom Facial | $100 / 60 min | `696aa31fb05c4c3fcadea2ba` |
 | 90 Min Reveal Custom Facial | $145 / 90 min | `6ac2d988cdf1578919223575` |
 | Luminous Facial Lift (Lymphatic & TMJ) | $145 / 60 min | `698a9263ed5dc0f5c3b274e8` |
-| 40 Min Lymphatic Facial (was "30 Min", $85) | $105 / 45 min | `68e2636150b0a6bfa01f2626` |
+| 45 Min Lymphatic Facial (was "30 Min", $85) | $105 / 45 min | `68e2636150b0a6bfa01f2626` |
 | Royalty Dermaplaning Facial | $145 / 60 min | `69f3b1f13ebf6d6921ee501d` |
 | Ultra Sonic Skin Scrubber Facial | $120 / 60 min | `69f3b1b7fac7294f8e196b2b` |
 | Microchanneling | $225 / 45 min | `69f51db1feb24d3d8444944e` |
