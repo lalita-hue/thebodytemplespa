@@ -99,7 +99,7 @@ Used on the facials thank-you page `GHL-facials-thankyou.html`. Base: `https://l
 | Royalty Dermaplaning Facial | $145 / 60 min | `69f3b1f13ebf6d6921ee501d` |
 | Ultra Sonic Skin Scrubber Facial | $120 / 60 min | `69f3b1b7fac7294f8e196b2b` |
 | Microchanneling | $225 / 45 min | `69f51db1feb24d3d8444944e` |
-| Define Jaw Line Sculpt | Custom | `6a30584d7b028c161b530b7f` |
+| Define Jaw Line Sculpt (badge: Most Popular) | $199 | `6a30584d7b028c161b530b7f` |
 | Chemical Peel Consultation | Custom | `6b0483aa129d1d14404f5b2c` |
 | Acne Treatment | Custom | `6a78cc9f1bbd34854e1bc06f` |
 
