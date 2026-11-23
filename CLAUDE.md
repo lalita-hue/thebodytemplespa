@@ -84,3 +84,23 @@ business facts in this file.
 - GHL calendars: Body Sculpting services, Personalized Acne Consultation, Mabry's Personal Calendar,
   Lalita Sundari's Personal Calendar, Malynda's Practicioner Calendar, Virtual Assistant's Personal Calendar.
 - GHL workflows can't be created via API; they're built in the dashboard.
+
+## Facial booking links (correct as of Nov 2026)
+
+Used on the facials thank-you page `GHL-facials-thankyou.html`. Base: `https://link.thebodytemplespas.com/booking/oz27FgTyetnlFEnG2O11/sv/<id>`
+(use the `link.thebodytemplespas.com` domain, not the old `api.leadconnectorhq.com` links).
+
+| Service | Price | ID |
+|---|---|---|
+| The Reveal Custom Facial | $100 / 60 min | `696aa31fb05c4c3fcadea2ba` |
+| 90 Min Reveal Custom Facial | $145 / 90 min | `6ac2d988cdf1578919223575` |
+| Luminous Facial Lift (Lymphatic & TMJ) | $145 / 60 min | `698a9263ed5dc0f5c3b274e8` |
+| 40 Min Lymphatic Facial (was "30 Min", $85) | $105 / 45 min | `68e2636150b0a6bfa01f2626` |
+| Royalty Dermaplaning Facial | $145 / 60 min | `69f3b1f13ebf6d6921ee501d` |
+| Ultra Sonic Skin Scrubber Facial | $120 / 60 min | `69f3b1b7fac7294f8e196b2b` |
+| Microchanneling | $225 / 45 min | `69f51db1feb24d3d8444944e` |
+| Define Jaw Line Sculpt | Custom | `6a30584d7b028c161b530b7f` |
+| Chemical Peel Consultation | Custom | `6b0483aa129d1d14404f5b2c` |
+| Acne Treatment | Custom | `6a78cc9f1bbd34854e1bc06f` |
+
+Text-to-book number on that page: +1 959-400-9242.
