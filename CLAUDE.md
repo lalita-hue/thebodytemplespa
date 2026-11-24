@@ -110,7 +110,10 @@ Text-to-book number on that page: +1 959-400-9242.
 - Sebastián Sáenz keeps the therapist visits + pay slip spreadsheets. His email in GHL: Sebastiansaenz628@gmail.com.
 - Process: Georgina enters all the visit info; then the review goes **therapist by therapist**, matching each one against GHL.
 - The visits sheet already has a therapist filter at the top.
-- Updates Lalita asked for (Nov 2026): fix missing visits and wrong amounts; pay slip gets a therapist selector,
-  with a full breakdown (client name, date, service, amount per visit) and the summary on the same page;
-  mark couples visits so they can be checked against the partner's visit (in case the other person paid).
+- Sheet name: **"Payroll + Lead Tracker"**. Updates Lalita asked for (Nov 2026):
+  - **Payslip tab:** keep the summary per therapist, and add a detailed breakdown per therapist
+    listing every appointment with the client's name and the appointment date.
+  - **Lead Tracker tab:** add the total amount paid per appointment, so we can compare amount paid vs.
+    service price vs. tip and spot discrepancies, and see revenue and profit.
+  - Also mentioned earlier: missing visits / wrong amounts to fix; mark couples visits to cross-check with the partner.
 - Marty's pay was reviewed and is good to go (Nov 2026).
