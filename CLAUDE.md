@@ -127,3 +127,5 @@ Text-to-book number on that page: +1 959-400-9242.
 - Live preview of the menu: https://claude.ai/artifact/DmkGjkePSjy864MUgUjVxH (private to Lalita). Its styles recreate the real
   page's look (cream/peach cover, espresso + terracotta, serif headings) and are saved in `services-menu-preview-styles.html`.
   Lalita wants previews to keep the same look as the live page (thebodytemplespas.com/services-menu).
+- Price changes (Nov 24, 2026): First Time Functional Longevity Coaching special $85 → $92.50;
+  Functional Longevity Consultation $155 → $185. (Special card still says "Save $70" / "reg $155" until Lalita confirms.)
