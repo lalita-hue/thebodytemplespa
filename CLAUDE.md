@@ -119,3 +119,8 @@ Text-to-book number on that page: +1 959-400-9242.
   - Emailed these updates to Sebastián on 2026-11-24 (subject "Updates for the Payroll + Lead Tracker sheet").
   - Also mentioned earlier: missing visits / wrong amounts to fix; mark couples visits to cross-check with the partner.
 - Marty's pay was reviewed and is good to go (Nov 2026).
+
+## Services menu (Services & Gift Guide)
+
+- Lalita's full services menu for GHL is saved in `GHL-services-menu.html` (cover page with search, specials,
+  category index, all service pages, closing page). Its main stylesheet lives separately in GHL and isn't in the repo.
