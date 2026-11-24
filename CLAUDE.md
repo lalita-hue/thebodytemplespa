@@ -136,3 +136,5 @@ Text-to-book number on that page: +1 959-400-9242.
 
 - (Nov 24, 2026) First tier of an offer (product not named yet): checkout shows the regular price **$961**; on the call,
   the client gets a coupon valid only that day for that product, bringing it to **$697**. Coupon code changes every week.
+  Upgrade credit: they pay $697 but get the full **$961** as credit. If they upgrade within 30 days
+  (wording to confirm: "after 30 days" vs "within 30 days"), the full $961 counts toward the higher tier.
