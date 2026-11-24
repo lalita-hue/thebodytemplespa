@@ -129,3 +129,5 @@ Text-to-book number on that page: +1 959-400-9242.
   Lalita wants previews to keep the same look as the live page (thebodytemplespas.com/services-menu).
 - Price changes (Nov 24, 2026): First Time Functional Longevity Coaching special $85 → $92.50;
   Functional Longevity Consultation $155 → $185. (Special card still says "Save $70" / "reg $155" until Lalita confirms.)
+- Added (Nov 24, 2026) a first-time special at the top of the specials: "First Time — Chemical Peel Consultation",
+  $0 complimentary, booking link `.../sv/6b0483aa129d1d14404f5b2c`.
