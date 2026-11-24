@@ -114,7 +114,8 @@ Text-to-book number on that page: +1 959-400-9242.
   - **Payslip tab** has two parts per therapist: (1) a **detailed breakdown** for internal review
     (every appointment with the client's name and the appointment date), and (2) the **summary payslip**
     that gets sent to the therapist, as done so far.
-  - **Lead Tracker tab:** add the total amount paid per appointment, so we can compare amount paid vs.
-    service price vs. tip and spot discrepancies, and see revenue and profit.
+  - **Lead Tracker tab:** add the total amount paid per appointment, and make it easy to compare, per
+    appointment: amount paid, service cost, tip and revenue.
+  - Emailed these updates to Sebastián on 2026-11-24 (subject "Updates for the Payroll + Lead Tracker sheet").
   - Also mentioned earlier: missing visits / wrong amounts to fix; mark couples visits to cross-check with the partner.
 - Marty's pay was reviewed and is good to go (Nov 2026).
