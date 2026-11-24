@@ -124,3 +124,6 @@ Text-to-book number on that page: +1 959-400-9242.
 
 - Lalita's full services menu for GHL is saved in `GHL-services-menu.html` (cover page with search, specials,
   category index, all service pages, closing page). Its main stylesheet lives separately in GHL and isn't in the repo.
+- Live preview of the menu: https://claude.ai/artifact/DmkGjkePSjy864MUgUjVxH (private to Lalita). Its styles recreate the real
+  page's look (cream/peach cover, espresso + terracotta, serif headings) and are saved in `services-menu-preview-styles.html`.
+  Lalita wants previews to keep the same look as the live page (thebodytemplespas.com/services-menu).
