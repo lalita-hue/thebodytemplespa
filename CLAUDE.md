@@ -131,3 +131,8 @@ Text-to-book number on that page: +1 959-400-9242.
   Functional Longevity Consultation $155 → $185. (Special card still says "Save $70" / "reg $155" until Lalita confirms.)
 - Added (Nov 24, 2026) a first-time special at the top of the specials: "First Time — Chemical Peel Consultation",
   $0 complimentary, booking link `.../sv/6b0483aa129d1d14404f5b2c`.
+
+## Offers / pricing ideas
+
+- (Nov 24, 2026) First tier of an offer (product not named yet): checkout shows the regular price **$961**; on the call,
+  the client gets a coupon valid only that day for that product, bringing it to **$697**. Coupon code changes every week.
